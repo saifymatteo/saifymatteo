@@ -1,7 +1,7 @@
 <h1 align="center">Hi 👋, I'm Muhammed Saiful</h1>
 <h3 align="center">Fresh Flutter developer from Malaysia</h3>
 
-<p align="center">Coming from the creative profession, I'm determined to learn to code on my own. My ambition is to work as a software engineer, specialising in the Internet of Things. The ultimate dream is to use Flutter in a world-leading IoT project.</p>
+Coming from the creative profession, I'm determined to learn to code on my own. My ambition is to work as a software engineer, specialising in the Internet of Things. The ultimate dream is to use Flutter in a world-leading IoT project.
 
 - 🌱 I’m currently learning **Flutter and Dart**
 
