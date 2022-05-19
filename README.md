@@ -3,6 +3,12 @@
 
 <p align="center">Coming from the creative profession, I'm determined to learn to code on my own. My ambition is to work as a software engineer, specialising in the Internet of Things. The ultimate dream is to use Flutter in a world-leading IoT project.</p>
 
+- 🌱 I’m currently learning **Flutter and Dart**
+
+- 📫 How to reach me **muhdsaifulmashuri@gmail.com**
+
+- ⚡ Fun fact **I'm a geek**
+
 <h3 align="left">Connect with me:</h3>
 <p align="left">
 <a href="https://discord.gg/https://discord.com/users/428853827282927636" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="https://discord.com/users/428853827282927636" height="30" width="40" /></a>
