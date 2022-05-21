@@ -25,4 +25,4 @@ Coming from the creative profession, I'm determined to learn to code on my own. 
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=saifymatteo&layout=compact)](https://github.com/anuraghazra/github-readme-stats)
 
-[![willianrod's wakatime stats](https://github-readme-stats.vercel.app/api/wakatime?username=saifymatteo)](https://github.com/anuraghazra/github-readme-stats)
+[![Wakatime stats](https://github-readme-stats.vercel.app/api/wakatime?username=saifymatteo)](https://github.com/anuraghazra/github-readme-stats)
