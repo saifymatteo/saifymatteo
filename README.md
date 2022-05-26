@@ -3,7 +3,7 @@
 
 Coming from the creative profession, I'm determined to learn to code on my own. My ambition is to work as a software engineer, specialising in the Internet of Things. The ultimate dream is to use Flutter in a world-leading IoT project.
 
-- 🌱 I’m currently learning **Flutter and Dart**
+- 🌱 I’m currently learning **Dart with Flutter and Mandarin**
 
 - 📫 How to reach me **muhdsaifulmashuri@gmail.com**
 
