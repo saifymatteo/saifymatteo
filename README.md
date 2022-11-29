@@ -1,4 +1,5 @@
 # Hey there 👋, I'm Saiful Mashuri
+
 ### Junior Flutter developer from Malaysia
 
 Coming from the creative profession, I'm determined to learn to code on my own. My ambition is to work as a software engineer, specialising in the Internet of Things. The ultimate dream is to use Flutter in a world-leading IoT project.
@@ -21,24 +22,26 @@ Coming from the creative profession, I'm determined to learn to code on my own. 
 </p>
 
 <h3 align="left">Languages and Tools:</h3>
-<p align="left"> 
-<a href="https://www.cprogramming.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="c" width="40" height="40"/> </a> 
-<a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> 
-<a href="https://dart.dev" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg" alt="dart" width="40" height="40"/> </a> 
-<a href="https://flask.palletsprojects.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/pocoo_flask/pocoo_flask-icon.svg" alt="flask" width="40" height="40"/> </a> 
-<a href="https://flutter.dev" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg" alt="flutter" width="40" height="40"/> </a> 
-<a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> 
-<a href="https://www.adobe.com/in/products/illustrator.html" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/adobe_illustrator/adobe_illustrator-icon.svg" alt="illustrator" width="40" height="40"/> </a> 
-<a href="https://www.java.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> </a> 
-<a href="https://kotlinlang.org" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/kotlinlang/kotlinlang-icon.svg" alt="kotlin" width="40" height="40"/> </a> 
-<a href="https://www.photoshop.com/en" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/photoshop/photoshop-line.svg" alt="photoshop" width="40" height="40"/> </a> 
-<a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> 
+<p align="left">
+<a href="https://dart.dev" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/-dart-0e3956?&style=for-the-badge&logo=dart&logoColor=white" alt="dart" height="30"/> </a>
+<a href="https://flutter.dev" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/-flutter-1fbcfd?&style=for-the-badge&logo=flutter&logoColor=white" alt="flutter" height="30"/> </a>
+<a href="https://kotlinlang.org" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/-kotlin-6c3fd1?&style=for-the-badge&logo=kotlin&logoColor=white" alt="kotlin" height="30"/> </a>
+<a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/-python-ffe468?&style=for-the-badge&logo=python&logoColor=4482b4" alt="python" height="30"/> </a>
+</p>
+<p align="left">
+<a href="https://www.adobe.com/my_en/products/aftereffects.html" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/-After Effect-9999FF?&style=for-the-badge&logo=adobeaftereffects&logoColor=white" alt="adobe after effect" height="30"/> </a>
+<a href="https://www.adobe.com/my_en/products/audition.html" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/-Audition-9999FF?&style=for-the-badge&logo=adobeaudition&logoColor=white" alt="adobe audition" height="30"/> </a>
+<a href="https://www.adobe.com/in/products/illustrator.html" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/-Illustrator-FF9A00?&style=for-the-badge&logo=adobeillustrator&logoColor=white" alt="adobe illustrator" height="30"/> </a>
+<a href="https://www.adobe.com/my_en/products/photoshop-lightroom-classic.html" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/-Lightroom Classic-31A8FF?&style=for-the-badge&logo=adobelightroomclassic&logoColor=white" alt="adobe lightroom classic" height="30"/> </a>
+<a href="https://www.adobe.com/my_en/products/photoshop.html" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/-Photoshop-31A8FF?&style=for-the-badge&logo=adobephotoshop&logoColor=white" alt="adobe photoshop" height="30"/> </a>
+<a href="https://www.adobe.com/my_en/products/premiere.html" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/-Premiere Pro-9999FF?&style=for-the-badge&logo=adobepremierepro&logoColor=white" alt="adobe premiere pro" height="30"/> </a>
+<a href="https://www.adobe.com/my_en/products/xd.html" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/-XD-FF61F6?&style=for-the-badge&logo=adobexd&logoColor=white" alt="adobe xd" height="30"/> </a>
 </p>
 
 ### Published App
 
-<p align="left"> 
-<a href="https://play.google.com/store/apps/details?id=com.saifymatteo.mkr_flutter" target="_blank"> <img src="https://raw.githubusercontent.com/saifymatteo/MKR-Unofficial-App-Flutter/master/github/launcher%20icon/513%20x%20513%20transparent.png" alt="MKR App" width="100" height="100"> </a> 
+<p align="left">
+<a href="https://play.google.com/store/apps/details?id=com.saifymatteo.mkr_flutter" target="_blank"> <img src="https://raw.githubusercontent.com/saifymatteo/MKR-Unofficial-App-Flutter/master/github/launcher%20icon/513%20x%20513%20transparent.png" alt="MKR App" width="100" height="100"> </a>
 <a href="https://play.google.com/store/apps/details?id=com.saifymatteo.parking_lot_game" target="_blank"> <img src="https://raw.githubusercontent.com/saifymatteo/parking_lot_game/master/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" alt="Parking Lot Game" width="100" height="100"> </a>
 </p>
 
