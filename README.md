@@ -1,5 +1,5 @@
-# Hi 👋, I'm Muhammed Saiful
-### Fresh Flutter developer from Malaysia
+# Hey there 👋, I'm Saiful Mashuri
+### Junior Flutter developer from Malaysia
 
 Coming from the creative profession, I'm determined to learn to code on my own. My ambition is to work as a software engineer, specialising in the Internet of Things. The ultimate dream is to use Flutter in a world-leading IoT project.
 
