@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_web/app.dart';
+import 'package:log/log.dart';
 
 void main() {
-  runApp(const FlutterPortfolio());
-}
+  Log.root.finest('APP STARTING');
 
-class FlutterPortfolio extends StatelessWidget {
-  const FlutterPortfolio({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
+  runApp(
+    const ProviderScope(
+      child: FlutterPortfolio(),
+    ),
+  );
 }

@@ -6,11 +6,44 @@ version: 1.0.0+1
 environment:
   sdk: '>=2.19.6 <3.0.0'
 
+component_url: &component_url https://github.com/saifymatteo/Flutter-Components.git
+
+dependency_overrides:
+  components:
+    path: ../../Flutter-Components/packages/components
+
 dependencies:
+  auto_route: ^6.0.5
+  components:
+    git:
+      url: *component_url
+      path: packages/components
+  debouncer:
+    git:
+      url: *component_url
+      path: packages/debouncer
+  extensions:
+    git:
+      url: *component_url
+      path: packages/extensions
   flutter:
     sdk: flutter
+  flutter_hooks: ^0.18.6
+  flutter_riverpod: ^2.3.4
+  get_it: ^7.2.0
+  hooks_riverpod: ^2.3.4
+  ui_constants:
+    git:
+      url: *component_url
+      path: packages/ui_constants
+  log:
+    git:
+      url: *component_url
+      path: packages/log
 
 dev_dependencies:
+  auto_route_generator: ^6.0.3
+  build_runner: ^2.3.3
   flutter_test:
     sdk: flutter
   very_good_analysis: ^4.0.0+1
