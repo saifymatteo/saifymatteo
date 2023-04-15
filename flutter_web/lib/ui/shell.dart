@@ -30,10 +30,7 @@ class PortfolioShellScreen extends HookConsumerWidget {
               ],
             ),
           ),
-          const SliverFillRemaining(
-            fillOverscroll: true,
-            child: AutoRouter(),
-          ),
+          const SliverFillRemaining(child: AutoRouter()),
         ],
       ),
     );
