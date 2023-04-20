@@ -16,4 +16,9 @@ class PortfolioAboutState {
           counter: values[1] as int,
         ),
       );
+
+  Future<void> dispose() async {
+    await _name.close();
+    await _counter.close();
+  }
 }

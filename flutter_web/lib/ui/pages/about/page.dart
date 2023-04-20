@@ -5,7 +5,11 @@ import 'package:flutter_web/ui/components/components.dart';
 import 'package:flutter_web/ui/pages/about/state.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-final _stateProvider = Provider((ref) => PortfolioAboutState());
+final _stateProvider = Provider.autoDispose((ref) {
+  final state = PortfolioAboutState();
+  ref.onDispose(state.dispose);
+  return state;
+});
 
 @RoutePage()
 class PortfolioAboutScreen extends HookConsumerWidget {

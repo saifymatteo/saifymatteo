@@ -33,4 +33,9 @@ class PortfolioHomeState {
       await Future<void>.delayed(1.seconds);
     }
   }
+
+  Future<void> dispose() async {
+    await _name.close();
+    await _listString.close();
+  }
 }
