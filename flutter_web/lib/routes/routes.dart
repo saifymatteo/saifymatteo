@@ -11,15 +11,18 @@ class PortfolioRouter extends $PortfolioRouter {
   @override
   final List<AutoRoute> routes = [
     CustomRoute(
-      path: '/',
       page: PortfolioShellRoute.page,
+      path: '/',
+      initial: true,
       children: [
         CustomRoute(
           page: PortfolioHomeRoute.page,
-          path: '',
+          path: 'index',
+          initial: true,
         ),
         CustomRoute(
           page: PortfolioAboutRoute.page,
+          path: 'about',
         ),
       ],
     ),
