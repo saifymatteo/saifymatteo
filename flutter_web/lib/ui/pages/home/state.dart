@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter_web/lib.dart';
+import 'package:flutter_web/flutter_web.dart';
 import 'package:flutter_web/ui/pages/home/model.dart';
 import 'package:rxdart/rxdart.dart';
 
