@@ -4,7 +4,7 @@ import 'package:flutter_web/app.dart';
 import 'package:flutter_web/flutter_web.dart';
 
 void main() {
-  usePathUrlStrategy();
+  setPathUrlStrategy();
 
   runApp(
     const ProviderScope(

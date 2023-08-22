@@ -11,7 +11,7 @@ dependency_overrides:
     path: ../../Flutter-Components/packages/components
 
 dependencies:
-  auto_route: ^6.0.5
+  auto_route: ^7.1.0
   components:
     git:
       url: https://github.com/saifymatteo/Flutter-Components.git
@@ -42,7 +42,7 @@ dependencies:
       path: packages/ui_constants
 
 dev_dependencies:
-  auto_route_generator: ^6.0.3
+  auto_route_generator: ^7.2.0
   build_runner: ^2.3.3
   flutter_test:
     sdk: flutter
