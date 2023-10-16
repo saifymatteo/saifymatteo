@@ -1,12 +1,12 @@
 # Hey there 👋, I'm Saiful Mashuri
 
-### Junior Flutter developer from Malaysia
+### Flutter developer from Malaysia
 
-Coming from the creative profession, I'm determined to learn to code on my own. My ambition is to work as a software engineer, specialising in the Internet of Things. The ultimate dream is to use Flutter in a world-leading IoT project.
+[CS50x](https://cs50.harvard.edu/x/) graduate since late 2021, I've been a Flutter Developer since early 2022. I specialize in creating user-friendly, cost-effective online solutions for small businesses. My work is dedicated to making technology accessible, bridging the gap between businesses and their digital objectives.
 
-- 🌱 I’m currently learning ```Dart with Flutter``` and [```Mandarin```](https://www.superchinese.com/)
+- 🌱 I’m currently learning [```Dart with Flutter```](https://flutter.dev/) and [```Mandarin```](https://www.superchinese.com/)
 
-- 📫 How to reach me [```muhdsaifulmashuri@gmail.com```](mailto:muhdsaifulmashuri@gmail.com)
+- 📫 How to reach me [```work@saifulmashuri.com```](mailto:work@saifulmashuri.com)
 
 - ⚡ Fun fact ```I'm a geek```
 
@@ -16,7 +16,7 @@ Coming from the creative profession, I'm determined to learn to code on my own. 
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
-<a href="https://discord.gg/https://discord.com/users/428853827282927636" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="https://discord.com/users/428853827282927636" height="30" width="40" /></a>
+<a href="https://discord.com/users/1019788584556953650" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="https://discord.com/users/428853827282927636" height="30" width="40" /></a>
 <a href="https://linkedin.com/in/saifymatteo" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="saifymatteo" height="30" width="40" /></a>
 <a href="https://fb.com/saifymatteo" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="saifymatteo" height="30" width="40" /></a>
 </p>
@@ -26,16 +26,15 @@ Coming from the creative profession, I'm determined to learn to code on my own. 
 <a href="https://dart.dev" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/-dart-0e3956?&style=for-the-badge&logo=dart&logoColor=white" alt="dart" height="30"/> </a>
 <a href="https://flutter.dev" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/-flutter-1fbcfd?&style=for-the-badge&logo=flutter&logoColor=white" alt="flutter" height="30"/> </a>
 <a href="https://kotlinlang.org" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/-kotlin-6c3fd1?&style=for-the-badge&logo=kotlin&logoColor=white" alt="kotlin" height="30"/> </a>
-<a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/-python-ffe468?&style=for-the-badge&logo=python&logoColor=4482b4" alt="python" height="30"/> </a>
 </p>
 <p align="left">
 <a href="https://www.adobe.com/my_en/products/aftereffects.html" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/-After Effect-9999FF?&style=for-the-badge&logo=adobeaftereffects&logoColor=white" alt="adobe after effect" height="30"/> </a>
 <a href="https://www.adobe.com/my_en/products/audition.html" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/-Audition-9999FF?&style=for-the-badge&logo=adobeaudition&logoColor=white" alt="adobe audition" height="30"/> </a>
 <a href="https://www.adobe.com/in/products/illustrator.html" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/-Illustrator-FF9A00?&style=for-the-badge&logo=adobeillustrator&logoColor=white" alt="adobe illustrator" height="30"/> </a>
-<a href="https://www.adobe.com/my_en/products/photoshop-lightroom-classic.html" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/-Lightroom Classic-31A8FF?&style=for-the-badge&logo=adobelightroomclassic&logoColor=white" alt="adobe lightroom classic" height="30"/> </a>
 <a href="https://www.adobe.com/my_en/products/photoshop.html" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/-Photoshop-31A8FF?&style=for-the-badge&logo=adobephotoshop&logoColor=white" alt="adobe photoshop" height="30"/> </a>
 <a href="https://www.adobe.com/my_en/products/premiere.html" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/-Premiere Pro-9999FF?&style=for-the-badge&logo=adobepremierepro&logoColor=white" alt="adobe premiere pro" height="30"/> </a>
 <a href="https://www.adobe.com/my_en/products/xd.html" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/-XD-FF61F6?&style=for-the-badge&logo=adobexd&logoColor=white" alt="adobe xd" height="30"/> </a>
+<a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" alt="figma" height="30"/> </a>
 </p>
 
 ### Published App
