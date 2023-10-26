@@ -10,7 +10,7 @@
 
 - ⚡ Fun fact ```I'm a geek```
 
-- 📄 Know about my experiences [```Resume```](https://drive.google.com/file/d/1SFZ3I55iHAM8r_m6VmN7PgDi76DqqJgP/view?usp=sharing)
+- 📄 Know about my experiences [```Resume```](https://github.com/saifymatteo/saifymatteo/releases/latest/download/Resume.Saiful.Mashuri.pdf)
 
 - 💬 I code sometimes in [```Exercism```](https://exercism.org/profiles/saifymatteo)
 
