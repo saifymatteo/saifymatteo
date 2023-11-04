@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -18,18 +18,24 @@
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+
+  <!--  Metadata -->
+  <meta name='application-name' content='Saiful Mashuri'>
+  <meta name="description" content="Saiful Mashuri portfolio website">
+
+  <!-- Preloader stylesheet -->
+  <link rel='stylesheet' href='style.css'>
 
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="flutter_web">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <meta name="apple-mobile-web-app-title" content="Saiful Mashuri">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" href="favicon.ico" sizes="any">
 
-  <title>flutter_web</title>
+  <title>Saiful Mashuri</title>
   <link rel="manifest" href="manifest.json">
 
   <script>
@@ -40,6 +46,11 @@
   <script src="flutter.js" defer></script>
 </head>
 <body>
+  <div id='preloader'>
+    <img src='icons/icon-512.png' width="200" alt="Saiful Mashuri logo">
+  </div>
+  <div id='places-service-usage' style='visibility: collapse'></div>
+
   <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
