@@ -1,5 +1,5 @@
 function myResume() {
-    window.open("https://drive.google.com/file/d/1Xco5x6n4Qy5P-WEzTdHt7v55dYjSl5Jo/view?usp=sharing");
+    window.open("https://github.com/saifymatteo/saifymatteo/releases/latest/download/Resume.Saiful.Mashuri.pdf");
 }
 
 function myWhatsApp() {
@@ -7,5 +7,5 @@ function myWhatsApp() {
 }
 
 function myEmail() {
-    window.open("mailto:muhdsaifulmashuri@gmail.com");
+    window.open("mailto:work@saifulmashuri.com");
 }
