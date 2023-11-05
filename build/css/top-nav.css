@@ -1,0 +1,39 @@
+.nav-bar
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+    position: -webkit-sticky;        /* sticky top nav-bar for Safari */
+    position: sticky;
+    top: 0;
+}
+
+.nav-bar-li
+{
+    float: right;
+}
+
+#active-page
+{
+    background-color: #3254B0;
+    color: white;
+}
+
+.nav-bar-a
+{
+    display: block;
+    text-align: center;
+    padding: 30px 50px;
+    text-decoration: none;           /* Remove underline */
+    font-family: 'Poppins', Verdana, sans-serif;
+    font-size: 0.95em;
+    font-weight: bold
+}
+
+.nav-bar-a:hover
+{
+    background-color: #3E69DC;
+    color: white;
+}
