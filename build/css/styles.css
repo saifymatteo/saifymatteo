@@ -1,0 +1,25 @@
+body
+{
+    background-color: white;
+    font-size: 100%; /* Recommended by WSS School to make sure font size works in all browsers */
+}
+
+button
+{
+    background-color: white;
+    font-size: 1.2em;
+    color: #3254B0;
+    padding: 15px 25px;
+    text-align: center;
+    border-radius: 30px;
+    border: none;
+    margin-top: 10px;
+    text-transform: uppercase;
+    transition-duration: 0.4s;
+}
+
+button:hover
+{
+    background-color: #3E69DC;
+    color: white;
+}
