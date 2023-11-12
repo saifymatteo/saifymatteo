@@ -1,8 +1,8 @@
 # Hey there 👋, I'm Saiful Mashuri
 
-### Flutter developer from Malaysia
+### Software Developer from Malaysia
 
-[CS50x](https://cs50.harvard.edu/x/) graduate since late 2021, I've been a Flutter Developer since early 2022. I specialize in creating user-friendly, cost-effective online solutions for small businesses. My work is dedicated to making technology accessible, bridging the gap between businesses and their digital objectives.
+[CS50x](https://cs50.harvard.edu/x/) graduate since late 2021, I've been a Software Developer since early 2022. I specialize in creating user-friendly, cost-effective online solutions for small businesses. My work is dedicated to making technology accessible, bridging the gap between businesses and their digital objectives.
 
 - 🌱 I’m currently learning [```Dart with Flutter```](https://flutter.dev/) and [```Mandarin```](https://www.superchinese.com/)
 
