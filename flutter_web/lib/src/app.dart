@@ -12,9 +12,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   final _router = AppRouter();
-  final _theme = AppTheme();
 
   @override
   Widget build(BuildContext context) {
@@ -24,22 +22,75 @@ class _MyAppState extends State<MyApp> {
       // returns to the app after it has been killed while running in the
       // background.
       restorationScopeId: 'app',
-
-      // Provide the generated AppLocalizations to the MaterialApp. This
-      // allows descendant Widgets to display the correct translations
-      // depending on the user's locale.
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: const [
-        Locale('en'), // English, no country code
-      ],
-      theme: _theme.theme,
-      darkTheme: _theme.dark,
-      routerConfig: _router.config(),
+      supportedLocales: AppLocalizations.supportedLocales,
+      theme: AppTheme.instance.theme,
+      darkTheme: AppTheme.instance.dark,
+      routerConfig: _router.config(
+        placeholder: (context) => const _DeferredLoadingPlaceholder(),
+      ),
+      scrollBehavior: _CustomScrollBehavior(),
+      builder: (context, child) {
+        return Overlay(
+          initialEntries: [
+            OverlayEntry(
+              builder: (context) => SelectionArea(
+                child: child!,
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+}
+
+class _CustomScrollBehavior extends ScrollBehavior {
+  @override
+  Widget buildOverscrollIndicator(
+    BuildContext context,
+    Widget child,
+    ScrollableDetails details,
+  ) {
+    return StretchingOverscrollIndicator(
+      axisDirection: details.direction,
+      child: child,
+    );
+  }
+
+  @override
+  ScrollPhysics getScrollPhysics(BuildContext context) =>
+      const ClampingScrollPhysics(parent: RangeMaintainingScrollPhysics());
+}
+
+class _DeferredLoadingPlaceholder extends StatelessWidget {
+  const _DeferredLoadingPlaceholder();
+
+  @override
+  Widget build(BuildContext context) {
+    if (!C.isMobile) {
+      return const SizedBox.shrink();
+    }
+
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          AppAssets.icons.logoCircle.image(width: 100),
+          const SizedBox(height: 14),
+          const SizedBox(
+            width: 80,
+            child: LinearProgressIndicator(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
