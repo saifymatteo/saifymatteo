@@ -1,4 +1,25 @@
 {
-    "@_HOME": {},
-    "welcome": "Hey"
+  "@_APP_BAR": {},
+  "portfolios": "Portfolios",
+  "contact": "Contact",
+  "@_ME": {},
+  "heyThere": "Hey there",
+  "imSaifulMashuri": "I'm Saiful Mashuri",
+  "aSoftwareDeveloper": "a Software Developer",
+  "iCanMakeApps": "I can develop mobile, desktop and web apps",
+  "@_ABOUT": {},
+  "aboutMe": "About me",
+  "cs50x": "CS50x",
+  "aboutMeDescription": "graduate since late 2021, I've been a Software Developer since early 2022. I specialize in creating user-friendly, cost-effective online solutions for small businesses. My work is dedicated to making technology accessible, bridging the gap between businesses and their digital objectives.",
+  "seeWhatIDo": "See what I do",
+  "@_PORTFOLIOS": {},
+  "myWorks": "My works",
+  "@_CONTACT": {},
+  "contactMe": "Contact me",
+  "contactMeDescription": "I’m excited to start a new project with you! For business enquiries, contact me.",
+  "resume": "Resume",
+  "email": "Email",
+  "whatsApp": "WhatsApp",
+  "@_FOOTER": {},
+  "madeWithFlutter": "Made with Flutter ❤\uFE0F"
 }
