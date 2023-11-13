@@ -1,70 +1,108 @@
 #!/usr/local/bin/pwsh
 
-Write-Output '**************************************************'
-Write-Output 'Incrementing build number'
-Write-Output '**************************************************'
-Write-Output ''
-Write-Output ''
+param($env)
 
-$FilePath = 'pubspec.yaml'
-$Pattern = 'version: ([0-9.]+.)(\d+)'
-$CurrentVersion = Get-Content $FilePath | Select-String $Pattern
+# Check for deploy token
+$NETLIFY_TOKEN = [Environment]::GetEnvironmentVariable('NETLIFY_TOKEN')
+if ([String]::IsNullOrWhiteSpace($NETLIFY_TOKEN))
+{
+    Write-Error "NETLIFY_TOKEN is not set"
+    exit 1
+}
 
-$VersionNumber = $CurrentVersion.Matches.Groups[1].Value
-$VersionBuild = $CurrentVersion.Matches.Groups[2].Value.ToInt16($VersionBuild) + 1
+Write-Output "NETLIFY_TOKEN: $NETLIFY_TOKEN"
 
-$NewVersion = "version: ${VersionNumber}${VersionBuild}"
+# Set variable
+$filePath = 'pubspec.yaml'
+$pattern = 'version: ([0-9.]+.)(\d+)'
+$newVersion = ''
 
-Write-Output $CurrentVersion
-Write-Output $NewVersion
+# BUILD VERSION ---------------------------------------------------------------------------------------------------
+function Build-Version
+{
+    # Increase Build number
+    Write-Output 'Setting build number'
+    # Get current version
+    $currentVersion = Get-Content $filePath | Select-String $pattern
+    # Split and increase build number
+    $versionNumber = $currentVersion.Matches.Groups[1].Value
+    $versionBuild = $currentVersion.Matches.Groups[2].Value.ToInt16($versionBuild) + 1
+    # Combine both version number and build number and set the file
+    $newName = "version: ${versionNumber}${versionBuild}"
+    (Get-Content $filePath) -replace $pattern, $newName | Set-Content $filePath
+    Write-Output 'OK'
+    Write-Output ''
 
-(Get-Content $FilePath) -replace $Pattern, $NewVersion | Set-Content $FilePath
-Write-Output ''
-Write-Output ''
-Write-Output ''
-Write-Output ''
+    # Update global variable
+    $b = [Ref]$newVersion
+    $b.Value = "$versionNumber$versionBuild"
+}
+
+function Build-Commit
+{
+    Write-Output ''
+    Write-Output ''
+
+    # Prompt user to stage the new pubspec version changes
+    Read-Host -Prompt "Please stage the new pubspec version changes and press any key once done"
+
+    git commit -m "[flutter_web] chore: bump version > $newVersion"
+    git push origin
+
+    git tag "release/flutter-web/v$newVersion"
+    git push origin "refs/tags/release/flutter-web/v$newVersion"
+}
+
+# PRODUCTION ------------------------------------------------------------------------------------------------------
+# Build command
+function Production-Build
+{
+    fvm flutter build web -v -t lib/main.dart --release --csp --base-href=/ `
+    --output="build/web/production/" --web-renderer canvaskit
+    # Check for error
+    if ($? -eq $false)
+    {
+        exit 1
+    }
+}
+
+# Archive files
+function Production-Archive
+{
+    Compress-Archive -Path .\build\web\production -DestinationPath .\build\web\production.zip -Force
+    # Check for error
+    if ($? -eq $false)
+    {
+        exit 1
+    }
+}
+
+# Deploy
+function Production-Deploy
+{
+    curl -X POST `
+    -H "Content-Type: application/zip" `
+    -H "Authorization: Bearer $NETLIFY_TOKEN" `
+    --data-binary "@build\web\production.zip" `
+    https://api.netlify.com/api/v1/sites/48ab6a76-80cb-4fe3-9b7e-182d0f03f2f0/deploys
+    # Check for error
+    if ($? -eq $false)
+    {
+        exit 1
+    }
+}
 
 
-Write-Output      '###########################################################################'
-Read-Host -Prompt 'Please stage the new pubspec version changes and press any key once done...'
-Write-Output      '###########################################################################'
+Build-Version
 
+Production-Build
 
-Write-Output '**************************************************'
-Write-Output 'Build local for CI/CD'
-Write-Output '**************************************************'
-Write-Output ''
-Write-Output ''
+Write-Host 'Archiving the build files...'
+Production-Archive
 
-fvm flutter build web -v -t lib/main.dart --release --csp --base-href=/ `
-    --output="../build/" --web-renderer canvaskit
-Write-Output ''
-Write-Output ''
-Write-Output ''
-Write-Output ''
+Write-Host 'Deploying to Netlify...'
+Production-Deploy
 
+Build-Commit
 
-
-Write-Output '**************************************************'
-Write-Output 'Adding and pushing Git commit'
-Write-Output '**************************************************'
-Write-Output ''
-Write-Output ''
-
-git commit -m "[flutter-web] chore: bump version > $VersionNumber$VersionBuild"
-git push origin
-Write-Output ''
-Write-Output ''
-Write-Output ''
-Write-Output ''
-
-
-
-Write-Output '**************************************************'
-Write-Output 'Adding and pushing Git tags'
-Write-Output '**************************************************'
-Write-Output ''
-Write-Output ''
-
-git tag "release/flutter-web/v$VersionNumber$VersionBuild"
-git push origin "refs/tags/release/flutter-web/v$VersionNumber$VersionBuild"
+exit 0
