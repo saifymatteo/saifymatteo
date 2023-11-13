@@ -13,8 +13,11 @@ dependencies:
   auto_route: ^7.8.4
   flutter:
     sdk: flutter
+  flutter_animate: ^4.2.0+1
   flutter_localizations:
     sdk: flutter
+  google_fonts: ^6.1.0
+  universal_html: ^2.2.4
   url_launcher: ^6.2.1
 
 dev_dependencies:
@@ -32,8 +35,12 @@ flutter:
 
   assets:
     # Add assets from the images directory to the application.
-    - assets/images/
     - assets/icons/
+    - assets/images/
+    - assets/portfolios/
 
 flutter_gen:
   output: lib/src/constants
+  assets:
+    outputs:
+      class_name: AppAssets
