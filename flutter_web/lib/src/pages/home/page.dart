@@ -29,6 +29,7 @@ class _HomePageState extends State<HomePage> {
       scrollKeys: _scrollKeys,
       body: ListView(
         shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
         children: [
           _MeSection(key: _scrollKeys[HomeSections.me]),
           _AboutSection(
