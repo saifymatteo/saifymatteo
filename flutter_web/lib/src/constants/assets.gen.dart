@@ -35,11 +35,22 @@ class $AssetsImagesGen {
   List<AssetGenImage> get values => [meMaskable];
 }
 
-class Assets {
-  Assets._();
+class $AssetsPortfoliosGen {
+  const $AssetsPortfoliosGen();
+
+  /// File path: assets/portfolios/mkr.png
+  AssetGenImage get mkr => const AssetGenImage('assets/portfolios/mkr.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [mkr];
+}
+
+class AppAssets {
+  AppAssets._();
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsPortfoliosGen portfolios = $AssetsPortfoliosGen();
 }
 
 class AssetGenImage {
