@@ -17,6 +17,7 @@ class MenuAppBar<T> extends StatelessWidget {
 
     return WebBodyBase(
       padding: const EdgeInsets.symmetric(horizontal: 20),
+      decoration: const BoxDecoration(color: AppTheme.black),
       child: Stack(
         children: [
           AnimatedContainer(
