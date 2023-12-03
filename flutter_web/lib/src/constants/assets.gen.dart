@@ -38,11 +38,20 @@ class $AssetsImagesGen {
 class $AssetsPortfoliosGen {
   const $AssetsPortfoliosGen();
 
-  /// File path: assets/portfolios/mkr.png
-  AssetGenImage get mkr => const AssetGenImage('assets/portfolios/mkr.png');
+  /// File path: assets/portfolios/logo-isc-workflow.png
+  AssetGenImage get logoIscWorkflow =>
+      const AssetGenImage('assets/portfolios/logo-isc-workflow.png');
+
+  /// File path: assets/portfolios/logo-mkr.png
+  AssetGenImage get logoMkr =>
+      const AssetGenImage('assets/portfolios/logo-mkr.png');
+
+  /// File path: assets/portfolios/logo-sansols.png
+  AssetGenImage get logoSansols =>
+      const AssetGenImage('assets/portfolios/logo-sansols.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [mkr];
+  List<AssetGenImage> get values => [logoIscWorkflow, logoMkr, logoSansols];
 }
 
 class AppAssets {
