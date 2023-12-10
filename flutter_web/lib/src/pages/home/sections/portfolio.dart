@@ -203,7 +203,6 @@ class _PortfolioCardState extends State<_PortfolioCard> {
               ),
             ],
           ),
-          triggerMode: TooltipTriggerMode.manual,
           child: Card(
             elevation: 6,
             color: _isHover ? Colors.grey.shade200 : Colors.white,
