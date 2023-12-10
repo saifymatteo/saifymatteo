@@ -187,37 +187,34 @@ class _PortfolioCardState extends State<_PortfolioCard> {
     return MouseRegion(
       onEnter: (_) => setState(() => _isHover = true),
       onExit: (_) => setState(() => _isHover = false),
-      child: TooltipVisibility(
-        visible: _isHover,
-        child: Tooltip(
-          richMessage: WidgetSpan(child: widget.tooltipContent),
-          padding: EdgeInsets.zero,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: const [
-              BoxShadow(
-                color: Colors.black38,
-                blurRadius: 10,
-                offset: Offset(0, 10),
-              ),
-            ],
+      child: Tooltip(
+        richMessage: WidgetSpan(child: widget.tooltipContent),
+        padding: EdgeInsets.zero,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: const [
+            BoxShadow(
+              color: Colors.black38,
+              blurRadius: 10,
+              offset: Offset(0, 10),
+            ),
+          ],
+        ),
+        child: Card(
+          elevation: 6,
+          color: _isHover ? Colors.grey.shade200 : Colors.white,
+          surfaceTintColor: Colors.transparent,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(20),
+            ),
           ),
-          child: Card(
-            elevation: 6,
-            color: _isHover ? Colors.grey.shade200 : Colors.white,
-            surfaceTintColor: Colors.transparent,
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(
-                Radius.circular(20),
-              ),
-            ),
-            child: Ink.image(
-              image: widget.image,
-              fit: BoxFit.fitHeight,
-              width: 466,
-              height: 204,
-            ),
+          child: Ink.image(
+            image: widget.image,
+            fit: BoxFit.fitHeight,
+            width: 466,
+            height: 204,
           ),
         ),
       ),
