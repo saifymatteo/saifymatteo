@@ -1,9 +1,26 @@
 part of '../page.dart';
 
-class _AboutSection extends StatelessWidget {
-  const _AboutSection({super.key, this.onTapSeeWhatIDo});
+class _AboutSection extends StatefulWidget {
+  const _AboutSection({
+    super.key,
+    this.onTapSeeWhatIDo,
+    required this.onBuildWidget,
+  });
 
+  final ValueChanged<BuildContext> onBuildWidget;
   final VoidCallback? onTapSeeWhatIDo;
+
+  @override
+  State<_AboutSection> createState() => _AboutSectionState();
+}
+
+class _AboutSectionState extends State<_AboutSection> {
+
+  @override
+  void initState() {
+    super.initState();
+    widget.onBuildWidget.call(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +38,8 @@ class _AboutSection extends StatelessWidget {
             l10n.aboutMe,
             textAlign: isMobile ? TextAlign.center : TextAlign.right,
             style: Theme.of(context).textTheme.displaySmall?.copyWith(
-              color: Colors.white,
-            ),
+                  color: Colors.white,
+                ),
           ),
         ),
         const SizedBox(height: 34),
@@ -41,21 +58,21 @@ class _AboutSection extends StatelessWidget {
           ),
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
-            color: Colors.white,
-            height: 2,
-          ),
+                color: Colors.white,
+                height: 2,
+              ),
         ),
         const SizedBox(height: 84),
         Center(
           child: InkWell(
-            onTap: onTapSeeWhatIDo,
+            onTap: widget.onTapSeeWhatIDo,
             child: Column(
               children: [
                 Text(
                   l10n.seeWhatIDo,
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    color: Colors.white,
-                  ),
+                        color: Colors.white,
+                      ),
                 ),
                 Animate(
                   effects: [

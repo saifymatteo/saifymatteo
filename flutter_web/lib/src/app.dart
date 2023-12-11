@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:provider/provider.dart';
 
 import '../lib.dart';
 
@@ -16,36 +17,41 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      // Providing a restorationScopeId allows the Navigator built by the
-      // MaterialApp to restore the navigation stack when a user leaves and
-      // returns to the app after it has been killed while running in the
-      // background.
-      restorationScopeId: 'app',
-      localizationsDelegates: const [
-        AppLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
+    return MultiProvider(
+      providers: [
+        Provider(create: (context) => AppState()),
       ],
-      supportedLocales: AppLocalizations.supportedLocales,
-      theme: AppTheme.instance.theme,
-      darkTheme: AppTheme.instance.dark,
-      routerConfig: _router.config(
-        placeholder: (context) => const _DeferredLoadingPlaceholder(),
-      ),
-      scrollBehavior: _CustomScrollBehavior(),
-      builder: (context, child) {
-        return Overlay(
-          initialEntries: [
-            OverlayEntry(
-              builder: (context) => SelectionArea(
-                child: child!,
+      child: MaterialApp.router(
+        // Providing a restorationScopeId allows the Navigator built by the
+        // MaterialApp to restore the navigation stack when a user leaves and
+        // returns to the app after it has been killed while running in the
+        // background.
+        restorationScopeId: 'app',
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: AppLocalizations.supportedLocales,
+        theme: AppTheme.instance.theme,
+        darkTheme: AppTheme.instance.dark,
+        routerConfig: _router.config(
+          placeholder: (context) => const _DeferredLoadingPlaceholder(),
+        ),
+        scrollBehavior: _CustomScrollBehavior(),
+        builder: (context, child) {
+          return Overlay(
+            initialEntries: [
+              OverlayEntry(
+                builder: (context) => SelectionArea(
+                  child: child!,
+                ),
               ),
-            ),
-          ],
-        );
-      },
+            ],
+          );
+        },
+      ),
     );
   }
 }

@@ -1,7 +1,21 @@
 part of '../page.dart';
 
-class _MeSection extends StatelessWidget {
-  const _MeSection({super.key});
+class _MeSection extends StatefulWidget {
+  const _MeSection({required this.onBuildWidget});
+
+  final ValueChanged<BuildContext> onBuildWidget;
+
+  @override
+  State<_MeSection> createState() => _MeSectionState();
+}
+
+class _MeSectionState extends State<_MeSection> {
+
+  @override
+  void initState() {
+    super.initState();
+    widget.onBuildWidget.call(context);
+  }
 
   @override
   Widget build(BuildContext context) {

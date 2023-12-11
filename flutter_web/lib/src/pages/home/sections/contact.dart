@@ -1,7 +1,21 @@
 part of '../page.dart';
 
-class _ContactSection extends StatelessWidget {
-  const _ContactSection({super.key});
+class _ContactSection extends StatefulWidget {
+  const _ContactSection({required this.onBuildWidget});
+
+  final ValueChanged<BuildContext> onBuildWidget;
+
+  @override
+  State<_ContactSection> createState() => _ContactSectionState();
+}
+
+class _ContactSectionState extends State<_ContactSection> {
+
+  @override
+  void initState() {
+    super.initState();
+    widget.onBuildWidget.call(context);
+  }
 
   @override
   Widget build(BuildContext context) {
