@@ -4,18 +4,10 @@ import 'package:universal_html/html.dart' as html;
 import '../../../lib.dart';
 import 'components.dart';
 
-enum HomeSections {
-  me,
-  about,
-  portfolio,
-  contact,
-}
+class BasePage extends StatelessWidget {
+  const BasePage({super.key, required this.children});
 
-class BasePage<T> extends StatelessWidget {
-  const BasePage({super.key, required this.body, this.scrollKeys});
-
-  final Widget body;
-  final Map<T, GlobalKey<State<StatefulWidget>>>? scrollKeys;
+  final List<Widget> children;
 
   @override
   Widget build(BuildContext context) {
@@ -26,17 +18,20 @@ class BasePage<T> extends StatelessWidget {
           html.window.location.reload();
         },
         child: CustomScrollView(
+          shrinkWrap: true,
           slivers: [
-            SliverAppBar(
+            const SliverAppBar(
               collapsedHeight: 80,
               floating: true,
               backgroundColor: AppTheme.black,
               elevation: 2,
               forceElevated: true,
-              flexibleSpace: MenuAppBar(scrollKeys: scrollKeys),
+              flexibleSpace: MenuAppBar(),
             ),
             SliverToBoxAdapter(
-              child: body,
+              child: Column(
+                children: children,
+              ),
             ),
             const SliverToBoxAdapter(
               child: Footer(),
