@@ -155,7 +155,7 @@ class _PortfolioCardState extends State<_PortfolioCard> {
               Radius.circular(20),
             ),
           ),
-          child: Ink.image(
+          child: Image(
             image: widget.image,
             fit: BoxFit.fitHeight,
             width: 466,

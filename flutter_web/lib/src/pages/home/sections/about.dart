@@ -2,7 +2,6 @@ part of '../page.dart';
 
 class _AboutSection extends StatefulWidget {
   const _AboutSection({
-    super.key,
     this.onTapSeeWhatIDo,
     required this.onBuildWidget,
   });

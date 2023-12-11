@@ -26,6 +26,7 @@ class BasePage extends StatelessWidget {
               backgroundColor: AppTheme.black,
               elevation: 2,
               forceElevated: true,
+              leading: SizedBox(),
               flexibleSpace: MenuAppBar(),
             ),
             SliverToBoxAdapter(

@@ -224,6 +224,13 @@ class _MediaSections extends StatelessWidget {
           text: l10n.media,
           color: Colors.white,
         ),
+        const SizedBox(height: 34),
+        if (media.isEmpty)
+          const Text(
+            'under construction 🚧',
+            style: TextStyle(color: Colors.white),
+            textAlign: TextAlign.center,
+          ),
       ],
     );
   }
