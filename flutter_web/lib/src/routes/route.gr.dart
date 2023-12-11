@@ -8,30 +8,48 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i2;
+import 'package:auto_route/auto_route.dart' as _i3;
+import 'package:flutter/material.dart' as _i4;
 import 'package:flutter_web/src/pages/home/page.dart' deferred as _i1;
+import 'package:flutter_web/src/pages/portfolio/page.dart' deferred as _i2;
 
-abstract class $AppRouter extends _i2.RootStackRouter {
+abstract class $AppRouter extends _i3.RootStackRouter {
   $AppRouter({super.navigatorKey});
 
   @override
-  final Map<String, _i2.PageFactory> pagesMap = {
+  final Map<String, _i3.PageFactory> pagesMap = {
     HomePageRoute.name: (routeData) {
-      return _i2.AutoRoutePage<dynamic>(
+      return _i3.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i2.DeferredWidget(
+        child: _i3.DeferredWidget(
           _i1.loadLibrary,
           () => _i1.HomePage(),
         ),
       );
-    }
+    },
+    PortfolioPageRoute.name: (routeData) {
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<PortfolioPageRouteArgs>(
+          orElse: () =>
+              PortfolioPageRouteArgs(pathTitle: pathParams.getString('title')));
+      return _i3.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i3.DeferredWidget(
+          _i2.loadLibrary,
+          () => _i2.PortfolioPage(
+            key: args.key,
+            pathTitle: args.pathTitle,
+          ),
+        ),
+      );
+    },
   };
 }
 
 /// generated route for
 /// [_i1.HomePage]
-class HomePageRoute extends _i2.PageRouteInfo<void> {
-  const HomePageRoute({List<_i2.PageRouteInfo>? children})
+class HomePageRoute extends _i3.PageRouteInfo<void> {
+  const HomePageRoute({List<_i3.PageRouteInfo>? children})
       : super(
           HomePageRoute.name,
           initialChildren: children,
@@ -39,5 +57,44 @@ class HomePageRoute extends _i2.PageRouteInfo<void> {
 
   static const String name = 'HomePageRoute';
 
-  static const _i2.PageInfo<void> page = _i2.PageInfo<void>(name);
+  static const _i3.PageInfo<void> page = _i3.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i2.PortfolioPage]
+class PortfolioPageRoute extends _i3.PageRouteInfo<PortfolioPageRouteArgs> {
+  PortfolioPageRoute({
+    _i4.Key? key,
+    required String pathTitle,
+    List<_i3.PageRouteInfo>? children,
+  }) : super(
+          PortfolioPageRoute.name,
+          args: PortfolioPageRouteArgs(
+            key: key,
+            pathTitle: pathTitle,
+          ),
+          rawPathParams: {'title': pathTitle},
+          initialChildren: children,
+        );
+
+  static const String name = 'PortfolioPageRoute';
+
+  static const _i3.PageInfo<PortfolioPageRouteArgs> page =
+      _i3.PageInfo<PortfolioPageRouteArgs>(name);
+}
+
+class PortfolioPageRouteArgs {
+  const PortfolioPageRouteArgs({
+    this.key,
+    required this.pathTitle,
+  });
+
+  final _i4.Key? key;
+
+  final String pathTitle;
+
+  @override
+  String toString() {
+    return 'PortfolioPageRouteArgs{key: $key, pathTitle: $pathTitle}';
+  }
 }
