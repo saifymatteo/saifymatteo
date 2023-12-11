@@ -11,7 +11,12 @@ class AppRouter extends $AppRouter {
   List<AutoRoute> get routes => [
         AutoRoute(
           page: HomePageRoute.page,
+          path: '/',
           initial: true,
+        ),
+        AutoRoute(
+          page: PortfolioPageRoute.page,
+          path: '/portfolio/:title',
         ),
       ];
 }
