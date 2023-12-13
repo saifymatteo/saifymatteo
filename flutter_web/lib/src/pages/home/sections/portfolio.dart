@@ -10,7 +10,6 @@ class _PortfolioSection extends StatefulWidget {
 }
 
 class _PortfolioSectionState extends State<_PortfolioSection> {
-
   @override
   void initState() {
     super.initState();

@@ -14,7 +14,6 @@ class _AboutSection extends StatefulWidget {
 }
 
 class _AboutSectionState extends State<_AboutSection> {
-
   @override
   void initState() {
     super.initState();

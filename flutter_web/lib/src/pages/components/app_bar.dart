@@ -38,9 +38,9 @@ class MenuAppBar extends StatelessWidget {
             child: Row(
               children: [
                 _ActionButton(
-                    labelText: l10n.portfolios,
-                    onPressed: () =>
-                        onTapNavigation.call(HomeSections.portfolio)),
+                  labelText: l10n.portfolios,
+                  onPressed: () => onTapNavigation.call(HomeSections.portfolio),
+                ),
                 _ActionButton(
                   labelText: l10n.contact,
                   onPressed: () => onTapNavigation.call(HomeSections.contact),
