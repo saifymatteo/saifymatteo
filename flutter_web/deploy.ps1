@@ -65,6 +65,7 @@ function Production-Build
         exit 1
     }
 
+    # To make Flutter Deeplink works on Netlify
     "/*    /index.html  200" | Out-File -FilePath "build/web/production/_redirects"
 }
 
