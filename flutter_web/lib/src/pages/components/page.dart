@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:provider/provider.dart';
 import 'package:universal_html/html.dart' as html;
 
 import '../../../lib.dart';
@@ -11,36 +13,64 @@ class BasePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: RefreshIndicator.adaptive(
-        onRefresh: () async {
-          html.window.location.reload();
-        },
-        child: CustomScrollView(
-          shrinkWrap: true,
-          slivers: [
-            const SliverAppBar(
-              collapsedHeight: 80,
-              floating: true,
-              backgroundColor: AppTheme.black,
-              elevation: 2,
-              forceElevated: true,
-              leading: SizedBox(),
-              flexibleSpace: MenuAppBar(),
+    return Consumer<AppState>(
+      builder: (context, state, __) {
+        return Scaffold(
+          backgroundColor: Colors.white,
+          body: RefreshIndicator.adaptive(
+            onRefresh: () async {
+              html.window.location.reload();
+            },
+            child: CustomScrollView(
+              shrinkWrap: true,
+              slivers: [
+                SliverAppBar(
+                  collapsedHeight: 80,
+                  floating: true,
+                  backgroundColor: AppTheme.black,
+                  elevation: 2,
+                  forceElevated: true,
+                  leading: const SizedBox(),
+                  flexibleSpace: MenuAppBar(
+                    onTapNavigation: (section) => _onTapNavigation(
+                      context,
+                      section: section,
+                    ),
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: Column(
+                    children: children,
+                  ),
+                ),
+                const SliverToBoxAdapter(
+                  child: Footer(),
+                ),
+              ],
             ),
-            SliverToBoxAdapter(
-              child: Column(
-                children: children,
-              ),
-            ),
-            const SliverToBoxAdapter(
-              child: Footer(),
-            ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
+  }
+
+  void _onTapNavigation(
+    BuildContext context, {
+    required HomeSections section,
+  }) {
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      final state = context.read<AppState>();
+
+      final keyContext = state.scrollContext[section];
+
+      if (keyContext != null) {
+        Scrollable.ensureVisible(
+          keyContext,
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.fastEaseInToSlowEaseOut,
+        );
+      }
+    });
   }
 }
 
