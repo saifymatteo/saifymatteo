@@ -16,38 +16,40 @@ class BasePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<AppState>(
       builder: (context, state, __) {
-        return Scaffold(
-          backgroundColor: Colors.white,
-          body: RefreshIndicator.adaptive(
-            onRefresh: () async {
-              html.window.location.reload();
-            },
-            child: CustomScrollView(
-              shrinkWrap: true,
-              slivers: [
-                SliverAppBar(
-                  collapsedHeight: 80,
-                  floating: true,
-                  backgroundColor: AppTheme.black,
-                  elevation: 2,
-                  forceElevated: true,
-                  leading: const SizedBox(),
-                  flexibleSpace: MenuAppBar(
-                    onTapNavigation: (section) => _onTapNavigation(
-                      context,
-                      section: section,
+        return SelectionArea(
+          child: Scaffold(
+            backgroundColor: Colors.white,
+            body: RefreshIndicator.adaptive(
+              onRefresh: () async {
+                html.window.location.reload();
+              },
+              child: CustomScrollView(
+                shrinkWrap: true,
+                slivers: [
+                  SliverAppBar(
+                    collapsedHeight: 80,
+                    floating: true,
+                    backgroundColor: AppTheme.black,
+                    elevation: 2,
+                    forceElevated: true,
+                    leading: const SizedBox(),
+                    flexibleSpace: MenuAppBar(
+                      onTapNavigation: (section) => _onTapNavigation(
+                        context,
+                        section: section,
+                      ),
                     ),
                   ),
-                ),
-                SliverToBoxAdapter(
-                  child: Column(
-                    children: children,
+                  SliverToBoxAdapter(
+                    child: Column(
+                      children: children,
+                    ),
                   ),
-                ),
-                const SliverToBoxAdapter(
-                  child: Footer(),
-                ),
-              ],
+                  const SliverToBoxAdapter(
+                    child: Footer(),
+                  ),
+                ],
+              ),
             ),
           ),
         );

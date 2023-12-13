@@ -40,17 +40,6 @@ class _MyAppState extends State<MyApp> {
           placeholder: (context) => const _DeferredLoadingPlaceholder(),
         ),
         scrollBehavior: _CustomScrollBehavior(),
-        builder: (context, child) {
-          return Overlay(
-            initialEntries: [
-              OverlayEntry(
-                builder: (context) => SelectionArea(
-                  child: child!,
-                ),
-              ),
-            ],
-          );
-        },
       ),
     );
   }
