@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
@@ -25,10 +24,7 @@ class MenuAppBar extends StatelessWidget {
             curve: Curves.fastEaseInToSlowEaseOut,
             alignment: maxConstraints ? Alignment.centerLeft : Alignment.center,
             child: InkWell(
-              onTap: () => _onTapToScroll(
-                context: context,
-                section: HomeSections.me,
-              ),
+              onTap: () => onTapNavigation.call(HomeSections.me),
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: AppAssets.icons.logoCircle.image(),
@@ -42,18 +38,12 @@ class MenuAppBar extends StatelessWidget {
             child: Row(
               children: [
                 _ActionButton(
-                  labelText: l10n.portfolios,
-                  onPressed: () => _onTapToScroll(
-                    context: context,
-                    section: HomeSections.portfolio,
-                  ),
-                ),
+                    labelText: l10n.portfolios,
+                    onPressed: () =>
+                        onTapNavigation.call(HomeSections.portfolio)),
                 _ActionButton(
                   labelText: l10n.contact,
-                  onPressed: () => _onTapToScroll(
-                    context: context,
-                    section: HomeSections.contact,
-                  ),
+                  onPressed: () => onTapNavigation.call(HomeSections.contact),
                 ),
               ],
             ),
@@ -61,15 +51,6 @@ class MenuAppBar extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  Future<void> _onTapToScroll({
-    required BuildContext context,
-    required HomeSections section,
-  }) async {
-    await context.router.navigate(const HomePageRoute());
-
-    onTapNavigation.call(section);
   }
 }
 

@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
@@ -58,17 +59,21 @@ class BasePage extends StatelessWidget {
     BuildContext context, {
     required HomeSections section,
   }) {
-    SchedulerBinding.instance.addPostFrameCallback((_) {
-      final state = context.read<AppState>();
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await context.router.navigate(const HomePageRoute());
 
-      final keyContext = state.scrollContext[section];
+      if (context.mounted) {
+        final state = context.read<AppState>();
 
-      if (keyContext != null) {
-        Scrollable.ensureVisible(
-          keyContext,
-          duration: const Duration(milliseconds: 500),
-          curve: Curves.fastEaseInToSlowEaseOut,
-        );
+        final keyContext = state.scrollContext[section];
+
+        if (keyContext != null) {
+          Scrollable.ensureVisible(
+            keyContext,
+            duration: const Duration(milliseconds: 500),
+            curve: Curves.fastEaseInToSlowEaseOut,
+          );
+        }
       }
     });
   }
