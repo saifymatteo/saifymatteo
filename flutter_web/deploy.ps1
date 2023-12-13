@@ -65,7 +65,7 @@ function Production-Build
         exit 1
     }
 
-    "/*    /index.html  200" | Out-File -FilePath "./_redirects"
+    "/*    /index.html  200" | Out-File -FilePath "build/web/production/_redirects"
 }
 
 # Archive files
