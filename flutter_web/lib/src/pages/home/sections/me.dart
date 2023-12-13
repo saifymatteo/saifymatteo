@@ -10,7 +10,6 @@ class _MeSection extends StatefulWidget {
 }
 
 class _MeSectionState extends State<_MeSection> {
-
   @override
   void initState() {
     super.initState();
@@ -36,7 +35,7 @@ class _MeSectionState extends State<_MeSection> {
               curve: Curves.fastEaseInToSlowEaseOut,
               padding: EdgeInsets.only(left: 20, top: maxConstraints ? 60 : 0),
               alignment:
-              maxConstraints ? Alignment.topCenter : Alignment.center,
+                  maxConstraints ? Alignment.topCenter : Alignment.center,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
@@ -63,8 +62,8 @@ class _MeSectionState extends State<_MeSection> {
                     child: Text(
                       l10n.iCanMakeApps,
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.w500,
-                      ),
+                            fontWeight: FontWeight.w500,
+                          ),
                     ),
                   ),
                 ],

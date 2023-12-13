@@ -10,7 +10,6 @@ class _ContactSection extends StatefulWidget {
 }
 
 class _ContactSectionState extends State<_ContactSection> {
-
   @override
   void initState() {
     super.initState();
