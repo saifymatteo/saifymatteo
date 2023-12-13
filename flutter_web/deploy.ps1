@@ -64,6 +64,8 @@ function Production-Build
     {
         exit 1
     }
+
+    "/*    /index.html  200" | Out-File -FilePath "./_redirects"
 }
 
 # Archive files
