@@ -28,7 +28,8 @@ class MenuAppBar extends StatelessWidget {
                     maxConstraints ? Alignment.centerLeft : Alignment.center,
                 child: InkWell(
                   onTap: () => _onTapToScroll(
-                    state.scrollContext[HomeSections.me],
+                    appBarContext: context,
+                    keyContext: state.scrollContext[HomeSections.me],
                   ),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 10),
@@ -45,13 +46,15 @@ class MenuAppBar extends StatelessWidget {
                     _ActionButton(
                       labelText: l10n.portfolios,
                       onPressed: () => _onTapToScroll(
-                        state.scrollContext[HomeSections.portfolio],
+                        appBarContext: context,
+                        keyContext: state.scrollContext[HomeSections.portfolio],
                       ),
                     ),
                     _ActionButton(
                       labelText: l10n.contact,
                       onPressed: () => _onTapToScroll(
-                        state.scrollContext[HomeSections.contact],
+                        appBarContext: context,
+                        keyContext: state.scrollContext[HomeSections.contact],
                       ),
                     ),
                   ],
@@ -64,16 +67,13 @@ class MenuAppBar extends StatelessWidget {
     );
   }
 
-  Future<void> _onTapToScroll(BuildContext? keyContext) async {
-    if (keyContext == null) {
-      return;
-    }
+  Future<void> _onTapToScroll({
+    required BuildContext appBarContext,
+    BuildContext? keyContext,
+  }) async {
+    await appBarContext.router.navigate(const HomePageRoute());
 
-    if (keyContext.router.canPop()) {
-      await keyContext.router.navigate(const HomePageRoute());
-    }
-
-    if (keyContext.mounted) {
+    if (keyContext != null && appBarContext.mounted) {
       Scrollable.ensureVisible(
         keyContext,
         duration: const Duration(milliseconds: 500),
