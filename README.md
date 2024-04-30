@@ -1,6 +1,6 @@
-# Hey there 👋, I'm Saiful Mashuri
+# Hey there 👋, I'm Saiful
 
-### Software Developer from Malaysia
+### Software Engineer from Malaysia
 
 [CS50x](https://cs50.harvard.edu/x/) graduate since late 2021, I've been a Software Developer since early 2022. I specialize in creating user-friendly, cost-effective online solutions for small businesses. My work is dedicated to making technology accessible, bridging the gap between businesses and their digital objectives.
 
