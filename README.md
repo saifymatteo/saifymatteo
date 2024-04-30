@@ -4,8 +4,6 @@
 
 [CS50x](https://cs50.harvard.edu/x/) graduate since late 2021, I've been a Software Developer since early 2022. I specialize in creating user-friendly, cost-effective online solutions for small businesses. My work is dedicated to making technology accessible, bridging the gap between businesses and their digital objectives.
 
-- 🌱 I’m currently learning [```Dart with Flutter```](https://flutter.dev/) and [```Mandarin```](https://www.superchinese.com/)
-
 - 📫 How to reach me [```work@saifulmashuri.com```](mailto:work@saifulmashuri.com)
 
 - ⚡ Fun fact ```I'm a geek```
@@ -45,7 +43,5 @@
 </p>
 
 ### My Stats
-
-![GitHub stats](https://github-readme-stats.vercel.app/api?username=saifymatteo&show_icons=true&theme=github_dark&custom_title=Github%20Stats)
 
 [![Wakatime stats](https://github-readme-stats.vercel.app/api/wakatime?username=saifymatteo)](https://github.com/anuraghazra/github-readme-stats)
