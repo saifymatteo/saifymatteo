@@ -41,7 +41,3 @@
 <a href="https://play.google.com/store/apps/details?id=com.saifymatteo.mkr_flutter" target="_blank"> <img src="https://raw.githubusercontent.com/saifymatteo/MKR-Unofficial-App-Flutter/master/github/launcher%20icon/513%20x%20513%20transparent.png" alt="MKR App" width="100" height="100"> </a>
 <a href="https://play.google.com/store/apps/details?id=com.saifymatteo.parking_lot_game" target="_blank"> <img src="https://raw.githubusercontent.com/saifymatteo/parking_lot_game/master/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" alt="Parking Lot Game" width="100" height="100"> </a>
 </p>
-
-### My Stats
-
-[![Wakatime stats](https://github-readme-stats.vercel.app/api/wakatime?username=saifymatteo)](https://github.com/anuraghazra/github-readme-stats)
