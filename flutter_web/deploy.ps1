@@ -57,7 +57,7 @@ function Build-Commit
 # Build command
 function Production-Build
 {
-    fvm flutter build web -v -t lib/main.dart --release --csp --base-href=/ `
+    fvm flutter build web --wasm -v -t lib/main.dart --release --csp --base-href=/ `
     --output="build/web/production/" --web-renderer canvaskit
     # Check for error
     if ($? -eq $false)
