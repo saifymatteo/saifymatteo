@@ -13,39 +13,6 @@ import 'package:flutter/material.dart' as _i4;
 import 'package:flutter_web/src/pages/home/page.dart' deferred as _i1;
 import 'package:flutter_web/src/pages/portfolio/page.dart' deferred as _i2;
 
-abstract class $AppRouter extends _i3.RootStackRouter {
-  $AppRouter({super.navigatorKey});
-
-  @override
-  final Map<String, _i3.PageFactory> pagesMap = {
-    HomePageRoute.name: (routeData) {
-      return _i3.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: _i3.DeferredWidget(
-          _i1.loadLibrary,
-          () => _i1.HomePage(),
-        ),
-      );
-    },
-    PortfolioPageRoute.name: (routeData) {
-      final pathParams = routeData.inheritedPathParams;
-      final args = routeData.argsAs<PortfolioPageRouteArgs>(
-          orElse: () =>
-              PortfolioPageRouteArgs(pathTitle: pathParams.getString('title')));
-      return _i3.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: _i3.DeferredWidget(
-          _i2.loadLibrary,
-          () => _i2.PortfolioPage(
-            key: args.key,
-            pathTitle: args.pathTitle,
-          ),
-        ),
-      );
-    },
-  };
-}
-
 /// generated route for
 /// [_i1.HomePage]
 class HomePageRoute extends _i3.PageRouteInfo<void> {
@@ -57,7 +24,15 @@ class HomePageRoute extends _i3.PageRouteInfo<void> {
 
   static const String name = 'HomePageRoute';
 
-  static const _i3.PageInfo<void> page = _i3.PageInfo<void>(name);
+  static _i3.PageInfo page = _i3.PageInfo(
+    name,
+    builder: (data) {
+      return _i3.DeferredWidget(
+        _i1.loadLibrary,
+        () => _i1.HomePage(),
+      );
+    },
+  );
 }
 
 /// generated route for
@@ -79,8 +54,22 @@ class PortfolioPageRoute extends _i3.PageRouteInfo<PortfolioPageRouteArgs> {
 
   static const String name = 'PortfolioPageRoute';
 
-  static const _i3.PageInfo<PortfolioPageRouteArgs> page =
-      _i3.PageInfo<PortfolioPageRouteArgs>(name);
+  static _i3.PageInfo page = _i3.PageInfo(
+    name,
+    builder: (data) {
+      final pathParams = data.inheritedPathParams;
+      final args = data.argsAs<PortfolioPageRouteArgs>(
+          orElse: () =>
+              PortfolioPageRouteArgs(pathTitle: pathParams.getString('title')));
+      return _i3.DeferredWidget(
+        _i2.loadLibrary,
+        () => _i2.PortfolioPage(
+          key: args.key,
+          pathTitle: args.pathTitle,
+        ),
+      );
+    },
+  );
 }
 
 class PortfolioPageRouteArgs {

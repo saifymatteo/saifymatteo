@@ -6,7 +6,11 @@ import 'route.gr.dart';
   replaceInRouteName: '',
   deferredLoading: true,
 )
-class AppRouter extends $AppRouter {
+class AppRouter extends RootStackRouter {
+
+  @override
+  RouteType get defaultRouteType => RouteType.custom();
+
   @override
   List<AutoRoute> get routes => [
         AutoRoute(
