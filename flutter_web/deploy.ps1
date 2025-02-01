@@ -67,6 +67,9 @@ function Production-Build
 
     # To make Flutter Deeplink works on Netlify
     "/*    /index.html  200" | Out-File -FilePath "build/web/production/_redirects"
+
+    # Copy sitemap.xml
+    Copy-Item "./sitemap.xml" -Destination "build/web/production/"
 }
 
 # Archive files
