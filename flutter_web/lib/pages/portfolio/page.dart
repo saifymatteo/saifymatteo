@@ -227,18 +227,20 @@ class _MediaSections extends StatelessWidget {
                   : true;
 
               return Column(
+                spacing: 12,
                 children: [
                   if (isSmallLayout)
                     ...List.generate(media.length, (index) {
                       return _MediaSectionsItem(
+                        allMedia: media,
                         media: media[index],
                         maxWidth: constraints.maxWidth,
-                        addGap: index + 1 < media.length,
                       );
                     })
                   else
                     for (var i = 0; i < media.length; i += 2)
                       Row(
+                        spacing: 12,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           for (var j = i; j < i + 2 && j < media.length; j++)
@@ -246,6 +248,7 @@ class _MediaSections extends StatelessWidget {
                               child: Padding(
                                 padding: const EdgeInsets.all(6.0),
                                 child: _MediaSectionsItem(
+                                  allMedia: media,
                                   media: media[j],
                                   maxWidth: constraints.maxWidth / 2 - 16,
                                 ),
@@ -264,14 +267,14 @@ class _MediaSections extends StatelessWidget {
 
 class _MediaSectionsItem extends StatelessWidget {
   const _MediaSectionsItem({
+    required this.allMedia,
     required this.media,
     required this.maxWidth,
-    this.addGap = false,
   });
 
+  final List<PortfolioMedia> allMedia;
   final PortfolioMedia media;
   final double maxWidth;
-  final bool addGap;
 
   @override
   Widget build(BuildContext context) {
@@ -281,7 +284,7 @@ class _MediaSectionsItem extends StatelessWidget {
         useRootNavigator: true,
         fullscreenDialog: true,
         builder: (context) {
-          return _MediaSectionsItemDialog(media: media);
+          return _MediaSectionsItemDialog(allMedia: allMedia, media: media);
         },
       ),
       child: Column(
@@ -309,17 +312,25 @@ class _MediaSectionsItem extends StatelessWidget {
               color: Colors.white,
             ),
           ),
-          if (addGap) const SizedBox(height: 12),
         ],
       ),
     );
   }
 }
 
-class _MediaSectionsItemDialog extends StatelessWidget {
-  const _MediaSectionsItemDialog({required this.media});
+class _MediaSectionsItemDialog extends StatefulWidget {
+  const _MediaSectionsItemDialog({required this.allMedia, required this.media});
 
+  final List<PortfolioMedia> allMedia;
   final PortfolioMedia media;
+
+  @override
+  State<_MediaSectionsItemDialog> createState() =>
+      _MediaSectionsItemDialogState();
+}
+
+class _MediaSectionsItemDialogState extends State<_MediaSectionsItemDialog> {
+  late PortfolioMedia _currentMedia = widget.media;
 
   @override
   Widget build(BuildContext context) {
@@ -346,13 +357,13 @@ class _MediaSectionsItemDialog extends StatelessWidget {
                         decoration: BoxDecoration(
                           border: Border.all(color: Colors.white, width: 2),
                         ),
-                        child: Image(image: media.image),
+                        child: Image(image: _currentMedia.image),
                       ),
                     ),
                   ),
                   Text(
-                    media.label,
-                    style: AppTheme.instance.theme.textTheme.labelLarge
+                    _currentMedia.label,
+                    style: AppTheme.instance.theme.textTheme.displayLarge
                         ?.copyWith(color: Colors.white),
                     textAlign: TextAlign.center,
                   ),
@@ -365,16 +376,19 @@ class _MediaSectionsItemDialog extends StatelessWidget {
               height: MediaQuery.sizeOf(context).height,
               width: MediaQuery.sizeOf(context).width / 2,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  final currentIndex = widget.allMedia.indexOf(_currentMedia);
+                  final prevIndex = (currentIndex - 1) % widget.allMedia.length;
+                  setState(() {
+                    _currentMedia = widget.allMedia[prevIndex];
+                  });
+                },
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Icon(
-                      Icons.chevron_left,
-                      color: Colors.white,
-                      size: 80,
-                    ),
+                  child: Icon(
+                    Icons.chevron_left,
+                    color: Colors.white.withAlpha(100),
+                    size: 80,
                   ),
                 ),
               ),
@@ -384,16 +398,19 @@ class _MediaSectionsItemDialog extends StatelessWidget {
               height: MediaQuery.sizeOf(context).height,
               width: MediaQuery.sizeOf(context).width / 2,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  final currentIndex = widget.allMedia.indexOf(_currentMedia);
+                  final nextIndex = (currentIndex + 1) % widget.allMedia.length;
+                  setState(() {
+                    _currentMedia = widget.allMedia[nextIndex];
+                  });
+                },
                 child: Align(
                   alignment: Alignment.centerRight,
-                  child: Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Icon(
-                      Icons.chevron_right,
-                      color: Colors.white,
-                      size: 80,
-                    ),
+                  child: Icon(
+                    Icons.chevron_right,
+                    color: Colors.white.withAlpha(100),
+                    size: 80,
                   ),
                 ),
               ),
@@ -405,7 +422,11 @@ class _MediaSectionsItemDialog extends StatelessWidget {
                 onTap: () => context.maybePop(),
                 child: Padding(
                   padding: const EdgeInsets.all(20),
-                  child: Icon(Icons.close, color: Colors.white, size: 60),
+                  child: Icon(
+                    Icons.close,
+                    color: Colors.white.withAlpha(100),
+                    size: 60,
+                  ),
                 ),
               ),
             ),
