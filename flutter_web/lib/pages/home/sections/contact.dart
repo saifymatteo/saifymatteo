@@ -21,19 +21,11 @@ class _ContactSectionState extends State<_ContactSection> {
     final l10n = context.appL10n;
 
     return WebBodyBase(
-      decoration: const BoxDecoration(
-        color: AppTheme.black,
-      ),
+      decoration: const BoxDecoration(color: AppTheme.black),
       children: [
-        TitleText(
-          text: l10n.contactMe,
-          color: Colors.white,
-        ),
+        TitleText(text: l10n.contactMe, color: Colors.white),
         const SizedBox(height: 30),
-        BodyText(
-          text: l10n.contactMeDescription,
-          color: Colors.white,
-        ),
+        BodyText(text: l10n.contactMeDescription, color: Colors.white),
         const SizedBox(height: 60),
         Wrap(
           spacing: 60,
@@ -100,8 +92,8 @@ class _ButtonState extends State<_Button> {
             widget.label,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  color: _isHover ? Colors.white : AppTheme.grey,
-                ),
+              color: _isHover ? Colors.white : AppTheme.grey,
+            ),
           ),
         ),
       ),

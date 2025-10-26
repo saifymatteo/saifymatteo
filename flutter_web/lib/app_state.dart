@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 
-enum HomeSections {
-  me,
-  about,
-  portfolio,
-  contact,
-}
+enum HomeSections { me, about, portfolio, contact }
 
 class AppState {
   final Map<HomeSections, BuildContext> _scrollContext = {};

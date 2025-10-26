@@ -92,10 +92,9 @@ class _ActionButtonState extends State<_ActionButton> {
           target: _isHover ? 1 : 0,
           child: Text(
             widget.labelText,
-            style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  color: Colors.white,
-                  fontSize: 18,
-                ),
+            style: Theme.of(
+              context,
+            ).textTheme.titleLarge?.copyWith(color: Colors.white, fontSize: 18),
           ),
         ),
       ),

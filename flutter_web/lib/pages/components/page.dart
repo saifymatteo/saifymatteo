@@ -19,8 +19,7 @@ class BasePage extends StatelessWidget {
           child: Scaffold(
             backgroundColor: Colors.white,
             body: RefreshIndicator.adaptive(
-              onRefresh: () async {
-              },
+              onRefresh: () async {},
               child: CustomScrollView(
                 shrinkWrap: true,
                 slivers: [
@@ -32,20 +31,12 @@ class BasePage extends StatelessWidget {
                     forceElevated: true,
                     leading: const SizedBox(),
                     flexibleSpace: MenuAppBar(
-                      onTapNavigation: (section) => _onTapNavigation(
-                        context,
-                        section: section,
-                      ),
+                      onTapNavigation: (section) =>
+                          _onTapNavigation(context, section: section),
                     ),
                   ),
-                  SliverToBoxAdapter(
-                    child: Column(
-                      children: children,
-                    ),
-                  ),
-                  const SliverToBoxAdapter(
-                    child: Footer(),
-                  ),
+                  SliverToBoxAdapter(child: Column(children: children)),
+                  const SliverToBoxAdapter(child: Footer()),
                 ],
               ),
             ),
@@ -55,10 +46,7 @@ class BasePage extends StatelessWidget {
     );
   }
 
-  void _onTapNavigation(
-    BuildContext context, {
-    required HomeSections section,
-  }) {
+  void _onTapNavigation(BuildContext context, {required HomeSections section}) {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       await context.router.navigate(const HomePageRoute());
 
@@ -97,11 +85,8 @@ class WebBodyBase extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: decoration,
-      padding: padding ??
-          const EdgeInsets.symmetric(
-            vertical: 60,
-            horizontal: 20,
-          ),
+      padding:
+          padding ?? const EdgeInsets.symmetric(vertical: 60, horizontal: 20),
       child: Align(
         alignment: Alignment.topCenter,
         child: ConstrainedBox(

@@ -17,9 +17,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        Provider(create: (context) => AppState()),
-      ],
+      providers: [Provider(create: (context) => AppState())],
       child: MaterialApp.router(
         // Providing a restorationScopeId allows the Navigator built by the
         // MaterialApp to restore the navigation stack when a user leaves and

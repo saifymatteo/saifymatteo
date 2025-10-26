@@ -29,20 +29,14 @@ class PortfolioSummary {
 }
 
 class PortfolioLabelAndLink {
-  const PortfolioLabelAndLink({
-    required this.label,
-    required this.link,
-  });
+  const PortfolioLabelAndLink({required this.label, required this.link});
 
   final String label;
   final String link;
 }
 
 class PortfolioMedia {
-  const PortfolioMedia({
-    required this.label,
-    required this.image,
-  });
+  const PortfolioMedia({required this.label, required this.image});
 
   final String label;
   final ImageProvider image;

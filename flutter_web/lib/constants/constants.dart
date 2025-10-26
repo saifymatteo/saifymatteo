@@ -25,9 +25,6 @@ class _Url {
     'github.com',
     'saifymatteo/saifymatteo/releases/latest/download/Resume.Saiful.Mashuri.pdf',
   );
-  final emailAddress = Uri(
-    scheme: 'mailto',
-    path: 'work@saifulmashuri.com',
-  );
+  final emailAddress = Uri(scheme: 'mailto', path: 'work@saifulmashuri.com');
   final whatsAppAddress = Uri.https('wa.link', 'xz2e7j');
 }

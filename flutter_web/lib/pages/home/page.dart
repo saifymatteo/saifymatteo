@@ -24,16 +24,12 @@ class HomePage extends StatelessWidget {
         return BasePage(
           children: [
             _MeSection(
-              onBuildWidget: (value) => state.updateScrollContext(
-                HomeSections.me,
-                value,
-              ),
+              onBuildWidget: (value) =>
+                  state.updateScrollContext(HomeSections.me, value),
             ),
             _AboutSection(
-              onBuildWidget: (value) => state.updateScrollContext(
-                HomeSections.about,
-                value,
-              ),
+              onBuildWidget: (value) =>
+                  state.updateScrollContext(HomeSections.about, value),
               onTapSeeWhatIDo: () {
                 if (state.scrollContext[HomeSections.portfolio] != null) {
                   Scrollable.ensureVisible(
@@ -45,16 +41,12 @@ class HomePage extends StatelessWidget {
               },
             ),
             _PortfolioSection(
-              onBuildWidget: (value) => state.updateScrollContext(
-                HomeSections.portfolio,
-                value,
-              ),
+              onBuildWidget: (value) =>
+                  state.updateScrollContext(HomeSections.portfolio, value),
             ),
             _ContactSection(
-              onBuildWidget: (value) => state.updateScrollContext(
-                HomeSections.contact,
-                value,
-              ),
+              onBuildWidget: (value) =>
+                  state.updateScrollContext(HomeSections.contact, value),
             ),
           ],
         );
