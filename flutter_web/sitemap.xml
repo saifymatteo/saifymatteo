@@ -10,21 +10,25 @@
 <url>
   <loc>https://saifulmashuri.com/</loc>
   <lastmod>2025-01-30T17:23:57+00:00</lastmod>
+  <priority>1.00</priority>
 </url>
 
 <url>
   <loc>https://saifulmashuri.com/portfolio/sansols</loc>
   <lastmod>2025-01-30T17:23:57+00:00</lastmod>
+  <priority>0.50</priority>
 </url>
 
 <url>
   <loc>https://saifulmashuri.com/portfolio/isc-workflow</loc>
   <lastmod>2025-01-30T17:23:57+00:00</lastmod>
+  <priority>0.50</priority>
 </url>
 
 <url>
   <loc>https://saifulmashuri.com/portfolio/mykampus-radio</loc>
   <lastmod>2025-01-30T17:23:57+00:00</lastmod>
+  <priority>0.50</priority>
 </url>
 
 
