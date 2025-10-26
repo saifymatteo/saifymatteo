@@ -12,15 +12,19 @@ class Footer extends StatelessWidget {
 
     return WebBodyBase(
       padding: const EdgeInsets.symmetric(vertical: 30),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            l10n.madeWithFlutter,
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
-          Icon(Icons.favorite, color: Colors.red),
-        ],
+      child: Text.rich(
+        TextSpan(
+          children: [
+            TextSpan(text: l10n.copyrightNotice),
+            const TextSpan(text: ' '),
+            TextSpan(text: l10n.madeWithFlutter),
+            const TextSpan(text: ' '),
+            WidgetSpan(
+              alignment: PlaceholderAlignment.middle,
+              child: Icon(Icons.favorite, color: Colors.red, size: 16),
+            ),
+          ],
+        ),
       ),
     );
   }

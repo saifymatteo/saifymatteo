@@ -51,10 +51,11 @@
   "mkrContributionPoint2": "Successfully integrated the MKR online radio into the app, a task that required reverse-engineering skills.",
   "@_CONTACT": {},
   "contactMe": "Contact me",
-  "contactMeDescription": "I’m excited to start a new project with you! For business enquiries, contact me.",
+  "contactMeDescription": "I'm excited to start a new project with you! For business enquiries, contact me.",
   "resume": "Resume",
   "email": "Email",
   "whatsApp": "WhatsApp",
   "@_FOOTER": {},
+  "copyrightNotice": "© 2023 Saiful Mashuri. All rights reserved.",
   "madeWithFlutter": "Made with Flutter"
 }

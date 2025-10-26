@@ -361,7 +361,7 @@ abstract class AppLocalizations {
   /// No description provided for @contactMeDescription.
   ///
   /// In en, this message translates to:
-  /// **'I’m excited to start a new project with you! For business enquiries, contact me.'**
+  /// **'I\'m excited to start a new project with you! For business enquiries, contact me.'**
   String get contactMeDescription;
 
   /// No description provided for @resume.
@@ -381,6 +381,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'WhatsApp'**
   String get whatsApp;
+
+  /// No description provided for @copyrightNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'© 2023 Saiful Mashuri. All rights reserved.'**
+  String get copyrightNotice;
 
   /// No description provided for @madeWithFlutter.
   ///

@@ -166,7 +166,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get contactMeDescription =>
-      'I’m excited to start a new project with you! For business enquiries, contact me.';
+      'I\'m excited to start a new project with you! For business enquiries, contact me.';
 
   @override
   String get resume => 'Resume';
@@ -176,6 +176,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get whatsApp => 'WhatsApp';
+
+  @override
+  String get copyrightNotice => '© 2023 Saiful Mashuri. All rights reserved.';
 
   @override
   String get madeWithFlutter => 'Made with Flutter';
