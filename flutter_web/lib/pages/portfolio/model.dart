@@ -29,9 +29,14 @@ class PortfolioSummary {
 }
 
 class PortfolioLabelAndLink {
-  const PortfolioLabelAndLink({required this.label, required this.link});
+  const PortfolioLabelAndLink({
+    required this.label,
+    required this.icon,
+    required this.link,
+  });
 
   final String label;
+  final IconData icon;
   final String link;
 }
 

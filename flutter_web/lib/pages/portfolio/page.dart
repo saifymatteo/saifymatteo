@@ -166,35 +166,86 @@ class _LinksSection extends StatelessWidget {
           style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 34),
-        ListView.separated(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemCount: links.length,
-          itemBuilder: (context, index) {
-            final link = links[index];
-
-            return Text.rich(
-              TextSpan(
-                children: [
-                  TextSpan(text: link.label),
-                  const TextSpan(text: ': '),
-                  TextSpan(
-                    text: link.link,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.underline,
-                    ),
-                    recognizer: TapGestureRecognizer()
-                      ..onTap = () => launchUrl(Uri.parse(link.link)),
-                  ),
-                ],
-              ),
-              textAlign: TextAlign.center,
-            );
-          },
-          separatorBuilder: (context, index) => const SizedBox(height: 20),
+        Wrap(
+          alignment: WrapAlignment.center,
+          spacing: 20,
+          runSpacing: 20,
+          children: links.map((e) => _LinksSectionItem(link: e)).toList(),
         ),
       ],
+    );
+  }
+}
+
+class _LinksSectionItem extends StatefulWidget {
+  const _LinksSectionItem({required this.link});
+
+  final PortfolioLabelAndLink link;
+
+  @override
+  State<_LinksSectionItem> createState() => __LinksSectionItemState();
+}
+
+class __LinksSectionItemState extends State<_LinksSectionItem> {
+  bool _isHovering = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () => launchUrl(Uri.parse(widget.link.link)),
+      onHover: (value) => setState(() => _isHovering = value),
+      child: DecoratedBox(
+        position: DecorationPosition.foreground,
+        decoration: BoxDecoration(
+          border: Border.all(color: AppTheme.black, width: 2),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: ClipRRect(
+          clipBehavior: Clip.hardEdge,
+          borderRadius: BorderRadius.circular(12),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: _isHovering ? Colors.white : AppTheme.grey,
+                  border: Border(
+                    right: BorderSide(color: AppTheme.black, width: 2),
+                  ),
+                ),
+                padding: const EdgeInsets.all(8),
+                child: Row(
+                  children: [
+                    Icon(
+                      widget.link.icon,
+                      size: 24,
+                      color: _isHovering ? AppTheme.grey : Colors.white,
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      widget.link.label,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: _isHovering ? AppTheme.grey : Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  widget.link.link,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    decoration: TextDecoration.underline,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

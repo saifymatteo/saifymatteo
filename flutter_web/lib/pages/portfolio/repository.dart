@@ -33,10 +33,12 @@ class _PortfolioSansols extends PortfolioModel {
         links: const [
           PortfolioLabelAndLink(
             label: 'Web App (Employer)',
+            icon: Icons.web_asset,
             link: 'https://sansols.sarawak.gov.my/',
           ),
           PortfolioLabelAndLink(
             label: 'Web App (Government)',
+            icon: Icons.web_asset,
             link: 'https://sansols.sarawak.gov.my/panel/',
           ),
         ],
@@ -91,10 +93,12 @@ class _PortfolioIscWorkflow extends PortfolioModel {
         links: const [
           PortfolioLabelAndLink(
             label: 'Website',
+            icon: Icons.language,
             link: 'https://isarawakcare.sarawak.gov.my/',
           ),
           PortfolioLabelAndLink(
             label: 'Web App',
+            icon: Icons.web_asset,
             link: 'https://isarawakcare.sarawak.gov.my/apply-now/',
           ),
         ],
@@ -140,15 +144,23 @@ class _PortfolioMyKampusRadio extends PortfolioModel {
         links: const [
           PortfolioLabelAndLink(
             label: 'Website',
+            icon: Icons.language,
             link: 'https://mykampusradio.com/',
           ),
           PortfolioLabelAndLink(
             label: 'Web App',
+            icon: Icons.web_asset,
             link: 'https://mkr.saifulmashuri.com/',
           ),
           PortfolioLabelAndLink(
             label: 'GitHub',
+            icon: Icons.code,
             link: 'https://github.com/saifymatteo/MKR-Unofficial-App-Flutter',
+          ),
+          PortfolioLabelAndLink(
+            label: 'Play Store',
+            icon: Icons.android,
+            link: 'https://play.google.com/store/apps/details?id=com.saifymatteo.mkr_flutter',
           ),
         ],
         media: [
