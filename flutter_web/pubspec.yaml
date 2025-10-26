@@ -2,33 +2,35 @@ name: flutter_web
 description: A new Flutter project.
 
 # Prevent accidental publishing to pub.dev.
-publish_to: 'none'
+publish_to: "none"
 
-version: 1.1.0+2
+version: 1.1.0+3
 
 environment:
-  sdk: '>=3.5.0 <4.0.0'
+  sdk: ">=3.9.0 <4.0.0"
+  flutter: ">=3.35.0 <4.0.0"
 
 dependencies:
-  auto_route: ^9.2.2
+  auto_route: ^10.1.2
   flutter:
     sdk: flutter
-  flutter_animate: ^4.5.0
+  flutter_animate: ^4.5.2
   flutter_localizations:
     sdk: flutter
   flutter_web_plugins:
     sdk: flutter
-  google_fonts: ^6.2.1
-  provider: ^6.1.2
-  universal_html: ^2.2.4
-  url_launcher: ^6.3.1
+  google_fonts: ^6.3.1
+  provider: ^6.1.5+1
+  url_launcher: ^6.3.2
+  web: ^1.1.1
 
 dev_dependencies:
-  auto_route_generator: ^9.0.0
-  build_runner: ^2.4.13
+  auto_route_generator: ^10.2.4
+  build_runner: ^2.7.1
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
+  flutter_gen_runner: ^5.12.0
 
 flutter:
   uses-material-design: true
@@ -40,10 +42,12 @@ flutter:
     # Add assets from the images directory to the application.
     - assets/icons/
     - assets/images/
-    - assets/portfolios/
+    - assets/portfolios/isc_workflow/
+    - assets/portfolios/my_kampus_radio/
+    - assets/portfolios/sansols/
 
 flutter_gen:
-  output: lib/src/constants
+  output: lib/constants
   assets:
     outputs:
       class_name: AppAssets

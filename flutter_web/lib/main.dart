@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_web_plugins/url_strategy.dart';
 
-import 'src/app.dart';
+import 'app.dart';
+import 'lib.dart';
 
 void main() async {
   usePathUrlStrategy();
