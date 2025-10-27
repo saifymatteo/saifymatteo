@@ -1,16 +1,14 @@
 #!/usr/local/bin/pwsh
 
-param($env)
-
-# Check for deploy token
-$NETLIFY_TOKEN = [Environment]::GetEnvironmentVariable('NETLIFY_TOKEN')
-if ([String]::IsNullOrWhiteSpace($NETLIFY_TOKEN))
-{
-    Write-Error "NETLIFY_TOKEN is not set"
-    exit 1
+if (-Not (Get-Command "npx" -ErrorAction SilentlyContinue)) {
+    return Write-Output 'NodeJs is not installed.'
 }
-
-Write-Output "NETLIFY_TOKEN: $NETLIFY_TOKEN"
+if (-Not (Get-Command "git" -ErrorAction SilentlyContinue)) {
+    return Write-Output 'Git is not installed.'
+}
+if (-Not (Get-Command "flutter" -ErrorAction SilentlyContinue)) {
+    return Write-Output 'Flutter is not installed.'
+}
 
 # Set variable
 $filePath = 'pubspec.yaml'
@@ -18,8 +16,7 @@ $pattern = 'version: ([0-9.]+.)(\d+)'
 $newVersion = ''
 
 # BUILD VERSION ---------------------------------------------------------------------------------------------------
-function Build-Version
-{
+function Build-Version {
     # Increase Build number
     Write-Output 'Setting build number'
     # Get current version
@@ -38,8 +35,7 @@ function Build-Version
     $b.Value = "$versionNumber$versionBuild"
 }
 
-function Build-Commit
-{
+function Build-Commit {
     Write-Output ''
     Write-Output ''
 
@@ -55,59 +51,24 @@ function Build-Commit
 
 # PRODUCTION ------------------------------------------------------------------------------------------------------
 # Build command
-function Production-Build
-{
-    fvm flutter build web --wasm -v -t lib/main.dart --release --csp --base-href=/ `
-    --output="build/web/production/"
+function Build-Production {
+    flutter build web --wasm -v -t lib/main.dart --release --csp --base-href=/ `
+        --output="build/web/production/"
     # Check for error
-    if ($? -eq $false)
-    {
+    if ($? -eq $false) {
         exit 1
     }
-
-    # To make Flutter Deeplink works on Netlify
-    "/*    /index.html  200" | Out-File -FilePath "build/web/production/_redirects"
 
     # Copy sitemap.xml
     Copy-Item "./sitemap.xml" -Destination "build/web/production/"
 }
 
-# Archive files
-function Production-Archive
-{
-    Compress-Archive -Path .\build\web\production -DestinationPath .\build\web\production.zip -Force
-    # Check for error
-    if ($? -eq $false)
-    {
-        exit 1
-    }
-}
-
-# Deploy
-function Production-Deploy
-{
-    curl -X POST `
-    -H "Content-Type: application/zip" `
-    -H "Authorization: Bearer $NETLIFY_TOKEN" `
-    --data-binary "@build\web\production.zip" `
-    https://api.netlify.com/api/v1/sites/48ab6a76-80cb-4fe3-9b7e-182d0f03f2f0/deploys
-    # Check for error
-    if ($? -eq $false)
-    {
-        exit 1
-    }
-}
-
-
 Build-Version
 
-Production-Build
+Build-Production
 
-Write-Host 'Archiving the build files...'
-Production-Archive
-
-Write-Host 'Deploying to Netlify...'
-Production-Deploy
+Write-Host 'Deploying to Cloudflare...'
+npx wrangler deploy
 
 Build-Commit
 
