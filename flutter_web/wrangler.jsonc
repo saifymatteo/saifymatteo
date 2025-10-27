@@ -1,0 +1,11 @@
+/**
+ * For more details on how to configure Wrangler, refer to:
+ * https://developers.cloudflare.com/pages/functions/wrangler-configuration/
+ */
+{
+	"name": "saiful-mashuri",
+	"compatibility_date": "2025-10-27",
+  "assets": {
+    "directory": "./build/web/production"
+  }
+}
