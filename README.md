@@ -1,8 +1,8 @@
 # Hey there 👋, I'm Saiful
 
-### Software Engineer from Malaysia
+### Senior Software Engineer from Malaysia
 
-[Harvard CS50x](https://cs50.harvard.edu/x/) graduate in 2021, I started my Software Engineer career with Flutter Development in early 2022. I love software and exploring myself with electronic to further enhance my understanding of software and hardware. I dream of making things better with software and embedded electronic.
+Software Engineer specializing in Flutter and Dart cross-platform development, and GraphQL-based front-end architecture. Proven track record of measurable impact: 7x GraphQL payload reduction, 30%+ efficiency gains, 50%+ less repetitive code through shared code initiatives, consistently delivering software with an estimated 98% quality and accuracy, maintaining core libraries, and mentoring frontend teams. [Harvard CS50x](https://cs50.harvard.edu/x/) graduate (2021), led a 6-person front-end team.
 
 - 📫 How to reach me [```work@saifulmashuri.com```](mailto:work@saifulmashuri.com)
 
