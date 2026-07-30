@@ -1,0 +1,5 @@
+# Ignore artifacts:
+.netlify
+.next
+build
+coverage
