@@ -1,0 +1,256 @@
+<svg width="1219" xmlns="http://www.w3.org/2000/svg" height="383" id="screenshot-17f02ec4-ada9-5073-9d8e-9abbe27529be" viewBox="-48 -48 1219 383" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" version="1.1"><style>/* cyrillic-ext */
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/firacode/v27/uU9eCBsR6Z2vfE9aq3bL0fxyUs4tcw4W_NprJV37Nv7g.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/firacode/v27/uU9eCBsR6Z2vfE9aq3bL0fxyUs4tcw4W_NprJVT7Nv7g.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/firacode/v27/uU9eCBsR6Z2vfE9aq3bL0fxyUs4tcw4W_NprJVz7Nv7g.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/firacode/v27/uU9eCBsR6Z2vfE9aq3bL0fxyUs4tcw4W_NprJVP7Nv7g.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* symbols2 */
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/firacode/v27/uU9eCBsR6Z2vfE9aq3bL0fxyUs4tcw4W_NprJeraE8PZqw.woff2) format('woff2');
+  unicode-range: U+2000-2001, U+2004-2008, U+200A, U+23B8-23BD, U+2500-259F;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/firacode/v27/uU9eCBsR6Z2vfE9aq3bL0fxyUs4tcw4W_NprJV77Nv7g.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/firacode/v27/uU9eCBsR6Z2vfE9aq3bL0fxyUs4tcw4W_NprJVD7Ng.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 300;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/firacode/v27/uU9eCBsR6Z2vfE9aq3bL0fxyUs4tcw4W_GNsJV37Nv7g.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 300;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/firacode/v27/uU9eCBsR6Z2vfE9aq3bL0fxyUs4tcw4W_GNsJVT7Nv7g.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 300;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/firacode/v27/uU9eCBsR6Z2vfE9aq3bL0fxyUs4tcw4W_GNsJVz7Nv7g.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 300;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/firacode/v27/uU9eCBsR6Z2vfE9aq3bL0fxyUs4tcw4W_GNsJVP7Nv7g.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* symbols2 */
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 300;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/firacode/v27/uU9eCBsR6Z2vfE9aq3bL0fxyUs4tcw4W_GNsJeraE8PZqw.woff2) format('woff2');
+  unicode-range: U+2000-2001, U+2004-2008, U+200A, U+23B8-23BD, U+2500-259F;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 300;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/firacode/v27/uU9eCBsR6Z2vfE9aq3bL0fxyUs4tcw4W_GNsJV77Nv7g.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 300;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/firacode/v27/uU9eCBsR6Z2vfE9aq3bL0fxyUs4tcw4W_GNsJVD7Ng.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/firasans/v18/va9B4kDNxMZdWfMOD5VnLK3eSxf6TF0.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/firasans/v18/va9B4kDNxMZdWfMOD5VnLK3eQhf6TF0.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/firasans/v18/va9B4kDNxMZdWfMOD5VnLK3eShf6TF0.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/firasans/v18/va9B4kDNxMZdWfMOD5VnLK3eRRf6TF0.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/firasans/v18/va9B4kDNxMZdWfMOD5VnLK3eSRf6TF0.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/firasans/v18/va9B4kDNxMZdWfMOD5VnLK3eSBf6TF0.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/firasans/v18/va9B4kDNxMZdWfMOD5VnLK3eRhf6.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/firasans/v18/va9E4kDNxMZdWfMOD5VvmojLeTY.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/firasans/v18/va9E4kDNxMZdWfMOD5Vvk4jLeTY.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/firasans/v18/va9E4kDNxMZdWfMOD5Vvm4jLeTY.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/firasans/v18/va9E4kDNxMZdWfMOD5VvlIjLeTY.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/firasans/v18/va9E4kDNxMZdWfMOD5VvmIjLeTY.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/firasans/v18/va9E4kDNxMZdWfMOD5VvmYjLeTY.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/firasans/v18/va9E4kDNxMZdWfMOD5Vvl4jL.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style><g id="shape-17f02ec4-ada9-5073-9d8e-9abbe27529be"><defs><clipPath id="frame-clip-17f02ec4-ada9-5073-9d8e-9abbe27529be-render-1" class="frame-clip frame-clip-def"><rect rx="20" ry="20" x="0" y="0" width="1099" height="263" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)"/></clipPath></defs><g class="frame-container-wrapper" opacity="1"><g class="frame-container-blur"><defs><filter id="filter-shadow-render-1" x="-0.03548680618744313" y="-0.1482889733840304" width="1.0818926296633302" height="1.3422053231939164" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset dx="4" dy="4"/><feGaussianBlur stdDeviation="4"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="filter_277ca07f-6a1a-4a66-9804-67dc0453a6e6"/><feBlend mode="normal" in="SourceGraphic" in2="filter_277ca07f-6a1a-4a66-9804-67dc0453a6e6" result="shape"/></filter></defs><g class="frame-container-shadows" filter="url(#filter-shadow-render-1)"><g clip-path="url(#frame-clip-17f02ec4-ada9-5073-9d8e-9abbe27529be-render-1)" fill="none"><g class="fills" id="fills-17f02ec4-ada9-5073-9d8e-9abbe27529be"><rect width="1099" height="263" class="frame-background" x="0" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" style="fill: rgb(255, 255, 255); fill-opacity: 1;" ry="20" rx="20" y="0"/></g><g class="frame-children"><g id="shape-bdc77859-9b38-5bee-92d5-fa9a505556aa"><g class="frame-container-wrapper" opacity="1"><g class="frame-container-blur"><g class="frame-container-shadows"><g fill="none"><g class="fills" id="fills-bdc77859-9b38-5bee-92d5-fa9a505556aa"><rect rx="4" ry="4" x="412.5" y="30" width="110" height="24" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="frame-background"/></g><g class="frame-children"><g id="shape-0b24495d-9a37-500b-a0f0-1f2ac3415d5a" style="opacity: 1;"><g transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="text-container" x="420.5" y="34.5" width="94" height="15" rx="0" ry="0"><defs><pattern patternUnits="objectBoundingBox" width="93.609375" height="16" id="fill-0-render-3-0"><g><rect width="93.609375" height="16" style="fill: rgb(4, 148, 223); fill-opacity: 1;"/></g></pattern></defs><g class="fills" id="fills-0b24495d-9a37-500b-a0f0-1f2ac3415d5a"><text x="420.5" y="49.5" dominant-baseline="ideographic" textLength="93.609375" lengthAdjust="spacingAndGlyphs" style="text-transform: none; font-family: &quot;Fira Code&quot;; letter-spacing: normal; font-style: normal; font-weight: 700; white-space: pre; font-size: 12px; text-decoration: none; direction: ltr; fill: rgb(4, 148, 223); fill-opacity: 1;">Web &amp; Mobilte</text></g></g></g></g></g></g><g id="strokes-e67a6678-207a-806b-8008-7210279c1071-bdc77859-9b38-5bee-92d5-fa9a505556aa" class="strokes"><g class="inner-stroke-shape" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)"><defs><clipPath id="inner-stroke-render-2-bdc77859-9b38-5bee-92d5-fa9a505556aa-0"><use href="#stroke-shape-render-2-bdc77859-9b38-5bee-92d5-fa9a505556aa-0"/></clipPath><rect width="110" height="24" class="frame-background" x="412.5" id="stroke-shape-render-2-bdc77859-9b38-5bee-92d5-fa9a505556aa-0" style="fill: none; stroke-width: 2; stroke: rgb(4, 148, 223); stroke-opacity: 1;" ry="4" rx="4" y="30"/></defs><use href="#stroke-shape-render-2-bdc77859-9b38-5bee-92d5-fa9a505556aa-0" clip-path="url('#inner-stroke-render-2-bdc77859-9b38-5bee-92d5-fa9a505556aa-0')"/></g></g></g></g></g><g id="shape-a0ebbad4-a95f-555a-860f-e20a5fe45794" style="opacity: 1;"><g transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="text-container" x="534" y="31" width="87" height="20" rx="0" ry="0"><defs><pattern patternUnits="objectBoundingBox" width="86.40625" height="21" id="fill-0-render-4-0"><g><rect width="86.40625" height="21" style="fill: rgb(26, 26, 26); fill-opacity: 1;"/></g></pattern></defs><g class="fills" id="fills-a0ebbad4-a95f-555a-860f-e20a5fe45794"><text x="534" y="51" dominant-baseline="ideographic" textLength="86.40625" lengthAdjust="spacingAndGlyphs" style="text-transform: none; font-family: &quot;Fira Code&quot;; letter-spacing: normal; font-style: normal; font-weight: 700; white-space: pre; font-size: 16px; text-decoration: none; direction: ltr; fill: rgb(26, 26, 26); fill-opacity: 1;">2022-2025</text></g></g></g><g id="shape-51020cfc-1b92-5e36-bebd-8aa4801814e9" style="opacity: 1;"><g transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="text-container" x="643" y="31" width="87" height="20" rx="0" ry="0"><defs><pattern patternUnits="objectBoundingBox" width="86.40625" height="21" id="fill-0-render-5-0"><g><rect width="86.40625" height="21" style="fill: rgb(46, 46, 46); fill-opacity: 1;"/></g></pattern></defs><g class="fills" id="fills-51020cfc-1b92-5e36-bebd-8aa4801814e9"><text x="643" y="51" dominant-baseline="ideographic" textLength="86.40625" lengthAdjust="spacingAndGlyphs" style="text-transform: none; font-family: &quot;Fira Code&quot;; letter-spacing: normal; font-style: normal; font-weight: 300; white-space: pre; font-size: 16px; text-decoration: none; direction: ltr; fill: rgb(46, 46, 46); fill-opacity: 1;">COMPLETED</text></g></g></g><g id="shape-9c4b5c48-97b4-5c0c-9d31-ef1b6ed32bd3" style="opacity: 1;"><g transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="text-container" x="416" y="72" width="656" height="32" rx="0" ry="0"><defs><pattern patternUnits="objectBoundingBox" width="639.5625" height="31" id="fill-0-render-6-0"><g><rect width="639.5625" height="31" style="fill: rgb(26, 26, 26); fill-opacity: 1;"/></g></pattern></defs><g class="fills" id="fills-9c4b5c48-97b4-5c0c-9d31-ef1b6ed32bd3"><text x="416" y="103" dominant-baseline="ideographic" textLength="639.5625" lengthAdjust="spacingAndGlyphs" style="text-transform: none; font-family: &quot;Fira Sans&quot;; letter-spacing: normal; font-style: normal; font-weight: 700; white-space: pre; font-size: 26px; text-decoration: none; direction: ltr; fill: rgb(26, 26, 26); fill-opacity: 1;">SANSOLS - Sarawak &amp; Non-Sarawakian Labour System</text></g></g></g><g id="shape-04a9564f-a674-5235-8954-ba559cde8a5b"><g class="frame-container-wrapper" opacity="1"><g class="frame-container-blur"><g class="frame-container-shadows"><g fill="none"><g class="fills" id="fills-04a9564f-a674-5235-8954-ba559cde8a5b"><rect rx="0" ry="0" x="416" y="177" width="646" height="21" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="frame-background"/></g><g class="frame-children"><g id="shape-f582e25e-7ceb-5e30-870b-d4299bd5516c"><g class="frame-container-wrapper" opacity="1"><g class="frame-container-blur"><g class="frame-container-shadows"><g fill="none"><g class="fills" id="fills-f582e25e-7ceb-5e30-870b-d4299bd5516c"><rect rx="10" ry="10" x="416" y="177.5" width="58" height="20" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="frame-background"/></g><g class="frame-children"><g id="shape-d3d65a9c-6d17-5bd0-8170-43011cd95eee" style="opacity: 1;"><g transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="text-container" x="424" y="181.5" width="42" height="12" rx="0" ry="0"><defs><pattern patternUnits="objectBoundingBox" width="42" height="13" id="fill-0-render-9-0"><g><rect width="42" height="13" style="fill: rgb(4, 148, 223); fill-opacity: 1;"/></g></pattern></defs><g class="fills" id="fills-d3d65a9c-6d17-5bd0-8170-43011cd95eee"><text x="424" y="193.5" dominant-baseline="ideographic" textLength="42" lengthAdjust="spacingAndGlyphs" style="text-transform: none; font-family: &quot;Fira Code&quot;; letter-spacing: normal; font-style: normal; font-weight: 300; white-space: pre; font-size: 10px; text-decoration: none; direction: ltr; fill: rgb(4, 148, 223); fill-opacity: 1;">Flutter</text></g></g></g></g></g></g><g id="strokes-e67a6678-207a-806b-8008-721027a0a7f6-f582e25e-7ceb-5e30-870b-d4299bd5516c" class="strokes"><g class="inner-stroke-shape" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)"><defs><clipPath id="inner-stroke-render-8-f582e25e-7ceb-5e30-870b-d4299bd5516c-0"><use href="#stroke-shape-render-8-f582e25e-7ceb-5e30-870b-d4299bd5516c-0"/></clipPath><rect width="58" height="20" class="frame-background" x="416" id="stroke-shape-render-8-f582e25e-7ceb-5e30-870b-d4299bd5516c-0" style="fill: none; stroke-width: 1; stroke: rgb(4, 148, 223); stroke-opacity: 1;" ry="10" rx="10" y="177.5"/></defs><use href="#stroke-shape-render-8-f582e25e-7ceb-5e30-870b-d4299bd5516c-0" clip-path="url('#inner-stroke-render-8-f582e25e-7ceb-5e30-870b-d4299bd5516c-0')"/></g></g></g></g></g><g id="shape-2b572a89-ca7d-56c1-90a3-d098e2a870a5"><g class="frame-container-wrapper" opacity="1"><g class="frame-container-blur"><g class="frame-container-shadows"><g fill="none"><g class="fills" id="fills-2b572a89-ca7d-56c1-90a3-d098e2a870a5"><rect rx="10" ry="10" x="480" y="177.5" width="40" height="20" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="frame-background"/></g><g class="frame-children"><g id="shape-289b3973-d07c-5a16-83c0-29e8baa7f39c" style="opacity: 1;"><g transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="text-container" x="488" y="181.5" width="24" height="12" rx="0" ry="0"><defs><pattern patternUnits="objectBoundingBox" width="24" height="13" id="fill-0-render-11-0"><g><rect width="24" height="13" style="fill: rgb(4, 148, 223); fill-opacity: 1;"/></g></pattern></defs><g class="fills" id="fills-289b3973-d07c-5a16-83c0-29e8baa7f39c"><text x="488" y="193.5" dominant-baseline="ideographic" textLength="24" lengthAdjust="spacingAndGlyphs" style="text-transform: none; font-family: &quot;Fira Code&quot;; letter-spacing: normal; font-style: normal; font-weight: 300; white-space: pre; font-size: 10px; text-decoration: none; direction: ltr; fill: rgb(4, 148, 223); fill-opacity: 1;">Dart</text></g></g></g></g></g></g><g id="strokes-e67a6678-207a-806b-8008-721027a195e8-2b572a89-ca7d-56c1-90a3-d098e2a870a5" class="strokes"><g class="inner-stroke-shape" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)"><defs><clipPath id="inner-stroke-render-10-2b572a89-ca7d-56c1-90a3-d098e2a870a5-0"><use href="#stroke-shape-render-10-2b572a89-ca7d-56c1-90a3-d098e2a870a5-0"/></clipPath><rect width="40" height="20" class="frame-background" x="480" id="stroke-shape-render-10-2b572a89-ca7d-56c1-90a3-d098e2a870a5-0" style="fill: none; stroke-width: 1; stroke: rgb(4, 148, 223); stroke-opacity: 1;" ry="10" rx="10" y="177.5"/></defs><use href="#stroke-shape-render-10-2b572a89-ca7d-56c1-90a3-d098e2a870a5-0" clip-path="url('#inner-stroke-render-10-2b572a89-ca7d-56c1-90a3-d098e2a870a5-0')"/></g></g></g></g></g><g id="shape-47d02222-4fed-5b8e-9723-6b27319083b2"><g class="frame-container-wrapper" opacity="1"><g class="frame-container-blur"><g class="frame-container-shadows"><g fill="none"><g class="fills" id="fills-47d02222-4fed-5b8e-9723-6b27319083b2"><rect rx="10" ry="10" x="526" y="177.5" width="64" height="20" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="frame-background"/></g><g class="frame-children"><g id="shape-1d30aefd-afdc-515f-825a-24390cfaba2c" style="opacity: 1;"><g transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="text-container" x="534" y="181.5" width="48" height="12" rx="0" ry="0"><defs><pattern patternUnits="objectBoundingBox" width="48" height="13" id="fill-0-render-13-0"><g><rect width="48" height="13" style="fill: rgb(4, 148, 223); fill-opacity: 1;"/></g></pattern></defs><g class="fills" id="fills-1d30aefd-afdc-515f-825a-24390cfaba2c"><text x="534" y="193.5" dominant-baseline="ideographic" textLength="48" lengthAdjust="spacingAndGlyphs" style="text-transform: none; font-family: &quot;Fira Code&quot;; letter-spacing: normal; font-style: normal; font-weight: 300; white-space: pre; font-size: 10px; text-decoration: none; direction: ltr; fill: rgb(4, 148, 223); fill-opacity: 1;">Provider</text></g></g></g></g></g></g><g id="strokes-e67a6678-207a-806b-8008-721027a28100-47d02222-4fed-5b8e-9723-6b27319083b2" class="strokes"><g class="inner-stroke-shape" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)"><defs><clipPath id="inner-stroke-render-12-47d02222-4fed-5b8e-9723-6b27319083b2-0"><use href="#stroke-shape-render-12-47d02222-4fed-5b8e-9723-6b27319083b2-0"/></clipPath><rect width="64" height="20" class="frame-background" x="526" id="stroke-shape-render-12-47d02222-4fed-5b8e-9723-6b27319083b2-0" style="fill: none; stroke-width: 1; stroke: rgb(4, 148, 223); stroke-opacity: 1;" ry="10" rx="10" y="177.5"/></defs><use href="#stroke-shape-render-12-47d02222-4fed-5b8e-9723-6b27319083b2-0" clip-path="url('#inner-stroke-render-12-47d02222-4fed-5b8e-9723-6b27319083b2-0')"/></g></g></g></g></g><g id="shape-835a518d-7127-54f7-a109-02c60c9b8f4f"><g class="frame-container-wrapper" opacity="1"><g class="frame-container-blur"><g class="frame-container-shadows"><g fill="none"><g class="fills" id="fills-835a518d-7127-54f7-a109-02c60c9b8f4f"><rect rx="10" ry="10" x="596" y="177.5" width="52" height="20" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="frame-background"/></g><g class="frame-children"><g id="shape-1f547365-6446-5ca3-a81f-c133edd28c9e" style="opacity: 1;"><g transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="text-container" x="604" y="181.5" width="36" height="12" rx="0" ry="0"><defs><pattern patternUnits="objectBoundingBox" width="36" height="13" id="fill-0-render-15-0"><g><rect width="36" height="13" style="fill: rgb(4, 148, 223); fill-opacity: 1;"/></g></pattern></defs><g class="fills" id="fills-1f547365-6446-5ca3-a81f-c133edd28c9e"><text x="604" y="193.5" dominant-baseline="ideographic" textLength="36" lengthAdjust="spacingAndGlyphs" style="text-transform: none; font-family: &quot;Fira Code&quot;; letter-spacing: normal; font-style: normal; font-weight: 300; white-space: pre; font-size: 10px; text-decoration: none; direction: ltr; fill: rgb(4, 148, 223); fill-opacity: 1;">RxDart</text></g></g></g></g></g></g><g id="strokes-e67a6678-207a-806b-8008-721027a3a588-835a518d-7127-54f7-a109-02c60c9b8f4f" class="strokes"><g class="inner-stroke-shape" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)"><defs><clipPath id="inner-stroke-render-14-835a518d-7127-54f7-a109-02c60c9b8f4f-0"><use href="#stroke-shape-render-14-835a518d-7127-54f7-a109-02c60c9b8f4f-0"/></clipPath><rect width="52" height="20" class="frame-background" x="596" id="stroke-shape-render-14-835a518d-7127-54f7-a109-02c60c9b8f4f-0" style="fill: none; stroke-width: 1; stroke: rgb(4, 148, 223); stroke-opacity: 1;" ry="10" rx="10" y="177.5"/></defs><use href="#stroke-shape-render-14-835a518d-7127-54f7-a109-02c60c9b8f4f-0" clip-path="url('#inner-stroke-render-14-835a518d-7127-54f7-a109-02c60c9b8f4f-0')"/></g></g></g></g></g><g id="shape-800b4af1-cfa8-5523-8121-1b5400ce4c6d"><g class="frame-container-wrapper" opacity="1"><g class="frame-container-blur"><g class="frame-container-shadows"><g fill="none"><g class="fills" id="fills-800b4af1-cfa8-5523-8121-1b5400ce4c6d"><rect rx="10" ry="10" x="654" y="177.5" width="58" height="20" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="frame-background"/></g><g class="frame-children"><g id="shape-3e2a566a-e6c3-554a-b425-d3b873eefe2c" style="opacity: 1;"><g transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="text-container" x="662" y="181.5" width="42" height="12" rx="0" ry="0"><defs><pattern patternUnits="objectBoundingBox" width="42" height="13" id="fill-0-render-17-0"><g><rect width="42" height="13" style="fill: rgb(4, 148, 223); fill-opacity: 1;"/></g></pattern></defs><g class="fills" id="fills-3e2a566a-e6c3-554a-b425-d3b873eefe2c"><text x="662" y="193.5" dominant-baseline="ideographic" textLength="42" lengthAdjust="spacingAndGlyphs" style="text-transform: none; font-family: &quot;Fira Code&quot;; letter-spacing: normal; font-style: normal; font-weight: 300; white-space: pre; font-size: 10px; text-decoration: none; direction: ltr; fill: rgb(4, 148, 223); fill-opacity: 1;">Freezed</text></g></g></g></g></g></g><g id="strokes-e67a6678-207a-806b-8008-721027a443de-800b4af1-cfa8-5523-8121-1b5400ce4c6d" class="strokes"><g class="inner-stroke-shape" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)"><defs><clipPath id="inner-stroke-render-16-800b4af1-cfa8-5523-8121-1b5400ce4c6d-0"><use href="#stroke-shape-render-16-800b4af1-cfa8-5523-8121-1b5400ce4c6d-0"/></clipPath><rect width="58" height="20" class="frame-background" x="654" id="stroke-shape-render-16-800b4af1-cfa8-5523-8121-1b5400ce4c6d-0" style="fill: none; stroke-width: 1; stroke: rgb(4, 148, 223); stroke-opacity: 1;" ry="10" rx="10" y="177.5"/></defs><use href="#stroke-shape-render-16-800b4af1-cfa8-5523-8121-1b5400ce4c6d-0" clip-path="url('#inner-stroke-render-16-800b4af1-cfa8-5523-8121-1b5400ce4c6d-0')"/></g></g></g></g></g><g id="shape-2bf9468f-7c98-550a-bef9-8cb1bc75d1d8"><g class="frame-container-wrapper" opacity="1"><g class="frame-container-blur"><g class="frame-container-shadows"><g fill="none"><g class="fills" id="fills-2bf9468f-7c98-550a-bef9-8cb1bc75d1d8"><rect rx="10" ry="10" x="718" y="177.5" width="70" height="20" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="frame-background"/></g><g class="frame-children"><g id="shape-4c23f753-532b-55ef-951a-40a83b77a7b4" style="opacity: 1;"><g transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="text-container" x="726" y="181.5" width="54" height="12" rx="0" ry="0"><defs><pattern patternUnits="objectBoundingBox" width="54" height="13" id="fill-0-render-19-0"><g><rect width="54" height="13" style="fill: rgb(4, 148, 223); fill-opacity: 1;"/></g></pattern></defs><g class="fills" id="fills-4c23f753-532b-55ef-951a-40a83b77a7b4"><text x="726" y="193.5" dominant-baseline="ideographic" textLength="54" lengthAdjust="spacingAndGlyphs" style="text-transform: none; font-family: &quot;Fira Code&quot;; letter-spacing: normal; font-style: normal; font-weight: 300; white-space: pre; font-size: 10px; text-decoration: none; direction: ltr; fill: rgb(4, 148, 223); fill-opacity: 1;">OneSignal</text></g></g></g></g></g></g><g id="strokes-e67a6678-207a-806b-8008-721027a56c72-2bf9468f-7c98-550a-bef9-8cb1bc75d1d8" class="strokes"><g class="inner-stroke-shape" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)"><defs><clipPath id="inner-stroke-render-18-2bf9468f-7c98-550a-bef9-8cb1bc75d1d8-0"><use href="#stroke-shape-render-18-2bf9468f-7c98-550a-bef9-8cb1bc75d1d8-0"/></clipPath><rect width="70" height="20" class="frame-background" x="718" id="stroke-shape-render-18-2bf9468f-7c98-550a-bef9-8cb1bc75d1d8-0" style="fill: none; stroke-width: 1; stroke: rgb(4, 148, 223); stroke-opacity: 1;" ry="10" rx="10" y="177.5"/></defs><use href="#stroke-shape-render-18-2bf9468f-7c98-550a-bef9-8cb1bc75d1d8-0" clip-path="url('#inner-stroke-render-18-2bf9468f-7c98-550a-bef9-8cb1bc75d1d8-0')"/></g></g></g></g></g><g id="shape-b9025f1d-18e6-5dbd-ae36-a5c4e50a79e0"><g class="frame-container-wrapper" opacity="1"><g class="frame-container-blur"><g class="frame-container-shadows"><g fill="none"><g class="fills" id="fills-b9025f1d-18e6-5dbd-ae36-a5c4e50a79e0"><rect rx="10" ry="10" x="794" y="177.5" width="52" height="20" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="frame-background"/></g><g class="frame-children"><g id="shape-f1436b15-8c17-5c73-87b3-756d1ec453f3" style="opacity: 1;"><g transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="text-container" x="802" y="181.5" width="36" height="12" rx="0" ry="0"><defs><pattern patternUnits="objectBoundingBox" width="36" height="13" id="fill-0-render-21-0"><g><rect width="36" height="13" style="fill: rgb(4, 148, 223); fill-opacity: 1;"/></g></pattern></defs><g class="fills" id="fills-f1436b15-8c17-5c73-87b3-756d1ec453f3"><text x="802" y="193.5" dominant-baseline="ideographic" textLength="36" lengthAdjust="spacingAndGlyphs" style="text-transform: none; font-family: &quot;Fira Code&quot;; letter-spacing: normal; font-style: normal; font-weight: 300; white-space: pre; font-size: 10px; text-decoration: none; direction: ltr; fill: rgb(4, 148, 223); fill-opacity: 1;">Sentry</text></g></g></g></g></g></g><g id="strokes-e67a6678-207a-806b-8008-721027a61185-b9025f1d-18e6-5dbd-ae36-a5c4e50a79e0" class="strokes"><g class="inner-stroke-shape" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)"><defs><clipPath id="inner-stroke-render-20-b9025f1d-18e6-5dbd-ae36-a5c4e50a79e0-0"><use href="#stroke-shape-render-20-b9025f1d-18e6-5dbd-ae36-a5c4e50a79e0-0"/></clipPath><rect width="52" height="20" class="frame-background" x="794" id="stroke-shape-render-20-b9025f1d-18e6-5dbd-ae36-a5c4e50a79e0-0" style="fill: none; stroke-width: 1; stroke: rgb(4, 148, 223); stroke-opacity: 1;" ry="10" rx="10" y="177.5"/></defs><use href="#stroke-shape-render-20-b9025f1d-18e6-5dbd-ae36-a5c4e50a79e0-0" clip-path="url('#inner-stroke-render-20-b9025f1d-18e6-5dbd-ae36-a5c4e50a79e0-0')"/></g></g></g></g></g><g id="shape-b9ee010d-22d3-59bc-b7c5-5f34d4c65a2c"><g class="frame-container-wrapper" opacity="1"><g class="frame-container-blur"><g class="frame-container-shadows"><g fill="none"><g class="fills" id="fills-b9ee010d-22d3-59bc-b7c5-5f34d4c65a2c"><rect rx="10" ry="10" x="852" y="177.5" width="76" height="20" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="frame-background"/></g><g class="frame-children"><g id="shape-390d4455-de97-568d-a366-0881dd1c1e01" style="opacity: 1;"><g transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="text-container" x="860" y="181.5" width="60" height="12" rx="0" ry="0"><defs><pattern patternUnits="objectBoundingBox" width="60" height="13" id="fill-0-render-23-0"><g><rect width="60" height="13" style="fill: rgb(4, 148, 223); fill-opacity: 1;"/></g></pattern></defs><g class="fills" id="fills-390d4455-de97-568d-a366-0881dd1c1e01"><text x="860" y="193.5" dominant-baseline="ideographic" textLength="60" lengthAdjust="spacingAndGlyphs" style="text-transform: none; font-family: &quot;Fira Code&quot;; letter-spacing: normal; font-style: normal; font-weight: 300; white-space: pre; font-size: 10px; text-decoration: none; direction: ltr; fill: rgb(4, 148, 223); fill-opacity: 1;">Geolocator</text></g></g></g></g></g></g><g id="strokes-e67a6678-207a-806b-8008-721027a6e15a-b9ee010d-22d3-59bc-b7c5-5f34d4c65a2c" class="strokes"><g class="inner-stroke-shape" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)"><defs><clipPath id="inner-stroke-render-22-b9ee010d-22d3-59bc-b7c5-5f34d4c65a2c-0"><use href="#stroke-shape-render-22-b9ee010d-22d3-59bc-b7c5-5f34d4c65a2c-0"/></clipPath><rect width="76" height="20" class="frame-background" x="852" id="stroke-shape-render-22-b9ee010d-22d3-59bc-b7c5-5f34d4c65a2c-0" style="fill: none; stroke-width: 1; stroke: rgb(4, 148, 223); stroke-opacity: 1;" ry="10" rx="10" y="177.5"/></defs><use href="#stroke-shape-render-22-b9ee010d-22d3-59bc-b7c5-5f34d4c65a2c-0" clip-path="url('#inner-stroke-render-22-b9ee010d-22d3-59bc-b7c5-5f34d4c65a2c-0')"/></g></g></g></g></g><g id="shape-92e196c4-4dc6-5581-b35a-559d72a31453"><g class="frame-container-wrapper" opacity="1"><g class="frame-container-blur"><g class="frame-container-shadows"><g fill="none"><g class="fills" id="fills-92e196c4-4dc6-5581-b35a-559d72a31453"><rect rx="10" ry="10" x="934" y="177.5" width="46" height="20" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="frame-background"/></g><g class="frame-children"><g id="shape-85cd97f8-e26d-5452-92fa-cd1ff8de2278" style="opacity: 1;"><g transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="text-container" x="942" y="181.5" width="30" height="12" rx="0" ry="0"><defs><pattern patternUnits="objectBoundingBox" width="30" height="13" id="fill-0-render-25-0"><g><rect width="30" height="13" style="fill: rgb(4, 148, 223); fill-opacity: 1;"/></g></pattern></defs><g class="fills" id="fills-85cd97f8-e26d-5452-92fa-cd1ff8de2278"><text x="942" y="193.5" dominant-baseline="ideographic" textLength="30" lengthAdjust="spacingAndGlyphs" style="text-transform: none; font-family: &quot;Fira Code&quot;; letter-spacing: normal; font-style: normal; font-weight: 300; white-space: pre; font-size: 10px; text-decoration: none; direction: ltr; fill: rgb(4, 148, 223); fill-opacity: 1;">CI/CD</text></g></g></g></g></g></g><g id="strokes-e67a6678-207a-806b-8008-721027a78220-92e196c4-4dc6-5581-b35a-559d72a31453" class="strokes"><g class="inner-stroke-shape" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)"><defs><clipPath id="inner-stroke-render-24-92e196c4-4dc6-5581-b35a-559d72a31453-0"><use href="#stroke-shape-render-24-92e196c4-4dc6-5581-b35a-559d72a31453-0"/></clipPath><rect width="46" height="20" class="frame-background" x="934" id="stroke-shape-render-24-92e196c4-4dc6-5581-b35a-559d72a31453-0" style="fill: none; stroke-width: 1; stroke: rgb(4, 148, 223); stroke-opacity: 1;" ry="10" rx="10" y="177.5"/></defs><use href="#stroke-shape-render-24-92e196c4-4dc6-5581-b35a-559d72a31453-0" clip-path="url('#inner-stroke-render-24-92e196c4-4dc6-5581-b35a-559d72a31453-0')"/></g></g></g></g></g><g id="shape-8796b396-e2e9-5897-ae9f-610d31a917e4"><g class="frame-container-wrapper" opacity="1"><g class="frame-container-blur"><g class="frame-container-shadows"><g fill="none"><g class="fills" id="fills-8796b396-e2e9-5897-ae9f-610d31a917e4"><rect rx="10" ry="10" x="986" y="177.5" width="76" height="20" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="frame-background"/></g><g class="frame-children"><g id="shape-2e1bf2c9-24f6-5b14-9a78-693369959aa1" style="opacity: 1;"><g transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="text-container" x="994" y="181.5" width="60" height="12" rx="0" ry="0"><defs><pattern patternUnits="objectBoundingBox" width="60" height="13" id="fill-0-render-27-0"><g><rect width="60" height="13" style="fill: rgb(4, 148, 223); fill-opacity: 1;"/></g></pattern></defs><g class="fills" id="fills-2e1bf2c9-24f6-5b14-9a78-693369959aa1"><text x="994" y="193.5" dominant-baseline="ideographic" textLength="60" lengthAdjust="spacingAndGlyphs" style="text-transform: none; font-family: &quot;Fira Code&quot;; letter-spacing: normal; font-style: normal; font-weight: 300; white-space: pre; font-size: 10px; text-decoration: none; direction: ltr; fill: rgb(4, 148, 223); fill-opacity: 1;">Playwright</text></g></g></g></g></g></g><g id="strokes-e67a6678-207a-806b-8008-721027a871bc-8796b396-e2e9-5897-ae9f-610d31a917e4" class="strokes"><g class="inner-stroke-shape" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)"><defs><clipPath id="inner-stroke-render-26-8796b396-e2e9-5897-ae9f-610d31a917e4-0"><use href="#stroke-shape-render-26-8796b396-e2e9-5897-ae9f-610d31a917e4-0"/></clipPath><rect width="76" height="20" class="frame-background" x="986" id="stroke-shape-render-26-8796b396-e2e9-5897-ae9f-610d31a917e4-0" style="fill: none; stroke-width: 1; stroke: rgb(4, 148, 223); stroke-opacity: 1;" ry="10" rx="10" y="177.5"/></defs><use href="#stroke-shape-render-26-8796b396-e2e9-5897-ae9f-610d31a917e4-0" clip-path="url('#inner-stroke-render-26-8796b396-e2e9-5897-ae9f-610d31a917e4-0')"/></g></g></g></g></g></g></g></g></g></g></g><g id="shape-e6ef0cd3-1ac6-54e2-9132-d30a43ca1640" style="opacity: 1;"><g transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="text-container" x="416" y="123" width="656" height="39" rx="0" ry="0"><defs><pattern patternUnits="objectBoundingBox" width="627.609375" height="38.1875" id="fill-0-render-28-0"><g><rect width="627.609375" height="38.1875" style="fill: rgb(26, 26, 26); fill-opacity: 1;"/></g></pattern><pattern patternUnits="objectBoundingBox" width="627.609375" height="38.1875" id="fill-1-render-28-0"><g><rect width="627.609375" height="38.1875" style="fill: rgb(26, 26, 26); fill-opacity: 1;"/></g></pattern></defs><g class="fills" id="fills-e6ef0cd3-1ac6-54e2-9132-d30a43ca1640"><text x="416" y="142" dominant-baseline="ideographic" textLength="627.609375" lengthAdjust="spacingAndGlyphs" style="text-transform: none; font-family: &quot;Fira Sans&quot;; letter-spacing: normal; font-style: normal; font-weight: 400; white-space: pre; font-size: 16px; text-decoration: none; direction: ltr; fill: rgb(26, 26, 26); fill-opacity: 1;">Sarawak state owned labour system app designed to drastically reduce the processing </text></g><defs><pattern patternUnits="objectBoundingBox" width="627.609375" height="38.1875" id="fill-0-render-28-1"><g><rect width="627.609375" height="38.1875" style="fill: rgb(26, 26, 26); fill-opacity: 1;"/></g></pattern><pattern patternUnits="objectBoundingBox" width="627.609375" height="38.1875" id="fill-1-render-28-1"><g><rect width="627.609375" height="38.1875" style="fill: rgb(26, 26, 26); fill-opacity: 1;"/></g></pattern></defs><g class="fills" id="fills-e6ef0cd3-1ac6-54e2-9132-d30a43ca1640"><text x="416" y="161.1875" dominant-baseline="ideographic" textLength="341.21875" lengthAdjust="spacingAndGlyphs" style="text-transform: none; font-family: &quot;Fira Sans&quot;; letter-spacing: normal; font-style: normal; font-weight: 400; white-space: pre; font-size: 16px; text-decoration: none; direction: ltr; fill: rgb(26, 26, 26); fill-opacity: 1;">time for handling Workers and Foreign Workers</text></g></g></g><g id="shape-5e95fc1b-7d40-5e3e-ba37-eb01366d7d66"><g class="frame-container-wrapper" opacity="1"><g class="frame-container-blur"><g class="frame-container-shadows"><g fill="none"><g class="fills" id="fills-5e95fc1b-7d40-5e3e-ba37-eb01366d7d66"><rect rx="0" ry="0" x="416" y="214" width="111" height="19" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="frame-background"/></g><g class="frame-children"><g id="shape-245e18fd-3d98-5826-b440-8be5bec9212d" style="opacity: 1;"><g transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" class="text-container" x="416" y="213.5" width="81" height="20" rx="0" ry="0"><defs><pattern patternUnits="objectBoundingBox" width="80.375" height="19" id="fill-0-render-30-0"><g><rect width="80.375" height="19" style="fill: rgb(4, 148, 223); fill-opacity: 1;"/></g></pattern></defs><g class="fills" id="fills-245e18fd-3d98-5826-b440-8be5bec9212d"><text x="416" y="232.5" dominant-baseline="ideographic" textLength="80.375" lengthAdjust="spacingAndGlyphs" style="text-transform: none; font-family: &quot;Fira Sans&quot;; letter-spacing: normal; font-style: normal; font-weight: 700; white-space: pre; font-size: 16px; text-decoration: none; direction: ltr; fill: rgb(4, 148, 223); fill-opacity: 1;">Case Study</text></g></g></g><g id="shape-b93fd11b-09e8-501a-a2dd-f99f5d2245d5" style="opacity: 1;"><g class="fills" id="fills-b93fd11b-09e8-501a-a2dd-f99f5d2245d5"><path d="M523.1749877929688,224.5L511,224.5L511,222.5L523.1749877929688,222.5L517.5750122070312,216.89990234375L519,215.5L527,223.5L519,231.5L517.5750122070312,230.10009765625L523.1749877929688,224.5Z" fill-rule="nonzero" style="fill: rgb(4, 148, 223); fill-opacity: 1;"/></g></g></g></g></g></g></g></g><g id="shape-290033c1-e337-809c-8008-2da1d7bb7ad2"><defs><pattern patternUnits="userSpaceOnUse" x="20" y="39" width="356" height="185.00000000000182" id="fill-0-render-32"><g><image id="fill-image-render-32-0" href="https://design.penpot.app/assets/by-file-media-id/5ab5eb30-5b3a-81d5-8008-2da15d91e98c" preserveAspectRatio="xMidYMid slice" width="356" height="185.00000000000182" opacity="1"/></g></pattern></defs><g class="fills" id="fills-290033c1-e337-809c-8008-2da1d7bb7ad2"><rect rx="0" ry="0" x="20" y="39" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" width="356" height="185.00000000000182" fill="url(#fill-0-render-32)"/></g></g></g></g></g><g id="strokes-e67a6678-207a-806b-8008-721027ab1a23-17f02ec4-ada9-5073-9d8e-9abbe27529be" class="strokes"><g class="inner-stroke-shape" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)"><defs><clipPath id="inner-stroke-render-1-17f02ec4-ada9-5073-9d8e-9abbe27529be-0"><use href="#stroke-shape-render-1-17f02ec4-ada9-5073-9d8e-9abbe27529be-0"/></clipPath><rect width="1099" height="263" class="frame-background" x="0" id="stroke-shape-render-1-17f02ec4-ada9-5073-9d8e-9abbe27529be-0" style="fill: none; stroke-width: 4; stroke: rgb(46, 46, 46); stroke-opacity: 1;" ry="20" rx="20" y="0"/></defs><use href="#stroke-shape-render-1-17f02ec4-ada9-5073-9d8e-9abbe27529be-0" clip-path="url('#inner-stroke-render-1-17f02ec4-ada9-5073-9d8e-9abbe27529be-0')"/></g></g></g></g></g></svg>
