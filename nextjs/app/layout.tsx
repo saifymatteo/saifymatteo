@@ -1,9 +1,13 @@
+import AppNavigationBar from '@/components/navigation_bar';
+import Footer from '@/components/footer';
+import MotionProvider from '@/components/motion_provider';
 import type { Metadata, Viewport } from 'next';
-import { Inter, Fira_Code, Cookie } from 'next/font/google';
+import { Fira_Sans, Fira_Code, Cookie } from 'next/font/google';
 import './globals.css';
 
-const interSans = Inter({
-  variable: '--font-inter-sans',
+const firaSans = Fira_Sans({
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-fira-sans',
 });
 
 const firaCode = Fira_Code({
@@ -30,7 +34,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  colorScheme: 'light',
+  colorScheme: 'light dark',
 };
 
 export default function RootLayout({
@@ -43,7 +47,7 @@ export default function RootLayout({
       lang="en"
       data-theme="light"
       suppressHydrationWarning
-      className={`${interSans.variable} ${firaCode.variable} ${cookie.variable} h-full antialiased`}
+      className={`${firaSans.variable} ${firaCode.variable} ${cookie.variable} h-full antialiased`}
     >
       <head>
         <script
@@ -52,7 +56,13 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        <MotionProvider>
+          <AppNavigationBar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </MotionProvider>
+      </body>
     </html>
   );
 }

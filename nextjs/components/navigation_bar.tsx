@@ -18,22 +18,19 @@ export default function AppNavigationBar() {
   const pathContact = '/contact';
 
   const themeToggle = () => {
-    document.documentElement.classList.toggle('dark');
-    localStorage.theme = document.documentElement.classList.contains('dark')
-      ? 'dark'
-      : 'light';
+    const root = document.documentElement;
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.theme = next;
   };
 
   const currentPath = usePathname();
 
   return (
     <>
-      <div className="background flex h-16 items-center shadow dark:shadow-white">
-        <div
-          id="content"
-          className="flex flex-row items-center justify-between"
-        >
-          <Link href={pathHome} replace className="ml-2">
+      <div className="bg-primary-background sticky top-0 z-100 flex h-16 items-center sm:shadow sm:dark:shadow-white">
+        <div className="mx-auto flex w-full max-w-281.5 flex-row items-center justify-between shadow sm:shadow-none dark:shadow-white">
+          <Link href={pathHome} replace className="ml-4">
             <Image
               src="/assets/logo/logo_main.png"
               loading="eager"
@@ -51,16 +48,24 @@ export default function AppNavigationBar() {
               className="ml-1 hidden dark:flex"
             />
           </Link>
-          <div className="hidden space-x-10 font-sans sm:flex sm:flex-row">
+          <div className="mr-8 hidden items-center gap-12 sm:flex sm:flex-row">
             <Link
               href={pathProjects}
-              className={currentPath == pathProjects ? 'font-bold' : undefined}
+              className={
+                currentPath == pathProjects
+                  ? 'relative text-xl font-bold after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-current'
+                  : 'relative text-xl font-medium after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'
+              }
             >
               Projects
             </Link>
             <Link
               href={pathContact}
-              className={currentPath == pathContact ? 'font-bold' : undefined}
+              className={
+                currentPath == pathContact
+                  ? 'relative text-xl font-bold after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-current'
+                  : 'relative text-xl font-medium after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'
+              }
             >
               Contact
             </Link>

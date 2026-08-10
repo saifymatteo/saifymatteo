@@ -1,6 +1,14 @@
+import { projects } from '@/lib/projects';
 import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const projectUrls: MetadataRoute.Sitemap = projects.map((project) => ({
+    url: `https://saifulmashuri.com/projects/${project.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'yearly',
+    priority: 0.6,
+  }));
+
   return [
     {
       url: 'https://saifulmashuri.com',
@@ -14,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 1,
     },
+    ...projectUrls,
     {
       url: 'https://saifulmashuri.com/contact',
       lastModified: new Date(),
