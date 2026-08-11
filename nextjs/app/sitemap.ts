@@ -1,4 +1,4 @@
-import { projects } from '@/lib/projects';
+import { projects } from '@/lib/projects/projects';
 import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
