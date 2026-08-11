@@ -14,13 +14,14 @@
 
 ### Palette (exact from SVG)
 
+
 | Token                                                  | Light                                         | Dark                         |
-| ------------------------------------------------------ | --------------------------------------------- | ---------------------------- |
+| -------------------------------------------------------- | ----------------------------------------------- | ------------------------------ |
 | Primary text                                           | `#1a1a1a` (rgb 26,26,26)                      | `#ffffff`                    |
 | Muted text (status: COMPLETED/ONGOING)                 | `#2e2e2e` (rgb 46,46,46), weight 300          | `#ffffff`, weight 300        |
 | Brand blue (accents: pills, tech tags, links, buttons) | `#0494df`                                     | `#ffffff` (inverts to white) |
 | Tech-stack text                                        | `#1a1a1a` (component) / `#000000` (home page) | `#ffffff`                    |
-| Form placeholder                                       | `#696969` (rgb 105,105,105)                   | —                            |
+| Form placeholder                                       | `#696969` (rgb 105,105,105)                   | —                           |
 
 ### Typography (exact from SVG `font-family`)
 
@@ -189,16 +190,17 @@ viewBox 0 0 1920 2497.
 
 ## 13. Light ↔ dark swap table (exact)
 
-| Element                                                                      | Light               | Dark           |
-| ---------------------------------------------------------------------------- | ------------------- | -------------- |
-| Page / card background                                                       | white `#ffffff`     | near-black     |
-| Primary text                                                                 | `#1a1a1a`           | `#ffffff`      |
-| Muted (status)                                                               | `#2e2e2e` w300      | `#ffffff` w300 |
-| Brand accents (pills, tags, links, View All, Featured Works, role pill text) | `#0494df`           | `#ffffff`      |
+
+| Element                                                                      | Light                | Dark           |
+| ------------------------------------------------------------------------------ | ---------------------- | ---------------- |
+| Page / card background                                                       | white`#ffffff`       | near-black     |
+| Primary text                                                                 | `#1a1a1a`            | `#ffffff`      |
+| Muted (status)                                                               | `#2e2e2e` w300       | `#ffffff` w300 |
+| Brand accents (pills, tags, links, View All, Featured Works, role pill text) | `#0494df`            | `#ffffff`      |
 | Gradients (hero, sections, contact card, divider bars)                       | `#0494df → #8dd9ff` | identical      |
-| Nav links                                                                    | `#000000`           | `#ffffff`      |
-| Tech-stack text                                                              | `#1a1a1a`           | `#ffffff`      |
-| Footer text                                                                  | `#1a1a1a`           | `#ffffff`      |
+| Nav links                                                                    | `#000000`            | `#ffffff`      |
+| Tech-stack text                                                              | `#1a1a1a`            | `#ffffff`      |
+| Footer text                                                                  | `#1a1a1a`            | `#ffffff`      |
 
 ## 14. Responsive behavior (from layout)
 
