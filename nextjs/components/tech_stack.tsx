@@ -1,33 +1,21 @@
-const ITEMS = [
-  'Flutter',
-  'Dart',
-  'React',
-  'Typescript',
-  'NextJS',
-  'Vite',
-  'Docker',
-  'CI/CD',
-  'Playwright',
-  'Figma',
-  'Affinity',
-];
+import { ITEMS } from '@/lib/tech_stack';
 
 export default function TechStack() {
-  const doubled = [...ITEMS, ...ITEMS];
+  const marquee = [...ITEMS, ...ITEMS, ...ITEMS, ...ITEMS];
   return (
     <div className="w-full overflow-hidden">
-      <div className="from-blue to-blue-light h-1.25 w-full bg-linear-to-r" />
-      <div className="animate-marquee flex w-max gap-16 px-10 py-4 hover:[animation-play-state:paused]">
-        {doubled.map((item, i) => (
+      <div className="gradient-bar h-1.25" />
+      <div className="animate-marquee hover:paused flex w-max">
+        {marquee.map((item, i) => (
           <span
             key={i}
-            className="text-ink text-3xl font-medium whitespace-nowrap dark:text-white"
+            className="text-primary-foreground px-5 py-4 text-2xl font-medium whitespace-nowrap"
           >
             {item}
           </span>
         ))}
       </div>
-      <div className="from-blue to-blue-light h-1.25 w-full bg-linear-to-r" />
+      <div className="gradient-bar h-1.25" />
     </div>
   );
 }
