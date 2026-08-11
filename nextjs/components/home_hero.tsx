@@ -12,17 +12,18 @@ const fadeUp = {
 /** Home hero: shader backdrop + staggered entrance on load. */
 export default function HomeHero() {
   return (
-    <section className="from-blue to-blue-light relative overflow-hidden bg-linear-to-r">
+    <section className="gradient-surface">
       <ShaderBackdrop />
-      <div className="relative z-10 mx-auto flex w-full max-w-281.5 flex-col items-center gap-6 px-6 pt-12 pb-16 sm:flex-row sm:items-center sm:gap-14 sm:pt-16 sm:pb-24">
+      <div className="content-max-width relative z-10 flex flex-col items-center gap-6 px-6 pt-12 sm:flex-row sm:items-center sm:gap-14">
         <motion.div
           {...fadeUp}
           transition={{ duration: 0.4, ease: 'easeOut' }}
-          className="relative w-full sm:w-[38dvw]"
+          className="relative w-full sm:w-[50dvw]"
         >
-          <p className="font-cursive absolute -top-16 left-0 z-0 text-[35vw] leading-none text-white/50 select-none sm:top-0 sm:text-[18vw]">
-            Hla
-          </p>
+          <div className="font-cursive absolute -top-16 left-0 z-0 flex flex-row text-[35vw] leading-none text-white select-none sm:top-10 sm:left-14 sm:space-x-[11vw] sm:text-[16vw]">
+            <p>H</p>
+            <p>la</p>
+          </div>
           <Image
             src="/assets/saifulmashuri.png"
             loading="eager"
@@ -32,11 +33,18 @@ export default function HomeHero() {
             className="relative z-1 h-auto w-full"
           />
         </motion.div>
-        <div className="relative z-1 flex flex-col gap-3 text-center sm:text-left">
+        <motion.p
+          {...fadeUp}
+          transition={{ delay: 0.32, duration: 0.3 }}
+          className="text-secondary-foreground bg-secondary-background absolute top-5 right-0 z-10 hidden rounded-full px-4 py-1.5 font-mono text-lg font-semibold sm:block"
+        >
+          Software Engineer
+        </motion.p>
+        <div className="relative z-1 flex flex-col gap-3 text-center sm:text-center">
           <motion.p
             {...fadeUp}
             transition={{ delay: 0.08, duration: 0.3 }}
-            className="font-cursive text-6xl text-white"
+            className="font-cursive text-5xl text-white"
           >
             I&#39;m
           </motion.p>
@@ -50,19 +58,12 @@ export default function HomeHero() {
           <motion.p
             {...fadeUp}
             transition={{ delay: 0.24, duration: 0.3 }}
-            className="text-xl text-white/90"
+            className="text-l text-white"
           >
             I build software that matters with highest standard
           </motion.p>
         </div>
       </div>
-      <motion.p
-        {...fadeUp}
-        transition={{ delay: 0.32, duration: 0.3 }}
-        className="text-blue absolute top-5 right-8 z-10 hidden rounded-4xl border border-[#A8D8FF] bg-white px-4 py-1.5 font-mono text-xl font-semibold sm:block dark:border-white/30 dark:bg-[#1f2937] dark:text-white"
-      >
-        Software Engineer
-      </motion.p>
     </section>
   );
 }
