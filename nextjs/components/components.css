@@ -1,0 +1,41 @@
+@utility gradient-bar {
+  @apply from-blue to-blue-light w-full bg-linear-to-r;
+}
+
+@utility gradient-surface {
+  @apply from-blue to-blue-light relative overflow-hidden bg-linear-to-r;
+}
+
+@utility content-max-width {
+  @apply mx-auto w-full max-w-281.5;
+}
+
+@utility button-arrow-slide {
+  transform: translateX(0);
+  transition: transform 300ms;
+  &.active,
+  &:hover,
+  :where(.group:hover) & {
+    transform: translateX(0.1rem);
+  }
+}
+
+@utility underline-slide {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    bottom: -0.25rem;
+    height: 0.125rem;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 300ms;
+  }
+  &:hover::after,
+  &.active::after,
+  :where(.group:hover) &::after {
+    transform: scaleX(1);
+  }
+}

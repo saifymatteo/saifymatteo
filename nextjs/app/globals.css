@@ -1,8 +1,9 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
+@import '../components/components.css';
 
-@custom-variant dark (&:is(.dark, [data-theme='dark']) *);
+@custom-variant dark (&:where(.dark, .dark *, [data-theme='dark'], [data-theme='dark'] *));
 
 @theme inline {
   --font-sans: var(--font-fira-sans);
@@ -12,15 +13,11 @@
   --color-white: #ffffff;
   --color-blue: #0494df;
   --color-blue-light: #8dd9ff;
-  --color-ink: #1a1a1a;
-  --color-surface: var(--surface);
-  --color-card: var(--card);
-  --color-line: var(--line);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary-background: var(--primary-background);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-secondary-background: var(--secondary-background);
-  --animate-marquee: marquee 40s linear infinite;
+  --animate-marquee: marquee 50s linear infinite;
   @keyframes marquee {
     from {
       transform: translateX(0);
@@ -44,9 +41,6 @@
   --primary-background: #ffffff;
   --secondary-foreground: #0494df;
   --secondary-background: #ffffff;
-  --surface: #ffffff;
-  --card: #ffffff;
-  --line: #e5e7eb;
   --radius: 0.625rem;
 }
 
@@ -54,11 +48,8 @@
 [data-theme='dark'] {
   --primary-foreground: #ffffff;
   --primary-background: #2e2e2e;
-  --secondary-foreground: #0494df;
+  --secondary-foreground: #8dd9ff;
   --secondary-background: #2e2e2e;
-  --surface: #141414;
-  --card: #222222;
-  --line: rgba(255, 255, 255, 0.12);
   --radius: 0.625rem;
 }
 
