@@ -1,16 +1,16 @@
-# Graph Report - saifymatteo  (2026-08-07)
+# Graph Report - saifymatteo  (2026-08-11)
 
 ## Corpus Check
-- 74 files · ~669,360 words
+- 79 files · ~669,535 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 867 nodes · 1089 edges · 59 communities (48 shown, 11 thin omitted)
+- 875 nodes · 1111 edges · 60 communities (49 shown, 11 thin omitted)
 - Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 40 edges (avg confidence: 0.81)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `cb30f8ca`
+- Built from commit: `6245e8d0`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -33,18 +33,18 @@
 - home/page.dart
 - route.gr.dart
 - model.dart
-- State
+- app/layout.tsx
 - components/page.dart
 - app.dart
 - app_bar.dart
 - Portfolio Site — Visual Spec (from `nextjs/design/` SVG exports)
 - utils.cpp
 - StatelessWidget
-- route.dart
+- State
 - manifest.json
-- package:flutter/material.dart
+- ../../../lib.dart
 - text.dart
-- app_state.dart
+- package:flutter/material.dart
 - localization.dart
 - lib.dart
 - components.dart
@@ -54,12 +54,13 @@
 - native.dart
 - route.ts
 - vm.dart
-- app/page.tsx
+- projects.ts
 - CONTEXT.md
 - eslint.config.mjs
 - next.config.ts
 - postcss.config.mjs
 - Launch Screen Assets
+- PortfolioModel
 - 0001-content-as-local-typed-data.md
 - 0002-motion-for-animations.md
 
@@ -98,7 +99,7 @@
 - **MyKampus Radio Portfolio Media Set** — flutter_web_assets_portfolios_my_kampus_radio_my_kampus_radio_project, flutter_web_assets_portfolios_my_kampus_radio_mkr_home_my_kampus_radio_home_screenshot, flutter_web_assets_portfolios_my_kampus_radio_mkr_side_panel_my_kampus_radio_side_panel_screenshot, flutter_web_assets_portfolios_my_kampus_radio_mkr_home_mobile_my_kampus_radio_mobile_home_screenshot, flutter_web_assets_portfolios_my_kampus_radio_mkr_side_panel_mobile_my_kampus_radio_mobile_side_panel_screenshot, flutter_web_assets_portfolios_my_kampus_radio_mkr_logo_my_kampus_radio_logo [EXTRACTED 1.00]
 - **Sansols Portfolio Media Set** — flutter_web_assets_portfolios_sansols_sansols_project, flutter_web_assets_portfolios_sansols_sansols_landing_sansols_landing_screenshot, flutter_web_assets_portfolios_sansols_sansols_gov_home_page_sansols_government_home_page_screenshot, flutter_web_assets_portfolios_sansols_sansols_employer_ap_listing_sansols_employer_ap_listing_screenshot, flutter_web_assets_portfolios_sansols_sansols_employer_ap_details_sansols_employer_ap_details_screenshot, flutter_web_assets_portfolios_sansols_sansols_logo_sansols_logo [EXTRACTED 1.00]
 
-## Communities (59 total, 11 thin omitted)
+## Communities (60 total, 11 thin omitted)
 
 ### Community 0 - "app_localizations.dart"
 Cohesion: 0.03
@@ -117,12 +118,12 @@ Cohesion: 0.06
 Nodes (48): Conventional Commits Convention, deploy.ps1 Deployment Script, flutter_web Project, Generated Files (do not edit), graphify Knowledge Graph, Saifymatteo Monorepo, nextjs Project, OpenSpec (+40 more)
 
 ### Community 4 - "menubar.tsx"
-Cohesion: 0.08
-Nodes (37): cookie, firaCode, firaSans, metadata, viewport, MotionProvider(), AppNavigationBar(), Button() (+29 more)
+Cohesion: 0.11
+Nodes (30): Button(), buttonVariants, DropdownMenu(), DropdownMenuCheckboxItem(), DropdownMenuContent(), DropdownMenuGroup(), DropdownMenuItem(), DropdownMenuLabel() (+22 more)
 
 ### Community 5 - "_"
-Cohesion: 0.06
-Nodes (36): _, animation, AppAssets, AssetGenImage, AssetGenImageAnimation, _assetName, duration, flavors (+28 more)
+Cohesion: 0.04
+Nodes (46): @AutoRouterConfig, _, animation, AppAssets, AssetGenImage, AssetGenImageAnimation, _assetName, duration (+38 more)
 
 ### Community 6 - "GeneratedPluginRegistrant.swift"
 Cohesion: 0.09
@@ -146,7 +147,7 @@ Nodes (38): babel-plugin-react-compiler, eslint, eslint-config-next, eslint-conf
 
 ### Community 11 - "_"
 Cohesion: 0.09
-Nodes (26): ../components/components.dart, _PortfolioIscWorkflow, _PortfolioMyKampusRadio, _PortfolioSansols, dart:ui, PortfolioModel, _, allMedia (+18 more)
+Nodes (26): ../components/components.dart, dart:ui, _, allMedia, build, createState, _currentMedia, iscWorkflow (+18 more)
 
 ### Community 12 - "my_application.cc"
 Cohesion: 0.16
@@ -172,9 +173,9 @@ Nodes (10): hashCode, HomePageRoute, key, name, operator, page, pathTitle, Portf
 Cohesion: 0.12
 Nodes (15): description, highlights, icon, image, label, link, links, media (+7 more)
 
-### Community 18 - "State"
-Cohesion: 0.16
-Nodes (18): _AboutSection, _AboutSectionState, _Button, _ButtonState, _ContactSection, _ContactSectionState, _MeSection, _MeSectionState (+10 more)
+### Community 18 - "app/layout.tsx"
+Cohesion: 0.15
+Nodes (11): AppConstants, cookie, firaCode, firaSans, metadata, viewport, elsewhere, Footer() (+3 more)
 
 ### Community 19 - "components/page.dart"
 Cohesion: 0.17
@@ -200,25 +201,25 @@ Nodes (4): wWinMain(), CreateAndAttachConsole(), GetCommandLineArguments(), Utf8
 Cohesion: 0.20
 Nodes (11): @RoutePage, _Base, WebBodyBase, HomePage, _HeaderSection, _LinksSection, _MediaSections, _MediaSectionsItem (+3 more)
 
-### Community 25 - "route.dart"
-Cohesion: 0.17
-Nodes (10): @AutoRouterConfig, AppRouter, defaultRouteType, routes, List, package:auto_route/auto_route.dart, RootStackRouter, route.dart (+2 more)
+### Community 25 - "State"
+Cohesion: 0.20
+Nodes (14): _AboutSection, _AboutSectionState, _Button, _ButtonState, _ContactSection, _ContactSectionState, _MeSection, _MeSectionState (+6 more)
 
 ### Community 26 - "manifest.json"
 Cohesion: 0.18
 Nodes (10): background_color, description, display, icons, name, orientation, prefer_related_applications, short_name (+2 more)
 
-### Community 27 - "package:flutter/material.dart"
-Cohesion: 0.15
-Nodes (10): app.dart, components.dart, main, build, Footer, main, main, ../../../lib.dart (+2 more)
+### Community 27 - "../../../lib.dart"
+Cohesion: 0.25
+Nodes (6): app.dart, components.dart, main, build, Footer, ../../../lib.dart
 
 ### Community 28 - "text.dart"
 Cohesion: 0.29
 Nodes (6): Color, BodyText, build, color, text, TitleText
 
-### Community 29 - "app_state.dart"
-Cohesion: 0.40
-Nodes (4): HomeSections, _scrollContext, updateScrollContext, Map
+### Community 29 - "package:flutter/material.dart"
+Cohesion: 0.18
+Nodes (8): HomeSections, _scrollContext, updateScrollContext, main, main, Map, package:flutter/material.dart, package:flutter_test/flutter_test.dart
 
 ### Community 30 - "localization.dart"
 Cohesion: 0.33
@@ -240,29 +241,33 @@ Nodes (5): AppLocalizations, _AppLocalizationsDelegate, AppLocalizationsEn, of, 
 Cohesion: 0.40
 Nodes (4): reloadPage, usePathUrlStrategy, package:flutter_web_plugins/url_strategy.dart, package:web/web.dart
 
-### Community 46 - "app/page.tsx"
+### Community 46 - "projects.ts"
 Cohesion: 0.07
-Nodes (30): AppConstants, contacts, metadata, AppProjectsPage(), metadata, AppIndividualProjectPage(), generateMetadata(), Props (+22 more)
+Nodes (31): contacts, metadata, AppProjectsPage(), metadata, AppIndividualProjectPage(), generateMetadata(), Props, CaseStudyBody() (+23 more)
+
+### Community 57 - "PortfolioModel"
+Cohesion: 0.50
+Nodes (4): _PortfolioIscWorkflow, _PortfolioMyKampusRadio, _PortfolioSansols, PortfolioModel
 
 ## Knowledge Gaps
-- **434 isolated node(s):** `_router`, `createState`, `build`, `buildOverscrollIndicator`, `getScrollPhysics` (+429 more)
+- **432 isolated node(s):** `Brand gradient`, `Palette (exact from SVG)`, `Typography (exact from SVG `font-family`)`, `Sizes (exact)`, `Decorative elements` (+427 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **11 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `_` connect `_` to `route.dart`?**
-  _High betweenness centrality (0.048) - this node is a cross-community bridge._
-- **Why does `_` connect `_` to `constants.dart`, `model.dart`, `State`, `StatelessWidget`, `route.dart`, `package:flutter/material.dart`?**
+- **Why does `_` connect `_` to `_`, `constants.dart`, `model.dart`, `StatelessWidget`, `PortfolioModel`, `../../../lib.dart`, `package:flutter/material.dart`?**
   _High betweenness centrality (0.039) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `dependencies` to `devDependencies`?**
   _High betweenness centrality (0.005) - this node is a cross-community bridge._
-- **What connects `_router`, `createState`, `build` to the rest of the system?**
-  _434 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `Brand gradient`, `Palette (exact from SVG)`, `Typography (exact from SVG `font-family`)` to the rest of the system?**
+  _432 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `app_localizations.dart` be split into smaller, more focused modules?**
   _Cohesion score 0.03125 - nodes in this community are weakly interconnected._
 - **Should `win32_window.cpp` be split into smaller, more focused modules?**
   _Cohesion score 0.09639953542392567 - nodes in this community are weakly interconnected._
 - **Should `app_localizations_en.dart` be split into smaller, more focused modules?**
   _Cohesion score 0.038461538461538464 - nodes in this community are weakly interconnected._
+- **Should `flutter_web Project` be split into smaller, more focused modules?**
+  _Cohesion score 0.06382978723404255 - nodes in this community are weakly interconnected._
