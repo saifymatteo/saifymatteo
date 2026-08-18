@@ -12,23 +12,24 @@ export const projectMyKampusRadio: Project = {
   date: '2021',
   status: 'COMPLETED',
   techStack: ['Flutter', 'Dart', 'Provider'],
-  logo: '/assets/portfolios/my_kampus_radio/mkr-logo.png',
+  logo: '/assets/portfolios/my_kampus_radio/mkr-logo.webp',
+  logoLight: undefined,
   screenshots: [
     {
       label: 'Home Page',
-      src: '/assets/portfolios/my_kampus_radio/mkr-home.png',
+      src: '/assets/portfolios/my_kampus_radio/mkr-home.webp',
     },
     {
       label: 'Side Navigation',
-      src: '/assets/portfolios/my_kampus_radio/mkr-side-panel.png',
+      src: '/assets/portfolios/my_kampus_radio/mkr-side-panel.webp',
     },
     {
       label: 'Mobile Home Page',
-      src: '/assets/portfolios/my_kampus_radio/mkr-home-mobile.png',
+      src: '/assets/portfolios/my_kampus_radio/mkr-home-mobile.webp',
     },
     {
       label: 'Mobile Side Navigation',
-      src: '/assets/portfolios/my_kampus_radio/mkr-side-panel-mobile.png',
+      src: '/assets/portfolios/my_kampus_radio/mkr-side-panel-mobile.webp',
     },
   ],
   links: [

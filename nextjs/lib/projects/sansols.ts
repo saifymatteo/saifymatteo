@@ -22,23 +22,24 @@ export const projectSansols: Project = {
     'CI/CD',
     'Playwright',
   ],
-  logo: '/assets/portfolios/sansols/sansols-logo.png',
+  logo: '/assets/portfolios/sansols/sansols-logo.webp',
+  logoLight: '/assets/portfolios/sansols/sansols-logo-light.webp',
   screenshots: [
     {
       label: 'Landing Page',
-      src: '/assets/portfolios/sansols/sansols-landing.png',
+      src: '/assets/portfolios/sansols/sansols-landing.webp',
     },
     {
       label: 'Government Home Page',
-      src: '/assets/portfolios/sansols/sansols-gov-home-page.png',
+      src: '/assets/portfolios/sansols/sansols-gov-home-page.webp',
     },
     {
       label: 'AP Listing Page',
-      src: '/assets/portfolios/sansols/sansols-employer-ap-listing.png',
+      src: '/assets/portfolios/sansols/sansols-employer-ap-listing.webp',
     },
     {
       label: 'AP Details Page',
-      src: '/assets/portfolios/sansols/sansols-employer-ap-details.png',
+      src: '/assets/portfolios/sansols/sansols-employer-ap-details.webp',
     },
   ],
   links: [
@@ -70,11 +71,11 @@ export const projectSansols: Project = {
       media: [
         {
           label: 'Landing Page',
-          src: '/assets/portfolios/sansols/sansols-landing.png',
+          src: '/assets/portfolios/sansols/sansols-landing.webp',
         },
         {
           label: 'Government Home Page',
-          src: '/assets/portfolios/sansols/sansols-gov-home-page.png',
+          src: '/assets/portfolios/sansols/sansols-gov-home-page.webp',
         },
       ],
     },

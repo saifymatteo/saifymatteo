@@ -34,6 +34,7 @@ export interface Project {
   status: ProjectStatus;
   techStack: string[];
   logo: string;
+  logoLight: string | undefined;
   screenshots: { label: string; src: string }[];
   links: { label: string; href: string }[];
   /** Info cards on the case-study hero. */

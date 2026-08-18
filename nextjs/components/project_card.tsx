@@ -54,6 +54,45 @@ function CaseStudyLink({ hover }: { hover: boolean }) {
   );
 }
 
+function ProjectLogo({
+  project,
+  className,
+}: {
+  project: Project;
+  className?: string;
+}) {
+  const alt = `${project.name} logo`;
+  if (project.logoLight === undefined) {
+    return (
+      <Image
+        src={project.logo}
+        width={400}
+        height={0}
+        alt={alt}
+        className={`object-contain ${className}`}
+      />
+    );
+  }
+  return (
+    <div>
+      <Image
+        src={project.logo}
+        width={400}
+        height={0}
+        alt={alt}
+        className={`block object-contain dark:hidden ${className}`}
+      />
+      <Image
+        src={project.logoLight}
+        width={400}
+        height={0}
+        alt={alt}
+        className={`hidden object-contain dark:block ${className}`}
+      />
+    </div>
+  );
+}
+
 export default function ProjectCard({
   project,
   variant = 'narrow',
@@ -73,13 +112,7 @@ export default function ProjectCard({
         <article className="border-primary-foreground bg-primary-background rounded-2xl border p-8 shadow-xl transition-all duration-300 hover:-translate-y-1">
           <div className="grid gap-6 sm:grid-cols-[30%_1fr]">
             <div className="flex min-h-40 items-center justify-center rounded-xl p-6">
-              <Image
-                src={project.logo}
-                width={400}
-                height={0}
-                alt={`${project.name} logo`}
-                className="h-auto w-full object-contain"
-              />
+              <ProjectLogo project={project} className="h-auto w-full" />
             </div>
             <div className="flex flex-col items-start gap-3">
               <MetaRow project={project} />
@@ -105,13 +138,7 @@ export default function ProjectCard({
       onMouseLeave={() => hoverState(false)}
     >
       <article className="border-primary-foreground bg-primary-background flex flex-col gap-4 rounded-2xl border p-8 shadow-xl transition-all duration-300 hover:-translate-y-1">
-        <Image
-          src={project.logo}
-          width={400}
-          height={0}
-          alt={`${project.name} logo`}
-          className="h-30 w-fit object-contain"
-        />
+        <ProjectLogo project={project} className="h-40 w-fit" />
         <MetaRow project={project} />
         <h3 className="text-primary-foreground text-[26px] leading-snug font-bold">
           {project.fullTitle}

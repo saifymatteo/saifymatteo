@@ -12,23 +12,24 @@ export const projectIscWorkflow: Project = {
   date: '2020-Present',
   status: 'ONGOING',
   techStack: ['Flutter', 'Dart', 'Provider', 'Freezed', 'CI/CD', 'Playwright'],
-  logo: '/assets/portfolios/isc_workflow/isc-logo.png',
+  logo: '/assets/portfolios/isc_workflow/isc-logo.webp',
+  logoLight: '/assets/portfolios/isc_workflow/isc-logo-light.webp',
   screenshots: [
     {
       label: 'Landing Page',
-      src: '/assets/portfolios/isc_workflow/isc-landing.png',
+      src: '/assets/portfolios/isc_workflow/isc-landing.webp',
     },
     {
       label: 'Home Page',
-      src: '/assets/portfolios/isc_workflow/isc-home.png',
+      src: '/assets/portfolios/isc_workflow/isc-home.webp',
     },
     {
       label: 'Listing Page',
-      src: '/assets/portfolios/isc_workflow/isc-listing.png',
+      src: '/assets/portfolios/isc_workflow/isc-listing.webp',
     },
     {
       label: 'KGC Listing Page',
-      src: '/assets/portfolios/isc_workflow/isc-kgc-listing.png',
+      src: '/assets/portfolios/isc_workflow/isc-kgc-listing.webp',
     },
   ],
   links: [

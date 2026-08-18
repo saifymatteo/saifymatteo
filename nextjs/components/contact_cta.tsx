@@ -7,7 +7,7 @@ export default function ContactCta() {
   return (
     <section className="pb-24">
       <div className="gradient-bar h-2" />
-      <Reveal className="content-max-width">
+      <Reveal className="content-max-width pr-6 pl-6 sm:pr-0 sm:pl-0">
         <div className="gradient-surface mx-auto mt-14 flex w-full max-w-3xl flex-col items-center gap-6 rounded-[20px] px-8 py-12 text-center shadow-lg">
           <ShaderBackdrop />
           <div className="relative z-10 flex flex-col items-center gap-6">

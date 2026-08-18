@@ -22,18 +22,18 @@ export default function Footer() {
         <div className="flex max-w-90 flex-col gap-3">
           <div className="flex items-center gap-3">
             <Image
-              src="/assets/logo/logo_main.png"
-              width={100}
-              height={16}
+              src="/assets/logo/logo-dark.webp"
+              width={500}
+              height={318}
               alt="Saiful Mashuri logo"
-              className="flex dark:hidden"
+              className="flex h-16 w-auto dark:hidden"
             />
             <Image
-              src="/assets/logo/logo_white.png"
-              width={94}
-              height={16}
+              src="/assets/logo/logo-light.webp"
+              width={500}
+              height={318}
               alt="Saiful Mashuri logo"
-              className="ml-1 hidden dark:flex"
+              className="hidden h-16 w-auto dark:flex"
             />
             <div>
               <p className="text-2xl font-bold">Saiful Mashuri</p>
@@ -80,12 +80,12 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-secondary-foreground content-max-width flex flex-col items-start justify-between gap-2 border-t px-6 py-4 sm:flex-row sm:items-center">
+      <div className="border-secondary-foreground content-max-width flex flex-col items-center justify-between gap-2 border-t px-6 py-4 sm:flex-row">
         <p className="text-primary-foreground text-base">
           © 2026 Saiful Mashuri
         </p>
         <p className="text-primary-foreground text-base">
-          Design with Penpot and built with NextJS
+          Design in Penpot and built with NextJS
         </p>
       </div>
     </footer>

@@ -28,24 +28,24 @@ export default function AppNavigationBar() {
 
   return (
     <>
-      <div className="bg-primary-background sticky top-0 z-100 flex h-16 items-center sm:shadow sm:dark:shadow-white">
+      <div className="bg-primary-background sticky top-0 z-49 flex h-16 items-center sm:shadow sm:dark:shadow-white">
         <div className="content-max-width flex flex-row items-center justify-between shadow sm:shadow-none dark:shadow-white">
-          <Link href={pathHome} replace>
+          <Link href={pathHome} replace className="ml-2 sm:ml-0">
             <Image
-              src="/assets/logo/logo_main.png"
+              src="/assets/logo/logo-dark.webp"
               loading="eager"
-              width={64}
-              height={16}
+              width={500}
+              height={318}
               alt="Author trademark logo"
-              className="flex dark:hidden"
+              className="flex h-10 w-auto dark:hidden"
             />
             <Image
-              src="/assets/logo/logo_white.png"
+              src="/assets/logo/logo-light.webp"
               loading="eager"
-              width={54}
-              height={16}
+              width={500}
+              height={318}
               alt="Author trademark logo"
-              className="ml-1 hidden dark:flex"
+              className="hidden h-10 w-auto dark:flex"
             />
           </Link>
           <div className="hidden items-center gap-12 sm:flex sm:flex-row">
@@ -78,13 +78,13 @@ export default function AppNavigationBar() {
                   size={18}
                   x={3}
                   y={3}
-                  className="scale-100 rotate-0 opacity-100 transition-all duration-300 dark:scale-0 dark:-rotate-90 dark:opacity-0"
+                  className="rotate-y-0 opacity-100 transition-all duration-300 dark:rotate-y-180 dark:opacity-0"
                 />
                 <Sun
                   size={14}
                   x={4.8}
                   y={4.8}
-                  className="scale-0 rotate-90 opacity-0 transition-all duration-300 dark:scale-100 dark:rotate-0 dark:opacity-100"
+                  className="rotate-y-180 opacity-0 transition-all duration-300 dark:rotate-y-0 dark:opacity-100"
                 />
               </Circle>
             </div>
@@ -94,14 +94,14 @@ export default function AppNavigationBar() {
               <MenubarTrigger className="stroke-foreground">
                 <Menu></Menu>
               </MenubarTrigger>
-              <MenubarContent className="shadow dark:shadow-white">
+              <MenubarContent className="bg-primary-background shadow dark:shadow-white">
                 <Link href={pathProjects}>
                   <MenubarItem
                     className={
                       currentPath == pathProjects ? 'font-bold' : undefined
                     }
                   >
-                    Projects
+                    <p className="text-xl">Projects</p>
                   </MenubarItem>
                 </Link>
                 <Link href={pathContact}>
@@ -110,12 +110,17 @@ export default function AppNavigationBar() {
                       currentPath == pathContact ? 'font-bold' : undefined
                     }
                   >
-                    Contact
+                    <p className="text-xl">Contact</p>
                   </MenubarItem>
                 </Link>
                 <MenubarItem onClick={themeToggle}>
-                  <Moon className="flex dark:hidden"></Moon>
-                  <Sun className="hidden dark:flex"></Sun>
+                  <div className="flex w-full flex-row items-center justify-between space-x-2">
+                    <p className="text-xl">Theme</p>
+                    <div className="stroke-foreground">
+                      <Moon className="flex size-6 dark:hidden" />
+                      <Sun className="hidden size-6 dark:flex" />
+                    </div>
+                  </div>
                 </MenubarItem>
               </MenubarContent>
             </MenubarMenu>
