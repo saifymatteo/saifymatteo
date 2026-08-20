@@ -77,6 +77,14 @@ export const projectSansols: Project = {
           label: 'Government Home Page',
           src: '/assets/portfolios/sansols/sansols-gov-home-page.webp',
         },
+        {
+          label: 'Employer AP Application Listing Page',
+          src: '/assets/portfolios/sansols/sansols-employer-ap-listing.webp',
+        },
+        {
+          label: 'Employer AP Application Detail Page',
+          src: '/assets/portfolios/sansols/sansols-employer-ap-details.webp',
+        },
       ],
     },
     {
