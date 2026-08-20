@@ -13,7 +13,7 @@ export function CaseStudyHero({ project }: { project: Project }) {
       <div className="content-max-width relative z-10">
         <div className="flex flex-col items-center gap-8 text-center sm:flex-row sm:items-center sm:gap-14 sm:text-left">
           <Image
-            src={project.logo}
+            src={project.logoDark ? project.logoDark : project.logo}
             width={500}
             height={0}
             alt={`${project.name} logo`}

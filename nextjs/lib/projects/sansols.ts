@@ -23,7 +23,7 @@ export const projectSansols: Project = {
     'Playwright',
   ],
   logo: '/assets/portfolios/sansols/sansols-logo.webp',
-  logoLight: '/assets/portfolios/sansols/sansols-logo-light.webp',
+  logoDark: '/assets/portfolios/sansols/sansols-logo-light.webp',
   screenshots: [
     {
       label: 'Landing Page',

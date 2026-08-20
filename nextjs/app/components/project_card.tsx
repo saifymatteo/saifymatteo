@@ -62,7 +62,7 @@ function ProjectLogo({
   className?: string;
 }) {
   const alt = `${project.name} logo`;
-  if (project.logoLight === undefined) {
+  if (project.logoDark === undefined) {
     return (
       <Image
         src={project.logo}
@@ -83,7 +83,7 @@ function ProjectLogo({
         className={`block object-contain dark:hidden ${className}`}
       />
       <Image
-        src={project.logoLight}
+        src={project.logoDark}
         width={400}
         height={0}
         alt={alt}

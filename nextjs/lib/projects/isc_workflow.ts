@@ -12,7 +12,7 @@ export const projectIscWorkflow: Project = {
   status: 'ONGOING',
   techStack: ['Flutter', 'Dart', 'Provider', 'Freezed', 'CI/CD', 'Playwright'],
   logo: '/assets/portfolios/isc_workflow/isc-logo.webp',
-  logoLight: '/assets/portfolios/isc_workflow/isc-logo-light.webp',
+  logoDark: '/assets/portfolios/isc_workflow/isc-logo-light.webp',
   screenshots: [
     {
       label: 'Landing Page',

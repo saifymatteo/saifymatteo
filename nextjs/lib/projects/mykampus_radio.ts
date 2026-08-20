@@ -12,7 +12,7 @@ export const projectMyKampusRadio: Project = {
   status: 'COMPLETED',
   techStack: ['Flutter', 'Dart', 'Provider'],
   logo: '/assets/portfolios/my_kampus_radio/mkr-logo.webp',
-  logoLight: undefined,
+  logoDark: undefined,
   screenshots: [
     {
       label: 'Home Page',
