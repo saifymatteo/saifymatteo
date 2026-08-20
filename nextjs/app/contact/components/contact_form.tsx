@@ -77,7 +77,7 @@ export default function ContactForm() {
             className={className}
           />
         </label>
-        <div className="flex flex-col items-center">
+        <div className="mt-5 flex flex-col items-center">
           <button
             type="submit"
             disabled={status === 'sending'}

@@ -16,7 +16,7 @@ export default function Home() {
 
       <TechStack />
 
-      {/* Featured projects */}
+      {/* Featured Projects */}
       <section className="gradient-surface px-6 py-20">
         <ShaderBackdrop />
         <div className="content-max-width relative z-10">
@@ -54,6 +54,8 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
+
+      {/* Contact Card */}
       <section className="pb-24">
         <div className="gradient-bar h-2" />
         <Reveal className="content-max-width pr-6 pl-6 sm:pr-0 sm:pl-0">

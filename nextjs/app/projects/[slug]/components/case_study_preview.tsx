@@ -55,11 +55,11 @@ export default function PreviewSection({
                   width={520}
                   height={0}
                   alt={m.label}
-                  className="h-full w-auto object-cover"
+                  className="h-full w-full object-cover"
                 />
               </span>
-              <span>
-                <p className="text-primary-foreground/50 mt-2 text-sm italic">
+              <span className="block">
+                <p className="text-primary-foreground/50 mt-2 truncate text-sm italic">
                   {m.label}
                 </p>
               </span>

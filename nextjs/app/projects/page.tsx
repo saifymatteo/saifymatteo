@@ -35,7 +35,7 @@ export default function AppProjectsPage() {
               {statsRow.map((stat) => (
                 <div
                   key={stat.label}
-                  className="flex flex-col gap-1 rounded-xl border border-white bg-white px-4 py-3 backdrop-blur-sm"
+                  className="flex flex-col gap-1 rounded-xl border border-white px-4 py-3 backdrop-blur-sm"
                 >
                   <span className="text-sm text-white">{stat.label}</span>
                   <span className="text-2xl font-bold text-white">

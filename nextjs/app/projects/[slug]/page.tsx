@@ -1,4 +1,7 @@
-import { CaseStudyBody, CaseStudyHero } from '@/app/projects/[slug]/components/case_study';
+import {
+  CaseStudyBody,
+  CaseStudyHero,
+} from '@/app/projects/[slug]/components/case_study';
 import { getProject, projects } from '@/lib/projects/projects';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';

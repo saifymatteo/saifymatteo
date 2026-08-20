@@ -12,15 +12,13 @@ export function CaseStudyHero({ project }: { project: Project }) {
       <ShaderBackdrop />
       <div className="content-max-width relative z-10">
         <div className="flex flex-col items-center gap-8 text-center sm:flex-row sm:items-center sm:gap-14 sm:text-left">
-          <div className="flex h-40 w-40 shrink-0 items-center justify-center rounded-2xl bg-[#0b0b0b] p-4">
-            <Image
-              src={project.logo}
-              width={128}
-              height={0}
-              alt={`${project.name} logo`}
-              className="h-auto w-full object-contain"
-            />
-          </div>
+          <Image
+            src={project.logo}
+            width={500}
+            height={0}
+            alt={`${project.name} logo`}
+            className="h-auto w-100 object-contain"
+          />
           <div className="flex flex-col gap-3">
             <h1 className="text-5xl font-bold text-white">{project.name}</h1>
             <p className="text-[26px] font-bold text-white">
@@ -29,7 +27,7 @@ export function CaseStudyHero({ project }: { project: Project }) {
             <p className="max-w-2xl text-base text-white">
               {project.heroDescription}
             </p>
-            <div className="mt-2 flex flex-wrap gap-4">
+            <div className="mt-2 flex flex-wrap justify-center gap-4 sm:justify-start">
               {project.links.map((link) => (
                 <Link
                   key={link.label}
@@ -82,8 +80,8 @@ export function CaseStudyBody({ project }: { project: Project }) {
               </>
             ) : (
               <article className="content-max-width-slim px-6">
-                <h2 className="flex items-baseline gap-3">
-                  <span className="text-primary-foreground text-[10px] font-light">
+                <h2 className="flex items-center gap-3">
+                  <span className="text-primary-foreground text-sm font-light">
                     {section.number}
                   </span>
                   <span className="text-primary-foreground text-3xl font-bold">
