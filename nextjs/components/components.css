@@ -7,7 +7,11 @@
 }
 
 @utility content-max-width {
-  @apply mx-auto w-full max-w-281.5;
+  @apply mx-auto w-full max-w-260;
+}
+
+@utility content-max-width-slim {
+  @apply mx-auto w-full max-w-220;
 }
 
 @utility button-arrow-slide {
