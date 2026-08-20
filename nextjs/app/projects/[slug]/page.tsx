@@ -1,5 +1,5 @@
-import { CaseStudyBody, CaseStudyHero } from '@/components/case_study';
-import { getProject, projects } from '@/lib/projects';
+import { CaseStudyBody, CaseStudyHero } from '@/app/projects/[slug]/components/case_study';
+import { getProject, projects } from '@/lib/projects/projects';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -29,6 +29,7 @@ export default async function AppIndividualProjectPage({ params }: Props) {
   return (
     <>
       <CaseStudyHero project={project} />
+      <div className="gradient-bar h-2" />
       <CaseStudyBody project={project} />
     </>
   );
