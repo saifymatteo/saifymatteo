@@ -28,8 +28,8 @@ export default function AppNavigationBar() {
 
   return (
     <>
-      <div className="bg-primary-background sticky top-0 z-49 flex h-16 items-center sm:shadow sm:dark:shadow-white">
-        <div className="content-max-width flex flex-row items-center justify-between shadow sm:shadow-none dark:shadow-white">
+      <div className="bg-primary-background sm:shadow-primary-foreground sticky top-0 z-49 flex h-16 items-center sm:shadow">
+        <div className="content-max-width shadow-primary-foreground flex flex-row items-center justify-between shadow sm:shadow-none">
           <Link href={pathHome} replace className="ml-2 sm:ml-0">
             <Image
               src="/assets/logo/logo-dark.webp"
@@ -94,7 +94,7 @@ export default function AppNavigationBar() {
               <MenubarTrigger className="stroke-foreground">
                 <Menu></Menu>
               </MenubarTrigger>
-              <MenubarContent className="bg-primary-background shadow dark:shadow-white">
+              <MenubarContent className="bg-primary-background shadow-primary-background">
                 <Link href={pathProjects}>
                   <MenubarItem
                     className={

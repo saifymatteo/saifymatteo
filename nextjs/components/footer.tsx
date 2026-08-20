@@ -80,7 +80,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-secondary-foreground content-max-width flex flex-col items-center justify-between gap-2 border-t px-6 py-4 sm:flex-row">
+      <div className="border-secondary-foreground/20 content-max-width flex flex-col items-center justify-between gap-2 border-t px-6 py-4 sm:flex-row">
         <p className="text-primary-foreground text-base">
           © 2026 Saiful Mashuri
         </p>
