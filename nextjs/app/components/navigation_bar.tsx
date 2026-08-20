@@ -71,7 +71,7 @@ export default function AppNavigationBar() {
             </Link>
             <div
               onClick={themeToggle}
-              className="stroke-foreground cursor-pointer transition-transform duration-300 hover:scale-110 active:scale-95 dark:rotate-180"
+              className="cursor-pointer transition-transform duration-300 hover:scale-110 active:scale-95 dark:rotate-180"
             >
               <Circle size={32} className="stroke-1">
                 <Moon
@@ -91,7 +91,7 @@ export default function AppNavigationBar() {
           </div>
           <Menubar className="flex flex-row sm:hidden">
             <MenubarMenu>
-              <MenubarTrigger className="stroke-foreground">
+              <MenubarTrigger className="">
                 <Menu></Menu>
               </MenubarTrigger>
               <MenubarContent className="bg-primary-background shadow-primary-background">
