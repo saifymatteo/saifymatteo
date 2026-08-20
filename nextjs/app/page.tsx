@@ -22,7 +22,7 @@ export default function Home() {
         <ShaderBackdrop />
         <div className="content-max-width relative z-10">
           <Reveal>
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col items-center justify-between space-y-6 sm:flex-row">
               <h2 className="text-5xl font-bold text-white">Projects</h2>
               <p className="text-secondary-foreground bg-secondary-background rounded-full px-4 py-1.5 font-mono text-lg font-semibold">
                 Featured Works
