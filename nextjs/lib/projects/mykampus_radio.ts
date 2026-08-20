@@ -1,5 +1,4 @@
 import type { Project } from './projects';
-import { descriptionPlaceholder, placeholderCaseStudy } from './utils';
 
 export const projectMyKampusRadio: Project = {
   slug: 'my-kampus-radio',
@@ -50,7 +49,47 @@ export const projectMyKampusRadio: Project = {
     status: 'COMPLETED',
     stack: 'Flutter, Dart',
   },
-  heroDescription: descriptionPlaceholder('MyKampus Radio Unofficial App'),
-  caseStudy: placeholderCaseStudy('MyKampus Radio Unofficial App'),
+  heroDescription:
+    'MyKampus Radio (MKR) is a media platform exclusively for youth, particularly students on college or university campuses. MKR serves as an engaging outlet for entertainment, political awareness, and the promotion of local artists (indie).',
+  caseStudy: [
+    {
+      number: '01',
+      title: 'About the App',
+      body: [
+        '- Designed to be a simple, cross-platform application, ensuring accessibility for a wide range of users.',
+        '- Users can listen live to the official MKR online radio, offering a real-time audio experience.',
+      ],
+    },
+    {
+      number: '02',
+      title: 'Preview',
+      media: [
+        {
+          label: 'Home Page',
+          src: '/assets/portfolios/my_kampus_radio/mkr-home.webp',
+        },
+        {
+          label: 'Side Navigation',
+          src: '/assets/portfolios/my_kampus_radio/mkr-side-panel.webp',
+        },
+        {
+          label: 'Mobile Home Page',
+          src: '/assets/portfolios/my_kampus_radio/mkr-home-mobile.webp',
+        },
+        {
+          label: 'Mobile Side Navigation',
+          src: '/assets/portfolios/my_kampus_radio/mkr-side-panel-mobile.webp',
+        },
+      ],
+    },
+    {
+      number: '03',
+      title: 'My Contributions',
+      body: [
+        '- Solely responsible for the conception, design, and implementation of the MKR app.',
+        '- Successfully integrated the MKR online radio into the app, a task that required reverse-engineering skills.',
+      ],
+    },
+  ],
   wip: true,
 };

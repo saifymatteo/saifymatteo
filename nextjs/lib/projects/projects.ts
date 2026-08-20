@@ -1,9 +1,3 @@
-/**
- * Portfolio content — typed local data (see docs/adr/0001-content-as-local-typed-data.md).
- * Copy for SANSOLS comes from design/pages/Work - Light.svg.
- * iSC Workflow & MyKampus Radio case studies are placeholders (wip: true) — fill in later.
- */
-
 import { projectIscWorkflow } from './isc_workflow';
 import { projectMyKampusRadio } from './mykampus_radio';
 import { projectSansols } from './sansols';
