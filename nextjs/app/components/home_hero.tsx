@@ -47,14 +47,14 @@ function Intro() {
       <motion.h1
         {...fadeUp}
         transition={{ delay: 0.16, duration: 0.3 }}
-        className="text-6xl leading-none font-bold text-white sm:text-7xl"
+        className="text-2xl leading-none font-bold text-white sm:text-4xl md:text-5xl lg:text-7xl"
       >
         SAIFUL MASHURI
       </motion.h1>
       <motion.p
         {...fadeUp}
         transition={{ delay: 0.24, duration: 0.3 }}
-        className="text-l text-white"
+        className="text-lg text-white"
       >
         I build software that matters with highest standard
       </motion.p>
@@ -134,7 +134,7 @@ export default function HomeHero() {
       <motion.p
         {...fadeUp}
         transition={{ delay: 0.32, duration: 0.3 }}
-        className="absolute top-5 right-0 z-10"
+        className="absolute top-5 right-6 z-10 xl:right-0"
       >
         <SoftwareEngineerPill />
       </motion.p>

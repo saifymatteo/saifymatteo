@@ -30,10 +30,10 @@ export default function AppNavigationBar() {
     <>
       <div className="bg-primary-background sm:shadow-primary-foreground sticky top-0 z-49 flex h-16 items-center sm:shadow">
         <div className="content-max-width shadow-primary-foreground flex flex-row items-center justify-between shadow sm:shadow-none">
-          <Link href={pathHome} replace className="ml-2 sm:ml-0">
+          <Link href={pathHome} replace className="ml-2 xl:ml-0">
             <BrandLogo eager alt="Author trademark logo" />
           </Link>
-          <div className="hidden items-center gap-12 sm:flex sm:flex-row">
+          <div className="sm:flex-ro mr-6 hidden items-center gap-12 sm:flex xl:mr-0">
             <Link
               href={pathProjects}
               className={
@@ -76,7 +76,7 @@ export default function AppNavigationBar() {
           </div>
           <Menubar className="flex flex-row sm:hidden">
             <MenubarMenu>
-              <MenubarTrigger className="">
+              <MenubarTrigger>
                 <Menu></Menu>
               </MenubarTrigger>
               <MenubarContent className="bg-primary-background shadow-primary-background">
