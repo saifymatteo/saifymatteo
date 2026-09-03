@@ -2,11 +2,12 @@ import type { Project } from './projects';
 
 export const projectIscWorkflow: Project = {
   slug: 'isc-workflow',
-  name: 'iSC Workflow',
+  title: 'iSC Workflow',
   tagline: 'iSarawakCare Workflow',
-  fullTitle: 'iSC Workflow',
   description:
     "Web form builder owned by Sarawak state, designed to reduce constraints between state's initiatives and applicants",
+  summary:
+    "Empowering the Ministry of Women, Early Childhood, and Community Wellbeing Development (KPWK) through a dedicated government application designed for seamless administration of Minister's benefits. The iSC Workflow app provides KPWK administrators with the tools to create and manage application forms, fostering accessibility for the public to apply for benefits effortlessly.",
   platform: 'Web',
   date: '2020-Present',
   status: 'ONGOING',
@@ -38,17 +39,9 @@ export const projectIscWorkflow: Project = {
       href: 'https://isarawakcare.sarawak.gov.my/apply-now/',
     },
   ],
-  meta: {
-    role: 'Front-end engineer',
-    year: '2020-Present',
-    status: 'ONGOING',
-    stack: 'Flutter, Dart, Provider',
-  },
-  heroDescription:
-    "Empowering the Ministry of Women, Early Childhood, and Community Wellbeing Development (KPWK) through a dedicated government application designed for seamless administration of Minister's benefits. The iSC Workflow app provides KPWK administrators with the tools to create and manage application forms, fostering accessibility for the public to apply for benefits effortlessly.",
+  role: 'Front-end engineer',
   caseStudy: [
     {
-      number: '01',
       title: 'Key Features',
       body: [
         '- Empowers administrators to construct application forms tailored to specific applicant requirements.',
@@ -58,7 +51,6 @@ export const projectIscWorkflow: Project = {
       ],
     },
     {
-      number: '02',
       title: 'Preview',
       media: [
         {
@@ -80,7 +72,6 @@ export const projectIscWorkflow: Project = {
       ],
     },
     {
-      number: '03',
       title: 'My Contributions',
       body: [
         '- Responsible for seamlessly integrating the iSC Workflow with the State Integrated Financial, Budgeting, Accounting System (SIFBAS).',
@@ -90,5 +81,4 @@ export const projectIscWorkflow: Project = {
       ],
     },
   ],
-  wip: true,
 };

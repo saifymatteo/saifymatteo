@@ -61,7 +61,7 @@ function ProjectLogo({
   project: Project;
   className?: string;
 }) {
-  const alt = `${project.name} logo`;
+  const alt = `${project.title} logo`;
   if (project.logoDark === undefined) {
     return (
       <Image
@@ -93,6 +93,22 @@ function ProjectLogo({
   );
 }
 
+function CardBody({ project, hover }: { project: Project; hover: boolean }) {
+  return (
+    <div className="flex flex-col items-start gap-3">
+      <MetaRow project={project} />
+      <h3 className="text-primary-foreground text-[26px] leading-snug font-bold">
+        {project.title}
+      </h3>
+      <p className="text-primary-foreground line-clamp-3 text-base">
+        {project.description}
+      </p>
+      <TechTags project={project} />
+      <CaseStudyLink hover={hover} />
+    </div>
+  );
+}
+
 export default function ProjectCard({
   project,
   variant = 'narrow',
@@ -114,17 +130,7 @@ export default function ProjectCard({
             <div className="flex min-h-40 items-center justify-center rounded-xl p-6">
               <ProjectLogo project={project} className="h-auto w-full" />
             </div>
-            <div className="flex flex-col items-start gap-3">
-              <MetaRow project={project} />
-              <h3 className="text-primary-foreground text-[26px] leading-snug font-bold">
-                {project.fullTitle}
-              </h3>
-              <p className="text-primary-foreground text-base">
-                {project.description}
-              </p>
-              <TechTags project={project} />
-              <CaseStudyLink hover={hover} />
-            </div>
+            <CardBody project={project} hover={hover} />
           </div>
         </article>
       </Link>
@@ -139,15 +145,7 @@ export default function ProjectCard({
     >
       <article className="border-primary-foreground bg-primary-background flex flex-col gap-4 rounded-2xl border p-8 shadow-xl transition-all duration-300 hover:-translate-y-1">
         <ProjectLogo project={project} className="h-40 w-fit" />
-        <MetaRow project={project} />
-        <h3 className="text-primary-foreground text-[26px] leading-snug font-bold">
-          {project.fullTitle}
-        </h3>
-        <p className="text-primary-foreground text-base">
-          {project.description}
-        </p>
-        <TechTags project={project} />
-        <CaseStudyLink hover={hover} />
+        <CardBody project={project} hover={hover} />
       </article>
     </Link>
   );

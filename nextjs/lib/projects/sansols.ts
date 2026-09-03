@@ -2,11 +2,12 @@ import { Project } from './projects';
 
 export const projectSansols: Project = {
   slug: 'sansols',
-  name: 'SANSOLS',
+  title: 'SANSOLS',
   tagline: 'Sarawak & Non-Sarawakian Labour System',
-  fullTitle: 'SANSOLS - Sarawak & Non-Sarawakian Labour System',
   description:
     'Sarawak state owned labour system app designed to drastically reduce the processing time for handling Workers and Foreign Workers',
+  summary:
+    'Flutter web and mobile app for Sarawak government to manage Employers for employing Workers and Foreign Workers',
   platform: 'Web & Mobile',
   date: '2022-2025',
   status: 'COMPLETED',
@@ -49,24 +50,15 @@ export const projectSansols: Project = {
       href: 'https://sansols.sarawak.gov.my/panel/',
     },
   ],
-  meta: {
-    role: 'Front-end engineer',
-    year: '2022-2024',
-    status: 'ARCHIVED',
-    stack: 'Flutter, NodeJS, GraphQL',
-  },
-  heroDescription:
-    'Flutter web and mobile app for Sarawak government to manage Employers for employing Workers and Foreign Workers',
+  role: 'Front-end engineer',
   caseStudy: [
     {
-      number: '01',
       title: 'Problem',
       body: [
         'Employer and Sarawak government spend from 6-9 months in order to apply and approve in bringing in Foreign Workers to the State. SANSOLS project aim to cut the time needed to 1-2 weeks instead.',
       ],
     },
     {
-      number: '02',
       title: 'Preview',
       media: [
         {
@@ -88,7 +80,6 @@ export const projectSansols: Project = {
       ],
     },
     {
-      number: '03',
       title: 'My Contributions',
       body: [
         '- Maintains the GraphQL API clients that has flexible queries and ORM-like pattern. Powered with recursion on fragments for reducing payload amount',
@@ -100,12 +91,10 @@ export const projectSansols: Project = {
       ],
     },
     {
-      number: '04',
       title: 'Key Decisions',
       body: ['Lorem'],
     },
     {
-      number: '05',
       title: 'Trade-offs',
       body: [
         '- This was front-end role only, we have to built the app in Flutter against the API and data model provided by the back-end team',
@@ -113,14 +102,12 @@ export const projectSansols: Project = {
       ],
     },
     {
-      number: '06',
       title: 'Result',
       body: [
         'The project managed to onboard 10 pilot major companies in Sarawak and ultimately was canceled for another vendor',
       ],
     },
     {
-      number: '07',
       title: 'What Can Be Improve',
       body: [
         '- Consistent UI behaviors. Some area of UI are not polished due to time constraint',

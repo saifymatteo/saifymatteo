@@ -2,11 +2,12 @@ import type { Project } from './projects';
 
 export const projectMyKampusRadio: Project = {
   slug: 'my-kampus-radio',
-  name: 'MyKampus Radio Unofficial App',
+  title: 'MyKampus Radio Unofficial App',
   tagline: 'MyKampus Radio',
-  fullTitle: 'MyKampus Radio Unofficial App',
   description:
     'Personal work designed to provide better accessibility on livestream for MyKampus Radio listeners',
+  summary:
+    'MyKampus Radio (MKR) is a media platform exclusively for youth, particularly students on college or university campuses. MKR serves as an engaging outlet for entertainment, political awareness, and the promotion of local artists (indie).',
   platform: 'Web & Mobile',
   date: '2021',
   status: 'COMPLETED',
@@ -43,17 +44,9 @@ export const projectMyKampusRadio: Project = {
       href: 'https://play.google.com/store/apps/details?id=com.saifymatteo.mkr_flutter',
     },
   ],
-  meta: {
-    role: 'Developer',
-    year: '2021',
-    status: 'COMPLETED',
-    stack: 'Flutter, Dart',
-  },
-  heroDescription:
-    'MyKampus Radio (MKR) is a media platform exclusively for youth, particularly students on college or university campuses. MKR serves as an engaging outlet for entertainment, political awareness, and the promotion of local artists (indie).',
+  role: 'Developer',
   caseStudy: [
     {
-      number: '01',
       title: 'About the App',
       body: [
         '- Designed to be a simple, cross-platform application, ensuring accessibility for a wide range of users.',
@@ -61,7 +54,6 @@ export const projectMyKampusRadio: Project = {
       ],
     },
     {
-      number: '02',
       title: 'Preview',
       media: [
         {
@@ -83,7 +75,6 @@ export const projectMyKampusRadio: Project = {
       ],
     },
     {
-      number: '03',
       title: 'My Contributions',
       body: [
         '- Solely responsible for the conception, design, and implementation of the MKR app.',
@@ -91,5 +82,4 @@ export const projectMyKampusRadio: Project = {
       ],
     },
   ],
-  wip: true,
 };
