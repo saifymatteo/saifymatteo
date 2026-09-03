@@ -1,19 +1,93 @@
 # Context: NextJS Portfolio (saifymatteo)
 
-The portfolio website for Saiful Mashuri ("saifymatteo"), built with Next.js. This glossary covers the domain language used across the site and its content data.
+The portfolio website for Saiful Mashuri ("saifymatteo"), built with Next.js. This glossary is the single source of domain language for the site and its content data.
 
-- **Portfolio** — the set of real-world projects the site presents. Currently three: SANSOLS, iSC Workflow, MyKampus Radio Unofficial App.
-- **Project** — a portfolio entry with its own page. Carries identity (name, tagline, platform, dates, status), evidence (logo, screenshots, links) and a **case study**.
-- **Case study** — the long-form page for a single project (`/projects/<slug>`): a hero with project facts and links, then seven numbered sections — Problem, Preview, My Contributions, Key Decisions, Trade-offs, Result, What Can Be Improve. A case study is either _complete_ or _draft_ (placeholder copy pending).
-- **Featured Works** — the curated preview of projects on the home page (one wide card + two narrow cards), distinct from the full **Projects** listing page.
-- **Project card** — a compact presentation of a project. Two variants: _wide_ (two-column, logo panel beside content) and _narrow_ (vertical stack).
-- **Tech stack ticker** — the horizontal scrolling strip listing technologies (Flutter, Dart, React, …).
-- **Pill** — a fully rounded badge used for platform, status, tech tags and call-to-action buttons.
-- **Hero** — the full-bleed branded banner (blue gradient) at the top of a page.
-- **Theme** — the site's light or dark appearance; a single system-wide setting.
-- **Contact CTA** — the "Interested?" invitation card linking to the contact page.
-- **Scroll reveal** — a subtle entrance animation (fade + slight rise) applied to a section or card the first time it scrolls into view; plays once.
-- **Entrance animation** — the staggered fade-up the home hero plays on page load (portrait, name block, role pill).
-- **Micro-interaction** — small hover/active feedback on interactive elements: card lift, nav link underline, "Case Study →" arrow nudge, button press.
-- **Page transition** — the short fade-in applied when a route mounts; there is deliberately no exit animation (App Router limitation).
-- **Reduced motion** — honoring `prefers-reduced-motion`: transform-based animations are disabled while opacity fades remain.
+## Portfolio Content
+
+**Project**:
+A portfolio case study entry; drives cards on the home/projects pages and its own detail page.
+_Avoid_: Entry, portfolio item, work
+
+**Title**:
+The single display name of a Project, used on cards and the case-study hero.
+_Avoid_: Name, full title, heading
+
+**Tagline**:
+The short subtitle shown under the Title on the case-study hero.
+_Avoid_: Slogan, motto
+
+**Case Study**:
+The long-form narrative body of a Project, composed of ordered Sections.
+_Avoid_: Story, article, write-up
+
+**Description**:
+The brief card copy of a Project, shown (truncated) on cards.
+_Avoid_: Summary, blurb, tagline, hero description
+
+**Summary**:
+The full hero paragraph of a Project, shown on the case-study page.
+_Avoid_: Description, intro, excerpt
+
+**Section**:
+One titled part of a Case Study (e.g. Problem, Preview, My Contributions); rendered with an auto-generated ordinal — section numbers are derived from position, never written by hand.
+_Avoid_: Chapter, block, step
+
+**Preview**:
+A special Section type showing screenshot media in a marquee/lightbox gallery; media-less Preview sections are excluded so ordinals stay contiguous.
+_Avoid_: Gallery, screenshots, carousel
+
+## Site
+
+**Portfolio**:
+The set of real-world projects the site presents. Currently three: SANSOLS, iSC Workflow, MyKampus Radio Unofficial App.
+_Avoid_: Work, gallery
+
+**Featured Works**:
+The curated preview of projects on the home page (one wide card + two narrow cards), distinct from the full **Projects** listing page.
+_Avoid_: Highlights, showcase
+
+**Project Card**:
+A compact presentation of a Project. Two variants: _wide_ (two-column, logo panel beside content) and _narrow_ (vertical stack).
+_Avoid_: Tile, snippet
+
+**Tech Stack Ticker**:
+The horizontal scrolling strip listing technologies (Flutter, Dart, React, …).
+_Avoid_: Marquee, logo strip
+
+**Pill**:
+A fully rounded badge used for platform, status, tech tags and call-to-action buttons.
+_Avoid_: Chip, tag, badge
+
+**Hero**:
+The full-bleed branded banner at the top of a page.
+_Avoid_: Banner, header, masthead
+
+**Theme**:
+The site's light or dark appearance; a single system-wide setting.
+_Avoid_: Mode, skin
+
+**Contact CTA**:
+The "Interested?" invitation card linking to the contact page.
+_Avoid_: Call to action, invite
+
+## Motion
+
+**Scroll Reveal**:
+A subtle entrance animation (fade + slight rise) applied to a section or card the first time it scrolls into view; plays once.
+_Avoid_: Fade-in, appear animation
+
+**Entrance Animation**:
+The staggered fade-up the home hero plays on page load (portrait, name block, role pill).
+_Avoid_: Intro animation, load animation
+
+**Micro-interaction**:
+Small hover/active feedback on interactive elements: card lift, nav link underline, "Case Study →" arrow nudge, button press.
+_Avoid_: Hover effect, animation
+
+**Page Transition**:
+The short fade-in applied when a route mounts; there is deliberately no exit animation (App Router limitation).
+_Avoid_: Route animation
+
+**Reduced Motion**:
+Honoring `prefers-reduced-motion`: transform-based animations are disabled while opacity fades remain.
+_Avoid_: Accessibility mode
