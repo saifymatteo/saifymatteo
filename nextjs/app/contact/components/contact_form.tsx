@@ -2,15 +2,22 @@
 
 import { buttonVariants } from '@/components/button_variants';
 import { ArrowRight } from 'lucide-react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import { Turnstile, type TurnstileInstance } from '@marsidev/react-turnstile';
 
 type Status = 'idle' | 'sending' | 'sent' | 'error';
 
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>('idle');
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const turnstileRef = useRef<TurnstileInstance>(null);
 
   const className =
     'w-full rounded-xl border border-primary-foreground bg-primary-background px-4 py-3 text-sm text-primary-foreground outline-none placeholder:text-[#696969] focus:border-blue';
+
+  function clearTurnstileToken() {
+    setTurnstileToken(null);
+  }
 
   async function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -21,10 +28,18 @@ export default function ContactForm() {
       const res = await fetch('/api/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          ...data,
+          'cf-turnstile-response': turnstileToken,
+        }),
       });
-      if (!res.ok) throw new Error('send failed');
+      if (!res.ok) {
+        turnstileRef.current?.reset();
+        clearTurnstileToken();
+        throw new Error('send failed');
+      }
       setStatus('sent');
+      clearTurnstileToken();
       form.reset();
     } catch {
       setStatus('error');
@@ -77,10 +92,10 @@ export default function ContactForm() {
             className={className}
           />
         </label>
-        <div className="mt-5 flex flex-col items-center">
+        <div className="mt-5 flex flex-col items-center gap-8">
           <button
             type="submit"
-            disabled={status === 'sending'}
+            disabled={status === 'sending' || !turnstileToken}
             className={buttonVariants({ variant: 'blue' })}
           >
             Submit <ArrowRight className="button-arrow-slide size-5" />
@@ -95,6 +110,15 @@ export default function ContactForm() {
               Something went wrong — please try again or email me directly.
             </p>
           )}
+          <Turnstile
+            ref={turnstileRef}
+            siteKey="0x4AAAAAAElx0wG2M-1zfp5U"
+            onSuccess={(token) => setTurnstileToken(token)}
+            onExpire={clearTurnstileToken}
+            onError={clearTurnstileToken}
+            options={{ action: 'contact', theme: 'auto', size: 'flexible' }}
+            className="max-w-2"
+          />
         </div>
       </form>
     </div>

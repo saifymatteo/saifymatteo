@@ -70,6 +70,20 @@ _Avoid_: Mode, skin
 The "Interested?" invitation card linking to the contact page.
 _Avoid_: Call to action, invite
 
+## Contact
+
+**Contact Form**:
+The form on the contact page collecting Name, Email, Subject and Message from a visitor.
+_Avoid_: Feedback form, message box
+
+**Contact Submission**:
+A visitor's Name, Email, Subject and Message delivered as one email to Saiful's inbox; the reply address is the visitor's own Email.
+_Avoid_: Inquiry, feedback, ticket
+
+**Human Check**:
+The proof-of-humanity step a visitor completes in the Contact Form before a Contact Submission is accepted.
+_Avoid_: Captcha, bot check, spam filter
+
 ## Motion
 
 **Scroll Reveal**:
