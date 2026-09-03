@@ -47,7 +47,7 @@ function Intro() {
       <motion.h1
         {...fadeUp}
         transition={{ delay: 0.16, duration: 0.3 }}
-        className="text-2xl leading-none font-bold text-white sm:text-4xl md:text-5xl lg:text-7xl"
+        className="text-4xl leading-none font-bold text-white md:text-5xl lg:text-7xl"
       >
         SAIFUL MASHURI
       </motion.h1>
