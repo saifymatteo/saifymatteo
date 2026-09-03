@@ -47,7 +47,7 @@ export default function AppProjectsPage() {
       </PageHero>
       <GradientBar />
       <section className="px-6 py-16">
-        <div className="content-max-width flex flex-col gap-8">
+        <div className="content-max-width-slim flex flex-col gap-8">
           {projects.map((project, i) => (
             <Reveal key={project.slug} delay={i * 0.05}>
               <ProjectCard project={project} variant="wide" />
