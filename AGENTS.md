@@ -75,18 +75,15 @@ flutter build web --wasm -t lib/main.dart --release --csp --base-href=/
 - `components/navigation_bar.tsx` — nav bar; `components/shadcn/` — button, dropdown-menu, menubar
 - `lib/utils.ts` — `cn()` helper (clsx + tailwind-merge)
 
-## graphify
+## CodeGraph
 
-This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
-
-When the user types `/graphify`, use the installed graphify skill or instructions before doing anything else.
+This project is indexed by CodeGraph — a SQLite database at `.codegraph/codegraph.db` (git-ignored, local to each machine), kept current by the CodeGraph daemon.
 
 Rules:
-- For codebase questions, first run `graphify query "<question>"` when graphify-out/graph.json exists. Use `graphify path "<A>" "<B>"` for relationships and `graphify explain "<concept>"` for focused concepts. These return a scoped subgraph, usually much smaller than GRAPH_REPORT.md or raw grep output.
-- Dirty graphify-out/ files are expected after hooks or incremental updates; dirty graph files are not a reason to skip graphify. Only skip graphify if the task is about stale or incorrect graph output, or the user explicitly says not to use it.
-- If graphify-out/wiki/index.md exists, use it for broad navigation instead of raw source browsing.
-- Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
-- After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).
+- For codebase questions (architecture, flow, where-is-symbol, impact analysis), use the injected `codegraph_*` tools directly before grep/read: `codegraph_explore` first for broad questions, `codegraph_search` for symbol-name lookup, `codegraph_files` for project structure, `codegraph_node` for a known symbol, and `codegraph_callers` for impact/flow analysis.
+- If `codegraph_search` returns no exact result, try `codegraph_explore` or `codegraph_files`/`codegraph_node` before falling back to grep/read; symbol search may miss literal constants or generated names that still exist in source text.
+- Only use grep/read after CodeGraph is insufficient or when the user asks for literal text matching.
+- If the db file is missing or `codegraph_status` reports problems, say so instead of silently falling back to grep.
 
 ## Agent skills
 
