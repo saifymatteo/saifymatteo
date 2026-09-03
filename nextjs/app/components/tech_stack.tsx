@@ -1,12 +1,14 @@
+import Marquee from '@/components/marquee';
+import GradientBar from '@/components/gradient_bar';
 import { ITEMS } from '@/lib/tech_stack';
 
 export default function TechStack() {
-  const marquee = [...ITEMS, ...ITEMS, ...ITEMS, ...ITEMS];
+  const items = [...ITEMS, ...ITEMS, ...ITEMS, ...ITEMS];
   return (
     <div className="w-full overflow-hidden">
-      <div className="gradient-bar h-1.25" />
-      <div className="animate-marquee hover:paused flex w-max">
-        {marquee.map((item, i) => (
+      <GradientBar className="h-1.25" />
+      <Marquee>
+        {items.map((item, i) => (
           <span
             key={i}
             className="text-primary-foreground px-5 py-4 text-2xl font-medium whitespace-nowrap"
@@ -14,8 +16,8 @@ export default function TechStack() {
             {item}
           </span>
         ))}
-      </div>
-      <div className="gradient-bar h-1.25" />
+      </Marquee>
+      <GradientBar className="h-1.25" />
     </div>
   );
 }

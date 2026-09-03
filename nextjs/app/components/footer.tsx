@@ -1,5 +1,6 @@
 import { AppConstants } from '@/app/constants/constants';
-import Image from 'next/image';
+import BrandLogo from '@/app/components/brand_logo';
+import GradientBar from '@/components/gradient_bar';
 import Link from 'next/link';
 
 const links = [
@@ -17,24 +18,11 @@ const elsewhere = [
 export default function Footer() {
   return (
     <footer>
-      <div className="gradient-bar h-2" />
+      <GradientBar />
       <div className="content-max-width flex flex-col gap-10 px-6 py-12 sm:flex-row sm:justify-between">
         <div className="flex max-w-90 flex-col gap-3">
           <div className="flex items-center gap-3">
-            <Image
-              src="/assets/logo/logo-dark.webp"
-              width={500}
-              height={318}
-              alt="Saiful Mashuri logo"
-              className="flex h-16 w-auto dark:hidden"
-            />
-            <Image
-              src="/assets/logo/logo-light.webp"
-              width={500}
-              height={318}
-              alt="Saiful Mashuri logo"
-              className="hidden h-16 w-auto dark:flex"
-            />
+            <BrandLogo className="h-16" alt="Saiful Mashuri logo" />
             <div>
               <p className="text-2xl font-bold">Saiful Mashuri</p>
               <p className="text-2xl">

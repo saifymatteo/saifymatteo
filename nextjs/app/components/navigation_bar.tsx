@@ -8,7 +8,7 @@ import {
   MenubarTrigger,
 } from '@/components/shadcn/menubar';
 import { Circle, Menu, Moon, Sun } from 'lucide-react';
-import Image from 'next/image';
+import BrandLogo from '@/app/components/brand_logo';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -31,22 +31,7 @@ export default function AppNavigationBar() {
       <div className="bg-primary-background sm:shadow-primary-foreground sticky top-0 z-49 flex h-16 items-center sm:shadow">
         <div className="content-max-width shadow-primary-foreground flex flex-row items-center justify-between shadow sm:shadow-none">
           <Link href={pathHome} replace className="ml-2 sm:ml-0">
-            <Image
-              src="/assets/logo/logo-dark.webp"
-              loading="eager"
-              width={500}
-              height={318}
-              alt="Author trademark logo"
-              className="flex h-10 w-auto dark:hidden"
-            />
-            <Image
-              src="/assets/logo/logo-light.webp"
-              loading="eager"
-              width={500}
-              height={318}
-              alt="Author trademark logo"
-              className="hidden h-10 w-auto dark:flex"
-            />
+            <BrandLogo eager alt="Author trademark logo" />
           </Link>
           <div className="hidden items-center gap-12 sm:flex sm:flex-row">
             <Link

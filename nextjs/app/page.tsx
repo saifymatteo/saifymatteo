@@ -1,5 +1,8 @@
 import HomeHero from '@/app/components/home_hero';
+import PageHero from '@/app/components/page_hero';
 import ProjectCard from '@/app/components/project_card';
+import GradientBar from '@/components/gradient_bar';
+import Pill from '@/components/pill';
 import Reveal from '@/components/reveal';
 import ShaderBackdrop from '@/components/shader_backdrop';
 import TechStack from '@/app/components/tech_stack';
@@ -17,47 +20,42 @@ export default function Home() {
       <TechStack />
 
       {/* Featured Projects */}
-      <section className="gradient-surface px-6 py-20">
-        <ShaderBackdrop />
-        <div className="content-max-width relative z-10">
-          <Reveal>
-            <div className="flex flex-col items-center justify-between space-y-6 sm:flex-row">
-              <h2 className="text-5xl font-bold text-white">Projects</h2>
-              <p className="text-secondary-foreground bg-secondary-background rounded-full px-4 py-1.5 font-mono text-lg font-semibold">
-                Featured Works
-              </p>
-            </div>
-          </Reveal>
-          <div className="mt-10 flex flex-col gap-6">
-            <Reveal>
-              <ProjectCard project={sansols} variant="wide" />
-            </Reveal>
-            <div className="grid gap-6 lg:grid-cols-2">
-              <Reveal delay={0.05}>
-                <ProjectCard project={isc} variant="narrow" />
-              </Reveal>
-              <Reveal delay={0.1}>
-                <ProjectCard project={mkr} variant="narrow" />
-              </Reveal>
-            </div>
+      <PageHero className="px-6 py-20">
+        <Reveal>
+          <div className="flex flex-col items-center justify-between space-y-6 sm:flex-row">
+            <h2 className="text-5xl font-bold text-white">Projects</h2>
+            <Pill>Featured Works</Pill>
           </div>
-          <Reveal className="mt-14">
-            <div className="text-center">
-              <Link
-                href="/projects"
-                className="text-secondary-foreground bg-secondary-background group inline-flex items-center gap-2 rounded-full px-7 py-3 text-xl font-medium shadow-md transition-all duration-300 hover:-translate-y-1"
-              >
-                View All Projects{' '}
-                <ArrowRight className="button-arrow-slide size-5" />
-              </Link>
-            </div>
+        </Reveal>
+        <div className="mt-10 flex flex-col gap-6">
+          <Reveal>
+            <ProjectCard project={sansols} variant="wide" />
           </Reveal>
+          <div className="grid gap-6 lg:grid-cols-2">
+            <Reveal delay={0.05}>
+              <ProjectCard project={isc} variant="narrow" />
+            </Reveal>
+            <Reveal delay={0.1}>
+              <ProjectCard project={mkr} variant="narrow" />
+            </Reveal>
+          </div>
         </div>
-      </section>
+        <Reveal className="mt-14">
+          <div className="text-center">
+            <Link
+              href="/projects"
+              className="text-secondary-foreground bg-secondary-background group inline-flex items-center gap-2 rounded-full px-7 py-3 text-xl font-medium shadow-md transition-all duration-300 hover:-translate-y-1"
+            >
+              View All Projects{' '}
+              <ArrowRight className="button-arrow-slide size-5" />
+            </Link>
+          </div>
+        </Reveal>
+      </PageHero>
 
       {/* Contact Card */}
       <section className="pb-24">
-        <div className="gradient-bar h-2" />
+        <GradientBar />
         <Reveal className="content-max-width pr-6 pl-6 sm:pr-0 sm:pl-0">
           <div className="gradient-surface mx-auto mt-14 flex w-full max-w-3xl flex-col items-center gap-6 rounded-[20px] px-8 py-12 text-center shadow-lg">
             <ShaderBackdrop />

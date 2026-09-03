@@ -3,6 +3,7 @@
 import ImageViewer, {
   type ImageViewerMedia,
 } from '@/app/projects/[slug]/components/image_viewer';
+import Marquee from '@/components/marquee';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -26,9 +27,9 @@ export default function PreviewSection({
 
   return (
     <div>
-      <div className="content-max-width-slim">
-        <h2 className="flex items-baseline gap-3">
-          <span className="text-primary-foreground text-[10px] font-light">
+      <div className="content-max-width-slim px-6">
+        <h2 className="flex items-center gap-3">
+          <span className="text-primary-foreground text-sm font-light">
             {number}
           </span>
           <span className="text-primary-foreground text-3xl font-bold">
@@ -37,7 +38,7 @@ export default function PreviewSection({
         </h2>
       </div>
       <div className="overflow-hidden py-2">
-        <div className="animate-marquee hover:paused flex w-max gap-4">
+        <Marquee className="gap-4">
           {marquee.map((m, i) => (
             <button
               key={i}
@@ -65,7 +66,7 @@ export default function PreviewSection({
               </span>
             </button>
           ))}
-        </div>
+        </Marquee>
       </div>
       <ImageViewer
         media={media}

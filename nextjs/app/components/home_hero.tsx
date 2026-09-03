@@ -1,6 +1,7 @@
 'use client';
 
-import ShaderBackdrop from '@/components/shader_backdrop';
+import PageHero from '@/app/components/page_hero';
+import Pill from '@/components/pill';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
@@ -62,11 +63,7 @@ function Intro() {
 }
 
 function SoftwareEngineerPill() {
-  return (
-    <span className="bg-secondary-background text-secondary-foreground rounded-full px-4 py-1.5 font-mono text-lg font-semibold">
-      Software Engineer
-    </span>
-  );
+  return <Pill>Software Engineer</Pill>;
 }
 
 function MobileCarousel() {
@@ -123,26 +120,25 @@ function MobileCarousel() {
 
 export default function HomeHero() {
   return (
-    <section className="gradient-surface">
-      <ShaderBackdrop />
-      <MobileCarousel />
-      <div className="content-max-width relative z-10 hidden flex-row items-center gap-14 px-6 pt-12 sm:flex">
-        <motion.div
-          {...fadeUp}
-          transition={{ duration: 0.4, ease: 'easeOut' }}
-          className="relative w-[50dvw]"
-        >
-          <Portrait className="w-full" />
-        </motion.div>
-        <motion.p
-          {...fadeUp}
-          transition={{ delay: 0.32, duration: 0.3 }}
-          className="text-secondary-foreground bg-secondary-background absolute top-5 right-0 z-10 rounded-full px-4 py-1.5 font-mono text-lg font-semibold"
-        >
-          Software Engineer
-        </motion.p>
-        <Intro />
-      </div>
-    </section>
+    <PageHero
+      before={<MobileCarousel />}
+      innerClassName="hidden flex-row items-center gap-14 px-6 pt-12 sm:flex"
+    >
+      <motion.div
+        {...fadeUp}
+        transition={{ duration: 0.4, ease: 'easeOut' }}
+        className="relative w-[50dvw]"
+      >
+        <Portrait className="w-full" />
+      </motion.div>
+      <motion.p
+        {...fadeUp}
+        transition={{ delay: 0.32, duration: 0.3 }}
+        className="absolute top-5 right-0 z-10"
+      >
+        <SoftwareEngineerPill />
+      </motion.p>
+      <Intro />
+    </PageHero>
   );
 }
