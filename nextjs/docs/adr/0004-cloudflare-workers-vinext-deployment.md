@@ -16,10 +16,10 @@ Vehicles evaluated:
 
 **Cloudflare Workers + vinext**, with these settled mechanics:
 
-- **Tag-gated deploys only**: stable tags `release/nextjs/vX.Y.Z` deploy to production (Worker `saiful-mashuri`); prerelease tags (`release/nextjs/vX.Y.Z-beta.N`) deploy to the staging Worker (`saiful-mashuri-staging`) via a `wrangler.jsonc` environment. No local deploy script, no push-to-main deploys.
+- **Tag-gated deploys only**: a stable tag `release/nextjs/v*` deploys and promotes to 100% of production traffic on the single Worker `saiful-mashuri` (custom domains apex + www attached via the config's `routes`); a prerelease tag (`release/nextjs/v*-beta.N`) uploads an **unpromoted version** that is inspectable at its per-version Preview URL and never touches production traffic. No local deploy script, no push-to-main deploys, and — after an amendment during implementation — **no separate staging Worker**: Worker Versions' built-in per-version preview URLs replace it.
 - **Checks workflow** (prettier, eslint, tsc, `node --test`, build) runs on pushes/PRs; the deploy workflow reruns the full battery before deploying.
 - **Worker secrets** (`RESEND_API_KEY`, `TURNSTILE_SECRET`) via one-time local `wrangler secret put`; CI never sees them. CI auth = `CLOUDFLARE_API_TOKEN` ("Edit Cloudflare Workers" template) + `CLOUDFLARE_ACCOUNT_ID` as GitHub secrets.
-- **Cutover**: staging verifies on workers.dev first; the user then deletes the flutter_web Worker, custom domains (apex + www) are declared, and a stable tag goes live.
+- **Cutover**: the user deleted the retired flutter_web Worker (and the interim staging Worker); the Next Worker `saiful-mashuri` was recreated with the custom domains attached and serves the domain.
 - **Rollback** via `wrangler rollback` / the Cloudflare deployments list.
 
 ## Consequences

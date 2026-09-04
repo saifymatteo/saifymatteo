@@ -19,21 +19,21 @@ jobs:
       run:
         working-directory: nextjs
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
           cache-dependency-path: nextjs/package-lock.json
 
-      - name: Resolve deploy target from tag
+      - name: Resolve deploy mode from tag
         id: resolve
         run: |
           if [[ "$GITHUB_REF_NAME" == *-beta.* ]]; then
-            echo "target=staging" >> "$GITHUB_OUTPUT"
+            echo "mode=preview" >> "$GITHUB_OUTPUT"
           else
-            echo "target=production" >> "$GITHUB_OUTPUT"
+            echo "mode=promote" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Install dependencies
@@ -54,8 +54,19 @@ jobs:
       - name: Build (vinext)
         run: npm run build:vinext
 
-      - name: Deploy to Cloudflare Workers
-        run: npx vinext-cloudflare deploy --env ${{ steps.resolve.outputs.target }}
+      - name: Upload preview version (not promoted)
+        if: steps.resolve.outputs.mode == 'preview'
+        run: |
+          set -o pipefail
+          npx wrangler versions upload --config dist/server/wrangler.json 2>&1 | tee version-upload.log
+          grep -oE 'https://[a-z0-9]+-saiful-mashuri\.[^ ]*workers\.dev' version-upload.log >> "$GITHUB_STEP_SUMMARY" || true
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      - name: Deploy to production
+        if: steps.resolve.outputs.mode == 'promote'
+        run: npx vinext-cloudflare deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

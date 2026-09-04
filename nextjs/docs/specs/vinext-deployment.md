@@ -69,3 +69,12 @@ Migrate the build to **vinext** (Cloudflare's Vite-based Next.js runtime, non-de
 - The vinext Agent Skill guides the implementation; `vinext check` is its first step.
 - The only downtime window at cutover is between the flutter_web Worker deletion and the first successful production Deploy; staging verification beforehand keeps that window short.
 - If the production Worker name is still occupied at deploy time, deployment stops until the owner deletes the old Worker — no overlap is possible on one name.
+
+## Amendment (post-implementation, owner-driven)
+
+After the first staging deploy, the owner deleted **both** Workers (`saiful-mashuri` and `saiful-mashuri-staging`) and directed a single-Worker topology:
+
+- One Worker, `saiful-mashuri`; the `wrangler.jsonc` environments were removed. `workers_dev: true` plus top-level `routes` (apex + www custom domains) and `vars` (`TURNSTILE_HOSTNAMES: saifulmashuri.com,www.saifulmashuri.com`) apply to the one Worker.
+- The Staging Worker is replaced by **Worker Versions previews**: a `-beta.*` tag runs `wrangler versions upload --config dist/server/wrangler.json` (unpromoted; inspect at its Version Preview URL, surfaced in the workflow run summary), while a stable tag runs the full `vinext-cloudflare deploy` (upload + promote to 100%). The beta gate's purpose — look before live — is unchanged; only the mechanism moved from a separate Worker to an unpromoted version.
+- `actions/checkout` and `actions/setup-node` were bumped to v5 (Node-20 deprecation annotations).
+- Worker secrets were re-created on the recreated Worker (the worker deletion removed them).

@@ -129,9 +129,9 @@ A push of the site to a Worker, triggered only by a Release tag; there is no loc
 _Avoid_: Publish, release, upload
 
 **Release tag**:
-The git tag `release/nextjs/vX.Y.Z` that gates Deploys; stable tags target production, prerelease tags (`-beta.N`) target Staging. It is the source of truth for the deployed version.
+The git tag `release/nextjs/v*` that gates Deploys; a stable tag deploys and promotes to 100% of production traffic, a prerelease tag (`-beta.N`) uploads an unpromoted version. It is the source of truth for the deployed version.
 _Avoid_: Version bump, build tag
 
-**Staging**:
-The staging Worker (`saiful-mashuri-staging`) on workers.dev where prerelease-tag Deploys land for verification before a stable tag goes to production.
-_Avoid_: Preview, dev server
+**Preview**:
+A per-version URL (`<version-id>-saiful-mashuri.muhdsaifulmashuri.workers.dev`) that Cloudflare creates for every uploaded version. Prerelease-tag Deploys upload an unpromoted version so it can be inspected on its Preview URL without touching the production domain.
+_Avoid_: Staging (there is no separate staging Worker), dev server
