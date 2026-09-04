@@ -117,3 +117,21 @@ _Avoid_: Route animation
 **Reduced Motion**:
 Honoring `prefers-reduced-motion`: motion-library animations (Scroll Reveal, Entrance Animation, Page Transition, Micro-interactions) are disabled while opacity fades remain; the CSS marquee and Tech Stack Ticker deliberately keep scrolling.
 _Avoid_: Accessibility mode
+
+## Deployment
+
+**Worker**:
+The Cloudflare Workers application running the site (named `saiful-mashuri`, recreated by this project after the retired flutter_web Worker of the same name).
+_Avoid_: Server, instance, container
+
+**Deploy**:
+A push of the site to a Worker, triggered only by a Release tag; there is no local deploy script and no push-to-main deploy.
+_Avoid_: Publish, release, upload
+
+**Release tag**:
+The git tag `release/nextjs/vX.Y.Z` that gates Deploys; stable tags target production, prerelease tags (`-beta.N`) target Staging. It is the source of truth for the deployed version.
+_Avoid_: Version bump, build tag
+
+**Staging**:
+The staging Worker (`saiful-mashuri-staging`) on workers.dev where prerelease-tag Deploys land for verification before a stable tag goes to production.
+_Avoid_: Preview, dev server

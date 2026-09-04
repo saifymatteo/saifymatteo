@@ -8,15 +8,18 @@ import './globals.css';
 
 const firaSans = Fira_Sans({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  subsets: ['latin'],
   variable: '--font-fira-sans',
 });
 
 const firaCode = Fira_Code({
+  subsets: ['latin'],
   variable: '--font-fira-code',
 });
 
 const cookie = Cookie({
   weight: '400',
+  subsets: ['latin'],
   variable: '--font-cookie',
 });
 

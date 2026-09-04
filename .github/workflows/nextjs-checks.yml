@@ -1,0 +1,49 @@
+name: Next.js checks
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'nextjs/**'
+      - '.github/workflows/nextjs-checks.yml'
+  pull_request:
+    paths:
+      - 'nextjs/**'
+      - '.github/workflows/nextjs-checks.yml'
+
+jobs:
+  checks:
+    name: Check battery
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: nextjs
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: nextjs/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prettier
+        run: npx prettier . --check
+
+      - name: ESLint
+        run: npx eslint .
+
+      - name: Typecheck
+        run: npx tsc --noEmit
+
+      - name: Unit tests
+        run: node --test --experimental-strip-types tests/theme.test.ts
+
+      - name: Build (vinext)
+        run: npm run build:vinext
+
+      - name: Build (next)
+        run: npm run build
