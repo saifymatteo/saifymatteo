@@ -42,6 +42,7 @@
   --secondary-foreground: #0494df;
   --secondary-background: #ffffff;
   --radius: 0.625rem;
+  color-scheme: light;
 }
 
 .dark,
@@ -50,6 +51,7 @@
   --primary-background: #2e2e2e;
   --secondary-foreground: #8dd9ff;
   --secondary-background: #2e2e2e;
+  color-scheme: dark;
 }
 
 @layer base {
