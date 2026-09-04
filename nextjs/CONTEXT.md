@@ -36,6 +36,14 @@ _Avoid_: Chapter, block, step
 A special Section type showing screenshot media in a marquee/lightbox gallery; media-less Preview sections are excluded so ordinals stay contiguous.
 _Avoid_: Gallery, screenshots, carousel
 
+**Media**:
+A labelled screenshot attached to a Preview section; the unit shown as a marquee card and opened in the Lightbox.
+_Avoid_: Image, picture, photo
+
+**Lightbox**:
+The fullscreen overlay opened from a Preview's Media, showing one Media at a time with its position count; navigates the Preview's Media as a loop.
+_Avoid_: Image viewer, modal, fullscreen view
+
 ## Site
 
 **Portfolio**:
@@ -103,5 +111,5 @@ The short fade-in applied when a route mounts; there is deliberately no exit ani
 _Avoid_: Route animation
 
 **Reduced Motion**:
-Honoring `prefers-reduced-motion`: transform-based animations are disabled while opacity fades remain.
+Honoring `prefers-reduced-motion`: motion-library animations (Scroll Reveal, Entrance Animation, Page Transition, Micro-interactions) are disabled while opacity fades remain; the CSS marquee and Tech Stack Ticker deliberately keep scrolling.
 _Avoid_: Accessibility mode

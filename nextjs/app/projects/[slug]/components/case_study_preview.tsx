@@ -50,11 +50,11 @@ export default function PreviewSection({
               aria-label={`Open ${m.label}`}
               className="cursor-pointer"
             >
-              <span className="border-grey block h-64 overflow-hidden rounded-xl border transition-transform duration-300 hover:scale-[1.02]">
+              <span className="border-grey block h-64 w-130 overflow-hidden rounded-xl border transition-transform duration-300 hover:scale-[1.02]">
                 <Image
                   src={m.src}
-                  width={520}
-                  height={0}
+                  width={m.width}
+                  height={m.height}
                   alt={m.label}
                   className="h-full w-full object-cover"
                 />

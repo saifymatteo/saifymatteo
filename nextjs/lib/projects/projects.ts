@@ -8,8 +8,8 @@ export interface CaseStudySection {
   title: string;
   // Paragraphs or bullet points.
   body?: string[];
-  // Screenshot captions for the Preview section.
-  media?: { label: string; src: string }[];
+  // Screenshot captions for the Preview section, with intrinsic dimensions.
+  media?: { label: string; src: string; width: number; height: number }[];
 }
 
 export interface Project {

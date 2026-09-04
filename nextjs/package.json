@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "format": "prettier . --write",
-    "fix": "prettier . --write && eslint ."
+    "fix": "prettier . --write && eslint .",
+    "dims": "node scripts/image-dimensions.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",

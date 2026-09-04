@@ -41,18 +41,26 @@ export const projectMyKampusRadio: Project = {
         {
           label: 'Web Home Page',
           src: '/assets/portfolios/my_kampus_radio/mkr-home.webp',
+          width: 1647,
+          height: 942,
         },
         {
           label: 'Web Side Navigation',
           src: '/assets/portfolios/my_kampus_radio/mkr-side-panel.webp',
+          width: 1647,
+          height: 942,
         },
         {
           label: 'Mobile Home Page',
           src: '/assets/portfolios/my_kampus_radio/mkr-home-mobile.webp',
+          width: 1080,
+          height: 2283,
         },
         {
           label: 'Mobile Side Navigation',
           src: '/assets/portfolios/my_kampus_radio/mkr-side-panel-mobile.webp',
+          width: 1080,
+          height: 2287,
         },
       ],
     },
