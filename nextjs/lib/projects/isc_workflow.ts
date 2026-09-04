@@ -44,10 +44,10 @@ export const projectIscWorkflow: Project = {
     {
       title: 'Key Features',
       body: [
-        '- Empowers administrators to construct application forms tailored to specific applicant requirements.',
-        '- Enhances flexibility by allowing dynamic creation and modification of forms as needed.',
-        '- Facilitates efficient processing by defining step-by-step procedures for application evaluation.',
-        '- Incorporates an email notification system that notifies applicants promptly upon application approval or rejection.',
+        'Empowers administrators to construct application forms tailored to specific applicant requirements.',
+        'Enhances flexibility by allowing dynamic creation and modification of forms as needed.',
+        'Facilitates efficient processing by defining step-by-step procedures for application evaluation.',
+        'Incorporates an email notification system that notifies applicants promptly upon application approval or rejection.',
       ],
     },
     {
@@ -74,10 +74,10 @@ export const projectIscWorkflow: Project = {
     {
       title: 'My Contributions',
       body: [
-        '- Responsible for seamlessly integrating the iSC Workflow with the State Integrated Financial, Budgeting, Accounting System (SIFBAS).',
-        '- Co-led the integration of multilingual support, offering translations in Bahasa Malaysia, English, and Mandarin.',
-        '- Played a key role in refactoring the form builder for optimal performance and user experience.',
-        '- Ensured seamless integration with OVMI (One Voucher Multiple Instruction) based on past integration.',
+        'Responsible for seamlessly integrating the iSC Workflow with the State Integrated Financial, Budgeting, Accounting System (SIFBAS).',
+        'Co-led the integration of multilingual support, offering translations in Bahasa Malaysia, English, and Mandarin.',
+        'Played a key role in refactoring the form builder for optimal performance and user experience.',
+        'Ensured seamless integration with OVMI (One Voucher Multiple Instruction) based on past integration.',
       ],
     },
   ],

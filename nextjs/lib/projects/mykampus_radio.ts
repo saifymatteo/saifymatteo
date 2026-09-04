@@ -49,8 +49,8 @@ export const projectMyKampusRadio: Project = {
     {
       title: 'About the App',
       body: [
-        '- Designed to be a simple, cross-platform application, ensuring accessibility for a wide range of users.',
-        '- Users can listen live to the official MKR online radio, offering a real-time audio experience.',
+        'Designed to be a simple, cross-platform application, ensuring accessibility for a wide range of users.',
+        'Users can listen live to the official MKR online radio, offering a real-time audio experience.',
       ],
     },
     {
@@ -77,8 +77,8 @@ export const projectMyKampusRadio: Project = {
     {
       title: 'My Contributions',
       body: [
-        '- Solely responsible for the conception, design, and implementation of the MKR app.',
-        '- Successfully integrated the MKR online radio into the app, a task that required reverse-engineering skills.',
+        'Solely responsible for the conception, design, and implementation of the MKR app.',
+        'Successfully integrated the MKR online radio into the app, a task that required reverse-engineering skills.',
       ],
     },
   ],

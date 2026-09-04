@@ -82,12 +82,12 @@ export const projectSansols: Project = {
     {
       title: 'My Contributions',
       body: [
-        '- Maintains the GraphQL API clients that has flexible queries and ORM-like pattern. Powered with recursion on fragments for reducing payload amount',
-        '- Maintains the CI/CD for development, staging and live builds',
-        '- Responsible for the entirety of the project quality',
-        '- Delegate code ownership to team members',
-        '- Google Map integration with Map Marker and Search function',
-        '- Reactive state management with Provider and RxDart',
+        'Maintains the GraphQL API clients that has flexible queries and ORM-like pattern. Powered with recursion on fragments for reducing payload amount',
+        'Maintains the CI/CD for development, staging and live builds',
+        'Responsible for the entirety of the project quality',
+        'Delegate code ownership to team members',
+        'Google Map integration with Map Marker and Search function',
+        'Reactive state management with Provider and RxDart',
       ],
     },
     {
@@ -97,8 +97,8 @@ export const projectSansols: Project = {
     {
       title: 'Trade-offs',
       body: [
-        '- This was front-end role only, we have to built the app in Flutter against the API and data model provided by the back-end team',
-        '- Introduction of GraphQL bringing flexibility to our API usage, but at the cost of bigger payload due to our team inexperienced in optimising it.',
+        'This was front-end role only, we have to built the app in Flutter against the API and data model provided by the back-end team',
+        'Introduction of GraphQL bringing flexibility to our API usage, but at the cost of bigger payload due to our team inexperienced in optimising it.',
       ],
     },
     {
@@ -110,8 +110,8 @@ export const projectSansols: Project = {
     {
       title: 'What Can Be Improve',
       body: [
-        '- Consistent UI behaviors. Some area of UI are not polished due to time constraint',
-        '- Multiple code redundancies requires factoring',
+        'Consistent UI behaviors. Some area of UI are not polished due to time constraint',
+        'Multiple code redundancies requires factoring',
       ],
     },
   ],
