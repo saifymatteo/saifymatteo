@@ -83,7 +83,7 @@ export default function ImageViewer({
         <Image
           src={media[index].src}
           alt={media[index].label}
-          width={1200}
+          width={2000}
           height={0}
           className="max-h-[78vh] w-auto max-w-full rounded-lg object-contain shadow-2xl"
         />

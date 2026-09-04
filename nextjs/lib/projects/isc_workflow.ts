@@ -7,31 +7,13 @@ export const projectIscWorkflow: Project = {
   description:
     "Web form builder owned by Sarawak state, designed to reduce constraints between state's initiatives and applicants",
   summary:
-    "Empowering the Ministry of Women, Early Childhood, and Community Wellbeing Development (KPWK) through a dedicated government application designed for seamless administration of Minister's benefits. The iSC Workflow app provides KPWK administrators with the tools to create and manage application forms, fostering accessibility for the public to apply for benefits effortlessly.",
+    'Flutter web app and a platform to apply for Sarawak Government assistance under the Ministry of Women, Early Childhood and Community Wellbeing Development (KPWK) for the well-being of all Sarawakians',
   platform: 'Web',
   date: '2020-Present',
   status: 'ONGOING',
   techStack: ['Flutter', 'Dart', 'Provider', 'Freezed', 'CI/CD', 'Playwright'],
   logo: '/assets/portfolios/isc_workflow/isc-logo.webp',
   logoDark: '/assets/portfolios/isc_workflow/isc-logo-light.webp',
-  screenshots: [
-    {
-      label: 'Landing Page',
-      src: '/assets/portfolios/isc_workflow/isc-landing.webp',
-    },
-    {
-      label: 'Home Page',
-      src: '/assets/portfolios/isc_workflow/isc-home.webp',
-    },
-    {
-      label: 'Listing Page',
-      src: '/assets/portfolios/isc_workflow/isc-listing.webp',
-    },
-    {
-      label: 'KGC Listing Page',
-      src: '/assets/portfolios/isc_workflow/isc-kgc-listing.webp',
-    },
-  ],
   links: [
     { label: 'Website', href: 'https://isarawakcare.sarawak.gov.my/' },
     {
@@ -44,30 +26,41 @@ export const projectIscWorkflow: Project = {
     {
       title: 'Key Features',
       body: [
-        'Empowers administrators to construct application forms tailored to specific applicant requirements.',
-        'Enhances flexibility by allowing dynamic creation and modification of forms as needed.',
-        'Facilitates efficient processing by defining step-by-step procedures for application evaluation.',
-        'Incorporates an email notification system that notifies applicants promptly upon application approval or rejection.',
+        "Enable administrators to construct application forms tailored to specific Sarawak state government's initiatives requirements.",
+        'Allow flexibility by allowing dynamic creation and modification of application forms as needed.',
+        'Incorporates notification system that notifies applicants promptly upon application approval or rejection.',
       ],
     },
     {
       title: 'Preview',
       media: [
         {
-          label: 'Landing Page',
-          src: '/assets/portfolios/isc_workflow/isc-landing.webp',
+          label: 'Admin Landing',
+          src: '/assets/portfolios/isc_workflow/isc-admin-landing.webp',
         },
         {
-          label: 'Home Page',
-          src: '/assets/portfolios/isc_workflow/isc-home.webp',
+          label: 'Admin Initiative Listing',
+          src: '/assets/portfolios/isc_workflow/isc-admin-form-listing.webp',
         },
         {
-          label: 'Listing Page',
-          src: '/assets/portfolios/isc_workflow/isc-listing.webp',
+          label: 'Admin Initiative Form Builder',
+          src: '/assets/portfolios/isc_workflow/isc-admin-initiative-form-builder.webp',
         },
         {
-          label: 'KGC Listing Page',
-          src: '/assets/portfolios/isc_workflow/isc-kgc-listing.webp',
+          label: 'Admin Applications Processing',
+          src: '/assets/portfolios/isc_workflow/isc-admin-applicants-processing.webp',
+        },
+        {
+          label: 'Admin Manage Initiatives',
+          src: '/assets/portfolios/isc_workflow/isc-admin-manage-initiative.webp',
+        },
+        {
+          label: 'Public Landing',
+          src: '/assets/portfolios/isc_workflow/isc-public-landing.webp',
+        },
+        {
+          label: 'Public Apply Initiative',
+          src: '/assets/portfolios/isc_workflow/isc-public-apply-initiative.webp',
         },
       ],
     },

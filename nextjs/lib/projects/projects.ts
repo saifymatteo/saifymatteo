@@ -31,7 +31,6 @@ export interface Project {
   role: string;
   logo: string;
   logoDark: string | undefined;
-  screenshots: { label: string; src: string }[];
   links: { label: string; href: string }[];
   caseStudy: CaseStudySection[];
 }
@@ -41,10 +40,6 @@ export const projects: Project[] = [
   projectIscWorkflow,
   projectMyKampusRadio,
 ];
-
-export function formatCaseStudyBody(body: string[]): string[] {
-  return body.length > 1 ? body.map((line) => `- ${line}`) : body;
-}
 
 export function getProject(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);

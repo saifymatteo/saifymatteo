@@ -1,8 +1,5 @@
 import type { Project } from '@/lib/projects/projects';
-import {
-  getAdjacentProjects,
-  formatCaseStudyBody,
-} from '@/lib/projects/projects';
+import { getAdjacentProjects } from '@/lib/projects/projects';
 import PreviewSection from '@/app/projects/[slug]/components/case_study_preview';
 import PageHero from '@/app/components/page_hero';
 import Reveal from '@/components/reveal';
@@ -116,11 +113,18 @@ export function CaseStudyBody({ project }: { project: Project }) {
                   <Divider />
                   {section.body && (
                     <div className="mt-2 flex flex-col gap-3">
-                      {formatCaseStudyBody(section.body).map((line, j) => (
-                        <div key={j}>
-                          <p className="text-primary-foreground text-base">
-                            {line}
-                          </p>
+                      {section.body.map((e, index) => (
+                        <div key={index}>
+                          <div className="flex flex-row gap-2">
+                            {section.body!.length > 1 && (
+                              <p className="text-primary-foreground text-base">
+                                •
+                              </p>
+                            )}
+                            <p className="text-primary-foreground text-base">
+                              {e}
+                            </p>
+                          </div>
                           <Divider />
                         </div>
                       ))}

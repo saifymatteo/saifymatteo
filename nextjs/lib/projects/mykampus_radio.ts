@@ -2,8 +2,8 @@ import type { Project } from './projects';
 
 export const projectMyKampusRadio: Project = {
   slug: 'my-kampus-radio',
-  title: 'MyKampus Radio Unofficial App',
-  tagline: 'MyKampus Radio',
+  title: 'MyKampus Radio',
+  tagline: 'MyKampus Radio Unofficial App',
   description:
     'Personal work designed to provide better accessibility on livestream for MyKampus Radio listeners',
   summary:
@@ -14,24 +14,6 @@ export const projectMyKampusRadio: Project = {
   techStack: ['Flutter', 'Dart', 'Provider'],
   logo: '/assets/portfolios/my_kampus_radio/mkr-logo.webp',
   logoDark: undefined,
-  screenshots: [
-    {
-      label: 'Home Page',
-      src: '/assets/portfolios/my_kampus_radio/mkr-home.webp',
-    },
-    {
-      label: 'Side Navigation',
-      src: '/assets/portfolios/my_kampus_radio/mkr-side-panel.webp',
-    },
-    {
-      label: 'Mobile Home Page',
-      src: '/assets/portfolios/my_kampus_radio/mkr-home-mobile.webp',
-    },
-    {
-      label: 'Mobile Side Navigation',
-      src: '/assets/portfolios/my_kampus_radio/mkr-side-panel-mobile.webp',
-    },
-  ],
   links: [
     { label: 'Website', href: 'https://mykampusradio.com/' },
     { label: 'Web App', href: 'https://mkr.saifulmashuri.com/' },
@@ -57,11 +39,11 @@ export const projectMyKampusRadio: Project = {
       title: 'Preview',
       media: [
         {
-          label: 'Home Page',
+          label: 'Web Home Page',
           src: '/assets/portfolios/my_kampus_radio/mkr-home.webp',
         },
         {
-          label: 'Side Navigation',
+          label: 'Web Side Navigation',
           src: '/assets/portfolios/my_kampus_radio/mkr-side-panel.webp',
         },
         {
@@ -78,7 +60,7 @@ export const projectMyKampusRadio: Project = {
       title: 'My Contributions',
       body: [
         'Solely responsible for the conception, design, and implementation of the MKR app.',
-        'Successfully integrated the MKR online radio into the app, a task that required reverse-engineering skills.',
+        'Successfully integrated the MKR online radio into the app with reverse-engineered proprietary livestream.',
       ],
     },
   ],

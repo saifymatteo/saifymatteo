@@ -5,14 +5,16 @@ export const projectSansols: Project = {
   title: 'SANSOLS',
   tagline: 'Sarawak & Non-Sarawakian Labour System',
   description:
-    'Sarawak state owned labour system app designed to drastically reduce the processing time for handling Workers and Foreign Workers',
+    'Sarawak state owned labour system app designed to drastically reduce the processing time for handling Workers, Foreign Workers and Expats',
   summary:
-    'Flutter web and mobile app for Sarawak government to manage Employers for employing Workers and Foreign Workers',
+    'Flutter web and mobile app for Sarawak state government to manage Employers applications (Approval in Principle, License Permit, e-VDR and PLKS) for employing Workers, Foreign Workers and Expats',
   platform: 'Web & Mobile',
   date: '2022-2025',
   status: 'COMPLETED',
   techStack: [
     'Flutter',
+    'NodeJS',
+    'GraphQL',
     'Dart',
     'Provider',
     'RxDart',
@@ -25,24 +27,6 @@ export const projectSansols: Project = {
   ],
   logo: '/assets/portfolios/sansols/sansols-logo.webp',
   logoDark: '/assets/portfolios/sansols/sansols-logo-light.webp',
-  screenshots: [
-    {
-      label: 'Landing Page',
-      src: '/assets/portfolios/sansols/sansols-landing.webp',
-    },
-    {
-      label: 'Government Home Page',
-      src: '/assets/portfolios/sansols/sansols-gov-home-page.webp',
-    },
-    {
-      label: 'AP Listing Page',
-      src: '/assets/portfolios/sansols/sansols-employer-ap-listing.webp',
-    },
-    {
-      label: 'AP Details Page',
-      src: '/assets/portfolios/sansols/sansols-employer-ap-details.webp',
-    },
-  ],
   links: [
     { label: 'Web App (Employer)', href: 'https://sansols.sarawak.gov.my/' },
     {
@@ -62,20 +46,48 @@ export const projectSansols: Project = {
       title: 'Preview',
       media: [
         {
-          label: 'Landing Page',
-          src: '/assets/portfolios/sansols/sansols-landing.webp',
+          label: 'Government Landing',
+          src: '/assets/portfolios/sansols/sansols-gov-landing-page.webp',
         },
         {
-          label: 'Government Home Page',
-          src: '/assets/portfolios/sansols/sansols-gov-home-page.webp',
+          label: 'Government AP Processing',
+          src: '/assets/portfolios/sansols/sansols-gov-ap-processing.webp',
         },
         {
-          label: 'Employer AP Application Listing Page',
+          label: 'Government AP Summary',
+          src: '/assets/portfolios/sansols/sansols-gov-ap-summary.webp',
+        },
+        {
+          label: 'Government eVDR and PLKS Processing',
+          src: '/assets/portfolios/sansols/sansols-gov-evdr-plks-processing.webp',
+        },
+        {
+          label: 'Government License Processing',
+          src: '/assets/portfolios/sansols/sansols-gov-license-processing.webp',
+        },
+        {
+          label: 'Employer AP Listing',
           src: '/assets/portfolios/sansols/sansols-employer-ap-listing.webp',
         },
         {
-          label: 'Employer AP Application Detail Page',
+          label: 'Employer AP Details',
           src: '/assets/portfolios/sansols/sansols-employer-ap-details.webp',
+        },
+        {
+          label: 'Employer Apply AP',
+          src: '/assets/portfolios/sansols/sansols-employer-apply-ap.webp',
+        },
+        {
+          label: 'Employer Apply eVDR and PLKS',
+          src: '/assets/portfolios/sansols/sansols-employer-apply-evdr-plks.webp',
+        },
+        {
+          label: 'Employer Apply License | NRE Details',
+          src: '/assets/portfolios/sansols/sansols-employer-apply-license-nre-details.webp',
+        },
+        {
+          label: 'Employer License Payment Pending',
+          src: '/assets/portfolios/sansols/sansols-employer-license-payment-pending.webp',
         },
       ],
     },
@@ -89,10 +101,6 @@ export const projectSansols: Project = {
         'Google Map integration with Map Marker and Search function',
         'Reactive state management with Provider and RxDart',
       ],
-    },
-    {
-      title: 'Key Decisions',
-      body: ['Lorem'],
     },
     {
       title: 'Trade-offs',
