@@ -8,6 +8,7 @@
     "start": "next start",
     "format": "prettier . --write",
     "fix": "prettier . --write && eslint .",
+    "test": "node --test --experimental-strip-types tests/theme.test.ts",
     "dims": "node scripts/image-dimensions.mjs"
   },
   "dependencies": {

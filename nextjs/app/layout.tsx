@@ -1,6 +1,7 @@
 import AppNavigationBar from '@/app/components/navigation_bar';
 import Footer from '@/app/components/footer';
 import MotionProvider from '@/app/components/motion_provider';
+import { THEME_BOOT_SCRIPT } from '@/lib/theme';
 import type { Metadata, Viewport } from 'next';
 import { Fira_Sans, Fira_Code, Cookie } from 'next/font/google';
 import './globals.css';
@@ -46,12 +47,13 @@ export default function RootLayout({
     <html
       lang="en"
       data-theme="light"
+      suppressHydrationWarning
       className={`${firaSans.variable} ${firaCode.variable} ${cookie.variable} h-full antialiased`}
     >
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}})()`,
+            __html: THEME_BOOT_SCRIPT,
           }}
         />
       </head>

@@ -74,6 +74,10 @@ _Avoid_: Banner, header, masthead
 The site's light or dark appearance; a single system-wide setting.
 _Avoid_: Mode, skin
 
+**Theme choice**:
+The visitor's selection for the Theme — System, Light or Dark. System follows the visitor's device preference, including changes made while browsing; Light and Dark override it until System is picked again. A visitor who has never chosen starts on System.
+_Avoid_: Theme setting, color scheme
+
 **Contact CTA**:
 The "Interested?" invitation card linking to the contact page.
 _Avoid_: Call to action, invite

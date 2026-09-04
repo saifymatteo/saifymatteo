@@ -7,22 +7,60 @@ import {
   MenubarMenu,
   MenubarTrigger,
 } from '@/components/shadcn/menubar';
-import { Circle, Menu, Moon, Sun } from 'lucide-react';
+import {
+  Check,
+  Circle,
+  Menu,
+  Moon,
+  Sun,
+  SunMoon,
+  type LucideIcon,
+} from 'lucide-react';
 import BrandLogo from '@/app/components/brand_logo';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useSyncExternalStore } from 'react';
+import {
+  applyThemeChoice,
+  nextChoice,
+  readThemeChoice,
+  subscribeToThemeChoice,
+  type ThemeChoice,
+} from '@/lib/theme';
+
+const THEME_CHOICE_LABEL: Record<ThemeChoice, string> = {
+  system: 'System',
+  light: 'Light',
+  dark: 'Dark',
+};
+
+const THEME_CHOICE_ICON: Record<ThemeChoice, LucideIcon> = {
+  system: SunMoon,
+  light: Sun,
+  dark: Moon,
+};
+
+const THEME_CHOICES = ['system', 'light', 'dark'] as const;
+
+const themeIconClass = (active: boolean) =>
+  `transition-all duration-300 ${
+    active
+      ? 'rotate-y-0 scale-100 opacity-100'
+      : 'rotate-y-180 scale-0 opacity-0'
+  }`;
 
 export default function AppNavigationBar() {
   const pathHome = '/';
   const pathProjects = '/projects';
   const pathContact = '/contact';
 
-  const themeToggle = () => {
-    const root = document.documentElement;
-    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', next);
-    localStorage.theme = next;
-  };
+  const themeChoice = useSyncExternalStore<ThemeChoice>(
+    subscribeToThemeChoice,
+    readThemeChoice,
+    () => 'system'
+  );
+
+  const cycleTheme = () => applyThemeChoice(nextChoice(themeChoice));
 
   const currentPath = usePathname();
 
@@ -54,25 +92,29 @@ export default function AppNavigationBar() {
             >
               Contact
             </Link>
-            <div
-              onClick={themeToggle}
-              className="cursor-pointer transition-transform duration-300 hover:scale-110 active:scale-95 dark:rotate-180"
+            <button
+              type="button"
+              onClick={cycleTheme}
+              aria-label={`Theme: ${
+                THEME_CHOICE_LABEL[themeChoice]
+              } — switch to ${THEME_CHOICE_LABEL[nextChoice(themeChoice)]}`}
+              className="cursor-pointer transition-transform duration-300 hover:scale-110 active:scale-95"
             >
               <Circle size={32} className="stroke-1">
-                <Moon
-                  size={18}
-                  x={3}
-                  y={3}
-                  className="rotate-y-0 opacity-100 transition-all duration-300 dark:rotate-y-180 dark:opacity-0"
-                />
-                <Sun
-                  size={14}
-                  x={4.8}
-                  y={4.8}
-                  className="rotate-y-180 opacity-0 transition-all duration-300 dark:rotate-y-0 dark:opacity-100"
-                />
+                {THEME_CHOICES.map((choice) => {
+                  const Icon = THEME_CHOICE_ICON[choice];
+                  return (
+                    <Icon
+                      key={choice}
+                      size={16}
+                      x={4}
+                      y={4}
+                      className={themeIconClass(themeChoice === choice)}
+                    />
+                  );
+                })}
               </Circle>
-            </div>
+            </button>
           </div>
           <Menubar className="flex flex-row sm:hidden">
             <MenubarMenu>
@@ -98,15 +140,25 @@ export default function AppNavigationBar() {
                     <p className="text-xl">Contact</p>
                   </MenubarItem>
                 </Link>
-                <MenubarItem onClick={themeToggle}>
-                  <div className="flex w-full flex-row items-center justify-between space-x-2">
-                    <p className="text-xl">Theme</p>
-                    <div className="stroke-foreground">
-                      <Moon className="flex size-6 dark:hidden" />
-                      <Sun className="hidden size-6 dark:flex" />
-                    </div>
-                  </div>
-                </MenubarItem>
+                {THEME_CHOICES.map((choice) => {
+                  const Icon = THEME_CHOICE_ICON[choice];
+                  return (
+                    <MenubarItem
+                      key={choice}
+                      onClick={() => applyThemeChoice(choice)}
+                    >
+                      <div className="flex w-full flex-row items-center justify-between space-x-2">
+                        <p className="text-xl">{THEME_CHOICE_LABEL[choice]}</p>
+                        <div className="stroke-foreground flex flex-row items-center space-x-1">
+                          <Icon className="size-6" />
+                          {themeChoice === choice && (
+                            <Check className="size-6" />
+                          )}
+                        </div>
+                      </div>
+                    </MenubarItem>
+                  );
+                })}
               </MenubarContent>
             </MenubarMenu>
           </Menubar>
