@@ -1,6 +1,17 @@
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Constructed lazily so a missing API key fails the request (with a clear log)
+// instead of failing the production build's page-data collection step.
+let cachedResend: Resend | null = null;
+
+function getResend(): Resend {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    throw new Error('RESEND_API_KEY is not set');
+  }
+  cachedResend ??= new Resend(apiKey);
+  return cachedResend;
+}
 
 function escapeHtml(value: string): string {
   return value
@@ -140,7 +151,7 @@ export async function POST(req: Request) {
   }
 
   try {
-    await resend.emails.send({
+    await getResend().emails.send({
       from: 'Saiful Mashuri <hello@saifulmashuri.com>',
       to: ['work@saifulmashuri.com'],
       replyTo: email,
