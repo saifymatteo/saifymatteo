@@ -4,6 +4,7 @@ import { buttonVariants } from '@/components/button_variants';
 import { ArrowRight } from 'lucide-react';
 import { useRef, useState } from 'react';
 import { Turnstile, type TurnstileInstance } from '@marsidev/react-turnstile';
+import { cn } from '@/lib/utils';
 
 type Status = 'idle' | 'sending' | 'sent' | 'error';
 
@@ -89,7 +90,7 @@ export default function ContactForm() {
             required
             rows={6}
             placeholder="Let&#39;s create something together"
-            className={className}
+            className={cn(className, 'resize-y')}
           />
         </label>
         <div className="mt-5 flex flex-col items-center gap-8">
@@ -117,7 +118,7 @@ export default function ContactForm() {
             onExpire={clearTurnstileToken}
             onError={clearTurnstileToken}
             options={{ action: 'contact', theme: 'auto', size: 'flexible' }}
-            className="max-w-2"
+            className="shadow-primary-foreground max-w-2 shadow"
           />
         </div>
       </form>

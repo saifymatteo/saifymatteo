@@ -70,6 +70,7 @@ export default function AppContact() {
               ) : (
                 <Link
                   key={contact.label}
+                  title={contact.value}
                   href={contact.href}
                   target={
                     contact.href.startsWith('http') ? '_blank' : undefined
@@ -79,11 +80,11 @@ export default function AppContact() {
                   }
                   className="group flex flex-row items-center justify-between rounded-2xl border border-white px-6 py-4 backdrop-blur-sm transition-colors"
                 >
-                  <span className="flex flex-row items-center">
+                  <span className="flex min-w-0 flex-row items-center">
                     <span className="w-20 text-base font-normal text-white">
                       {contact.label}
                     </span>
-                    <span className="underline-slide text-xl font-bold text-white">
+                    <span className="underline-slide min-w-0 truncate text-xl font-bold text-white">
                       {contact.value}
                     </span>
                   </span>

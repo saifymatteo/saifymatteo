@@ -79,7 +79,7 @@ export default function AppNavigationBar() {
               <MenubarTrigger>
                 <Menu></Menu>
               </MenubarTrigger>
-              <MenubarContent className="bg-primary-background shadow-primary-background">
+              <MenubarContent className="bg-primary-background shadow-grey">
                 <Link href={pathProjects}>
                   <MenubarItem
                     className={
