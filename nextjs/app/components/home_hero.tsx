@@ -4,15 +4,11 @@ import PageHero from '@/app/components/page_hero';
 import Pill from '@/components/pill';
 import { motion } from 'motion/react';
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
 };
-
-const SLIDES = 2;
-const INTERVAL = 3000;
 
 function Portrait({ className = 'w-full' }: { className?: string }) {
   return (
@@ -36,7 +32,7 @@ function Portrait({ className = 'w-full' }: { className?: string }) {
 
 function Intro() {
   return (
-    <div className="relative z-1 flex flex-col gap-3 text-center sm:text-center">
+    <div className="relative z-1 flex flex-col gap-3 text-center sm:order-2 sm:text-center">
       <motion.p
         {...fadeUp}
         transition={{ delay: 0.08, duration: 0.3 }}
@@ -66,79 +62,24 @@ function SoftwareEngineerPill() {
   return <Pill>Software Engineer</Pill>;
 }
 
-function MobileCarousel() {
-  const [index, setIndex] = useState(0);
-  const [resetKey, setResetKey] = useState(0);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState(0);
-
-  useEffect(() => {
-    const el = trackRef.current;
-    if (!el) return;
-    const measure = () => setWidth(el.offsetWidth);
-    measure();
-    window.addEventListener('resize', measure);
-    return () => window.removeEventListener('resize', measure);
-  }, []);
-
-  useEffect(() => {
-    const id = setInterval(() => setIndex((i) => (i + 1) % SLIDES), INTERVAL);
-    return () => clearInterval(id);
-  }, [resetKey]);
-
-  const goTo = (next: number) => {
-    setIndex(((next % SLIDES) + SLIDES) % SLIDES);
-    setResetKey((k) => k + 1); // restart the auto-advance timer
-  };
-
-  return (
-    <div className="relative z-10 overflow-hidden sm:hidden">
-      <motion.div
-        ref={trackRef}
-        className="flex w-full"
-        animate={{ x: `-${index * 100}%` }}
-        transition={{ duration: 0.6, ease: 'easeInOut' }}
-        drag="x"
-        dragConstraints={{ left: -width, right: 0 }}
-        onDragEnd={(_, info) => {
-          if (Math.abs(info.offset.x) > 60) {
-            goTo(info.offset.x < 0 ? index + 1 : index - 1);
-          }
-        }}
-      >
-        <div className="flex w-full shrink-0 items-center justify-center">
-          <Portrait className="w-full max-w-105" />
-        </div>
-        <div className="flex w-full shrink-0 flex-col items-center justify-center gap-6 px-6 text-center">
-          <SoftwareEngineerPill />
-          <Intro />
-        </div>
-      </motion.div>
-    </div>
-  );
-}
-
 export default function HomeHero() {
   return (
-    <PageHero
-      before={<MobileCarousel />}
-      innerClassName="hidden flex-row items-center gap-14 px-6 pt-12 sm:flex"
-    >
-      <motion.div
-        {...fadeUp}
-        transition={{ duration: 0.4, ease: 'easeOut' }}
-        className="relative w-[50dvw]"
-      >
-        <Portrait className="w-full" />
-      </motion.div>
+    <PageHero innerClassName="flex flex-col items-center gap-6 px-6 pt-12 sm:flex-row sm:gap-14 sm:pb-0">
       <motion.p
         {...fadeUp}
         transition={{ delay: 0.32, duration: 0.3 }}
-        className="absolute top-5 right-6 z-10 xl:right-0"
+        className="top-5 right-6 z-10 sm:absolute xl:right-0"
       >
         <SoftwareEngineerPill />
       </motion.p>
       <Intro />
+      <motion.div
+        {...fadeUp}
+        transition={{ duration: 0.4, ease: 'easeOut' }}
+        className="relative w-full max-w-105 sm:order-1 sm:w-[50dvw] sm:max-w-none"
+      >
+        <Portrait className="w-full" />
+      </motion.div>
     </PageHero>
   );
 }
