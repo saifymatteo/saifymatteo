@@ -150,6 +150,7 @@ export default function AppNavigationBar() {
                     </p>
                   </MenubarItem>
                 </Link>
+                <div className="border-secondary-foreground/20 my-2 border-t" />
                 {THEME_CHOICES.map((choice) => {
                   const Icon = THEME_CHOICE_ICON[choice];
                   return (
