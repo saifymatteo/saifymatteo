@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic';
 import { Download, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 
 const ResumeViewer = dynamic(() => import('./resume_viewer'), {
   ssr: false,
@@ -68,55 +69,59 @@ export default function ResumeDialog({ label, value, icon }: ResumeCardProps) {
         className="group flex flex-row items-center justify-between rounded-2xl border border-white px-6 py-4 text-left backdrop-blur-sm transition-colors hover:border-white/50"
       >
         <span className="flex flex-row items-center">
-          <span className="w-20 text-base font-normal text-white">{label}</span>
-          <span className="underline-slide text-xl font-bold text-white">
+          <span className="w-20 shrink-0 text-base font-normal text-white">
+            {label}
+          </span>
+          <span className="underline-slide text-lg font-bold text-white sm:text-xl">
             {value}
           </span>
         </span>
         <span className="button-arrow-slide text-white">{icon}</span>
       </button>
 
-      {open && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm">
-          <div
-            ref={dialogRef}
-            role="dialog"
-            aria-modal="true"
-            aria-label={label}
-            tabIndex={-1}
-            className="bg-primary-background border-primary-foreground flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl border"
-          >
-            <div className="flex items-center justify-between gap-4 border-b px-6 py-4">
-              <span className="text-primary-foreground text-lg font-bold">
-                {label}
-              </span>
-              <div className="flex items-center gap-2">
-                <a
-                  href="/api/resume"
-                  download="Resume.Saiful.Mashuri.pdf"
-                  className="bg-secondary-foreground hover:bg-secondary-foreground/90 text-secondary-background flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-colors"
-                >
-                  <Download size={16} /> Download
-                </a>
-                <button
-                  type="button"
-                  onClick={() => setOpen(false)}
-                  aria-label="Close"
-                  className="text-primary-foreground hover:bg-primary-foreground/10 rounded-lg p-2 transition-colors"
-                >
-                  <X size={20} />
-                </button>
+      {open &&
+        createPortal(
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm">
+            <div
+              ref={dialogRef}
+              role="dialog"
+              aria-modal="true"
+              aria-label={label}
+              tabIndex={-1}
+              className="bg-primary-background border-primary-foreground flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl border"
+            >
+              <div className="flex items-center justify-between gap-4 border-b px-6 py-4">
+                <span className="text-primary-foreground text-lg font-bold">
+                  {label}
+                </span>
+                <div className="flex items-center gap-2">
+                  <a
+                    href="/api/resume"
+                    download="Resume.Saiful.Mashuri.pdf"
+                    className="bg-secondary-foreground hover:bg-secondary-foreground/90 text-secondary-background flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-colors"
+                  >
+                    <Download size={16} /> Download
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => setOpen(false)}
+                    aria-label="Close"
+                    className="text-primary-foreground hover:bg-primary-foreground/10 rounded-lg p-2 transition-colors"
+                  >
+                    <X size={20} />
+                  </button>
+                </div>
+              </div>
+              <div
+                ref={scrollRef}
+                className="h-[70vh] w-full overflow-y-auto overscroll-contain bg-white"
+              >
+                {width > 0 && <ResumeViewer width={width} />}
               </div>
             </div>
-            <div
-              ref={scrollRef}
-              className="h-[70vh] w-full overflow-y-auto overscroll-contain bg-white"
-            >
-              {width > 0 && <ResumeViewer width={width} />}
-            </div>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body
+        )}
     </>
   );
 }
