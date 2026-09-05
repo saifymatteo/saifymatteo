@@ -1,3 +1,4 @@
+import { buttonVariants } from '@/components/button_variants';
 import Link from 'next/link';
 
 export default function AppNotFoundPage() {
@@ -7,10 +8,7 @@ export default function AppNotFoundPage() {
       <p className="text-primary-foreground text-lg">
         The page you&#39;re looking for doesn&#39;t exist.
       </p>
-      <Link
-        href="/"
-        className="bg-blue rounded-full px-6 py-2.5 text-xl font-medium text-white"
-      >
+      <Link href="/" className={buttonVariants({ variant: 'blue' })}>
         Back home
       </Link>
     </section>
