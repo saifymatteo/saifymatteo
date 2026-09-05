@@ -6,7 +6,7 @@ Monorepo with three independent projects under a GitHub profile README root.
 
 | Directory | Tech | Notes |
 |-----------|------|-------|
-| `nextjs/` | Next.js 16 (App Router), Node 22, React 19, Tailwind v4, shadcn/ui, TypeScript | Live portfolio at saifulmashuri.com — complete; bug fixes & performance only |
+| `nextjs/` | Next.js 16 (App Router), Node 24, React 19, Tailwind v4, shadcn/ui, TypeScript | Live portfolio at saifulmashuri.com — complete; bug fixes & performance only |
 | `flutter_web/` | Flutter web (SDK 3.35.7 via puro), Dart 3.9, Provider, auto_route, Cloudflare Workers | Retired portfolio — Worker deleted, domain handed over to nextjs (ADR 0004) |
 | `plain_html/` | Bootstrap 4 + jQuery static site | Legacy, not active |
 
@@ -22,7 +22,7 @@ npm run dev:vinext    # vinext dev on port 3001 (Workers-parity runtime)
 npm run build         # Next production build
 npm run build:vinext  # vinext production build (outputs dist/server/ + wrangler.json)
 npm run start         # serve Next production build
-npm run test          # node --test tests/theme.test.ts tests/contact_submission.test.ts tests/case_study_sections.test.ts
+npm run test          # node --test --experimental-strip-types "tests/*.test.ts" (glob — new files picked up automatically)
 npm run dims          # regenerate image dimension constants (scripts/image-dimensions.mjs)
 npm run format        # prettier . --write
 npm run fix           # prettier . --write && eslint .
