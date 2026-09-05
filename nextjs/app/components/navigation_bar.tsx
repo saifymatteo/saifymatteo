@@ -76,8 +76,8 @@ export default function AppNavigationBar() {
               href={pathProjects}
               className={
                 currentPath == pathProjects
-                  ? 'relative text-lg font-bold after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-current'
-                  : 'relative text-lg font-medium after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'
+                  ? 'underline-slide active relative text-lg font-bold'
+                  : 'underline-slide relative text-lg font-medium'
               }
             >
               Projects
@@ -86,8 +86,8 @@ export default function AppNavigationBar() {
               href={pathContact}
               className={
                 currentPath == pathContact
-                  ? 'relative text-lg font-bold after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-current'
-                  : 'relative text-lg font-medium after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'
+                  ? 'underline-slide active relative text-lg font-bold'
+                  : 'underline-slide relative text-lg font-medium'
               }
             >
               Contact
@@ -123,21 +123,29 @@ export default function AppNavigationBar() {
               </MenubarTrigger>
               <MenubarContent className="bg-primary-background shadow-grey">
                 <Link href={pathProjects}>
-                  <MenubarItem
-                    className={
-                      currentPath == pathProjects ? 'font-bold' : undefined
-                    }
-                  >
-                    <p className="text-xl">Projects</p>
+                  <MenubarItem>
+                    <p
+                      className={
+                        currentPath == pathProjects
+                          ? 'underline-slide active text-xl font-bold'
+                          : 'text-xl'
+                      }
+                    >
+                      Projects
+                    </p>
                   </MenubarItem>
                 </Link>
                 <Link href={pathContact}>
-                  <MenubarItem
-                    className={
-                      currentPath == pathContact ? 'font-bold' : undefined
-                    }
-                  >
-                    <p className="text-xl">Contact</p>
+                  <MenubarItem>
+                    <p
+                      className={
+                        currentPath == pathContact
+                          ? 'underline-slide active text-xl font-bold'
+                          : 'text-xl'
+                      }
+                    >
+                      Contact
+                    </p>
                   </MenubarItem>
                 </Link>
                 {THEME_CHOICES.map((choice) => {

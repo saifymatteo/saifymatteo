@@ -30,8 +30,8 @@
     content: '';
     position: absolute;
     inset-inline: 0;
-    bottom: -0.25rem;
-    height: 0.125rem;
+    bottom: -0.2rem;
+    height: 0.15rem;
     background-color: currentColor;
     transform: scaleX(0);
     transform-origin: left;
