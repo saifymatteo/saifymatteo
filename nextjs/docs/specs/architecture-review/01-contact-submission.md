@@ -27,7 +27,7 @@ A `contact_submission` module owns the Contact Submission: the field schema (nam
 
 ## Frontier to grill (draft — first round)
 
-*(Round 1 asked 2026-09-05 — see Settled for answers; remaining frontier in Round 2)*
+_(Round 1 asked 2026-09-05 — see Settled for answers; remaining frontier in Round 2)_
 
 ## Settled
 

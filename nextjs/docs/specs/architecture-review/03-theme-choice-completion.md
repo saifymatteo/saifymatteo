@@ -5,14 +5,22 @@
 
 ## Friction
 
-`lib/theme.ts` is already a decent deep module for Theme choice *state* — it owns the type, `nextChoice`, `resolveAppliedTheme`, read/apply/subscribe, and the pre-paint boot script, and `tests/theme.test.ts` covers resolution + cycling. But the *choice set itself* is re-declared at the UI leaf, so state logic and UI enumeration can drift.
+`lib/theme.ts` is already a decent deep module for Theme choice _state_ — it owns the type, `nextChoice`, `resolveAppliedTheme`, read/apply/subscribe, and the pre-paint boot script, and `tests/theme.test.ts` covers resolution + cycling. But the _choice set itself_ is re-declared at the UI leaf, so state logic and UI enumeration can drift.
 
 **Evidence:**
 
 - `app/components/navigation_bar.tsx:28-43` — re-declares what the state module should own:
   ```ts
-  const THEME_CHOICE_LABEL: Record<ThemeChoice, string> = { system: 'System', light: 'Light', dark: 'Dark' };
-  const THEME_CHOICE_ICON: Record<ThemeChoice, LucideIcon> = { system: SunMoon, light: Sun, dark: Moon };
+  const THEME_CHOICE_LABEL: Record<ThemeChoice, string> = {
+    system: 'System',
+    light: 'Light',
+    dark: 'Dark',
+  };
+  const THEME_CHOICE_ICON: Record<ThemeChoice, LucideIcon> = {
+    system: SunMoon,
+    light: Sun,
+    dark: Moon,
+  };
   const THEME_CHOICES = ['system', 'light', 'dark'] as const;
   ```
   `THEME_CHOICES` duplicates the union in `lib/theme.ts` by hand; `nextChoice`'s cycle order and this array's order must stay in sync with no mechanism enforcing it.
@@ -33,10 +41,10 @@
 
 ## Frontier to grill (draft — first round)
 
-1. Do labels move into `lib/theme.ts` (and the aria-label string pattern with them), or stay in the menubar? *(recommend labels + ordered set move; aria phrasing stays UI)*
-2. Do icons move? They are `LucideIcon` React references — moving them makes lib/theme.ts UI-coupled. *(recommend icons stay in the menubar, keyed off the exported choice set)*
-3. Should the menubars be derived from the exported set (so a 4th choice shows up in both desktop cycle and mobile menu automatically), and is that wanted for the desktop *cycle* button at all?
-4. Is this worth doing standalone, or folded into whichever candidate touches `navigation_bar.tsx` next? *(recommend standalone — it is small and independently testable)*
+1. Do labels move into `lib/theme.ts` (and the aria-label string pattern with them), or stay in the menubar? _(recommend labels + ordered set move; aria phrasing stays UI)_
+2. Do icons move? They are `LucideIcon` React references — moving them makes lib/theme.ts UI-coupled. _(recommend icons stay in the menubar, keyed off the exported choice set)_
+3. Should the menubars be derived from the exported set (so a 4th choice shows up in both desktop cycle and mobile menu automatically), and is that wanted for the desktop _cycle_ button at all?
+4. Is this worth doing standalone, or folded into whichever candidate touches `navigation_bar.tsx` next? _(recommend standalone — it is small and independently testable)_
 
 ## Settled
 
