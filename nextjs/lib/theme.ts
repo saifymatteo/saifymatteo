@@ -12,6 +12,24 @@ export type AppliedTheme = 'light' | 'dark';
 export const THEME_STORAGE_KEY = 'theme';
 
 /**
+ * The Theme choices, in cycle order (System → Light → Dark). The ordered set
+ * IS the cycle: `nextChoice` wraps through this array, so adding a choice
+ * here extends the cycle and every menu that maps this set at once.
+ */
+export const THEME_CHOICES = [
+  'system',
+  'light',
+  'dark',
+] as const satisfies readonly ThemeChoice[];
+
+/** Human-facing label per choice (mobile menu text, toggle aria-label). */
+export const THEME_CHOICE_LABEL: Record<ThemeChoice, string> = {
+  system: 'System',
+  light: 'Light',
+  dark: 'Dark',
+};
+
+/**
  * Resolves the palette to apply: an explicit stored choice wins over the
  * device preference; with no stored choice the device preference decides.
  */
@@ -23,16 +41,10 @@ export function resolveAppliedTheme(
   return prefersDark ? 'dark' : 'light';
 }
 
-/** The next choice in the cycle System → Light → Dark → System. */
+/** The next choice in the cycle, derived from the THEME_CHOICES order. */
 export function nextChoice(choice: ThemeChoice): ThemeChoice {
-  switch (choice) {
-    case 'system':
-      return 'light';
-    case 'light':
-      return 'dark';
-    case 'dark':
-      return 'system';
-  }
+  const index = THEME_CHOICES.indexOf(choice);
+  return THEME_CHOICES[(index + 1) % THEME_CHOICES.length];
 }
 
 /**

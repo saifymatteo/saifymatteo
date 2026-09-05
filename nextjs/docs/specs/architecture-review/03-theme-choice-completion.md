@@ -1,6 +1,6 @@
 # Finish the Theme choice module
 
-**Status:** Open (queued, priority 3) · **Strength:** Worth exploring · **Dependency category:** in-process
+**Status:** Built (2026-09-05) · **Strength:** Worth exploring · **Dependency category:** in-process
 **Source:** architecture review 2026-09-05
 
 ## Friction
@@ -48,8 +48,16 @@
 
 ## Settled
 
-(nothing yet)
+All decisions recorded above + **ADR-0007** (`docs/adr/0007-theme-choice-set-ownership.md`) + Implementation Decisions updated in `docs/specs/theme-choice.md`. Built as:
+
+- `lib/theme.ts` — exports ordered `THEME_CHOICES` (`as const satisfies readonly ThemeChoice[]`) + `THEME_CHOICE_LABEL`; `nextChoice` = index arithmetic over the set (switch gone)
+- `navigation_bar.tsx` — imports both; keeps `THEME_CHOICE_ICON` (tsc-exhaustive) + aria composition only
+- `tests/theme.test.ts` — +4 coherence tests (set equals union in order, labels complete, cycle walks the array wrapping at both ends, boot script targets the storage key)
+- `package.json` — test script → quoted glob `"tests/*.test.ts"` (new test files picked up automatically; dir mode ruled out — default discovery excludes `.ts`)
 
 ## Log
 
 - 2026-09-05 — queued from architecture review.
+- 2026-09-05 — In design. Fact-check: claims verified against current source (line numbers shifted to 29–43 after this session's toggle fix). Confirmed single UI consumer: `navigation_bar.tsx` is the only file importing the choice set (`layout.tsx` uses only `THEME_BOOT_SCRIPT`). Note: both `THEME_CHOICES` maps (desktop icons line 107, mobile menu line 154) already share the one in-file array — the duplication is between `lib/theme.ts`'s union/`nextChoice` and the menubar's array, plus the aria-label's label dependency.
+- 2026-09-05 — Round 1 settled: q1b, q2b, q3a, q4-yes (+ test-runner glob question answered: hardcoded list → quoted glob; dir mode ruled out by .ts exclusion). Frontier empty.
+- 2026-09-05 — Built. 46/46 tests (+4 coherence), tsc/eslint/next build PASS, live pass: desktop aria cycle (System→Light→Dark→System with module labels), animation containment maxOvershoot 0 (no regression from the toggle fix), mobile menu lists the module's set, Dark/System apply + store + check-mark correctly. Artifacts: ADR-0007 + theme-choice.md update.

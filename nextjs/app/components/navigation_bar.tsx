@@ -25,22 +25,18 @@ import {
   nextChoice,
   readThemeChoice,
   subscribeToThemeChoice,
+  THEME_CHOICE_LABEL,
+  THEME_CHOICES,
   type ThemeChoice,
 } from '@/lib/theme';
 
-const THEME_CHOICE_LABEL: Record<ThemeChoice, string> = {
-  system: 'System',
-  light: 'Light',
-  dark: 'Dark',
-};
-
+// Icons stay here (lib/theme.ts is UI-free): Record over ThemeChoice is
+// exhaustive-checked, so a new choice forces this decision at compile time.
 const THEME_CHOICE_ICON: Record<ThemeChoice, LucideIcon> = {
   system: SunMoon,
   light: Sun,
   dark: Moon,
 };
-
-const THEME_CHOICES = ['system', 'light', 'dark'] as const;
 
 const themeIconClass = (active: boolean) =>
   `transition-all origin-center duration-300 ${

@@ -38,13 +38,13 @@ The Theme follows the visitor's device preference by default (**System** in the 
 - **Pure core** (the single test seam, shape settled during design):
   - `type Choice = 'system' | 'light' | 'dark'`
   - `resolveAppliedTheme(stored: 'light' | 'dark' | undefined, prefersDark: boolean): 'light' | 'dark'`
-  - `nextChoice(choice: Choice): Choice` — cycle System → Light → Dark → System.
+  - `nextChoice(choice: Choice): Choice` — cycle System → Light → Dark → System, derived from the ordered `THEME_CHOICES` set (the set is the cycle order).
 - **Desktop button**: cycles on click; icon mirrors the _current_ choice using Lucide's `SunMoon` (System), `Sun` (Light), `Moon` (Dark) — all confirmed present in the installed icon package. Keeps the existing ring + flip animation; drops the legacy whole-button dark-mode 180° rotation, which belonged to the old show-next convention and would render the new icons upside down.
 - **Mobile menu**: three explicit items — System / Light / Dark — with a check mark on the active one; selecting System deletes the stored key.
 - **Instant device tracking**: the pre-paint boot script attaches a `prefers-color-scheme` change listener that re-applies the resolved theme only while no explicit choice is stored. A plain DOM script in the document head survives client-side navigation, so no React lifecycle is involved.
 - **Boot script**: runs before paint; reads the stored value inside try/catch; falls back to the media query. Toggle writes get the same guard (private-mode safe).
 - **Icon state**: driven by React state in the navigation bar, because the CSS dark variant cannot distinguish "System, resolved light" from "explicit Light". Server render draws the System icon; a post-mount correction follows — worst case a one-frame icon swap. The palette itself is always correct pre-paint.
-- **Module layout**: one shared theme module exports the choice type, the pure core, apply/clear helpers and the boot-script string; both controls consume it. Hand-rolled — `next-themes` explicitly rejected by the owner (deployment issues, stale maintenance).
+- **Module layout**: one shared theme module exports the choice type, the ordered choice set (`THEME_CHOICES`) with its labels (`THEME_CHOICE_LABEL`), the pure core — with `nextChoice` derived from the set's order — plus apply/read/subscribe helpers and the boot-script string; both controls consume it. The menubar keeps only what is inherently UI: the icon mapping (`Record<ThemeChoice, LucideIcon>`, exhaustive-checked by tsc) and presentation copy (the aria sentence). Hand-rolled — `next-themes` explicitly rejected by the owner (deployment issues, stale maintenance). See ADR-0007.
 - Conventional commits with the `[nextjs]` scope.
 
 ## Testing Decisions
