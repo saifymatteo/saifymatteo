@@ -8,7 +8,7 @@
     "start": "next start",
     "format": "prettier . --write",
     "fix": "prettier . --write && eslint .",
-    "test": "node --test --experimental-strip-types tests/theme.test.ts tests/contact_submission.test.ts",
+    "test": "node --test --experimental-strip-types tests/theme.test.ts tests/contact_submission.test.ts tests/case_study_sections.test.ts",
     "dims": "node scripts/image-dimensions.mjs",
     "dev:vinext": "vinext dev --port 3001",
     "build:vinext": "vinext build",

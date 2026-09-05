@@ -1,6 +1,6 @@
-import { Project } from './projects';
+import type { ProjectContent } from './projects';
 
-export const projectSansols: Project = {
+export const projectSansols: ProjectContent = {
   slug: 'sansols',
   title: 'SANSOLS',
   tagline: 'Sarawak & Non-Sarawakian Labour System',
@@ -44,6 +44,7 @@ export const projectSansols: Project = {
     },
     {
       title: 'Preview',
+      kind: 'preview',
       media: [
         {
           label: 'Government Landing',

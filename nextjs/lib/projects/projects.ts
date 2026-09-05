@@ -1,17 +1,18 @@
-import { projectIscWorkflow } from './isc_workflow';
-import { projectMyKampusRadio } from './mykampus_radio';
-import { projectSansols } from './sansols';
+import {
+  toSectionViews,
+  type CaseStudySection,
+  type SectionView,
+} from './case_study.ts';
+import { projectIscWorkflow } from './isc_workflow.ts';
+import { projectMyKampusRadio } from './mykampus_radio.ts';
+import { projectSansols } from './sansols.ts';
 
 export type ProjectStatus = 'COMPLETED' | 'ONGOING' | 'ARCHIVED';
+export type { CaseStudySection };
 
-export interface CaseStudySection {
-  title: string;
-  // Paragraphs or bullet points.
-  body?: string[];
-  // Screenshot captions for the Preview section, with intrinsic dimensions.
-  media?: { label: string; src: string; width: number; height: number }[];
-}
-
+// What a consumer is allowed to know about a project. `caseStudy` is
+// deliberately NOT here — sections are read through `getCaseStudySections`
+// (hard seam; TypeScript rejects any other access).
 export interface Project {
   slug: string;
   // Single title, used on cards and the case-study hero.
@@ -32,14 +33,26 @@ export interface Project {
   logo: string;
   logoDark: string | undefined;
   links: { label: string; href: string }[];
-  caseStudy: CaseStudySection[];
 }
 
-export const projects: Project[] = [
+// What content files supply: a Project plus its raw case-study sections.
+export type ProjectContent = Project & { caseStudy: CaseStudySection[] };
+
+const content: ProjectContent[] = [
   projectSansols,
   projectIscWorkflow,
   projectMyKampusRadio,
 ];
+
+// All projects, in module order. /projects renders everything; the home page
+// features the first three via `getFeaturedProjects`.
+export const projects: Project[] = content;
+
+// Featured Works rule (CONTEXT.md): the first three projects by module order,
+// static max — a 4th project lands on /projects without touching the home page.
+export function getFeaturedProjects(): Project[] {
+  return content.slice(0, 3);
+}
 
 export function getProject(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);
@@ -55,6 +68,13 @@ export function getAdjacentProjects(slug: string): {
     prev: projects[index - 1],
     next: projects[index + 1],
   };
+}
+
+// The only public access to a project's case-study sections: render-ready
+// views with the Section invariants already applied.
+export function getCaseStudySections(project: Project): SectionView[] {
+  const raw = content.find((c) => c.slug === project.slug)?.caseStudy ?? [];
+  return toSectionViews(raw);
 }
 
 export function projectStats() {

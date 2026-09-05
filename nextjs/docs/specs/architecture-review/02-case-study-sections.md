@@ -1,6 +1,6 @@
 # Section invariant behind the content module
 
-**Status:** Open (queued, priority 2) · **Strength:** Worth exploring · **Dependency category:** in-process
+**Status:** Built (2026-09-05) · **Strength:** Worth exploring · **Dependency category:** in-process
 **Source:** architecture review 2026-09-05
 
 ## Friction
@@ -40,10 +40,38 @@ No conflict. ADR-0001 (content as local typed data) and ADR-0003 (TS data over m
 4. Does Featured Works selection (home page index-based picks) belong behind the same module as a query?
 5. Test plan: node tests for contiguous ordinals, media-less Preview exclusion, media-less Preview mid-sequence, single-Section case study.
 
+## Design tree — after Round 1
+
+```
+Case Study Sections (deepening)
+├─ ✅ Module location ────── sibling lib/projects/case_study.ts (pure, mirrors contact_submission.ts)
+├─ ✅ Seam hardness ──────── hard seam: caseStudy off public Project, tsc enforces (shape shown to user)
+├─ ✅ Discriminator ──────── kind field in data; optional with default 'text' (3 Preview lines, zero tax on text sections)
+├─ ✅ Featured rule ──────── featured = first 3 by module order, static max 3; rest go to /projects (4th project coming)
+└─ ✅ Test plan ──────────── tests/case_study_sections.test.ts, mirrors contact_submission.test.ts
+```
+
+### User answers (Round 1)
+
+- **Q1: (b)** — sibling module; "mirrors the pattern".
+- **Q2: (a)** — hard seam; user asked to see the concrete shape; constraint: content changes must stay **1 place** — the existing `lib/projects/` folder, one file per project.
+- **Q3: (a)** — `kind` field; driving fact: **next project may have no images**, so a media-less case study (all text, or no Preview at all) must be representable.
+- **Q4** — featured projects are **static, max 3**, home page only; **all remaining projects go to /projects**; a 4th project will land. Concrete shape proposed: `getFeaturedProjects()` in the module (first 3 by array order) so home page never changes when #4 arrives.
+- **Q5: yes** — mirror the existing test pattern.
+
 ## Settled
 
-(nothing yet)
+All decisions recorded above + **ADR-0006** (`docs/adr/0006-case-study-sections-module.md`) + **spec** (`docs/specs/case-study-sections.md`). Built as:
+
+- `lib/projects/case_study.ts` (new) — `CaseStudySection`/`SectionView`/`SectionKind` types + `toSectionViews()` (the invariants, tested)
+- `lib/projects/projects.ts` — `caseStudy` off public `Project`; internal `ProjectContent`; `getFeaturedProjects()`; `getCaseStudySections()` bridge; **node-test compatibility**: value imports inside `lib/projects/*.ts` need explicit `.ts` extensions (`import type` imports don't)
+- content files ×3 — `: ProjectContent` + `kind: 'preview'` on the Preview section only (text sections untouched)
+- `case_study.tsx` — `getCaseStudySections()` + `kind` dispatch; both `'Preview'` string-matches gone
+- `app/page.tsx` — `getFeaturedProjects()`
+- `tests/case_study_sections.test.ts` (new, 15 tests) + `npm run test` script
 
 ## Log
 
 - 2026-09-05 — queued from architecture review.
+- 2026-09-05 — In design. Fact-check upgrade: the `'Preview'` magic string appears **twice** in `case_study.tsx` — numbering filter (line 71) _and_ render dispatch (`section.title === 'Preview' ? <PreviewSection/> : <article/>`, line ~101). Both the numbering rule and the rendering rule are coupled to the title string. Home page featured picks confirmed as array destructuring (`app/page.tsx:13`).
+- 2026-09-05 — Built. 42/42 tests (15 new), tsc 0 errors, eslint PASS, `next build` PASS, live pages verified identical (3 case studies: contiguous ordinals + marquee; home featured cards unchanged; /projects listing unchanged). Artifacts: ADR-0006 + spec `case-study-sections.md`. CONTEXT.md Featured Works updated with the max-3 rule.

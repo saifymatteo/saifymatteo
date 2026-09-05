@@ -1,6 +1,6 @@
-import type { Project } from './projects';
+import type { ProjectContent } from './projects';
 
-export const projectIscWorkflow: Project = {
+export const projectIscWorkflow: ProjectContent = {
   slug: 'isc-workflow',
   title: 'iSC Workflow',
   tagline: 'iSarawakCare Workflow',
@@ -33,6 +33,7 @@ export const projectIscWorkflow: Project = {
     },
     {
       title: 'Preview',
+      kind: 'preview',
       media: [
         {
           label: 'Admin Landing',

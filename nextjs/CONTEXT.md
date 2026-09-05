@@ -51,7 +51,7 @@ The set of real-world projects the site presents. Currently three: SANSOLS, iSC 
 _Avoid_: Work, gallery
 
 **Featured Works**:
-The curated preview of projects on the home page (one wide card + two narrow cards), distinct from the full **Projects** listing page.
+The curated preview of projects on the home page (one wide card + two narrow cards) — the first three Projects by module order, static max; additional Projects appear only on the full **Projects** listing page.
 _Avoid_: Highlights, showcase
 
 **Project Card**:

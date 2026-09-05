@@ -22,7 +22,7 @@ npm run dev:vinext    # vinext dev on port 3001 (Workers-parity runtime)
 npm run build         # Next production build
 npm run build:vinext  # vinext production build (outputs dist/server/ + wrangler.json)
 npm run start         # serve Next production build
-npm run test          # node --test tests/theme.test.ts tests/contact_submission.test.ts
+npm run test          # node --test tests/theme.test.ts tests/contact_submission.test.ts tests/case_study_sections.test.ts
 npm run dims          # regenerate image dimension constants (scripts/image-dimensions.mjs)
 npm run format        # prettier . --write
 npm run fix           # prettier . --write && eslint .
@@ -85,7 +85,7 @@ flutter build web --wasm -t lib/main.dart --release --csp --base-href=/
 - `lib/projects/*.ts` — typed project content data (ADR 0003); `lib/tech_stack.ts`, `lib/theme.ts` (Theme choice state), `lib/utils.ts` — `cn()` helper
 - `components/` — pill, marquee, reveal (Scroll Reveal), gradient_bar, shader_backdrop (three.js shader gradient); `components/shadcn/` — button, dropdown-menu, menubar (all built on `@base-ui/react`)
 - `app/constants/constants.tsx` — app constants; SEO/PWA: `app/manifest.ts`, `app/robots.ts`, `app/sitemap.ts`
-- Tests: `tests/theme.test.ts` (node:test); `scripts/image-dimensions.mjs` — image dimension constants generator
+- Tests: `tests/theme.test.ts`, `tests/contact_submission.test.ts`, `tests/case_study_sections.test.ts` (node:test); `scripts/image-dimensions.mjs` — image dimension constants generator
 - Domain glossary: `nextjs/CONTEXT.md`; ADRs: `nextjs/docs/adr/` (deployment = Cloudflare Workers via vinext, ADR 0004)
 
 vinext caveats (ADR 0004) relevant to performance work: `next/font/google` loads from the Google CDN at runtime instead of build-time self-hosting; `next/image` renders plain `<img>` + responsive `srcSet` with no optimization/resize (Workers free plan).

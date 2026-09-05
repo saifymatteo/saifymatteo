@@ -1,5 +1,8 @@
 import type { Project } from '@/lib/projects/projects';
-import { getAdjacentProjects } from '@/lib/projects/projects';
+import {
+  getAdjacentProjects,
+  getCaseStudySections,
+} from '@/lib/projects/projects';
 import PreviewSection from '@/app/projects/[slug]/components/case_study_preview';
 import PageHero from '@/app/components/page_hero';
 import Reveal from '@/components/reveal';
@@ -67,11 +70,7 @@ export function CaseStudyHero({ project }: { project: Project }) {
 
 export function CaseStudyBody({ project }: { project: Project }) {
   const { prev, next } = getAdjacentProjects(project.slug);
-  // Drop Preview sections with no media so numbering stays contiguous.
-  const sections = project.caseStudy.filter(
-    (s) =>
-      s.title !== 'Preview' || (s.media !== undefined && s.media.length > 0)
-  );
+  const sections = getCaseStudySections(project);
   const nav = [
     prev && {
       href: `/projects/${prev.slug}`,
@@ -90,11 +89,11 @@ export function CaseStudyBody({ project }: { project: Project }) {
   return (
     <section className="py-16">
       <div className="flex flex-col gap-12">
-        {sections.map((section, i) => {
-          const number = String(i + 1).padStart(2, '0');
+        {sections.map((section) => {
+          const number = section.ordinal;
           return (
             <Reveal key={number}>
-              {section.title === 'Preview' ? (
+              {section.kind === 'preview' ? (
                 <PreviewSection
                   number={number}
                   title={section.title}

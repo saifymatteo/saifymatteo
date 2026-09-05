@@ -6,11 +6,11 @@ import Pill from '@/components/pill';
 import Reveal from '@/components/reveal';
 import ShaderBackdrop from '@/components/shader_backdrop';
 import TechStack from '@/app/components/tech_stack';
-import { projects } from '@/lib/projects/projects';
+import { getFeaturedProjects } from '@/lib/projects/projects';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
-const [sansols, isc, mkr] = projects;
+const [sansols, isc, mkr] = getFeaturedProjects();
 
 export default function Home() {
   return (

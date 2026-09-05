@@ -1,6 +1,6 @@
-import type { Project } from './projects';
+import type { ProjectContent } from './projects';
 
-export const projectMyKampusRadio: Project = {
+export const projectMyKampusRadio: ProjectContent = {
   slug: 'my-kampus-radio',
   title: 'MyKampus Radio',
   tagline: 'MyKampus Radio Unofficial App',
@@ -37,6 +37,7 @@ export const projectMyKampusRadio: Project = {
     },
     {
       title: 'Preview',
+      kind: 'preview',
       media: [
         {
           label: 'Web Home Page',
