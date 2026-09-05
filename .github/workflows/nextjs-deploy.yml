@@ -3,6 +3,7 @@ name: Next.js deploy
 on:
   push:
     tags:
+      - 'dev/nextjs/v*'
       - 'release/nextjs/v*'
 
 concurrency:
@@ -30,7 +31,7 @@ jobs:
       - name: Resolve deploy mode from tag
         id: resolve
         run: |
-          if [[ "$GITHUB_REF_NAME" == *-beta.* ]]; then
+          if [[ "$GITHUB_REF_NAME" == dev/nextjs/* ]]; then
             echo "mode=preview" >> "$GITHUB_OUTPUT"
           else
             echo "mode=promote" >> "$GITHUB_OUTPUT"
@@ -49,7 +50,7 @@ jobs:
         run: npx tsc --noEmit
 
       - name: Unit tests
-        run: node --test --experimental-strip-types tests/theme.test.ts
+        run: npm run test
 
       - name: Build (vinext)
         run: npm run build:vinext

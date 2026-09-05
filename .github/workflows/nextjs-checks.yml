@@ -40,7 +40,7 @@ jobs:
         run: npx tsc --noEmit
 
       - name: Unit tests
-        run: node --test --experimental-strip-types tests/theme.test.ts
+        run: npm run test
 
       - name: Build (vinext)
         run: npm run build:vinext

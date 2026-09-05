@@ -33,10 +33,10 @@ npm run fix           # prettier . --write && eslint .
 Deploys run via GitHub Actions (`nextjs-deploy.yml`) on release tags — never deploy locally, never on push-to-main.
 
 ```bash
-# Stable: build, deploy, promote to 100% of production traffic
+# Live: build, deploy, promote to 100% of production traffic
 git tag release/nextjs/v1.0.0 && git push origin release/nextjs/v1.0.0
-# Prerelease: uploads an unpromoted version, inspectable at its per-version Preview URL
-git tag release/nextjs/v1.0.0-beta.1 && git push origin release/nextjs/v1.0.0-beta.1
+# Dev: uploads an unpromoted version, inspectable at its per-version Preview URL
+git tag dev/nextjs/v1.0.0 && git push origin dev/nextjs/v1.0.0
 ```
 
 - Worker: `saiful-mashuri` (apex + www custom domains). Secrets (`RESEND_API_KEY`, `TURNSTILE_SECRET`) set once via `wrangler secret put`. Rollback: `wrangler rollback` or the Cloudflare deployments list.

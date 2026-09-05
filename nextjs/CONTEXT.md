@@ -129,7 +129,7 @@ A push of the site to a Worker, triggered only by a Release tag; there is no loc
 _Avoid_: Publish, release, upload
 
 **Release tag**:
-The git tag `release/nextjs/v*` that gates Deploys; a stable tag deploys and promotes to 100% of production traffic, a prerelease tag (`-beta.N`) uploads an unpromoted version. It is the source of truth for the deployed version.
+The git tag that gates Deploys: `release/nextjs/v*` deploys and promotes to 100% of production traffic; `dev/nextjs/v*` uploads an unpromoted version. It is the source of truth for the deployed version.
 _Avoid_: Version bump, build tag
 
 **Preview**:
