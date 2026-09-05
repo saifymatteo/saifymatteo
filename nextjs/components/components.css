@@ -26,11 +26,16 @@
 
 @utility underline-slide {
   position: relative;
+  /* The ::after paints 0.2rem below the content; keep that area inside the
+     padding box so overflow-hidden users (e.g. Tailwind's `truncate`) can't
+     clip the line away. Negative margin keeps layout spacing unchanged. */
+  padding-bottom: 0.2rem;
+  margin-bottom: -0.2rem;
   &::after {
     content: '';
     position: absolute;
     inset-inline: 0;
-    bottom: -0.2rem;
+    bottom: 0;
     height: 0.15rem;
     background-color: currentColor;
     transform: scaleX(0);

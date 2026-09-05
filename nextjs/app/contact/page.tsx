@@ -78,13 +78,13 @@ export default function AppContact() {
                   rel={
                     contact.href.startsWith('http') ? 'noreferrer' : undefined
                   }
-                  className="group flex flex-row items-center justify-between rounded-2xl border border-white px-6 py-4 backdrop-blur-sm transition-colors"
+                  className="group flex flex-row items-center justify-between gap-4 rounded-2xl border border-white px-6 py-4 backdrop-blur-sm transition-colors"
                 >
                   <span className="flex min-w-0 flex-row items-center">
-                    <span className="w-20 text-base font-normal text-white">
+                    <span className="w-20 shrink-0 text-base font-normal text-white">
                       {contact.label}
                     </span>
-                    <span className="underline-slide min-w-0 truncate text-xl font-bold text-white">
+                    <span className="underline-slide min-w-0 truncate text-lg font-bold text-white sm:text-xl">
                       {contact.value}
                     </span>
                   </span>

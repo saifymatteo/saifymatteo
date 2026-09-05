@@ -17,7 +17,7 @@ const formatStack = (stack: string[]) =>
 export function CaseStudyHero({ project }: { project: Project }) {
   return (
     <PageHero className="px-6 pt-12 pb-16 sm:pt-16">
-      <div className="flex flex-col items-center gap-8 text-center sm:flex-row sm:items-center sm:gap-14 sm:text-left">
+      <div className="flex flex-col items-center gap-8 text-center sm:items-center sm:gap-14 lg:flex-row lg:text-left">
         <Image
           src={project.logoDark ? project.logoDark : project.logo}
           width={500}
@@ -29,7 +29,7 @@ export function CaseStudyHero({ project }: { project: Project }) {
           <h1 className="text-5xl font-bold text-white">{project.title}</h1>
           <p className="text-[26px] font-bold text-white">{project.tagline}</p>
           <p className="max-w-2xl text-base text-white">{project.summary}</p>
-          <div className="mt-2 flex flex-wrap justify-center gap-4 sm:justify-start">
+          <div className="mt-2 flex flex-wrap justify-center gap-4 lg:justify-start">
             {project.links.map((link) => (
               <Link
                 key={link.label}

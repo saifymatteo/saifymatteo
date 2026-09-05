@@ -58,19 +58,15 @@ function Intro() {
   );
 }
 
-function SoftwareEngineerPill() {
-  return <Pill>Software Engineer</Pill>;
-}
-
 export default function HomeHero() {
   return (
     <PageHero innerClassName="flex flex-col items-center gap-6 px-6 pt-12 sm:flex-row sm:gap-14 sm:pb-0">
       <motion.p
         {...fadeUp}
         transition={{ delay: 0.32, duration: 0.3 }}
-        className="top-5 right-6 z-10 sm:absolute xl:right-0"
+        className="top-8 right-6 z-10 sm:absolute xl:right-0"
       >
-        <SoftwareEngineerPill />
+        <Pill>Software Engineer</Pill>
       </motion.p>
       <Intro />
       <motion.div
