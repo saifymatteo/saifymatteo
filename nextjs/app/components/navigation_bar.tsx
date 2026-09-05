@@ -43,7 +43,7 @@ const THEME_CHOICE_ICON: Record<ThemeChoice, LucideIcon> = {
 const THEME_CHOICES = ['system', 'light', 'dark'] as const;
 
 const themeIconClass = (active: boolean) =>
-  `transition-all duration-300 ${
+  `transition-all origin-center duration-300 ${
     active
       ? 'rotate-y-0 scale-100 opacity-100'
       : 'rotate-y-180 scale-0 opacity-0'
@@ -98,22 +98,24 @@ export default function AppNavigationBar() {
               aria-label={`Theme: ${
                 THEME_CHOICE_LABEL[themeChoice]
               } — switch to ${THEME_CHOICE_LABEL[nextChoice(themeChoice)]}`}
-              className="cursor-pointer transition-transform duration-300 hover:scale-110 active:scale-95"
+              className="relative cursor-pointer transition-transform duration-300 hover:scale-110 active:scale-95"
             >
-              <Circle size={32} className="stroke-1">
-                {THEME_CHOICES.map((choice) => {
-                  const Icon = THEME_CHOICE_ICON[choice];
-                  return (
-                    <Icon
-                      key={choice}
-                      size={16}
-                      x={4}
-                      y={4}
-                      className={themeIconClass(themeChoice === choice)}
-                    />
-                  );
-                })}
-              </Circle>
+              {/* Icons are HTML-positioned siblings of the ring, not nested <svg>
+                  children: CSS transforms on nested SVG elements pivot against
+                  the parent viewBox and can rasterize wrong in Chrome. */}
+              <Circle size={32} className="stroke-1" />
+              {THEME_CHOICES.map((choice) => {
+                const Icon = THEME_CHOICE_ICON[choice];
+                return (
+                  <Icon
+                    key={choice}
+                    size={16}
+                    className={`absolute inset-0 m-auto ${themeIconClass(
+                      themeChoice === choice
+                    )}`}
+                  />
+                );
+              })}
             </button>
           </div>
           <Menubar className="flex flex-row sm:hidden">
