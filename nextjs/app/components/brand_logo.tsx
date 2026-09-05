@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import FadeImage from '@/app/components/fade_image';
 
 export default function BrandLogo({
   className = 'h-10',
@@ -11,7 +11,7 @@ export default function BrandLogo({
 }) {
   return (
     <>
-      <Image
+      <FadeImage
         src="/assets/logo/logo-dark.webp"
         loading={eager ? 'eager' : undefined}
         width={500}
@@ -19,7 +19,7 @@ export default function BrandLogo({
         alt={alt}
         className={`flex w-auto dark:hidden ${className}`}
       />
-      <Image
+      <FadeImage
         src="/assets/logo/logo-light.webp"
         loading={eager ? 'eager' : undefined}
         width={500}

@@ -2,9 +2,9 @@ import type { Project } from '@/lib/projects/projects';
 import { getAdjacentProjects } from '@/lib/projects/projects';
 import PreviewSection from '@/app/projects/[slug]/components/case_study_preview';
 import PageHero from '@/app/components/page_hero';
+import FadeImage from '@/app/components/fade_image';
 import Reveal from '@/components/reveal';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
 
 const Divider = () => (
@@ -18,7 +18,7 @@ export function CaseStudyHero({ project }: { project: Project }) {
   return (
     <PageHero className="px-6 pt-12 pb-16 sm:pt-16">
       <div className="flex flex-col items-center gap-8 text-center sm:items-center sm:gap-14 lg:flex-row lg:text-left">
-        <Image
+        <FadeImage
           src={project.logoDark ? project.logoDark : project.logo}
           width={500}
           height={0}

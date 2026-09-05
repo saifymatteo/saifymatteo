@@ -1,9 +1,9 @@
 'use client';
 
 import PageHero from '@/app/components/page_hero';
+import FadeImage from '@/app/components/fade_image';
 import Pill from '@/components/pill';
 import { motion } from 'motion/react';
-import Image from 'next/image';
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -18,9 +18,9 @@ function Portrait({ className = 'w-full' }: { className?: string }) {
         <p className="pr-[0.2em] pl-[0.2em]">o</p>
         <p>la</p>
       </div>
-      <Image
+      <FadeImage
         src="/assets/saifulmashuri.webp"
-        loading="eager"
+        priority
         width={569}
         height={498}
         alt="Saiful Mashuri portrait"

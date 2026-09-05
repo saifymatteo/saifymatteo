@@ -2,7 +2,7 @@
 
 import type { Project } from '@/lib/projects/projects';
 import { ArrowRight } from 'lucide-react';
-import Image from 'next/image';
+import FadeImage from '@/app/components/fade_image';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -64,7 +64,7 @@ function ProjectLogo({
   const alt = `${project.title} logo`;
   if (project.logoDark === undefined) {
     return (
-      <Image
+      <FadeImage
         src={project.logo}
         width={400}
         height={0}
@@ -75,14 +75,14 @@ function ProjectLogo({
   }
   return (
     <div>
-      <Image
+      <FadeImage
         src={project.logo}
         width={400}
         height={0}
         alt={alt}
         className={`block object-contain dark:hidden ${className}`}
       />
-      <Image
+      <FadeImage
         src={project.logoDark}
         width={400}
         height={0}

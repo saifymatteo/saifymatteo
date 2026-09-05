@@ -4,7 +4,7 @@ import ImageViewer, {
   type ImageViewerMedia,
 } from '@/app/projects/[slug]/components/image_viewer';
 import Marquee from '@/components/marquee';
-import Image from 'next/image';
+import FadeImage from '@/app/components/fade_image';
 import { useState } from 'react';
 
 interface PreviewSectionProps {
@@ -51,7 +51,7 @@ export default function PreviewSection({
               className="cursor-pointer"
             >
               <span className="border-grey block h-64 w-130 overflow-hidden rounded-xl border transition-transform duration-300 hover:scale-[1.02]">
-                <Image
+                <FadeImage
                   src={m.src}
                   width={m.width}
                   height={m.height}
