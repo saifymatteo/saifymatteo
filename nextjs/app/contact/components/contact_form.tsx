@@ -1,6 +1,11 @@
 'use client';
 
 import { buttonVariants } from '@/components/button_variants';
+import {
+  CONTACT_FIELDS,
+  validateSubmission,
+  type ContactFieldName,
+} from '@/lib/contact_submission';
 import { ArrowRight } from 'lucide-react';
 import { useRef, useState } from 'react';
 import { Turnstile, type TurnstileInstance } from '@marsidev/react-turnstile';
@@ -10,6 +15,7 @@ type Status = 'idle' | 'sending' | 'sent' | 'error';
 
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>('idle');
+  const [invalidHint, setInvalidHint] = useState<string | null>(null);
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const turnstileRef = useRef<TurnstileInstance>(null);
 
@@ -24,6 +30,23 @@ export default function ContactForm() {
     e.preventDefault();
     const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(form));
+    setInvalidHint(null);
+
+    // Same rules as the server, enforced before the request: the browser
+    // attributes (required/type/maxLength) catch most mistakes, this catches
+    // the rest (e.g. whitespace-only input).
+    const result = validateSubmission(data);
+    if (!result.ok) {
+      const firstField = Object.keys(CONTACT_FIELDS).find(
+        (field) => result.errors[field as ContactFieldName]
+      ) as ContactFieldName | undefined;
+      setInvalidHint(
+        (firstField && result.errors[firstField]) ||
+          'Please review your message.'
+      );
+      return;
+    }
+
     setStatus('sending');
     try {
       const res = await fetch('/api/send', {
@@ -58,7 +81,8 @@ export default function ContactForm() {
             Name
             <input
               name="name"
-              required
+              required={CONTACT_FIELDS.name.required}
+              maxLength={CONTACT_FIELDS.name.maxLength}
               placeholder="John Doe"
               className={className}
             />
@@ -67,8 +91,9 @@ export default function ContactForm() {
             Email
             <input
               name="email"
-              type="email"
-              required
+              type={CONTACT_FIELDS.email.inputType}
+              required={CONTACT_FIELDS.email.required}
+              maxLength={CONTACT_FIELDS.email.maxLength}
               placeholder="john.doe@example.com"
               className={className}
             />
@@ -78,7 +103,8 @@ export default function ContactForm() {
           Subject
           <input
             name="subject"
-            required
+            required={CONTACT_FIELDS.subject.required}
+            maxLength={CONTACT_FIELDS.subject.maxLength}
             placeholder="Opportunities"
             className={className}
           />
@@ -87,7 +113,8 @@ export default function ContactForm() {
           Message
           <textarea
             name="message"
-            required
+            required={CONTACT_FIELDS.message.required}
+            maxLength={CONTACT_FIELDS.message.maxLength}
             rows={6}
             placeholder="Let&#39;s create something together"
             className={cn(className, 'resize-y')}
@@ -101,6 +128,11 @@ export default function ContactForm() {
           >
             Submit <ArrowRight className="button-arrow-slide size-5" />
           </button>
+          {invalidHint && (
+            <p className="text-sm text-red-500" role="alert">
+              {invalidHint}
+            </p>
+          )}
           {status === 'sent' && (
             <p className="text-blue text-sm">
               Message sent — I&#39;ll get back to you soon!

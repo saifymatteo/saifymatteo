@@ -1,4 +1,5 @@
 import { Resend } from 'resend';
+import { buildEmail, validateSubmission } from '@/lib/contact_submission';
 
 // Constructed lazily so a missing API key fails the request (with a clear log)
 // instead of failing the production build's page-data collection step.
@@ -13,46 +14,6 @@ function getResend(): Resend {
   return cachedResend;
 }
 
-function escapeHtml(value: string): string {
-  return value
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
-}
-
-function coerceField(value: unknown, maxLength: number): string {
-  return typeof value === 'string' ? value.trim().slice(0, maxLength) : '';
-}
-
-function buildHtmlBody(args: {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-}): string {
-  const { name, email, subject, message } = args;
-  return [
-    '<div style="margin:0;padding:32px 16px;background-color:#f7f7f7;font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',Roboto,Helvetica,Arial,sans-serif;">',
-    '  <div style="max-width:560px;margin:0 auto;">',
-    '    <div style="background-color:#ffffff;border:1px solid #e5e5e5;border-radius:12px;padding:32px;">',
-    '      <p style="margin:0 0 8px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#0494df;">Contact Us</p>',
-    `      <h1 style="margin:0 0 24px;font-size:22px;font-weight:700;color:#2e2e2e;">${escapeHtml(subject)}</h1>`,
-    '      <div style="border-top:1px solid #e5e5e5;padding-top:20px;">',
-    '        <p style="margin:0 0 4px;font-size:12px;color:#696969;">Name</p>',
-    `        <p style="margin:0 0 16px;font-size:15px;color:#2e2e2e;">${escapeHtml(name)}</p>`,
-    '        <p style="margin:0 0 4px;font-size:12px;color:#696969;">Email</p>',
-    `        <p style="margin:0 0 16px;font-size:15px;color:#2e2e2e;">${escapeHtml(email)}</p>`,
-    '        <p style="margin:0 0 4px;font-size:12px;color:#696969;">Message</p>',
-    `        <p style="margin:0;font-size:15px;line-height:1.6;color:#2e2e2e;">${escapeHtml(message).replace(/\n/g, '<br/>')}</p>`,
-    '      </div>',
-    '    </div>',
-    '  </div>',
-    '</div>',
-  ].join('\n');
-}
-
 function getExpectedHostnames(): Set<string> {
   const raw = process.env.TURNSTILE_HOSTNAMES ?? '';
   return new Set(
@@ -63,6 +24,8 @@ function getExpectedHostnames(): Set<string> {
   );
 }
 
+// Human Check adapter (Turnstile): proof-of-humanity is verified server-side
+// before a Contact Submission is accepted. See CONTEXT.md.
 async function verifyTurnstile(req: Request, token: string): Promise<boolean> {
   const secret = process.env.TURNSTILE_SECRET;
   if (!secret) {
@@ -116,18 +79,8 @@ export async function POST(req: Request) {
     });
   }
 
-  const name = coerceField(body.name, 100);
-  const email = coerceField(body.email, 254);
-  const subject = coerceField(body.subject, 100);
-  const message = coerceField(body.message, 5000);
-
-  if (!name || !subject || !message) {
-    return new Response(JSON.stringify({ ok: false }), {
-      status: 400,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  const result = validateSubmission(body);
+  if (!result.ok) {
     return new Response(JSON.stringify({ ok: false }), {
       status: 400,
       headers: { 'Content-Type': 'application/json' },
@@ -150,15 +103,10 @@ export async function POST(req: Request) {
     );
   }
 
+  const { submission } = result;
+
   try {
-    await getResend().emails.send({
-      from: 'Saiful Mashuri <hello@saifulmashuri.com>',
-      to: ['work@saifulmashuri.com'],
-      replyTo: email,
-      subject: `Contact Us: ${subject.replace(/[\r\n]+/g, ' ')}`,
-      text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
-      html: buildHtmlBody({ name, email, subject, message }),
-    });
+    await getResend().emails.send(buildEmail(submission));
     return new Response(JSON.stringify({ ok: true }), { status: 200 });
   } catch (err) {
     console.error('send error', err);

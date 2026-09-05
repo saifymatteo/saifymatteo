@@ -22,7 +22,7 @@ npm run dev:vinext    # vinext dev on port 3001 (Workers-parity runtime)
 npm run build         # Next production build
 npm run build:vinext  # vinext production build (outputs dist/server/ + wrangler.json)
 npm run start         # serve Next production build
-npm run test          # node --test tests/theme.test.ts
+npm run test          # node --test tests/theme.test.ts tests/contact_submission.test.ts
 npm run dims          # regenerate image dimension constants (scripts/image-dimensions.mjs)
 npm run format        # prettier . --write
 npm run fix           # prettier . --write && eslint .
