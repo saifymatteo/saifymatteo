@@ -2,12 +2,12 @@
 
 Source: architecture review of 2026-09-05 (deepening opportunities surfaced from commit-history hot spots). Each candidate below has its own file. Work them **one at a time**, in priority order — the order is a recommendation and can be reshuffled at any time.
 
-| #   | File                                                           | Candidate                                   | Strength        | Status                                                                                                   |
-| --- | -------------------------------------------------------------- | ------------------------------------------- | --------------- | -------------------------------------------------------------------------------------------------------- |
-| 1   | [01-contact-submission.md](01-contact-submission.md)           | Contact Submission module                   | Strong          | Spec written ([spec](../contact-submission.md), [ADR-0005](../../adr/0005-contact-submission-module.md)) |
-| 2   | [02-case-study-sections.md](02-case-study-sections.md)         | Section invariant behind the content module | Worth exploring | Built — [ADR-0006](../adr/0006-case-study-sections-module.md) · [spec](../case-study-sections.md)        |
-| 3   | [03-theme-choice-completion.md](03-theme-choice-completion.md) | Finish the Theme choice module              | Worth exploring | Built — [ADR-0007](../adr/0007-theme-choice-set-ownership.md) · spec's Implementation Decisions updated  |
-| 4   | [04-stacking-width-tokens.md](04-stacking-width-tokens.md)     | One place for stacking and width rules      | Speculative     | Open                                                                                                     |
+| #   | File                                                           | Candidate                                   | Strength        | Status                                                                                                      |
+| --- | -------------------------------------------------------------- | ------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------- |
+| 1   | [01-contact-submission.md](01-contact-submission.md)           | Contact Submission module                   | Strong          | Spec written ([spec](../contact-submission.md), [ADR-0005](../../adr/0005-contact-submission-module.md))    |
+| 2   | [02-case-study-sections.md](02-case-study-sections.md)         | Section invariant behind the content module | Worth exploring | Built — [ADR-0006](../adr/0006-case-study-sections-module.md) · [spec](../case-study-sections.md)           |
+| 3   | [03-theme-choice-completion.md](03-theme-choice-completion.md) | Finish the Theme choice module              | Worth exploring | Built — [ADR-0007](../adr/0007-theme-choice-set-ownership.md) · spec's Implementation Decisions updated     |
+| 4   | [04-stacking-width-tokens.md](04-stacking-width-tokens.md)     | One place for stacking and width rules      | Speculative     | Built — [ADR-0008](../adr/0008-stacking-order-named-tokens.md) · width half already solved, rhythm declined |
 
 ## Status values
 

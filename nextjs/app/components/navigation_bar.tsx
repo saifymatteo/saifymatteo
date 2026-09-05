@@ -62,7 +62,7 @@ export default function AppNavigationBar() {
 
   return (
     <>
-      <div className="bg-primary-background sm:shadow-primary-foreground sticky top-0 z-49 flex h-16 items-center sm:shadow">
+      <div className="bg-primary-background sm:shadow-primary-foreground z-nav sticky top-0 flex h-16 items-center sm:shadow">
         <div className="content-max-width shadow-primary-foreground flex flex-row items-center justify-between shadow sm:shadow-none">
           <Link href={pathHome} replace className="ml-2 xl:ml-0">
             <BrandLogo eager alt="Author trademark logo" />

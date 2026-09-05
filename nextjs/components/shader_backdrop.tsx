@@ -48,7 +48,7 @@ export default function ShaderBackdrop() {
   return (
     <div
       ref={wrapRef}
-      className="absolute inset-0 z-0 overflow-hidden"
+      className="z-backdrop absolute inset-0 overflow-hidden"
       aria-hidden
       style={{
         background:

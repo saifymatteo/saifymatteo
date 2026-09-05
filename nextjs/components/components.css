@@ -14,6 +14,26 @@
   @apply mx-auto w-full max-w-220;
 }
 
+/* Stacking contracts, named in one place (ADR-0008):
+   z-content > z-backdrop — content layering above the shader/hero backdrop;
+   z-overlay > z-nav — full-screen overlays (dialog, lightbox) above the sticky nav.
+   Values mirror the historical z-0/z-10/z-49/z-50; change them here, in one place. */
+@utility z-backdrop {
+  z-index: 0;
+}
+
+@utility z-content {
+  z-index: 10;
+}
+
+@utility z-nav {
+  z-index: 49;
+}
+
+@utility z-overlay {
+  z-index: 50;
+}
+
 @utility button-arrow-slide {
   transform: translateX(0);
   transition: transform 300ms;

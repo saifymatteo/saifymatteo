@@ -81,7 +81,7 @@ export default function ResumeDialog({ label, value, icon }: ResumeCardProps) {
 
       {open &&
         createPortal(
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm">
+          <div className="z-overlay fixed inset-0 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm">
             <div
               ref={dialogRef}
               role="dialog"

@@ -67,7 +67,7 @@ export default function ImageViewer({
       aria-modal="true"
       aria-label={media[index].label}
       tabIndex={-1}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+      className="z-overlay fixed inset-0 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}

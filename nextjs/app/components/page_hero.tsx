@@ -13,7 +13,7 @@ export default function PageHero({
   return (
     <section className={`gradient-surface ${className}`}>
       <ShaderBackdrop />
-      <div className={`content-max-width relative z-10 ${innerClassName}`}>
+      <div className={`content-max-width z-content relative ${innerClassName}`}>
         {children}
       </div>
     </section>
