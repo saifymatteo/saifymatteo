@@ -6,8 +6,8 @@ Monorepo with three independent projects under a GitHub profile README root.
 
 | Directory | Tech | Notes |
 |-----------|------|-------|
-| `nextjs/` | Next.js 16 (App Router), Node 22, React 19, Tailwind v4, shadcn/ui, TypeScript | New portfolio WIP |
-| `flutter_web/` | Flutter web (SDK 3.35.7 via puro), Dart 3.9, Provider, auto_route, Cloudflare Workers | Published portfolio site |
+| `nextjs/` | Next.js 16 (App Router), Node 22, React 19, Tailwind v4, shadcn/ui, TypeScript | Live portfolio at saifulmashuri.com — complete; bug fixes & performance only |
+| `flutter_web/` | Flutter web (SDK 3.35.7 via puro), Dart 3.9, Provider, auto_route, Cloudflare Workers | Retired portfolio — Worker deleted, domain handed over to nextjs (ADR 0004) |
 | `plain_html/` | Bootstrap 4 + jQuery static site | Legacy, not active |
 
 Root is the GitHub profile README; never edit code there.
@@ -17,12 +17,30 @@ Root is the GitHub profile README; never edit code there.
 ### nextjs
 
 ```bash
-npm run dev       # dev server on port 5173 (not 3000)
-npm run build     # production build
-npm run start     # serve production build
-npm run format    # prettier . --write
-npm run fix       # prettier . --write && eslint .
+npm run dev           # Next dev server on port 5173 (not 3000)
+npm run dev:vinext    # vinext dev on port 3001 (Workers-parity runtime)
+npm run build         # Next production build
+npm run build:vinext  # vinext production build (outputs dist/server/ + wrangler.json)
+npm run start         # serve Next production build
+npm run test          # node --test tests/theme.test.ts
+npm run dims          # regenerate image dimension constants (scripts/image-dimensions.mjs)
+npm run format        # prettier . --write
+npm run fix           # prettier . --write && eslint .
 ```
+
+### Deploy nextjs (CI-only, tag-gated)
+
+Deploys run via GitHub Actions (`nextjs-deploy.yml`) on release tags — never deploy locally, never on push-to-main.
+
+```bash
+# Stable: build, deploy, promote to 100% of production traffic
+git tag release/nextjs/v1.0.0 && git push origin release/nextjs/v1.0.0
+# Prerelease: uploads an unpromoted version, inspectable at its per-version Preview URL
+git tag release/nextjs/v1.0.0-beta.1 && git push origin release/nextjs/v1.0.0-beta.1
+```
+
+- Worker: `saiful-mashuri` (apex + www custom domains). Secrets (`RESEND_API_KEY`, `TURNSTILE_SECRET`) set once via `wrangler secret put`. Rollback: `wrangler rollback` or the Cloudflare deployments list.
+- Before tagging: `npm run build:vinext` and `vinext check` locally.
 
 ### flutter_web
 
@@ -53,6 +71,24 @@ flutter build web --wasm -t lib/main.dart --release --csp --base-href=/
 - `flutter_web/lib/localization/app_localizations_en.dart` — flutter localizations from arb
 - `flutter_web/lib/constants/assets.gen.dart` — flutter_gen
 - `nextjs/.next/` — Next.js build output
+- `nextjs/dist/` — vinext build output (server bundle + generated wrangler.json)
+
+## Next.js architecture (complete — bug fixes & performance only)
+
+- `app/layout.tsx` — root layout: Fira Sans / Fira Code / Cookie via `next/font/google`, inline `THEME_BOOT_SCRIPT` (`lib/theme.ts`) to prevent theme flash, `MotionProvider` + nav + footer shell
+- `app/globals.css` — Tailwind v4 (`@theme inline` tokens, tw-animate-css, shadcn base), light/dark tokens keyed off `[data-theme]`
+- Pages: `app/page.tsx` (home), `app/projects/page.tsx` (all projects), `app/projects/[slug]/page.tsx` (case study), `app/contact/page.tsx`, `app/not-found.tsx`; `app/template.tsx` adds the page-mount fade
+- `app/components/` — navigation_bar (shadcn menubar), footer, home_hero, page_hero, project_card, tech_stack, brand_logo, motion_provider
+- `app/contact/components/` — contact_form (Turnstile human check), resume_dialog/resume_viewer (react-pdf)
+- `app/projects/[slug]/components/` — case_study, case_study_preview (marquee media), image_viewer (lightbox)
+- `app/api/send/route.ts` — contact email via Resend (client constructed lazily); `app/api/resume/route.ts` — resume PDF proxy
+- `lib/projects/*.ts` — typed project content data (ADR 0003); `lib/tech_stack.ts`, `lib/theme.ts` (Theme choice state), `lib/utils.ts` — `cn()` helper
+- `components/` — pill, marquee, reveal (Scroll Reveal), gradient_bar, shader_backdrop (three.js shader gradient); `components/shadcn/` — button, dropdown-menu, menubar (all built on `@base-ui/react`)
+- `app/constants/constants.tsx` — app constants; SEO/PWA: `app/manifest.ts`, `app/robots.ts`, `app/sitemap.ts`
+- Tests: `tests/theme.test.ts` (node:test); `scripts/image-dimensions.mjs` — image dimension constants generator
+- Domain glossary: `nextjs/CONTEXT.md`; ADRs: `nextjs/docs/adr/` (deployment = Cloudflare Workers via vinext, ADR 0004)
+
+vinext caveats (ADR 0004) relevant to performance work: `next/font/google` loads from the Google CDN at runtime instead of build-time self-hosting; `next/image` renders plain `<img>` + responsive `srcSet` with no optimization/resize (Workers free plan).
 
 ## Flutter_web architecture
 
@@ -64,16 +100,6 @@ flutter build web --wasm -t lib/main.dart --release --csp --base-href=/
 - `lib/pages/` — `home/`, `portfolio/`, `components/` (shared widgets)
 - `lib/vm/` — platform detection (`C.isMobile` etc.)
 - Tests: `test/unit_test.dart`, `test/widget_test.dart`
-
-## Next.js architecture (WIP — incomplete)
-
-- `app/layout.tsx` — root layout with Inter, Fira Code, Cookie fonts
-- `app/page.tsx` — home page with `AppNavigationBar` (uses `@base-ui/react` menubar, not shadcn)
-- `app/projects/[slug]/` — dynamic project detail pages
-- `app/contact/` — contact page with form; `app/api/send/route.ts` — Resend email API
-- `app/constants/constants.tsx` — app constants; `app/robots.ts`, `app/sitemap.ts`, `app/not-found.tsx`
-- `components/navigation_bar.tsx` — nav bar; `components/shadcn/` — button, dropdown-menu, menubar
-- `lib/utils.ts` — `cn()` helper (clsx + tailwind-merge)
 
 ## Agent skills
 
