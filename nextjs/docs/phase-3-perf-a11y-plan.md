@@ -1,6 +1,7 @@
 # Phase 3 — Performance & Accessibility batch (post-Phase-2 pickup)
 
-Status: **ACTIVE — in execution**. Renamed from "Phase 1.5" (user decision, 2026-09-06): Phase 2 shipped first, so the perf batch is simply Phase 3.
+Status: **SHIPPED** (2026-09-06). Renamed from "Phase 1.5" (user decision,
+2026-09-06): Phase 2 shipped first, so the perf batch is simply Phase 3.
 Origin: Lighthouse reports (`reports/saifulmashuri.com-20260906T221655.json` desktop,
 `...221747.json` mobile) + grill round. Desktop 73 / mobile 42 as measured.
 
@@ -21,6 +22,29 @@ Real scores are meaningfully higher. **Protocol (ratified, Q4): one PageSpeed
 Insights run after this batch is the only measurement that matters** (CrUX
 field data will not exist for this domain). Watch TBT and LCP, not the score —
 the score is a diagnostic, not a KPI.
+
+## Shipped (what actually landed)
+
+- **P1:** `images.unoptimized: true` (next.config.ts) — zero `/_next/image`
+  requests in built HTML; portrait renders direct `fetchPriority="high"` +
+  `loading="eager"`. vinext drops next/image's auto-preload for priority
+  images, so the Portrait hand-hoists `<link rel=preload as=image
+fetchPriority=high>` (React 19 lifts it into `<head>`; verified exactly
+  one link on the vinext runtime, `vinext start`).
+- **P2:** frozen-frame pause shipped in `components/shader_backdrop_canvas.tsx`
+  (IntersectionObserver + `preserveDrawingBuffer` snapshot + phase machine
+  live/frozen/waking/fading; blank-snapshot guard falls back to the CSS
+  gradient). `shader_backdrop.tsx` is now a `next/dynamic { ssr: false }`
+  wrapper: the three.js chunk (`shader_backdrop_canvas-*.js`, ~1.07MB) is a
+  lazy async chunk — verified absent from initial HTML scripts.
+- **P3:** both fixes landed with Phase 2 (pill token contrast; nav
+  `aria-label="Menu"`).
+- **Piggybacks:** weight ladder shipped in Phase 2; ADR-0004 amended.
+- **Resume dialog** (post-plan addition): Document-level loading spinner
+  (`aria-live`) + error state pointing at the Download button — the dialog
+  was blank for the whole 5s+ fetch.
+
+Remaining: the single PSI run (protocol above) after deploy.
 
 ## 1. The three real problems
 

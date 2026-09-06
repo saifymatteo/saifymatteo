@@ -13,6 +13,14 @@ const fadeUp = {
 function Portrait({ className = 'w-full' }: { className?: string }) {
   return (
     <div className={`@container relative ${className}`}>
+      {/* vinext skips next/image's auto-preload for priority images — hand
+          hoist it (React 19 lifts rel=preload links into <head>). */}
+      <link
+        rel="preload"
+        as="image"
+        href="/assets/saifulmashuri.webp"
+        fetchPriority="high"
+      />
       {/* Script accent "Hola": wrapper declares the measured display size;
           letter fragments are spans — bare <p> would inherit the text-body
           base role and shrink the word (see design/DESIGN.md). */}
@@ -23,7 +31,10 @@ function Portrait({ className = 'w-full' }: { className?: string }) {
       </div>
       <Image
         src="/assets/saifulmashuri.webp"
-        loading="eager"
+        // LCP element: high priority, no lazy default, preloaded in head
+        // (Phase 3 — lcp-discovery fix).
+        priority
+        fetchPriority="high"
         width={569}
         height={498}
         alt="Saiful Mashuri portrait"
