@@ -86,6 +86,7 @@ flutter build web --wasm -t lib/main.dart --release --csp --base-href=/
 - `components/` — pill, marquee, reveal (Scroll Reveal), gradient_bar, shader_backdrop (three.js shader gradient); `components/shadcn/` — button, dropdown-menu, menubar (all built on `@base-ui/react`)
 - `app/constants/constants.tsx` — app constants; SEO/PWA: `app/manifest.ts`, `app/robots.ts`, `app/sitemap.ts`
 - Tests: `tests/theme.test.ts`, `tests/contact_submission.test.ts`, `tests/case_study_sections.test.ts` (node:test); `scripts/image-dimensions.mjs` — image dimension constants generator
+- **`next build` and `npm run build:vinext` both write `.next/`** — interleaving them leaves mismatched generated route types that break `npx tsc --noEmit` (`.next/types/validator.ts` AppRoutes errors). `rm -rf .next` before type-checking whenever the two builds interleave.
 - Domain glossary: `nextjs/CONTEXT.md`; ADRs: `nextjs/docs/adr/` (deployment = Cloudflare Workers via vinext, ADR 0004)
 
 vinext caveats (ADR 0004) relevant to performance work: `next/font/google` self-hosts fonts at build time under `/_next/static/_vinext_fonts/` (the earlier "Google CDN at runtime" caveat was disproven by production network logs — the remaining font cost is weight count, now trimmed to the declared ladder); `next/image` renders plain `<img>` + responsive `srcSet` where the optimizer route is a 302 pass-through to the original file (no resize on Workers free plan — see `nextjs/docs/phase-1.5-perf-a11y-plan.md`).
