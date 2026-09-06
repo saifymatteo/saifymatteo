@@ -1,5 +1,12 @@
 # Portfolio Site — Visual Spec (from `nextjs/design/` SVG exports)
 
+> **Historical record (superseded by `design/DESIGN.md`).** This document
+> extracts the exact values from the 22 Figma SVG exports at the time of the
+> original build. It is kept as the design's archaeological record — the
+> single source of truth for visual decisions is now `design/DESIGN.md`
+> (ADR-0009). Where this spec and DESIGN.md disagree (e.g. ink `#2e2e2e` vs
+> `#1a1a1a`, the "Hla" typo), DESIGN.md wins.
+
 > Extracted directly from the 22 Figma SVG exports (6 page files + 16 component files, `light/` + `dark/`). Values below are **exact** — text strings, font-family/weight/size, fill colors, and x/y coordinates read from the SVG XML. All coordinates are from each file's own `viewBox` (1920-wide artboards).
 
 ---

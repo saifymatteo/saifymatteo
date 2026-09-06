@@ -1,3 +1,9 @@
+/* Gradient tokens (ADR-0009): the brand gradient is a SURFACE role —
+   gradient-surface fills full-bleed brand bands (hero, project sections,
+   contact card) and gradient-bar is THE one sanctioned divider element of
+   the system (our equivalent of Apple's single product shadow: exactly one
+   signature, used deliberately, never ad hoc). Quiet separators inside a
+   surface use hairlines (`border-hairline`) instead. */
 @utility gradient-bar {
   @apply from-blue to-blue-light w-full bg-linear-to-r;
 }

@@ -118,6 +118,47 @@ _Avoid_: Route animation
 Honoring `prefers-reduced-motion`: motion-library animations (Scroll Reveal, Entrance Animation, Page Transition, Micro-interactions) are disabled while opacity fades remain; the CSS marquee and Tech Stack Ticker deliberately keep scrolling.
 _Avoid_: Accessibility mode
 
+## Design System
+
+**Canvas**:
+The page background surface a Theme provides; all content sits on it.
+_Avoid_: background, page background, base color
+
+**Parchment**:
+The alternate surface used beside the Canvas to separate sections without
+borders or shadows.
+_Avoid_: off-white, secondary background, tint
+
+**Tile**:
+A full-bleed, section-sized surface that stacks edge-to-edge; the change
+from one Tile to the next is itself the section break.
+_Avoid_: section, slab, block
+
+**Brand Band**:
+The full-bleed gradient-filled Tile that carries the hero and featured
+sections.
+_Avoid_: gradient section, hero background, banner
+
+**Gradient Bar**:
+The thin gradient strip marking a section boundary; the system's single
+sanctioned divider element.
+_Avoid_: accent bar, divider line, separator
+
+**Accent**:
+The single brand interactive color carried by every link, pill and focus
+signal; the only "click me" signal on the site.
+_Avoid_: brand blue, primary color, link blue
+
+**Ink**:
+The primary text color on Canvas and Parchment; its muted variant carries
+secondary copy and status labels.
+_Avoid_: text color, foreground, grey
+
+**Hairline**:
+The quiet 1px border used on cards and as the quiet separator inside a
+surface.
+_Avoid_: border, divider, outline
+
 ## Deployment
 
 **Worker**:
