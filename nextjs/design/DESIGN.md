@@ -326,7 +326,7 @@ position (ADR-0006), titles `text-heading`, body `text-body`,
 4. Surface alternation beats added chrome when emphasis is unclear.
 5. Phase 2 compliance is shipped (ADR-0009's consequences record the
    migration). The perf/a11y follow-up lives in
-   `docs/phase-1.5-perf-a11y-plan.md`.
+   `docs/phase-3-perf-a11y-plan.md`.
 
 ## Known gaps
 

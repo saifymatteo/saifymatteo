@@ -1,6 +1,6 @@
-# Phase 1.5 — Performance & Accessibility batch (post-Phase-2 pickup)
+# Phase 3 — Performance & Accessibility batch (post-Phase-2 pickup)
 
-Status: **PLANNED — execute after Phase 2** (user decision, 2026-09-06).
+Status: **ACTIVE — in execution**. Renamed from "Phase 1.5" (user decision, 2026-09-06): Phase 2 shipped first, so the perf batch is simply Phase 3.
 Origin: Lighthouse reports (`reports/saifulmashuri.com-20260906T221655.json` desktop,
 `...221747.json` mobile) + grill round. Desktop 73 / mobile 42 as measured.
 
