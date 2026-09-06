@@ -333,8 +333,10 @@ position (ADR-0006), titles `text-heading`, body `text-body`,
   do not "fix" by defining the token.
 - Form validation/error visuals: `destructive` token exists; field-level
   error styling undocumented until needed (matches SPEC's gap).
-- Cookie script sizes are container-relative (`40cqw`) — not tokenized;
-  acceptable while the hero is the only consumer.
+- Cookie script sizes are container-relative (`44cqw` on the hero "Hola",
+  `text-5xl` on "I'm") — not tokenized; acceptable while the hero is the
+  only consumer. The "Hola" letter fragments are spans: bare `<p>` would
+  inherit the `text-body` base role and collapse the script word.
 - Phase 2 migrations pending: 29 `text-white`, 18 `font-medium`, radius
   outliers (`3xl`, `4xl`, `[20px]`), 4 chrome shadows, legacy
   `primary-*`/`secondary-*` aliases.

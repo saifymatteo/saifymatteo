@@ -13,10 +13,13 @@ const fadeUp = {
 function Portrait({ className = 'w-full' }: { className?: string }) {
   return (
     <div className={`@container relative ${className}`}>
-      <div className="font-cursive absolute top-[8%] left-[8%] z-0 flex flex-row text-[40cqw] leading-none text-white select-none">
-        <p>H</p>
-        <p className="pr-[0.2em] pl-[0.2em]">o</p>
-        <p>la</p>
+      {/* Script accent "Hola": wrapper declares the measured display size;
+          letter fragments are spans — bare <p> would inherit the text-body
+          base role and shrink the word (see design/DESIGN.md). */}
+      <div className="font-cursive absolute top-[8%] left-[8%] z-0 flex flex-row text-[44cqw] leading-none text-white select-none">
+        <span>H</span>
+        <span className="pr-[0.2em] pl-[0.2em]">o</span>
+        <span>la</span>
       </div>
       <Image
         src="/assets/saifulmashuri.webp"
