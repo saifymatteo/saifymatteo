@@ -23,7 +23,7 @@ export default function Home() {
       <PageHero className="px-6 py-20">
         <Reveal>
           <div className="flex flex-col items-center justify-between space-y-6 sm:flex-row">
-            <h2 className="text-5xl font-bold text-white">Projects</h2>
+            <h2 className="text-on-dark text-5xl font-bold">Projects</h2>
             <Pill>Featured Works</Pill>
           </div>
         </Reveal>
@@ -44,7 +44,7 @@ export default function Home() {
           <div className="text-center">
             <Link
               href="/projects"
-              className="text-secondary-foreground bg-secondary-background group inline-flex items-center gap-2 rounded-full px-7 py-3 text-xl font-medium shadow-md transition-all duration-300 hover:-translate-y-1"
+              className="text-accent bg-parchment group inline-flex items-center gap-2 rounded-full px-7 py-3 text-xl font-semibold transition-all duration-300 hover:-translate-y-1"
             >
               View All Projects{' '}
               <ArrowRight className="button-arrow-slide size-5" />
@@ -57,17 +57,17 @@ export default function Home() {
       <section className="pb-24">
         <GradientBar />
         <Reveal className="content-max-width-slim px-6 lg:px-0">
-          <div className="gradient-surface mx-auto mt-14 flex w-full max-w-3xl flex-col items-center gap-6 rounded-[20px] px-8 py-12 text-center shadow-lg">
+          <div className="gradient-surface shadow-card mx-auto mt-14 flex w-full max-w-3xl flex-col items-center gap-6 rounded-2xl px-8 py-12 text-center">
             <ShaderBackdrop />
             <div className="z-content relative flex flex-col items-center gap-6">
-              <h2 className="text-5xl font-bold text-white">Interested?</h2>
-              <p className="max-w-xl text-base text-white">
+              <h2 className="text-on-dark text-5xl font-bold">Interested?</h2>
+              <p className="text-on-dark max-w-xl text-base">
                 I&#39;m excited to start a new project with you! For business
                 inquiries, please contact me.
               </p>
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 rounded-full border-2 border-white px-6 py-2.5 text-xl font-medium text-white transition-all duration-300 hover:bg-white/20 active:scale-95"
+                className="group border-on-dark text-on-dark hover:bg-on-dark/20 inline-flex items-center gap-2 rounded-full border-2 px-6 py-2.5 text-xl font-semibold transition-all duration-300 active:scale-95"
               >
                 Get in touch{' '}
                 <ArrowRight className="button-arrow-slide size-5" />

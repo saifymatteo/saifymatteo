@@ -12,13 +12,11 @@
  *   1. Semantic roles (`:root` / `[data-theme='dark']` below, surfaced through
  *      `@theme inline` as `bg-ink`, `text-accent`, `border-hairline`, …).
  *      Components may ONLY use semantic roles.
- *   2. Raw palette (`--color-blue`, `--color-blue-light`, `--color-grey`,
- *      `--color-white`) — shader internals, gradient stops, and the not-yet-
- *      migrated legacy consumers only; never in new component work.
+ *   2. Raw palette (`--color-blue`, `--color-blue-light`) — shader internals
+ *      and gradient stops only; never in component work.
  *
- * Legacy aliases (`primary-*`, `secondary-*`) are the pre-system names kept
- * as a migration scaffold (ADR-0009): they point at the semantic tokens so
- * old and new names render identically. Phase 2 removes them.
+ * Legacy aliases (`primary-*`, `secondary-*`) were removed in Phase 2
+ * (ADR-0009): every consumer now uses the semantic names directly.
  */
 @theme inline {
   --font-sans: var(--font-fira-sans);
@@ -32,6 +30,9 @@
   --color-ink-muted: var(--ink-muted);
   --color-accent: var(--accent);
   --color-on-accent: var(--on-accent);
+  /* Text on the theme-invariant Brand Band / shader surfaces (white in both
+     themes — the gradient palette doesn't change with the Theme choice). */
+  --color-on-dark: var(--on-dark);
   --color-hairline: var(--hairline);
 
   /* shadcn bridge: the primitives' token vocabulary, mapped onto our roles.
@@ -51,15 +52,7 @@
   --color-secondary: var(--parchment);
   --color-destructive: var(--destructive);
 
-  /* --- Legacy aliases (Phase 2 removes; do not use in new code) --- */
-  --color-primary-foreground: var(--ink);
-  --color-primary-background: var(--canvas);
-  --color-secondary-foreground: var(--accent);
-  --color-secondary-background: var(--canvas);
-
   /* --- Raw palette (shader internals, gradient stops only) --- */
-  --color-grey: #2e2e2e;
-  --color-white: #ffffff;
   --color-blue: #0494df;
   --color-blue-light: #8dd9ff;
 
@@ -77,9 +70,10 @@
     }
   }
 
-  /* Radius scale values are legacy; the GRAMMAR (which role uses which stop)
-     lives in design/DESIGN.md: pill (actions/chips) · card (`rounded-2xl`) ·
-     inner (`rounded-xl`) · none (full-bleed). Phase 2 prunes unused stops. */
+  /* Radius scale values: the GRAMMAR (which role uses which stop) lives in
+     design/DESIGN.md — pill (actions/chips: rounded-full) · card
+     (rounded-2xl) · inner (rounded-xl) · none (full-bleed). Phase 2 pruned
+     all 3xl/4xl/[20px] usages; the unused scale stops below are inert. */
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -118,6 +112,7 @@
   --ink-muted: #2e2e2e;
   --accent: #0494df;
   --on-accent: #ffffff;
+  --on-dark: #ffffff;
   --hairline: rgba(0, 0, 0, 0.08);
   --destructive: #dc2626;
   --radius: 0.625rem;
@@ -132,6 +127,7 @@
   --ink-muted: #cccccc;
   --accent: #8dd9ff;
   --on-accent: #1a1a1a;
+  --on-dark: #ffffff;
   --hairline: rgba(255, 255, 255, 0.14);
   --destructive: #f87171;
   color-scheme: dark;
@@ -139,7 +135,7 @@
 
 @layer base {
   body {
-    @apply bg-primary-background text-primary-foreground;
+    @apply bg-canvas text-ink;
   }
   html {
     @apply font-sans;

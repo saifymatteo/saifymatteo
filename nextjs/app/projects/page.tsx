@@ -22,10 +22,10 @@ export default function AppProjectsPage() {
   return (
     <>
       <PageHero className="px-6 pt-14 pb-10">
-        <h1 className="text-5xl font-bold text-white">
+        <h1 className="text-on-dark text-5xl font-bold">
           All Projects I&#39;ve Worked
         </h1>
-        <p className="mt-3 max-w-3xl text-xl text-white">
+        <p className="text-on-dark mt-3 max-w-3xl text-xl">
           These are the projects that I can talk about, what were the problems,
           the trade-offs and the result
         </p>
@@ -34,10 +34,10 @@ export default function AppProjectsPage() {
             {statsRow.map((stat) => (
               <div
                 key={stat.label}
-                className="flex flex-col gap-1 rounded-xl border border-white px-4 py-3 backdrop-blur-sm"
+                className="border-on-dark flex flex-col gap-1 rounded-xl border px-4 py-3 backdrop-blur-sm"
               >
-                <span className="text-sm text-white">{stat.label}</span>
-                <span className="text-2xl font-bold text-white">
+                <span className="text-on-dark text-sm">{stat.label}</span>
+                <span className="text-on-dark text-2xl font-bold">
                   {stat.value}
                 </span>
               </div>

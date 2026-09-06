@@ -11,7 +11,7 @@ export default function TechStack() {
         {items.map((item, i) => (
           <span
             key={i}
-            className="text-primary-foreground px-5 py-4 text-2xl font-medium whitespace-nowrap"
+            className="text-ink px-5 py-4 text-2xl font-semibold whitespace-nowrap"
           >
             {item}
           </span>

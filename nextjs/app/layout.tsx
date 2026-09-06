@@ -7,7 +7,9 @@ import { Fira_Sans, Fira_Code, Cookie } from 'next/font/google';
 import './globals.css';
 
 const firaSans = Fira_Sans({
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  // The declared weight ladder (DESIGN.md): 300 light / 400 regular /
+  // 600 semibold / 700 bold — no 500 (deliberately omitted, Apple-style).
+  weight: ['300', '400', '600', '700'],
   subsets: ['latin'],
   variable: '--font-fira-sans',
 });

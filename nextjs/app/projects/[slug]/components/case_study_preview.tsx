@@ -29,12 +29,8 @@ export default function PreviewSection({
     <div>
       <div className="content-max-width-slim px-6">
         <h2 className="flex items-center gap-3">
-          <span className="text-primary-foreground text-sm font-light">
-            {number}
-          </span>
-          <span className="text-primary-foreground text-3xl font-bold">
-            {title}
-          </span>
+          <span className="text-ink text-sm font-light">{number}</span>
+          <span className="text-ink text-3xl font-bold">{title}</span>
         </h2>
       </div>
       <div className="overflow-hidden py-2">
@@ -60,7 +56,7 @@ export default function PreviewSection({
                 />
               </span>
               <span className="block">
-                <p className="text-primary-foreground/50 mt-2 truncate text-sm italic">
+                <p className="text-ink/50 mt-2 truncate text-sm italic">
                   {m.label}
                 </p>
               </span>

@@ -62,8 +62,10 @@ export default function AppNavigationBar() {
 
   return (
     <>
-      <div className="bg-primary-background sm:shadow-primary-foreground z-nav sticky top-0 flex h-16 items-center sm:shadow">
-        <div className="content-max-width shadow-primary-foreground flex flex-row items-center justify-between shadow sm:shadow-none">
+      {/* Phase 2 (ADR-0009): nav chrome is flat — the hairline bottom is the
+          only separation; the shadow ladder is gone. */}
+      <div className="bg-canvas border-hairline z-nav sticky top-0 flex h-16 items-center border-b">
+        <div className="content-max-width flex flex-row items-center justify-between">
           <Link href={pathHome} replace className="ml-2 xl:ml-0">
             <BrandLogo eager alt="Author trademark logo" />
           </Link>
@@ -73,7 +75,7 @@ export default function AppNavigationBar() {
               className={
                 currentPath == pathProjects
                   ? 'underline-slide active relative text-lg font-bold'
-                  : 'underline-slide relative text-lg font-medium'
+                  : 'underline-slide relative text-lg font-semibold'
               }
             >
               Projects
@@ -83,7 +85,7 @@ export default function AppNavigationBar() {
               className={
                 currentPath == pathContact
                   ? 'underline-slide active relative text-lg font-bold'
-                  : 'underline-slide relative text-lg font-medium'
+                  : 'underline-slide relative text-lg font-semibold'
               }
             >
               Contact
@@ -116,10 +118,10 @@ export default function AppNavigationBar() {
           </div>
           <Menubar className="flex flex-row sm:hidden">
             <MenubarMenu>
-              <MenubarTrigger>
+              <MenubarTrigger aria-label="Menu">
                 <Menu></Menu>
               </MenubarTrigger>
-              <MenubarContent className="bg-primary-background shadow-grey">
+              <MenubarContent className="bg-canvas">
                 <Link href={pathProjects}>
                   <MenubarItem>
                     <p
@@ -146,7 +148,7 @@ export default function AppNavigationBar() {
                     </p>
                   </MenubarItem>
                 </Link>
-                <div className="border-secondary-foreground/20 my-2 border-t" />
+                <div className="border-hairline my-2 border-t" />
                 {THEME_CHOICES.map((choice) => {
                   const Icon = THEME_CHOICE_ICON[choice];
                   return (

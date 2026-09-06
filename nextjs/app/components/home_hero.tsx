@@ -16,7 +16,7 @@ function Portrait({ className = 'w-full' }: { className?: string }) {
       {/* Script accent "Hola": wrapper declares the measured display size;
           letter fragments are spans — bare <p> would inherit the text-body
           base role and shrink the word (see design/DESIGN.md). */}
-      <div className="font-cursive absolute top-[8%] left-[8%] z-0 flex flex-row text-[44cqw] leading-none text-white select-none">
+      <div className="font-cursive text-on-dark absolute top-[8%] left-[8%] z-0 flex flex-row text-[44cqw] leading-none select-none">
         <span>H</span>
         <span className="pr-[0.2em] pl-[0.2em]">o</span>
         <span>la</span>
@@ -39,21 +39,21 @@ function Intro() {
       <motion.p
         {...fadeUp}
         transition={{ delay: 0.08, duration: 0.3 }}
-        className="font-cursive text-5xl text-white"
+        className="font-cursive text-on-dark text-5xl"
       >
         I&#39;m
       </motion.p>
       <motion.h1
         {...fadeUp}
         transition={{ delay: 0.16, duration: 0.3 }}
-        className="text-4xl leading-none font-bold text-white md:text-5xl lg:text-7xl"
+        className="text-on-dark text-4xl leading-none font-bold md:text-5xl lg:text-7xl"
       >
         SAIFUL MASHURI
       </motion.h1>
       <motion.p
         {...fadeUp}
         transition={{ delay: 0.24, duration: 0.3 }}
-        className="text-lg text-white"
+        className="text-on-dark text-lg"
       >
         I build software that matters with highest standard
       </motion.p>

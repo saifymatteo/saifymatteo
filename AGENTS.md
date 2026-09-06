@@ -88,7 +88,7 @@ flutter build web --wasm -t lib/main.dart --release --csp --base-href=/
 - Tests: `tests/theme.test.ts`, `tests/contact_submission.test.ts`, `tests/case_study_sections.test.ts` (node:test); `scripts/image-dimensions.mjs` — image dimension constants generator
 - Domain glossary: `nextjs/CONTEXT.md`; ADRs: `nextjs/docs/adr/` (deployment = Cloudflare Workers via vinext, ADR 0004)
 
-vinext caveats (ADR 0004) relevant to performance work: `next/font/google` loads from the Google CDN at runtime instead of build-time self-hosting; `next/image` renders plain `<img>` + responsive `srcSet` with no optimization/resize (Workers free plan).
+vinext caveats (ADR 0004) relevant to performance work: `next/font/google` self-hosts fonts at build time under `/_next/static/_vinext_fonts/` (the earlier "Google CDN at runtime" caveat was disproven by production network logs — the remaining font cost is weight count, now trimmed to the declared ladder); `next/image` renders plain `<img>` + responsive `srcSet` where the optimizer route is a 302 pass-through to the original file (no resize on Workers free plan — see `nextjs/docs/phase-1.5-perf-a11y-plan.md`).
 
 ## Flutter_web architecture
 

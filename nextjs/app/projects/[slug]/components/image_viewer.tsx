@@ -21,7 +21,7 @@ export interface ImageViewerProps {
 }
 
 const controlClass =
-  'rounded-full border border-white/20 bg-black/50 text-white backdrop-blur-sm transition-colors hover:bg-black/70';
+  'rounded-full border border-on-dark/20 bg-black/50 text-on-dark backdrop-blur-sm transition-colors hover:bg-black/70';
 
 // Vertical chrome budget: dialog padding (2rem) + gap (1rem) + a two-line
 // caption (3rem). Keeps the image as large as the viewport allows.
@@ -91,7 +91,7 @@ export default function ImageViewer({
             width={media[index].width}
             height={media[index].height}
             quality={90}
-            className={`h-auto w-auto rounded-lg object-contain shadow-2xl ${imageMaxHeight} ${imageMaxWidth}`}
+            className={`shadow-card h-auto w-auto rounded-lg object-contain ${imageMaxHeight} ${imageMaxWidth}`}
           />
           <button
             type="button"
@@ -106,9 +106,9 @@ export default function ImageViewer({
             className="absolute inset-y-0 right-0 w-1/2 cursor-e-resize"
           />
         </div>
-        <figcaption className="flex flex-wrap items-baseline justify-center gap-x-2 text-white">
-          <span className="font-medium">{media[index].label}</span>
-          <span className="text-sm text-white/60">
+        <figcaption className="text-on-dark flex flex-wrap items-baseline justify-center gap-x-2">
+          <span className="font-semibold">{media[index].label}</span>
+          <span className="text-on-dark/60 text-sm">
             {index + 1} / {media.length}
           </span>
         </figcaption>

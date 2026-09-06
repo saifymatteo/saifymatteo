@@ -31,7 +31,7 @@ export default function Footer() {
               </p>
             </div>
           </div>
-          <p className="text-primary-foreground text-base">
+          <p className="text-ink text-base">
             Making software that matters with highest standards
           </p>
         </div>
@@ -44,7 +44,7 @@ export default function Footer() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-primary-foreground underline-slide w-fit text-base"
+                className="text-ink underline-slide w-fit text-base"
               >
                 {link.label}
               </Link>
@@ -60,7 +60,7 @@ export default function Footer() {
                 href={link.href}
                 target={link.href.startsWith('http') ? '_blank' : undefined}
                 rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
-                className="text-primary-foreground underline-slide w-fit text-base"
+                className="text-ink underline-slide w-fit text-base"
               >
                 {link.label}
               </Link>
@@ -68,11 +68,9 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-secondary-foreground/20 content-max-width flex flex-col items-center justify-between gap-2 border-t px-6 py-4 sm:flex-row">
-        <p className="text-primary-foreground text-base">
-          © 2026 Saiful Mashuri
-        </p>
-        <p className="text-primary-foreground text-base">
+      <div className="border-accent/20 content-max-width flex flex-col items-center justify-between gap-2 border-t px-6 py-4 sm:flex-row">
+        <p className="text-ink text-base">© 2026 Saiful Mashuri</p>
+        <p className="text-ink text-base">
           Design in Penpot and built with NextJS
         </p>
       </div>

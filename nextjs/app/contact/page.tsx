@@ -53,8 +53,8 @@ export default function AppContact() {
   return (
     <>
       <PageHero className="px-6 pt-14 pb-18">
-        <h1 className="text-5xl font-bold text-white">Let&#39;s Talk</h1>
-        <p className="mt-3 text-lg text-white">
+        <h1 className="text-on-dark text-5xl font-bold">Let&#39;s Talk</h1>
+        <p className="text-on-dark mt-3 text-lg">
           Hit me up, I&#39;m open to any roles and projects
         </p>
         <Reveal>
@@ -78,17 +78,17 @@ export default function AppContact() {
                   rel={
                     contact.href.startsWith('http') ? 'noreferrer' : undefined
                   }
-                  className="group flex flex-row items-center justify-between gap-4 rounded-2xl border border-white px-6 py-4 backdrop-blur-sm transition-colors"
+                  className="group border-on-dark flex flex-row items-center justify-between gap-4 rounded-2xl border px-6 py-4 backdrop-blur-sm transition-colors"
                 >
                   <span className="flex min-w-0 flex-row items-center">
-                    <span className="w-20 shrink-0 text-base font-normal text-white">
+                    <span className="text-on-dark w-20 shrink-0 text-base font-normal">
                       {contact.label}
                     </span>
-                    <span className="underline-slide min-w-0 truncate text-lg font-bold text-white sm:text-xl">
+                    <span className="underline-slide text-on-dark min-w-0 truncate text-lg font-bold sm:text-xl">
                       {contact.value}
                     </span>
                   </span>
-                  <span className="button-arrow-slide text-white">
+                  <span className="button-arrow-slide text-on-dark">
                     {contact.icon}
                   </span>
                 </Link>

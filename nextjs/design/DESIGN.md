@@ -145,9 +145,10 @@ set, components never branch on theme.
 - The Accent is the only "click me" signal. No second interactive color
   exists. On dark surfaces the dark-theme Accent (#8dd9ff) is already the
   brighter variant — there is no separate "link on dark" token.
-- `text-white` is banned: text on the gradient is `text-on-accent` (the
-  gradient sits at accent-family luminance in both themes). Migration is
-  Phase 2 (29 call sites).
+- `text-white` is banned and fully migrated (Phase 2): text on the
+  theme-invariant Brand Band / shader surfaces is `text-on-dark` (constant
+  white — the gradient palette doesn't shift with the Theme choice); text on
+  accent fills is `text-on-accent`.
 - No decorative gradients beyond the two sanctioned expressions (surface
   fill, divider bar).
 
@@ -159,8 +160,9 @@ backdrop, "I'm" intro). The script word is "Hola" — the code renders
 H/o/la; SPEC.md's "Hla" is a typo in the historical record.
 
 **Weight ladder:** 300 / 400 / 600 / 700. Weight 500 is deliberately absent
-— a `font-medium` in review is a defect (Phase 2 migrates the 18 existing
-call sites to 600 or 400 by emphasis intent).
+— a `font-medium` in review is a defect. Fully migrated in Phase 2: the
+ladder is the only thing that renders (the font config ships exactly these
+four Fira Sans weights).
 
 **Roles** (Tailwind `text-*` tokens; base elements map to them — h1 display,
 h2 heading, h3–h6 title, p/a body):
@@ -193,9 +195,9 @@ h2 heading, h3–h6 title, p/a body):
 | `inner` (rounded-xl)  | 14px   | Imagery/logo panels inside a card                      |
 | `none`                | 0      | Full-bleed tiles and bands                             |
 
-- No radius outside these four. Phase 2 kills the stray `rounded-3xl`,
-  `rounded-4xl` (shadcn Button scaffold), and `rounded-[20px]` (contact card
-  → `card`).
+- No radius outside these four. Phase 2 migrated the strays: shadcn Button
+  `rounded-4xl` → pill, menu surfaces `rounded-3xl` → inner, contact card
+  `[20px]` → card. Unused scale stops in `globals.css` are inert.
 - Full-bleed surfaces never round; rounding is for floating content.
 
 ## Layout & spacing rhythm
@@ -224,9 +226,10 @@ rhythm:
 | Backdrop    | `backdrop-blur` shader | Inside Brand Bands (ShaderBackdrop), not elevation                      |
 
 - **Exactly one shadow** in the system: `--shadow-card`. It belongs to
-  content cards (our product renders), never to chrome. The four
-  chrome-shadow sites (nav bar, menubar content, contact form) go flat with
-  hairlines in Phase 2.
+  content cards (our product renders), never to chrome. Chrome is flat
+  (Phase 2): the nav bar carries a hairline bottom; menu surfaces separate
+  with the hairline ring; the contact form ships no shadow. The lightbox
+  media uses the same card shadow.
 - Elevation otherwise comes from surface change and hairlines — never from
   stacked shadows.
 
@@ -234,24 +237,26 @@ rhythm:
 
 ### Navigation bar
 
-Flat canvas bar, h-16, sticky. Brand logo left; links right in
-`text-lg` 700 (active) / 500→600 (idle) with `underline-slide` hover.
-Desktop shadow is legacy chrome — Phase 2 replaces with a hairline bottom
-border. Theme toggle cycles System → Light → Dark (ADR-0007).
+Flat canvas bar, h-16, sticky, hairline bottom border (Phase 2 — the only
+separation chrome gets). Brand logo left; links right in `text-lg` 700
+(active) / 600 (idle) with `underline-slide` hover. Theme toggle cycles
+System → Light → Dark (ADR-0007).
 
 ### Pills & buttons
 
-`Pill` — rounded-full ghost: `bg-secondary-background` (= canvas) fill,
-`text-secondary-foreground` (= accent) text, `font-mono` 600. Used for role
-tag, "Featured Works", contact values. CTAs — rounded-full accent-filled
-with `on-accent` text, or ghost accent outline. Press feedback: translate
-(or Apple-style scale) — never a color change.
+`Pill` — rounded-full chip: `bg-parchment` fill, `text-ink` text,
+`font-mono` 600. Parchment-on-gradient and parchment-on-canvas both pass
+WCAG AA (~16:1 light / ~12:1 dark) — this replaced the legacy
+canvas-fill + accent-text ghost that failed contrast on the band (the
+Lighthouse `color-contrast` failure, fixed in Phase 2). Used for role tag,
+"Featured Works", contact values. CTAs — rounded-full accent-filled with
+`on-accent` text, or `on-dark` outline on the band. Press feedback:
+translate (or Apple-style scale) — never a color change.
 
 ### Project cards
 
 The system's "product renders" — the only shadowed surface. `rounded-2xl`
-card radius, `p-8`, hairline-adjacent border (`border-primary-foreground`
-legacy — Phase 2: `border-hairline`), `shadow-card`, hover lift
+card radius, `p-8`, `border-hairline`, `shadow-card`, hover lift
 (`-translate-y-1`). Anatomy: meta row (platform pill + date + status label)
 → title (`text-title`) → description (`text-body`, clamped) → tech tags
 (`text-micro` pills) → "Case Study" accent link with arrow nudge.
@@ -270,13 +275,13 @@ decoration.
 
 ### Tech Stack Ticker
 
-Marquee between two 5px Gradient Bars; items `text-2xl` 500→600. Keeps
+Marquee between two 5px Gradient Bars; items `text-2xl` 600. Keeps
 scrolling under Reduced Motion (deliberate, per CONTEXT.md).
 
 ### Contact card
 
 `rounded-2xl` (migrated from stray `[20px]`), gradient surface + shader,
-centered stack: "Interested?" (`text-display`, on-accent) → body →
+centered stack: "Interested?" (`text-display`, on-dark) → body →
 "Get in touch" pill CTA.
 
 ### Footer
@@ -296,7 +301,7 @@ position (ADR-0006), titles `text-heading`, body `text-body`,
 ### Do
 
 - Use `accent` for every interactive element and nothing else.
-- Reach for the seven semantic tokens — never raw hex, never `text-white`.
+- Reach for the eight semantic tokens — never raw hex, never `text-white`.
 - Alternate surfaces (Band ↔ Canvas ↔ Parchment) before adding chrome.
 - Reserve `shadow-card` for content cards; use hairlines everywhere else.
 - Keep the four-role radius grammar; pill means "action".
@@ -319,24 +324,28 @@ position (ADR-0006), titles `text-heading`, body `text-body`,
    classes in code.
 3. Document default and pressed/active states only; never hover-only design.
 4. Surface alternation beats added chrome when emphasis is unclear.
-5. Phase 2 compliance list lives in ADR-0009's consequences.
+5. Phase 2 compliance is shipped (ADR-0009's consequences record the
+   migration). The perf/a11y follow-up lives in
+   `docs/phase-1.5-perf-a11y-plan.md`.
 
 ## Known gaps
 
-- **shadcn `secondary` pair is split by legacy naming:** our legacy
-  `--color-secondary-foreground` is the brand Accent (drives Pill, tags),
-  while shadcn's `secondary-foreground` expects "text on secondary bg". The
-  bridge keeps app-truth; primitive keyboard-focus states may show accent
-  text on parchment. Full primitive alignment is deferred to Phase 2+.
+## Known gaps
+
+- **shadcn `secondary` pair:** the bridge defines `--color-secondary`
+  (parchment) but no `--color-secondary-foreground` — every primitive usage
+  was migrated to `text-ink` on `bg-parchment` in Phase 2, so nothing
+  references the missing pair. If a future shadcn primitive expects it,
+  map it to `text-ink` (text on parchment).
 - **`--color-primary` is undefined by design:** the shadcn Button variant
-  using it has zero consumers (dead scaffold). Deletion decision deferred;
-  do not "fix" by defining the token.
+  using it was migrated to `bg-accent`/`text-on-accent` in Phase 2 (pill
+  radius, 600 weight); the token stays undefined unless a consumer returns.
 - Form validation/error visuals: `destructive` token exists; field-level
   error styling undocumented until needed (matches SPEC's gap).
 - Cookie script sizes are container-relative (`44cqw` on the hero "Hola",
   `text-5xl` on "I'm") — not tokenized; acceptable while the hero is the
   only consumer. The "Hola" letter fragments are spans: bare `<p>` would
   inherit the `text-body` base role and collapse the script word.
-- Phase 2 migrations pending: 29 `text-white`, 18 `font-medium`, radius
-  outliers (`3xl`, `4xl`, `[20px]`), 4 chrome shadows, legacy
-  `primary-*`/`secondary-*` aliases.
+- The resume-dialog panel border is `border-ink` (byte-identical legacy
+  strength, not hairline) — polish candidate, not a violation: it is a
+  modal edge, not a quiet separator.

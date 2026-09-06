@@ -66,17 +66,17 @@ export default function ResumeDialog({ label, value, icon }: ResumeCardProps) {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="group flex flex-row items-center justify-between rounded-2xl border border-white px-6 py-4 text-left backdrop-blur-sm transition-colors hover:border-white/50"
+        className="group border-on-dark hover:border-on-dark/50 flex flex-row items-center justify-between rounded-2xl border px-6 py-4 text-left backdrop-blur-sm transition-colors"
       >
         <span className="flex flex-row items-center">
-          <span className="w-20 shrink-0 text-base font-normal text-white">
+          <span className="text-on-dark w-20 shrink-0 text-base font-normal">
             {label}
           </span>
-          <span className="underline-slide text-lg font-bold text-white sm:text-xl">
+          <span className="underline-slide text-on-dark text-lg font-bold sm:text-xl">
             {value}
           </span>
         </span>
-        <span className="button-arrow-slide text-white">{icon}</span>
+        <span className="button-arrow-slide text-on-dark">{icon}</span>
       </button>
 
       {open &&
@@ -88,17 +88,15 @@ export default function ResumeDialog({ label, value, icon }: ResumeCardProps) {
               aria-modal="true"
               aria-label={label}
               tabIndex={-1}
-              className="bg-primary-background border-primary-foreground flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl border"
+              className="bg-canvas border-ink flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl border"
             >
               <div className="flex items-center justify-between gap-4 border-b px-6 py-4">
-                <span className="text-primary-foreground text-lg font-bold">
-                  {label}
-                </span>
+                <span className="text-ink text-lg font-bold">{label}</span>
                 <div className="flex items-center gap-2">
                   <a
                     href="/api/resume"
                     download="Resume.Saiful.Mashuri.pdf"
-                    className="bg-secondary-foreground hover:bg-secondary-foreground/90 text-secondary-background flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-colors"
+                    className="bg-accent hover:bg-accent/90 text-on-accent flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-colors"
                   >
                     <Download size={16} /> Download
                   </a>
@@ -106,7 +104,7 @@ export default function ResumeDialog({ label, value, icon }: ResumeCardProps) {
                     type="button"
                     onClick={() => setOpen(false)}
                     aria-label="Close"
-                    className="text-primary-foreground hover:bg-primary-foreground/10 rounded-lg p-2 transition-colors"
+                    className="text-ink hover:bg-ink/10 rounded-lg p-2 transition-colors"
                   >
                     <X size={20} />
                   </button>

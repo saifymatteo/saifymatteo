@@ -20,7 +20,7 @@ export default function ContactForm() {
   const turnstileRef = useRef<TurnstileInstance>(null);
 
   const className =
-    'w-full rounded-xl border border-primary-foreground bg-primary-background px-4 py-3 text-sm text-primary-foreground outline-none placeholder:text-[#696969] focus:border-blue';
+    'w-full rounded-xl border border-ink bg-canvas px-4 py-3 text-sm text-ink outline-none placeholder:text-[#696969] focus:border-blue';
 
   function clearTurnstileToken() {
     setTurnstileToken(null);
@@ -72,12 +72,10 @@ export default function ContactForm() {
 
   return (
     <div className="content-max-width-slim">
-      <h2 className="text-primary-foreground text-3xl font-bold">
-        Or reach me directly
-      </h2>
+      <h2 className="text-ink text-3xl font-bold">Or reach me directly</h2>
       <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-5">
         <div className="grid gap-5 sm:grid-cols-2">
-          <label className="text-primary-foreground flex flex-col gap-1.5 text-sm">
+          <label className="text-ink flex flex-col gap-1.5 text-sm">
             Name
             <input
               name="name"
@@ -87,7 +85,7 @@ export default function ContactForm() {
               className={className}
             />
           </label>
-          <label className="text-primary-foreground flex flex-col gap-1.5 text-sm">
+          <label className="text-ink flex flex-col gap-1.5 text-sm">
             Email
             <input
               name="email"
@@ -99,7 +97,7 @@ export default function ContactForm() {
             />
           </label>
         </div>
-        <label className="text-primary-foreground flex flex-col gap-1.5 text-sm">
+        <label className="text-ink flex flex-col gap-1.5 text-sm">
           Subject
           <input
             name="subject"
@@ -109,7 +107,7 @@ export default function ContactForm() {
             className={className}
           />
         </label>
-        <label className="text-primary-foreground flex flex-col gap-1.5 text-sm">
+        <label className="text-ink flex flex-col gap-1.5 text-sm">
           Message
           <textarea
             name="message"
@@ -150,7 +148,7 @@ export default function ContactForm() {
             onExpire={clearTurnstileToken}
             onError={clearTurnstileToken}
             options={{ action: 'contact', theme: 'auto', size: 'flexible' }}
-            className="shadow-primary-foreground max-w-2 shadow"
+            className="max-w-2"
           />
         </div>
       </form>

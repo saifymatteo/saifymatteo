@@ -9,13 +9,11 @@ import { useState } from 'react';
 function MetaRow({ project }: { project: Project }) {
   return (
     <div className="flex flex-wrap items-center gap-4">
-      <span className="border-secondary-foreground text-secondary-foreground rounded-full border px-3 py-1 text-xs font-bold">
+      <span className="border-accent text-accent rounded-full border px-3 py-1 text-xs font-bold">
         {project.platform}
       </span>
-      <span className="text-primary-foreground text-base font-bold">
-        {project.date}
-      </span>
-      <span className="text-primary-foreground text-base font-light tracking-widest uppercase">
+      <span className="text-ink text-base font-bold">{project.date}</span>
+      <span className="text-ink text-base font-light tracking-widest uppercase">
         {project.status}
       </span>
     </div>
@@ -28,7 +26,7 @@ function TechTags({ project }: { project: Project }) {
       {project.techStack.map((tag) => (
         <span
           key={tag}
-          className="border-secondary-foreground text-secondary-foreground rounded-full border px-2.5 py-0.5 text-[12px] font-normal"
+          className="border-accent text-accent rounded-full border px-2.5 py-0.5 text-[12px] font-normal"
         >
           {tag}
         </span>
@@ -39,7 +37,7 @@ function TechTags({ project }: { project: Project }) {
 
 function CaseStudyLink({ hover }: { hover: boolean }) {
   return (
-    <div className={`text-secondary-foreground inline-flex items-center gap-1`}>
+    <div className={`text-accent inline-flex items-center gap-1`}>
       <p
         className={`underline-slide text-base font-bold ${
           hover ? 'active' : ''
@@ -97,12 +95,10 @@ function CardBody({ project, hover }: { project: Project; hover: boolean }) {
   return (
     <div className="flex flex-col items-start gap-3">
       <MetaRow project={project} />
-      <h3 className="text-primary-foreground text-[26px] leading-snug font-bold">
+      <h3 className="text-ink text-[26px] leading-snug font-bold">
         {project.title}
       </h3>
-      <p className="text-primary-foreground line-clamp-3 text-base">
-        {project.description}
-      </p>
+      <p className="text-ink line-clamp-3 text-base">{project.description}</p>
       <TechTags project={project} />
       <CaseStudyLink hover={hover} />
     </div>
@@ -125,7 +121,7 @@ export default function ProjectCard({
         onMouseEnter={() => hoverState(true)}
         onMouseLeave={() => hoverState(false)}
       >
-        <article className="border-primary-foreground bg-primary-background rounded-2xl border p-8 shadow-xl transition-all duration-300 hover:-translate-y-1">
+        <article className="border-hairline bg-canvas shadow-card rounded-2xl border p-8 transition-all duration-300 hover:-translate-y-1">
           <div className="grid gap-6 sm:grid-cols-[30%_1fr]">
             <div className="flex min-h-40 items-center justify-center rounded-xl p-6">
               <ProjectLogo project={project} className="h-auto w-full" />
@@ -143,7 +139,7 @@ export default function ProjectCard({
       onMouseEnter={() => hoverState(true)}
       onMouseLeave={() => hoverState(false)}
     >
-      <article className="border-primary-foreground bg-primary-background flex flex-col gap-4 rounded-2xl border p-8 shadow-xl transition-all duration-300 hover:-translate-y-1">
+      <article className="border-hairline bg-canvas shadow-card flex flex-col gap-4 rounded-2xl border p-8 transition-all duration-300 hover:-translate-y-1">
         <ProjectLogo project={project} className="h-40 w-fit" />
         <CardBody project={project} hover={hover} />
       </article>

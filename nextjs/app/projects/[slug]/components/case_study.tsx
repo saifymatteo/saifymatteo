@@ -10,9 +10,7 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const Divider = () => (
-  <div className="border-secondary-foreground/20 mt-2 border-t" />
-);
+const Divider = () => <div className="border-accent/20 mt-2 border-t" />;
 
 const formatStack = (stack: string[]) =>
   stack.length > 3 ? `${stack.slice(0, 3).join(' · ')}` : stack.join(' · ');
@@ -29,9 +27,11 @@ export function CaseStudyHero({ project }: { project: Project }) {
           className="h-auto w-100 object-contain"
         />
         <div className="flex flex-col gap-3">
-          <h1 className="text-5xl font-bold text-white">{project.title}</h1>
-          <p className="text-[26px] font-bold text-white">{project.tagline}</p>
-          <p className="max-w-2xl text-base text-white">{project.summary}</p>
+          <h1 className="text-on-dark text-5xl font-bold">{project.title}</h1>
+          <p className="text-on-dark text-[26px] font-bold">
+            {project.tagline}
+          </p>
+          <p className="text-on-dark max-w-2xl text-base">{project.summary}</p>
           <div className="mt-2 flex flex-wrap justify-center gap-4 lg:justify-start">
             {project.links.map((link) => (
               <Link
@@ -39,7 +39,7 @@ export function CaseStudyHero({ project }: { project: Project }) {
                 href={link.href}
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex items-center gap-1.5 rounded-full border-2 border-white px-5 py-2 text-base font-medium text-white transition-colors hover:bg-white/10"
+                className="group border-on-dark text-on-dark hover:bg-on-dark/10 inline-flex items-center gap-1.5 rounded-full border-2 px-5 py-2 text-base font-semibold transition-colors"
               >
                 {link.label}{' '}
                 <ArrowRight className="button-arrow-slide size-4" />
@@ -57,10 +57,10 @@ export function CaseStudyHero({ project }: { project: Project }) {
         ].map(([label, value]) => (
           <div
             key={label}
-            className="rounded-xl border border-white px-4 py-3 backdrop-blur-sm"
+            className="border-on-dark rounded-xl border px-4 py-3 backdrop-blur-sm"
           >
-            <dt className="text-sm text-white">{label}</dt>
-            <dd className="text-base font-bold text-white">{value}</dd>
+            <dt className="text-on-dark text-sm">{label}</dt>
+            <dd className="text-on-dark text-base font-bold">{value}</dd>
           </div>
         ))}
       </dl>
@@ -102,10 +102,10 @@ export function CaseStudyBody({ project }: { project: Project }) {
               ) : (
                 <article className="content-max-width-slim px-6">
                   <h2 className="flex items-center gap-3">
-                    <span className="text-primary-foreground text-sm font-light">
+                    <span className="text-ink text-sm font-light">
                       {number}
                     </span>
-                    <span className="text-primary-foreground text-3xl font-bold">
+                    <span className="text-ink text-3xl font-bold">
                       {section.title}
                     </span>
                   </h2>
@@ -116,13 +116,9 @@ export function CaseStudyBody({ project }: { project: Project }) {
                         <div key={index}>
                           <div className="flex flex-row gap-2">
                             {section.body!.length > 1 && (
-                              <p className="text-primary-foreground text-base">
-                                •
-                              </p>
+                              <p className="text-ink text-base">•</p>
                             )}
-                            <p className="text-primary-foreground text-base">
-                              {e}
-                            </p>
+                            <p className="text-ink text-base">{e}</p>
                           </div>
                           <Divider />
                         </div>
@@ -142,17 +138,17 @@ export function CaseStudyBody({ project }: { project: Project }) {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`group border-primary-foreground/20 hover:border-primary-foreground/50 flex flex-col gap-1 rounded-2xl border px-6 py-4 transition-colors ${
+                    className={`group border-ink/20 hover:border-ink/50 flex flex-col gap-1 rounded-2xl border px-6 py-4 transition-colors ${
                       item.dir === 'Next' ? 'ml-auto' : ''
                     }`}
                   >
-                    <span className="text-primary-foreground/60 flex items-center gap-2 text-xs font-medium tracking-wide uppercase">
+                    <span className="text-ink/60 flex items-center gap-2 text-xs font-light tracking-wide uppercase">
                       {item.arrow}
                       {item.dir === 'Next'
                         ? 'Next project'
                         : 'Previous project'}
                     </span>
-                    <span className="text-primary-foreground text-lg font-bold group-hover:underline">
+                    <span className="text-ink text-lg font-bold group-hover:underline">
                       {item.name}
                     </span>
                   </Link>
