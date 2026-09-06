@@ -7,8 +7,10 @@ import { createPortal } from 'react-dom';
 
 const ResumeViewer = dynamic(() => import('./resume_viewer'), {
   ssr: false,
+  // Covers only the JS chunk load — the PDF fetch itself shows the
+  // Document-level loading state inside resume_viewer.
   loading: () => (
-    <div className="flex h-full w-full items-center justify-center text-neutral-500">
+    <div className="text-ink-muted flex h-full w-full items-center justify-center text-sm">
       Loading resume…
     </div>
   ),
