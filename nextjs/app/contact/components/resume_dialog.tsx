@@ -68,13 +68,13 @@ export default function ResumeDialog({ label, value, icon }: ResumeCardProps) {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="group border-on-dark hover:border-on-dark/50 flex flex-row items-center justify-between rounded-2xl border px-6 py-4 text-left backdrop-blur-sm transition-colors"
+        className="group border-on-dark flex cursor-pointer flex-row items-center justify-between gap-4 rounded-2xl border px-6 py-4 text-left backdrop-blur-sm transition-colors"
       >
-        <span className="flex flex-row items-center">
+        <span className="flex min-w-0 flex-row items-center">
           <span className="text-on-dark w-20 shrink-0 text-base font-normal">
             {label}
           </span>
-          <span className="underline-slide text-on-dark text-lg font-bold sm:text-xl">
+          <span className="underline-slide text-on-dark min-w-0 truncate text-lg font-bold sm:text-xl">
             {value}
           </span>
         </span>
