@@ -1,6 +1,7 @@
 import { AppConstants } from '@/app/constants/constants';
 import BrandLogo from '@/app/components/brand_logo';
 import GradientBar from '@/components/gradient_bar';
+import TrackedLink from '@/components/tracked_link';
 import Link from 'next/link';
 
 const links = [
@@ -8,11 +9,37 @@ const links = [
   { label: 'Contact', href: '/contact' },
 ];
 
-const elsewhere = [
-  { label: 'Github', href: AppConstants.CONTACT_GITHUB },
-  { label: 'Email', href: `mailto:${AppConstants.CONTACT_EMAIL}` },
-  { label: 'LinkedIn', href: AppConstants.CONTACT_LINKEDIN },
-  { label: 'Résumé', href: AppConstants.CONTACT_RESUME },
+// Contact CTAs tracked in GA4 — event schema documented in docs/adr/0010.
+const elsewhere: {
+  label: string;
+  href: string;
+  gaEvent: string;
+  gaParams: Record<string, string>;
+}[] = [
+  {
+    label: 'Github',
+    href: AppConstants.CONTACT_GITHUB,
+    gaEvent: 'contact_click',
+    gaParams: { method: 'github', location: 'footer' },
+  },
+  {
+    label: 'Email',
+    href: `mailto:${AppConstants.CONTACT_EMAIL}`,
+    gaEvent: 'contact_click',
+    gaParams: { method: 'email', location: 'footer' },
+  },
+  {
+    label: 'LinkedIn',
+    href: AppConstants.CONTACT_LINKEDIN,
+    gaEvent: 'contact_click',
+    gaParams: { method: 'linkedin', location: 'footer' },
+  },
+  {
+    label: 'Résumé',
+    href: AppConstants.CONTACT_RESUME,
+    gaEvent: 'resume_download',
+    gaParams: { location: 'footer' },
+  },
 ];
 
 export default function Footer() {
@@ -55,15 +82,17 @@ export default function Footer() {
               ELSEWHERE
             </p>
             {elsewhere.map((link) => (
-              <Link
+              <TrackedLink
                 key={link.label}
+                gaEvent={link.gaEvent}
+                gaParams={link.gaParams}
                 href={link.href}
                 target={link.href.startsWith('http') ? '_blank' : undefined}
                 rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
                 className="text-ink underline-slide w-fit text-base"
               >
                 {link.label}
-              </Link>
+              </TrackedLink>
             ))}
           </div>
         </div>

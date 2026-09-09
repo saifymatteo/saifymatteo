@@ -159,6 +159,28 @@ The quiet 1px border used on cards and as the quiet separator inside a
 surface.
 _Avoid_: border, divider, outline
 
+## Analytics
+
+**Contact channel**:
+One of the three direct ways to reach Saiful Mashuri — Email, LinkedIn, or Github — exposed as cards on the Contact page and links in the footer.
+_Avoid_: contact method, social link, CTA link
+
+**Contact click**:
+A click on a Contact channel CTA; measured as the GA4 event `contact_click` with `method` (which channel) and `location` (`contact_page` or `footer`).
+_Avoid_: outbound click, link click
+
+**Resume view**:
+Opening the Resume dialog from the Contact page's Resume card; measured as `resume_view`. It is not an open of the raw PDF — that is a Resume download (footer) or covered by the dialog itself.
+_Avoid_: dialog open, resume open
+
+**Resume download**:
+Clicking to download the resume from any surface — the dialog's Download button or the footer's Résumé link; measured as `resume_download` with `location` distinguishing the two. Click intent, not confirmed delivery.
+_Avoid_: file download, pdf download, résumé view
+
+**Location (event)**:
+The surface where a tracked CTA was clicked: `contact_page` or `footer`. Present on every contact CTA event.
+_Avoid_: source, page, placement
+
 ## Deployment
 
 **Worker**:

@@ -4,8 +4,8 @@ import PageHero from '@/app/components/page_hero';
 import GradientBar from '@/components/gradient_bar';
 import Reveal from '@/components/reveal';
 import { AppConstants } from '@/app/constants/constants';
+import TrackedLink from '@/components/tracked_link';
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { MoveUpRight, SquareArrowOutUpRight } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -68,8 +68,15 @@ export default function AppContact() {
                   icon={contact.icon}
                 />
               ) : (
-                <Link
+                <TrackedLink
                   key={contact.label}
+                  gaEvent="contact_click"
+                  gaParams={{
+                    // 'email' | 'linkedin' | 'github' — the Resume card is
+                    // the ResumeDialog button, tracked as resume_view.
+                    method: contact.label.toLowerCase(),
+                    location: 'contact_page',
+                  }}
                   title={contact.value}
                   href={contact.href}
                   target={
@@ -91,7 +98,7 @@ export default function AppContact() {
                   <span className="button-arrow-slide text-on-dark">
                     {contact.icon}
                   </span>
-                </Link>
+                </TrackedLink>
               )
             )}
           </div>
