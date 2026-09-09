@@ -1,13 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { sendGAEvent } from '@next/third-parties/google';
+import { sendGAEvent } from '@/lib/ga';
 
 /**
  * A next/link that fires a GA4 event on click, then lets the default
  * navigation proceed (external links open their tab as usual). Used for
  * contact CTAs — the event schema is documented in docs/adr/0010.
- * No-op-safe: if GA is not initialized, sendGAEvent only warns.
+ * No-op-safe: if GA is not initialized (ad blocker, SSR), sendGAEvent is a no-op.
  */
 export default function TrackedLink({
   gaEvent,
@@ -21,8 +21,8 @@ export default function TrackedLink({
     <Link
       {...linkProps}
       onClick={() => {
-        if (gaParams) sendGAEvent('event', gaEvent, gaParams);
-        else sendGAEvent('event', gaEvent);
+        if (gaParams) sendGAEvent(gaEvent, gaParams);
+        else sendGAEvent(gaEvent);
       }}
     />
   );

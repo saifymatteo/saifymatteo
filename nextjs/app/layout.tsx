@@ -2,9 +2,10 @@ import AppNavigationBar from '@/app/components/navigation_bar';
 import Footer from '@/app/components/footer';
 import MotionProvider from '@/app/components/motion_provider';
 import { THEME_BOOT_SCRIPT } from '@/lib/theme';
+import { GA_INIT_SCRIPT, GA_LOADER_SRC } from '@/lib/ga';
 import type { Metadata, Viewport } from 'next';
 import { Fira_Sans, Fira_Code, Cookie } from 'next/font/google';
-import { GoogleAnalytics } from '@next/third-parties/google';
+
 import './globals.css';
 
 const firaSans = Fira_Sans({
@@ -57,7 +58,12 @@ export default function RootLayout({
       className={`${firaSans.variable} ${firaCode.variable} ${cookie.variable} h-full antialiased`}
     >
       <head>
-        <GoogleAnalytics gaId="G-2HQ4SXE1CJ" />
+        <script async src={GA_LOADER_SRC} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: GA_INIT_SCRIPT,
+          }}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: THEME_BOOT_SCRIPT,

@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { Download, X } from 'lucide-react';
-import { sendGAEvent } from '@next/third-parties/google';
+import { sendGAEvent } from '@/lib/ga';
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
@@ -70,7 +70,7 @@ export default function ResumeDialog({ label, value, icon }: ResumeCardProps) {
         type="button"
         onClick={() => {
           setOpen(true);
-          sendGAEvent('event', 'resume_view', { location: 'contact_page' });
+          sendGAEvent('resume_view', { location: 'contact_page' });
         }}
         className="group border-on-dark flex cursor-pointer flex-row items-center justify-between gap-4 rounded-2xl border px-6 py-4 text-left backdrop-blur-sm transition-colors"
       >
@@ -103,7 +103,7 @@ export default function ResumeDialog({ label, value, icon }: ResumeCardProps) {
                     href="/api/resume"
                     download="Resume.Saiful.Mashuri.pdf"
                     onClick={() =>
-                      sendGAEvent('event', 'resume_download', {
+                      sendGAEvent('resume_download', {
                         location: 'contact_page',
                       })
                     }
