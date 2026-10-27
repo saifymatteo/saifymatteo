@@ -26,13 +26,13 @@
     "clsx": "^2.1.1",
     "lucide-react": "^1.27.0",
     "motion": "^13.0.0",
-    "next": "16.3.8",
+    "next": "16.4.3",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-pdf": "^10.4.1",
     "react-server-dom-webpack": "^19.2.8",
     "resend": "^6.18.1",
-    "shadcn": "^4.16.0",
+    "shadcn": "^4.22.1",
     "tailwind-merge": "^3.6.0",
     "three": "^0.169.0",
     "three-stdlib": "^2.36.1",
@@ -59,7 +59,7 @@
     "prettier-plugin-tailwindcss": "^0.8.0",
     "tailwindcss": "^4",
     "typescript": "^5",
-    "vite": "^8.2.2"
+    "vite": "^8.3.5"
   },
   "type": "module",
   "overrides": {
