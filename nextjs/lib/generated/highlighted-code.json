@@ -1,0 +1,307 @@
+{
+  "final document = gql(r'''\n  query SimpleQuery {\n    me {\n      name\n    }\n  }\n''');": [
+    [
+      {
+        "content": "final",
+        "light": "#A0111F",
+        "dark": "#F97583"
+      },
+      {
+        "content": " document ",
+        "light": "#0E1116",
+        "dark": "#E1E4E8"
+      },
+      {
+        "content": "=",
+        "light": "#A0111F",
+        "dark": "#F97583"
+      },
+      {
+        "content": " ",
+        "light": "#0E1116",
+        "dark": "#E1E4E8"
+      },
+      {
+        "content": "gql",
+        "light": "#622CBC",
+        "dark": "#B392F0"
+      },
+      {
+        "content": "(",
+        "light": "#0E1116",
+        "dark": "#E1E4E8"
+      },
+      {
+        "content": "r'''",
+        "light": "#032563",
+        "dark": "#9ECBFF"
+      }
+    ],
+    [
+      {
+        "content": "  query SimpleQuery {",
+        "light": "#032563",
+        "dark": "#9ECBFF"
+      }
+    ],
+    [
+      {
+        "content": "    me {",
+        "light": "#032563",
+        "dark": "#9ECBFF"
+      }
+    ],
+    [
+      {
+        "content": "      name",
+        "light": "#032563",
+        "dark": "#9ECBFF"
+      }
+    ],
+    [
+      {
+        "content": "    }",
+        "light": "#032563",
+        "dark": "#9ECBFF"
+      }
+    ],
+    [
+      {
+        "content": "  }",
+        "light": "#032563",
+        "dark": "#9ECBFF"
+      }
+    ],
+    [
+      {
+        "content": "'''",
+        "light": "#032563",
+        "dark": "#9ECBFF"
+      },
+      {
+        "content": ");",
+        "light": "#0E1116",
+        "dark": "#E1E4E8"
+      }
+    ]
+  ],
+  "final query = GqlRequestBuilder().query(\n  queryName: 'SimpleQuery',\n  requests: [\n    MeQuery(\n      responseConfig: UserResponseConfig(\n        includeName: true,\n      ),\n    ),\n  ],\n);\nfinal document = gql(query);": [
+    [
+      {
+        "content": "final",
+        "light": "#A0111F",
+        "dark": "#F97583"
+      },
+      {
+        "content": " query ",
+        "light": "#0E1116",
+        "dark": "#E1E4E8"
+      },
+      {
+        "content": "=",
+        "light": "#A0111F",
+        "dark": "#F97583"
+      },
+      {
+        "content": " ",
+        "light": "#0E1116",
+        "dark": "#E1E4E8"
+      },
+      {
+        "content": "GqlRequestBuilder",
+        "light": "#023B95",
+        "dark": "#79B8FF"
+      },
+      {
+        "content": "().",
+        "light": "#0E1116",
+        "dark": "#E1E4E8"
+      },
+      {
+        "content": "query",
+        "light": "#622CBC",
+        "dark": "#B392F0"
+      },
+      {
+        "content": "(",
+        "light": "#0E1116",
+        "dark": "#E1E4E8"
+      }
+    ],
+    [
+      {
+        "content": "  queryName",
+        "light": "#0E1116",
+        "dark": "#E1E4E8"
+      },
+      {
+        "content": ":",
+        "light": "#A0111F",
+        "dark": "#F97583"
+      },
+      {
+        "content": " ",
+        "light": "#0E1116",
+        "dark": "#E1E4E8"
+      },
+      {
+        "content": "'SimpleQuery'",
+        "light": "#032563",
+        "dark": "#9ECBFF"
+      },
+      {
+        "content": ",",
+        "light": "#0E1116",
+        "dark": "#E1E4E8"
+      }
+    ],
+    [
+      {
+        "content": "  requests",
+        "light": "#0E1116",
+        "dark": "#E1E4E8"
+      },
+      {
+        "content": ":",
+        "light": "#A0111F",
+        "dark": "#F97583"
+      },
+      {
+        "content": " [",
+        "light": "#0E1116",
+        "dark": "#E1E4E8"
+      }
+    ],
+    [
+      {
+        "content": "    ",
+        "light": "#0E1116",
+        "dark": "#E1E4E8"
+      },
+      {
+        "content": "MeQuery",
+        "light": "#023B95",
+        "dark": "#79B8FF"
+      },
+      {
+        "content": "(",
+        "light": "#0E1116",
+        "dark": "#E1E4E8"
+      }
+    ],
+    [
+      {
+        "content": "      responseConfig",
+        "light": "#0E1116",
+        "dark": "#E1E4E8"
+      },
+      {
+        "content": ":",
+        "light": "#A0111F",
+        "dark": "#F97583"
+      },
+      {
+        "content": " ",
+        "light": "#0E1116",
+        "dark": "#E1E4E8"
+      },
+      {
+        "content": "UserResponseConfig",
+        "light": "#023B95",
+        "dark": "#79B8FF"
+      },
+      {
+        "content": "(",
+        "light": "#0E1116",
+        "dark": "#E1E4E8"
+      }
+    ],
+    [
+      {
+        "content": "        includeName",
+        "light": "#0E1116",
+        "dark": "#E1E4E8"
+      },
+      {
+        "content": ":",
+        "light": "#A0111F",
+        "dark": "#F97583"
+      },
+      {
+        "content": " ",
+        "light": "#0E1116",
+        "dark": "#E1E4E8"
+      },
+      {
+        "content": "true",
+        "light": "#023B95",
+        "dark": "#79B8FF"
+      },
+      {
+        "content": ",",
+        "light": "#0E1116",
+        "dark": "#E1E4E8"
+      }
+    ],
+    [
+      {
+        "content": "      ),",
+        "light": "#0E1116",
+        "dark": "#E1E4E8"
+      }
+    ],
+    [
+      {
+        "content": "    ),",
+        "light": "#0E1116",
+        "dark": "#E1E4E8"
+      }
+    ],
+    [
+      {
+        "content": "  ],",
+        "light": "#0E1116",
+        "dark": "#E1E4E8"
+      }
+    ],
+    [
+      {
+        "content": ");",
+        "light": "#0E1116",
+        "dark": "#E1E4E8"
+      }
+    ],
+    [
+      {
+        "content": "final",
+        "light": "#A0111F",
+        "dark": "#F97583"
+      },
+      {
+        "content": " document ",
+        "light": "#0E1116",
+        "dark": "#E1E4E8"
+      },
+      {
+        "content": "=",
+        "light": "#A0111F",
+        "dark": "#F97583"
+      },
+      {
+        "content": " ",
+        "light": "#0E1116",
+        "dark": "#E1E4E8"
+      },
+      {
+        "content": "gql",
+        "light": "#622CBC",
+        "dark": "#B392F0"
+      },
+      {
+        "content": "(query);",
+        "light": "#0E1116",
+        "dark": "#E1E4E8"
+      }
+    ]
+  ]
+}

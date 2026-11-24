@@ -5,9 +5,13 @@ export type SectionKind = 'preview' | 'text';
 export interface CaseStudySection {
   title: string;
   kind?: SectionKind;
-  // Paragraphs or bullet points.
+  // Paragraphs support `inline code` and [label](url), not raw HTML.
+  // Links: HTTP(S), mailto, root-relative paths or #fragments.
+  // Encode parentheses in URLs as %28 / %29; other Markdown is unsupported.
   body?: string[];
-  // Screenshot captions for the Preview section, with intrinsic dimensions.
+  code?: { label: string; source: string }[];
+  links?: { label: string; href: string }[];
+  // Media for Previews or inline personal-project galleries, with intrinsic dimensions.
   media?: { label: string; src: string; width: number; height: number }[];
 }
 
@@ -18,6 +22,8 @@ export interface SectionView {
   kind: SectionKind;
   title: string;
   body?: string[];
+  code?: { label: string; source: string }[];
+  links?: { label: string; href: string }[];
   media?: { label: string; src: string; width: number; height: number }[];
 }
 
@@ -35,6 +41,8 @@ export function toSectionViews(sections: CaseStudySection[]): SectionView[] {
     kind: s.kind ?? 'text',
     title: s.title,
     body: s.body,
+    code: s.code,
+    links: s.links,
     media: s.media,
   }));
 }

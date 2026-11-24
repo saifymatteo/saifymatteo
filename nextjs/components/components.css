@@ -20,6 +20,24 @@
   @apply mx-auto w-full max-w-220;
 }
 
+/* Card skin + pop animation ONLY — layout (grid/flex, gap, columns) belongs
+   to the call site. v4's -translate-* sets the `translate` property, so the
+   reduced-motion reset must target `translate` at matching specificity:
+   `motion-reduce:transform-none` resets nothing here. */
+@utility card-pops-up {
+  @apply border-hairline bg-canvas shadow-card relative h-full min-w-0 rounded-2xl border p-8 transition-transform duration-300 focus-within:-translate-y-1 hover:-translate-y-1;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+
+    &,
+    &:hover,
+    &:focus-within {
+      translate: none;
+    }
+  }
+}
+
 /* Stacking contracts, named in one place (ADR-0008):
    z-content > z-backdrop — content layering above the shader/hero backdrop;
    z-overlay > z-nav — full-screen overlays (dialog, lightbox) above the sticky nav.
@@ -40,13 +58,66 @@
   z-index: 50;
 }
 
-@utility button-arrow-slide {
+@utility button-arrow-slide-x {
   transform: translateX(0);
   transition: transform 300ms;
   &.active,
   &:hover,
-  :where(.group:hover) & {
+  &:focus-visible,
+  :where(.group:hover, .group:focus-within) & {
     transform: translateX(0.1rem);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    transform: none;
+    transition: none;
+    &.active,
+    &:hover,
+    &:focus-visible,
+    :where(.group:hover, .group:focus-within) & {
+      transform: none;
+    }
+  }
+}
+
+@utility button-arrow-slide-y {
+  transform: translateY(0);
+  transition: transform 300ms;
+  &.active,
+  &:hover,
+  &:focus-visible,
+  :where(.group:hover, .group:focus-within) & {
+    transform: translateY(0.1rem);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    transform: none;
+    transition: none;
+    &.active,
+    &:hover,
+    &:focus-visible,
+    :where(.group:hover, .group:focus-within) & {
+      transform: none;
+    }
+  }
+}
+
+@utility underline-squiggle {
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.2em;
+  transition:
+    text-underline-offset 180ms,
+    text-decoration-thickness 180ms;
+
+  &:hover,
+  &:focus-visible {
+    text-decoration-style: wavy;
+    text-decoration-thickness: 0.075em;
+    text-underline-offset: 0.25em;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 }
 
@@ -69,8 +140,14 @@
     transition: transform 300ms;
   }
   &:hover::after,
+  &:focus-visible::after,
   &.active::after,
-  :where(.group:hover) &::after {
+  :where(.group:hover, .group:focus-within) &::after {
     transform: scaleX(1);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    &::after {
+      transition: none;
+    }
   }
 }

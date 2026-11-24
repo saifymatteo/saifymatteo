@@ -2,7 +2,7 @@ import {
   CaseStudyBody,
   CaseStudyHero,
 } from '@/app/projects/[slug]/components/case_study';
-import { getProject, projects } from '@/lib/projects/projects';
+import { getProjectCatalog } from '@/lib/projects/server';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -10,12 +10,16 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-export function generateStaticParams() {
-  return projects.map((project) => ({ slug: project.slug }));
+export async function generateStaticParams() {
+  // Strict CMS mode: project routes render on demand, including newly
+  // published slugs. Builds never fetch the CMS; with the CMS down they
+  // simply produce no static params.
+  return [];
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
+  const { getProject } = await getProjectCatalog();
   const project = getProject(slug);
   if (!project) return {};
   return {
@@ -26,6 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function AppIndividualProjectPage({ params }: Props) {
   const { slug } = await params;
+  const { getProject } = await getProjectCatalog();
   const project = getProject(slug);
   if (!project) notFound();
 

@@ -3,8 +3,11 @@
  *
  * `@next/third-parties`' `GoogleAnalytics` component crashes SSR under the
  * vinext/Cloudflare Workers runtime (HTTP 500 on every server-rendered route),
- * so GA is loaded with plain script tags in the root layout instead — the same
- * pattern as `THEME_BOOT_SCRIPT`. The inline bootstrap defines the standard
+ * so GA is loaded with plain script tags instead — the same pattern as
+ * `THEME_BOOT_SCRIPT`. Both are mounted through
+ * `app/components/boot_scripts.tsx`, which renders them during SSR only (the
+ * browser executes them from the initial HTML; React 19.2 logs an error for
+ * any script it has to render on the client). The inline bootstrap defines the standard
  * global `gtag()` (which pushes onto `window.dataLayer`), and `sendGAEvent`
  * reuses that global for the manual events documented in docs/adr/0010.
  *

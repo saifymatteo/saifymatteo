@@ -20,6 +20,14 @@ _Avoid_: Slogan, motto
 The long-form narrative body of a Project, composed of ordered Sections.
 _Avoid_: Story, article, write-up
 
+**Draft**:
+An unpublished version of a Project that can be edited without changing the version visitors see.
+_Avoid_: Hidden project, preview deployment
+
+**Publish**:
+Make an authored version of a Project available to visitors. Publishing content is separate from deploying the Portfolio application.
+_Avoid_: Deploy, release tag
+
 **Description**:
 The brief card copy of a Project, shown (truncated) on cards.
 _Avoid_: Summary, blurb, tagline, hero description
@@ -37,7 +45,7 @@ A special Section type showing screenshot media in a marquee/lightbox gallery; m
 _Avoid_: Gallery, screenshots, carousel
 
 **Media**:
-A labelled screenshot attached to a Preview section; the unit shown as a marquee card and opened in the Lightbox.
+A labelled screenshot or photograph in a Case Study, with intrinsic dimensions; shown in a scrolling Preview or a static personal-project collection and opened in the Lightbox.
 _Avoid_: Image, picture, photo
 
 **Lightbox**:
@@ -47,12 +55,16 @@ _Avoid_: Image viewer, modal, fullscreen view
 ## Site
 
 **Portfolio**:
-The set of real-world projects the site presents. Currently three: SANSOLS, iSC Workflow, MyKampus Radio Unofficial App.
+The professional work and personal projects the site presents, including software, custom keyboards, and CAD designs.
 _Avoid_: Work, gallery
 
 **Featured Works**:
-The curated preview of projects on the home page (one wide card + two narrow cards) — the first three Projects by module order, static max; additional Projects appear only on the full **Projects** listing page.
+The curated preview of professional work on the home page (one wide card + up to two narrow cards) — the first three published professional Projects in content order (`projectProfessionalCurated` in code; display surfaces are named `project<Type><Curated|Full>` — see ADR 0011). "Content order" is the visible numeric `order` field on each project (lowest first; ties by id) — the same field editors change in the admin to reorder. Personal projects have a separate homepage preview and listing section (`projectPersonalCurated` tile, `projectPersonalFull` listing).
 _Avoid_: Highlights, showcase
+
+**Personal project**:
+A self-directed Project made to learn or solve an everyday problem; may be a software package or a collection of physical designs and builds, without a claimed user base or completion date.
+_Avoid_: Side hustle, contribution (unless it actually modifies someone else's work)
 
 **Project Card**:
 A compact presentation of a Project. Two variants: _wide_ (two-column, logo panel beside content) and _narrow_ (vertical stack).

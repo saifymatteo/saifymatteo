@@ -12,13 +12,28 @@
   "cache": {
     "enabled": true,
   },
+  // Last-good CMS catalog copy (lib/projects/catalog_cache.ts). Free plan:
+  // hard daily caps, no billing. Create once: npx wrangler kv namespace create CMS_CATALOG
+  "kv_namespaces": [
+    {
+      "binding": "CMS_CATALOG",
+      "id": "e73764415b644dc486968ce2558a0283",
+      "remote": true,
+    },
+  ],
   "version_metadata": {
     "binding": "CF_VERSION_METADATA",
   },
   "workers_dev": true,
   "routes": [
-    { "pattern": "saifulmashuri.com", "custom_domain": true },
-    { "pattern": "www.saifulmashuri.com", "custom_domain": true },
+    {
+      "pattern": "saifulmashuri.com",
+      "custom_domain": true,
+    },
+    {
+      "pattern": "www.saifulmashuri.com",
+      "custom_domain": true,
+    },
   ],
   "vars": {
     "TURNSTILE_HOSTNAMES": "saifulmashuri.com,www.saifulmashuri.com",

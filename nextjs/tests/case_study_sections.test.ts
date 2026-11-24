@@ -1,11 +1,9 @@
 import { strict as assert } from 'node:assert';
 import { describe, it } from 'node:test';
 import { toSectionViews } from '../lib/projects/case_study.ts';
-import {
-  getCaseStudySections,
-  getFeaturedProjects,
-  projects,
-} from '../lib/projects/projects.ts';
+import { createProjectCatalog } from '../lib/projects/projects.ts';
+// The corpus is the seed input — these invariants gate what gets imported.
+import { projects } from '../../payloadcms/content/index.ts';
 import type { CaseStudySection } from '../lib/projects/case_study.ts';
 
 const text = (title: string, body?: string[]): CaseStudySection => ({
@@ -111,10 +109,11 @@ describe('toSectionViews — kind resolution', () => {
   });
 });
 
-describe('real project data', () => {
+describe('real project data (seed corpus)', () => {
+  const catalog = createProjectCatalog(projects);
   it('renders contiguous numbering for every project', () => {
     for (const project of projects) {
-      const views = getCaseStudySections(project);
+      const views = catalog.getCaseStudySections(project);
       assert.ok(views.length > 0, `${project.slug} has no sections`);
       views.forEach((v, i) => {
         assert.deepEqual(
@@ -128,7 +127,7 @@ describe('real project data', () => {
 
   it('gives every rendered Preview section media', () => {
     for (const project of projects) {
-      for (const view of getCaseStudySections(project)) {
+      for (const view of catalog.getCaseStudySections(project)) {
         if (view.kind === 'preview') {
           assert.ok(
             view.media && view.media.length > 0,
@@ -137,13 +136,5 @@ describe('real project data', () => {
         }
       }
     }
-  });
-});
-
-describe('getFeaturedProjects', () => {
-  it('features the first three projects by module order', () => {
-    const featured = getFeaturedProjects();
-    assert.deepEqual(featured.length, 3);
-    assert.deepEqual(featured, projects.slice(0, 3));
   });
 });

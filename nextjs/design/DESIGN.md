@@ -256,10 +256,18 @@ translate (or Apple-style scale) — never a color change.
 ### Project cards
 
 The system's "product renders" — the only shadowed surface. `rounded-2xl`
-card radius, `p-8`, `border-hairline`, `shadow-card`, hover lift
-(`-translate-y-1`). Anatomy: meta row (platform pill + date + status label)
-→ title (`text-title`) → description (`text-body`, clamped) → tech tags
-(`text-micro` pills) → "Case Study" accent link with arrow nudge.
+card radius, `p-8`, `border-hairline`, `shadow-card`, hover/focus lift
+(`-translate-y-1`) with a reduced-motion fallback. `ProjectCard` renders both
+professional and personal entries: a lead split card (copy left, visual
+right), followed by stacked cards. Anatomy: platform pill (plus date and
+sentence-case status for professional work) → title (`text-title`) → full
+description (`text-body`) → semantic tech list (`text-micro` pills) → case
+study or collection link with arrow feedback. Logos retain their light/dark
+variants inside stable 4:3 panels; personal entries keep their real
+photographs or code previews. One native case-study link covers the whole card
+using a stretched pseudo-element, with a pointer cursor and a full-card keyboard
+focus outline. Image, title, body and padding all navigate to the same project.
+There are no nested links; code previews retain their separate keyboard access.
 
 ### Brand Band (PageHero)
 
@@ -292,9 +300,33 @@ legal row `text-caption` ink-muted.
 
 ### Case study
 
-Hero info cards (label + value), numbered sections — ordinals derived from
-position (ADR-0006), titles `text-heading`, body `text-body`,
-`content-max-width-slim` prose column.
+One split hero for professional and personal work: category back link,
+left-aligned copy/actions, then the project's visual on the right. On phones,
+the explanation and actions precede the visual. Stacked logo-only heroes
+use a shorter 2:1 panel instead of enlarging a logo into a full 4:3 photograph;
+desktop split heroes retain the 4:3 panel. Hero logo panels are transparent,
+with padding and white/light logo variants retained for contrast on the brand
+surface. Project-card logo panels are also transparent, letting the outer card
+surface show through. Screenshot/gallery backgrounds remain unchanged.
+Hero info cards use sentence-case labels; professional entries retain role, year, status and stack, while
+personal entries show role and stack.
+
+Numbered sections use ordinals derived from position (ADR-0006), titles
+`text-heading`, body `text-body`, and a `content-max-width-slim` prose column.
+All text sections share paragraph spacing and one heading divider, rather
+than artificial bullets or per-paragraph rules. Body strings support inline
+backtick code and `[label](url)` links through `InlineText`; raw HTML stays
+literal. Paragraph links use `underline-squiggle`: a solid underline at rest,
+wavy on hover or keyboard focus, with a short offset/thickness transition.
+Reduced motion removes that transition. Clickable image captions reuse
+`underline-slide`, activated by hovering or focusing their image button. Code uses
+Fira Code on parchment. Root-relative, fragment and mailto links stay in the
+current browsing context; HTTP(S) links open a new tab with `noopener noreferrer`.
+Other URL schemes are not rendered as links. This is not a full Markdown parser. Professional previews retain
+the infinite marquee and full-size image viewer; personal inline galleries
+keep their grids. Marquee tiles use a responsive landscape frame and the
+same caption/focus roles as the personal galleries. The existing 45px/s loop,
+hover pause and deliberate reduced-motion marquee policy are unchanged.
 
 ## Do's and Don'ts
 

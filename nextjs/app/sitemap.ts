@@ -1,7 +1,8 @@
-import { projects } from '@/lib/projects/projects';
+import { getProjectCatalog } from '@/lib/projects/server';
 import type { MetadataRoute } from 'next';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const { projects } = await getProjectCatalog();
   const projectUrls: MetadataRoute.Sitemap = projects.map((project) => ({
     url: `https://saifulmashuri.com/projects/${project.slug}`,
     lastModified: new Date(),

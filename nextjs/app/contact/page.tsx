@@ -95,7 +95,7 @@ export default function AppContact() {
                       {contact.value}
                     </span>
                   </span>
-                  <span className="button-arrow-slide text-on-dark">
+                  <span className="button-arrow-slide-x text-on-dark">
                     {contact.icon}
                   </span>
                 </TrackedLink>

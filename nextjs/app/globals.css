@@ -133,6 +133,16 @@
   color-scheme: dark;
 }
 
+/* Shiki's build-generated token colours follow the existing theme choice.
+   Only token foregrounds change: code keeps the portfolio's surfaces/type. */
+.syntax-code .syntax-token {
+  color: var(--code-light);
+}
+
+[data-theme='dark'] .syntax-code .syntax-token {
+  color: var(--code-dark);
+}
+
 @layer base {
   body {
     @apply bg-canvas text-ink;

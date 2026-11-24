@@ -82,7 +82,7 @@ export default function ResumeDialog({ label, value, icon }: ResumeCardProps) {
             {value}
           </span>
         </span>
-        <span className="button-arrow-slide text-on-dark">{icon}</span>
+        <span className="button-arrow-slide-x text-on-dark">{icon}</span>
       </button>
 
       {open &&

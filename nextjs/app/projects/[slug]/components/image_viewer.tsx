@@ -35,7 +35,7 @@ export default function ImageViewer({
   onIndexChange,
   onClose,
 }: ImageViewerProps) {
-  const dialogRef = useRef<HTMLDivElement>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
 
   const step = useCallback(
     (dir: 1 | -1) => onIndexChange((index + dir + media.length) % media.length),
@@ -44,30 +44,40 @@ export default function ImageViewer({
 
   useEffect(() => {
     if (!open) return;
+    const opener = document.activeElement;
+    const previousOverflow = document.body.style.overflow;
+    // Native modal behavior keeps keyboard focus inside and the page inert.
+    dialogRef.current?.showModal();
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      if (opener instanceof HTMLElement) opener.focus();
+    };
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-      else if (e.key === 'ArrowRight') step(1);
+      if (e.key === 'ArrowRight') step(1);
       else if (e.key === 'ArrowLeft') step(-1);
     };
     window.addEventListener('keydown', onKey);
-    document.body.style.overflow = 'hidden';
-    dialogRef.current?.focus();
-    return () => {
-      window.removeEventListener('keydown', onKey);
-      document.body.style.overflow = '';
-    };
-  }, [open, onClose, step]);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open, step]);
 
   if (!open) return null;
 
   return (
-    <div
+    <dialog
       ref={dialogRef}
-      role="dialog"
       aria-modal="true"
       aria-label={media[index].label}
       tabIndex={-1}
-      className="z-overlay fixed inset-0 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+      className="z-overlay fixed inset-0 m-0 flex h-dvh max-h-none w-screen max-w-none items-center justify-center border-0 bg-black/70 p-4 backdrop-blur-sm"
+      onCancel={(event) => {
+        event.preventDefault();
+        onClose();
+      }}
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
@@ -97,12 +107,14 @@ export default function ImageViewer({
             type="button"
             onClick={() => step(-1)}
             aria-label="Previous image"
+            tabIndex={-1}
             className="absolute inset-y-0 left-0 w-1/2 cursor-w-resize"
           />
           <button
             type="button"
             onClick={() => step(1)}
             aria-label="Next image"
+            tabIndex={-1}
             className="absolute inset-y-0 right-0 w-1/2 cursor-e-resize"
           />
         </div>
@@ -130,6 +142,6 @@ export default function ImageViewer({
       >
         <ChevronRight className="size-7" />
       </button>
-    </div>
+    </dialog>
   );
 }

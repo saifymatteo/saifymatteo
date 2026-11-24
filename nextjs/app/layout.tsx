@@ -1,8 +1,7 @@
 import AppNavigationBar from '@/app/components/navigation_bar';
+import BootScripts from '@/app/components/boot_scripts';
 import Footer from '@/app/components/footer';
 import MotionProvider from '@/app/components/motion_provider';
-import { THEME_BOOT_SCRIPT } from '@/lib/theme';
-import { GA_INIT_SCRIPT, GA_LOADER_SRC } from '@/lib/ga';
 import type { Metadata, Viewport } from 'next';
 import { Fira_Sans, Fira_Code, Cookie } from 'next/font/google';
 
@@ -58,17 +57,8 @@ export default function RootLayout({
       className={`${firaSans.variable} ${firaCode.variable} ${cookie.variable} h-full antialiased`}
     >
       <head>
-        <script async src={GA_LOADER_SRC} />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: GA_INIT_SCRIPT,
-          }}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: THEME_BOOT_SCRIPT,
-          }}
-        />
+        {/* Head scripts render server-side only — see BootScripts. */}
+        <BootScripts />
       </head>
       <body className="flex min-h-full flex-col">
         <MotionProvider>

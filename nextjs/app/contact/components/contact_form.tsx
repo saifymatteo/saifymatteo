@@ -124,7 +124,7 @@ export default function ContactForm() {
             disabled={status === 'sending' || !turnstileToken}
             className={buttonVariants({ variant: 'blue' })}
           >
-            Submit <ArrowRight className="button-arrow-slide size-5" />
+            Submit <ArrowRight className="button-arrow-slide-x size-5" />
           </button>
           {invalidHint && (
             <p className="text-sm text-red-500" role="alert">
