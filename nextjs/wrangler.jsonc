@@ -37,5 +37,7 @@
   ],
   "vars": {
     "TURNSTILE_HOSTNAMES": "saifulmashuri.com,www.saifulmashuri.com",
+    // Public origin (not a secret); read at runtime. See docs/payload-cms.md.
+    "PAYLOAD_CMS_URL": "https://cms.saifulmashuri.com",
   },
 }

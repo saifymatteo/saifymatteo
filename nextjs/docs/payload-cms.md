@@ -88,8 +88,8 @@ For the Worker:
 
 1. Create the KV namespace once: `npx wrangler kv namespace create CMS_CATALOG`
    and put its id in `wrangler.jsonc` (replacing `REPLACE_WITH_KV_NAMESPACE_ID`).
-2. Set the production variable: `npx wrangler secret put PAYLOAD_CMS_URL`
-   (`https://cms.<infra domain>`). It is read at runtime; builds never fetch the CMS.
+2. `PAYLOAD_CMS_URL` is a plain `vars` entry in `wrangler.jsonc` (a public
+   origin, not a secret). It is read at runtime; builds never fetch the CMS.
 3. Before tagging: `PAYLOAD_CMS_URL=https://cms.<infra domain> node
 --experimental-strip-types scripts/check-cms.mjs` against a local
    `wrangler dev` of the build.
