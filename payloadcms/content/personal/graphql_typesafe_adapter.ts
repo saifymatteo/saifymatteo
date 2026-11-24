@@ -21,7 +21,7 @@ export const projectGraphqlTypesafeAdapter: ProjectContent = {
       href: "https://pub.dev/packages/graphql_typesafe_adapter",
     },
   ],
-  caseStudy: [
+  contents: [
     {
       title: "Why I made it",
       body: [

@@ -1,7 +1,7 @@
 import {
-  CaseStudyBody,
-  CaseStudyHero,
-} from '@/app/projects/[slug]/components/case_study';
+  ContentBody,
+  ContentHero,
+} from '@/app/projects/[slug]/components/content';
 import { getProjectCatalog } from '@/lib/projects/server';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -36,9 +36,9 @@ export default async function AppIndividualProjectPage({ params }: Props) {
 
   return (
     <>
-      <CaseStudyHero project={project} />
+      <ContentHero project={project} />
       <div className="gradient-bar h-2" />
-      <CaseStudyBody project={project} />
+      <ContentBody project={project} />
     </>
   );
 }

@@ -33,7 +33,7 @@ export type ProjectContent = {
   logoDark?: string;
   cover?: PortfolioImage;
   links: PortfolioLink[];
-  caseStudy: PortfolioSection[];
+  contents: PortfolioSection[];
 };
 
 // The same loopback host under its other spelling, for CSRF-origin entries.
@@ -108,9 +108,10 @@ const links = (values: Project['links']): PortfolioLink[] =>
 
 export function toProjectContent(
   project: Project,
-  origin: string
+  origin: string,
+  { allowDraft = false } = {}
 ): ProjectContent {
-  if (project._status !== 'published')
+  if (!allowDraft && project._status !== 'published')
     throw new Error('Refusing to expose an unpublished project.');
   return {
     slug: project.slug,
@@ -133,7 +134,7 @@ export function toProjectContent(
       : {}),
     links: links(project.links),
     // Raw sections: no ordinals, preview filtering, or render-time transforms.
-    caseStudy: project.caseStudy.map((section) => ({
+    contents: project.contents.map((section) => ({
       title: section.title,
       ...(section.kind ? { kind: section.kind } : {}),
       ...(section.body?.length

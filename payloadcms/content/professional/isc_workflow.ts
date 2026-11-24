@@ -20,12 +20,12 @@ export const projectIscWorkflow: ProjectContent = {
       href: "https://isarawakcare.sarawak.gov.my/",
     },
     {
-      label: "Apply initiative",
+      label: "Web App",
       href: "https://isarawakcare.sarawak.gov.my/apply-now/",
     },
   ],
   role: "Front-end engineer",
-  caseStudy: [
+  contents: [
     {
       title: "From forms to submissions",
       body: [
@@ -86,7 +86,7 @@ export const projectIscWorkflow: ProjectContent = {
       title: "My work on the app",
       body: [
         "I worked on the form builder’s shared UI, field configuration and validation. I also helped add English, Bahasa Malaysia and Chinese language support.",
-        "My client-side integration work connected screens to the State Integrated Financial, Budgeting and Accounting System (SIFBAS). I also connected screens to One Voucher Multiple Instruction (OVMI) processing.",
+        "My client-side integration work connected screens to the SIFBAS (State Integrated Financial, Budgeting and Accounting System). I also connected screens to OVMI (One Voucher Multiple Instruction) processing.",
         "The backend team supplied the financial APIs. I worked on the app, not the external financial systems.",
       ],
     },

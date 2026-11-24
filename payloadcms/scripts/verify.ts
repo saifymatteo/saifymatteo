@@ -102,7 +102,7 @@ try {
     platform: 'Web',
     role: 'Tester',
     techStack: [{ name: 'TypeScript' }],
-    caseStudy: [{ title: 'Draft section' }],
+    contents: [{ title: 'Draft section' }],
     _status: 'draft' as const,
   };
   await payload.create({

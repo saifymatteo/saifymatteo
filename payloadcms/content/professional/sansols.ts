@@ -32,7 +32,7 @@ export const projectSansols: ProjectContent = {
     },
   ],
   role: "Front-end engineer",
-  caseStudy: [
+  contents: [
     {
       title: "Two sides of an application",
       body: [

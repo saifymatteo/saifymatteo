@@ -184,7 +184,10 @@ export interface Project {
         id?: string | null;
       }[]
     | null;
-  caseStudy: {
+  /**
+   * Sections of the project page, top to bottom. Add images under each section's Media.
+   */
+  contents: {
     title: string;
     kind?: ('preview' | 'text') | null;
     body?:
@@ -386,7 +389,7 @@ export interface ProjectsSelect<T extends boolean = true> {
         href?: T;
         id?: T;
       };
-  caseStudy?:
+  contents?:
     | T
     | {
         title?: T;

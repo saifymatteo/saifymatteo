@@ -3,6 +3,7 @@ import { describe, it } from 'node:test';
 import {
   fetchCmsProjects,
   parsePortfolioResponse,
+  verifyPreviewToken,
 } from '../lib/projects/cms.ts';
 import {
   createProjectCatalog,
@@ -22,7 +23,7 @@ const fixture: ProjectContent = {
   techStack: ['TypeScript'],
   logo: 'http://localhost:3002/api/media/file/logo.svg',
   links: [{ label: 'Source', href: 'https://example.com' }],
-  caseStudy: [
+  contents: [
     { kind: 'preview', title: 'Empty preview', media: [] },
     {
       title: 'Notes',
@@ -78,7 +79,7 @@ describe('CMS portfolio contract', () => {
       { logo: 'javascript:alert(1)' },
       { links: [{ label: 'Bad', href: 'javascript:alert(1)' }] },
       { links: [{ label: 'Bad', href: '/\\evil.example' }] },
-      { caseStudy: [{ title: 'Bad', body: 'not an array' }] },
+      { contents: [{ title: 'Bad', body: 'not an array' }] },
       {
         cover: {
           label: 'Bad',
@@ -188,5 +189,42 @@ describe('CMS portfolio contract', () => {
         /PAYLOAD_CMS_URL/
       );
     }
+  });
+});
+
+describe('preview token', () => {
+  const secret = 'x'.repeat(40);
+  // Same construction as payloadcms/src/preview.ts signPreviewToken.
+  const sign = async (slug: string, expires: number) => {
+    const { createHmac } = await import('node:crypto');
+    const mac = createHmac('sha256', secret)
+      .update(`${slug}.${expires}`)
+      .digest('hex');
+    return `${expires}.${mac}`;
+  };
+  const future = Math.floor(Date.now() / 1000) + 600;
+
+  it('accepts a CMS-signed token for the same slug', async () => {
+    assert.equal(
+      await verifyPreviewToken(
+        'sansols',
+        await sign('sansols', future),
+        secret
+      ),
+      true
+    );
+  });
+  it('rejects another slug, an expired token, a wrong secret, or garbage', async () => {
+    const token = await sign('sansols', future);
+    assert.equal(await verifyPreviewToken('other', token, secret), false);
+    assert.equal(
+      await verifyPreviewToken('sansols', await sign('sansols', 1), secret),
+      false
+    );
+    assert.equal(
+      await verifyPreviewToken('sansols', token, 'y'.repeat(40)),
+      false
+    );
+    assert.equal(await verifyPreviewToken('sansols', 'nope', secret), false);
   });
 });

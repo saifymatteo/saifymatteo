@@ -38,13 +38,15 @@ export default async function Home() {
               <ProjectCard project={first} variant="wide" />
             </Reveal>
           )}
-          <div className="grid gap-6 lg:grid-cols-2">
-            {rest.map((project, index) => (
-              <Reveal key={project.slug} delay={(index + 1) * 0.05}>
-                <ProjectCard project={project} variant="narrow" />
-              </Reveal>
-            ))}
-          </div>
+          {rest.length > 0 && (
+            <div className="grid gap-6 lg:grid-cols-2">
+              {rest.map((project, index) => (
+                <Reveal key={project.slug} delay={(index + 1) * 0.05}>
+                  <ProjectCard project={project} variant="narrow" />
+                </Reveal>
+              ))}
+            </div>
+          )}
 
           {/* Personal Projects */}
           {projectPersonalFull.length > 0 && (
@@ -56,23 +58,26 @@ export default async function Home() {
             </Reveal>
           )}
           {projectProfessionalCurated.length === 0 && (
-            <p className="text-on-dark/70 py-10 text-center text-xl">
+            <p className="text-on-dark/70 py-10 text-center text-lg">
               No published projects yet — check back soon.
             </p>
           )}
         </div>
 
-        <Reveal className="mt-14">
-          <div className="text-center">
-            <Link
-              href="/projects"
-              className="text-accent bg-parchment group inline-flex items-center gap-2 rounded-full px-7 py-3 text-xl font-semibold transition-all duration-300 hover:-translate-y-1"
-            >
-              View All Projects{' '}
-              <ArrowRight className="button-arrow-slide-x size-5" />
-            </Link>
-          </div>
-        </Reveal>
+        {projectProfessionalCurated.length > 0 ||
+          (projectPersonalFull.length > 0 && (
+            <Reveal className="mt-14">
+              <div className="text-center">
+                <Link
+                  href="/projects"
+                  className="text-accent bg-parchment group inline-flex items-center gap-2 rounded-full px-7 py-3 text-xl font-semibold transition-all duration-300 hover:-translate-y-1"
+                >
+                  View All Projects{' '}
+                  <ArrowRight className="button-arrow-slide-x size-5" />
+                </Link>
+              </div>
+            </Reveal>
+          ))}
       </PageHero>
 
       {/* Contact Card */}

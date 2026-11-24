@@ -103,7 +103,7 @@ try {
     }
     // Preserve the corpus content exactly;
     // getCaseStudySections is a compatibility fallback, not the primary content source.
-    const sections = project.caseStudy;
+    const sections = project.contents;
     const { logo, logoDark, cover, techStack, ...base } = project;
     const data: Omit<Project, 'id' | 'createdAt' | 'updatedAt'> = {
       ...base,
@@ -119,7 +119,7 @@ try {
           }
         : {}),
       ...(cover ? { cover: [await visual(cover)] } : {}),
-      caseStudy: await Promise.all(
+      contents: await Promise.all(
         sections.map(async (section) => ({
           ...section,
           body: section.body?.map((text) => ({ text })),

@@ -7,7 +7,7 @@ import {
 export type ProjectStatus = 'COMPLETED' | 'ONGOING' | 'ARCHIVED';
 export type { CaseStudySection };
 
-// What a consumer is allowed to know about a project. `caseStudy` is
+// What a consumer is allowed to know about a project. `contents` is
 // deliberately NOT here — sections are read through `getCaseStudySections`
 // (hard seam; TypeScript rejects any other access).
 export interface Project {
@@ -36,7 +36,7 @@ export interface Project {
 }
 
 // What content files supply: a Project plus its raw case-study sections.
-export type ProjectContent = Project & { caseStudy: CaseStudySection[] };
+export type ProjectContent = Project & { contents: CaseStudySection[] };
 
 // The two display surfaces, crossed with the two project types. Naming:
 // project<Type><Display> — Curated = the home page preview, Full = the
@@ -96,7 +96,7 @@ export function createProjectCatalog(
     },
     // Only expose render-ready sections, never the raw authored sections.
     getCaseStudySections(project: Project): SectionView[] {
-      const raw = content.find((c) => c.slug === project.slug)?.caseStudy ?? [];
+      const raw = content.find((c) => c.slug === project.slug)?.contents ?? [];
       return toSectionViews(raw);
     },
     projectStats: () => ({

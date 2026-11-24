@@ -33,6 +33,37 @@ Requires Node **^22.23.5, ^24.22.3, or >=26.13.1**, matching the installed Paylo
    ```
    Open <http://localhost:5173>. Publish a Project edit in the CMS and reload its portfolio page. This app uses `PAYLOAD_PUBLIC_SERVER_URL` for canonical media URLs; the portfolio uses its own server-only `PAYLOAD_CMS_URL` to select the content source. Leaving that variable unset preserves the local TypeScript content. See [the integration guide](../nextjs/docs/payload-cms.md) for vinext startup, the failure policy, and production caveats.
 
+## Editing images and previewing
+
+**Replace a logo or cover** (admin UI, `cms.<domain>/admin`):
+
+1. Open the project → the `Logo` / `Logo Dark` / `Cover` field.
+2. Click the **×** on the current image, then **Create New** to upload a file
+   (or **Choose from existing** to reuse one in Media).
+3. Watch the **Live Preview** tab, then **Publish**. The site shows it within 60 s.
+
+Uploads get a new filename even if the name matches, so cached old images
+never stick. Deleting the old file in **Media** is optional.
+
+**Add images to a section:** project → **Contents** → the section → **Media**
+→ **Add Media** → label (alt text) + image. Width/height are optional
+(read from the file).
+
+**Live Preview** (the eye/tab beside *Edit*): renders the real portfolio
+page from the current draft; autosave refreshes it as you type. Needs
+`PAYLOAD_PREVIEW_SECRET` (same value on CMS and Worker) and
+`PORTFOLIO_PREVIEW_ORIGIN` (`https://saifulmashuri.com`, or
+`http://localhost:5173` locally). Nothing reaches the public site until
+**Publish**.
+
+**Via the seed corpus instead** (`content/*.ts`): put the WebP under
+`nextjs/public/assets/portfolios/<project>/` and reference it as
+`{ label, src: '/assets/portfolios/<project>/<file>.webp', width, height }`
+in a section's `media`; then `npm run seed -- --update` (overwrites admin edits
+to those projects). Run it with `NODE_ENV=production` against any database
+that production will open, or Payload's dev push marks it and production
+halts at a prompt.
+
 ## Content and permissions
 
 - **Users:** authenticated-admin-only CRUD. Payload's first-user bootstrap bypasses create ACL only while no user exists. No roles: every authenticated user is an admin. Do not create accounts for untrusted contributors.

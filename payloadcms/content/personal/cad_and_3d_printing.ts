@@ -16,7 +16,7 @@ export const projectCadAnd3dPrinting: ProjectContent = {
   description:
     "A kitchen utensil rack I designed to fit my setup, alongside practical 3D-printing adaptations.",
   summary:
-    "I use CAD and 3D printing to solve problems around the house. My projects include a kitchen utensil rack and a simple tray for sofa arm chair.",
+    "I use CAD and 3D printing to solve problems around the house. My projects include a kitchen utensil rack, an armchair tray and a gecko bowl.",
   cover: {
     label:
       "My printed hanging kitchen bins holding utensils on the kitchen rack",
@@ -33,7 +33,7 @@ export const projectCadAnd3dPrinting: ProjectContent = {
       href: "https://makerworld.com/en/@saifymatteo/upload",
     },
   ],
-  caseStudy: [
+  contents: [
     {
       title: "A rack for my kitchen",
       media: [
@@ -58,19 +58,47 @@ export const projectCadAnd3dPrinting: ProjectContent = {
       links: [{ label: "View the rack & editable files", href: rackUrl }],
     },
     {
-      title: "Simple tray for my wife's arm chair",
+      title: "Simple tray for my wife's armchair",
+      media: [
+        {
+          label: "Sofa tray: the printed tray fitted over the curved armrest",
+          src: "/assets/portfolios/cad/sofa-tray-angled.webp",
+          width: 1080,
+          height: 810,
+        },
+        {
+          label: "Sofa tray: in use on the armchair, giving a flat surface",
+          src: "/assets/portfolios/cad/sofa-tray-in-use.webp",
+          width: 1050,
+          height: 1400,
+        },
+      ],
       body: [
-        "I went through few iterations to get the strength and angle correctly for my wife to put her mouse on top of it.",
-        "She uses an arm chair cover which covers the whole chair, but needed a flat surface to put her mouse the arm section.",
-        "I made designed this to solve her problem and the model has been going strong for few months now.",
+        "My wife covers her whole armchair with a throw, but she needed a flat surface on the armrest for her mouse.",
+        "I designed this tray to fit over the curved armrest. It took a few iterations to get the strength and angle right.",
+        "It has held up well for a few months of daily use.",
       ],
       links: [{ label: "View the tray & editable files", href: trayUrl }],
     },
     {
-      title: "Pet Gecko bowl",
+      title: "Pet gecko bowl",
+      media: [
+        {
+          label: "Gecko bowl: the printed mealworm bowl in the enclosure",
+          src: "/assets/portfolios/cad/gecko-bowl-in-enclosure.webp",
+          width: 1080,
+          height: 810,
+        },
+        {
+          label: "Gecko bowl: side view showing the low, wide rim",
+          src: "/assets/portfolios/cad/gecko-bowl-side.webp",
+          width: 1400,
+          height: 1050,
+        },
+      ],
       body: [
-        "A really dead simple model for my wife pet Gecko.",
-        "I designed this instead of re-using existing design because others require support to print. My design uses angled approach for the inner wall/cavity, so no support is required.",
+        "A simple mealworm bowl for my wife's pet gecko.",
+        "Existing designs needed supports to print, so I made my own. The inner wall is angled, so it prints without supports.",
       ],
       links: [{ label: "View the bowl & editable files", href: geckoBowlUrl }],
     },

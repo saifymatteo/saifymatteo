@@ -17,7 +17,7 @@ const project = (slug: string): ProjectContent => ({
   role: 'Dev',
   techStack: [],
   links: [],
-  caseStudy: [],
+  contents: [],
 });
 
 function fakes(stored: string | null = null) {

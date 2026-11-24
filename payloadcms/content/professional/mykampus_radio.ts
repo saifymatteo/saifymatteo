@@ -33,7 +33,7 @@ export const projectMyKampusRadio: ProjectContent = {
     },
   ],
   role: "Developer",
-  caseStudy: [
+  contents: [
     {
       title: "A personal listening app",
       body: [
@@ -74,7 +74,7 @@ export const projectMyKampusRadio: ProjectContent = {
     {
       title: "Connecting playback to the interface",
       body: [
-        "I used `[just_audio](https://pub.dev/packages/just_audio)` and `[audio_service](https://pub.dev/packages/audio_service)` to connect playback to the Flutter interface. Stream updates drive playback state and the now-playing display, including track details and artwork.",
+        "I used [`just_audio`](https://pub.dev/packages/just_audio) and [`audio_service`](https://pub.dev/packages/audio_service) to connect playback to the Flutter interface. Stream updates drive playback state and the now-playing display, including track details and artwork.",
         "I added light and dark themes, plus links to MKR’s contact details. The Android client includes media notifications and background playback integration.",
         "The app relies on MKR’s stream and track metadata. The [repository](https://github.com/saifymatteo/MKR-Unofficial-App-Flutter) documents web metadata restrictions, intermittent stream failures, and playback or distribution limits on other platforms.",
       ],

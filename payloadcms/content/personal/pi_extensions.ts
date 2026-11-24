@@ -25,7 +25,7 @@ export const projectPiExtensions: ProjectContent = {
     { label: "Source and packages", href: repository },
     { label: "Demo", href: `${repository}/main/demo.gif` },
   ],
-  caseStudy: [
+  contents: [
     {
       title: "Jobs and code exploration",
       body: [

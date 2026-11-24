@@ -21,7 +21,7 @@ export const projectCustomKeyboards: ProjectContent = {
   role: "Designer and builder",
   techStack: ["QMK", "Vial", "C"],
   links: [{ label: "Source & build files", href: keyboardsUrl }],
-  caseStudy: [
+  contents: [
     {
       title: "ViktorPad",
       media: [

@@ -33,7 +33,7 @@ const project: Project = {
   logoDark: image,
   cover: [{ label: 'Cover', image }],
   links: [{ label: 'Source', href: 'https://example.com' }],
-  caseStudy: [
+  contents: [
     { title: 'Empty preview', kind: 'preview' },
     {
       title: 'Details',
@@ -67,7 +67,7 @@ test('maps native relationships to the canonical shape without CMS metadata or r
       height: 200,
     },
     links: [{ label: 'Source', href: 'https://example.com' }],
-    caseStudy: [
+    contents: [
       { title: 'Empty preview', kind: 'preview' },
       {
         title: 'Details',

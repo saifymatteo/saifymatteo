@@ -1,6 +1,6 @@
-import type { Project } from '@/lib/projects/projects';
+import type { Project, ProjectCatalog } from '@/lib/projects/projects';
 import { getProjectCatalog } from '@/lib/projects/server';
-import PreviewSection from '@/app/projects/[slug]/components/case_study_preview';
+import PreviewSection from '@/app/projects/[slug]/components/content_preview';
 import PageHero from '@/app/components/page_hero';
 import { ProjectImageOrCode, ProjectLogo } from '@/app/components/project';
 import Reveal from '@/components/reveal';
@@ -14,7 +14,7 @@ const Divider = () => <div className="border-accent/20 mt-2 border-t" />;
 const formatStack = (stack: string[]) =>
   stack.length > 3 ? `${stack.slice(0, 3).join(' · ')}` : stack.join(' · ');
 
-export function CaseStudyHero({ project }: { project: Project }) {
+export function ContentHero({ project }: { project: Project }) {
   const personal = project.category === 'personal';
   const metadata = [
     ['Role', project.role],
@@ -88,9 +88,16 @@ export function CaseStudyHero({ project }: { project: Project }) {
   );
 }
 
-export async function CaseStudyBody({ project }: { project: Project }) {
+export async function ContentBody({
+  project,
+  catalog,
+}: {
+  project: Project;
+  // Injected by the draft preview route; defaults to the published catalog.
+  catalog?: ProjectCatalog;
+}) {
   const { getAdjacentProjects, getCaseStudySections } =
-    await getProjectCatalog();
+    catalog ?? (await getProjectCatalog());
   const { prev, next } = getAdjacentProjects(project.slug);
   const sections = getCaseStudySections(project);
   const nav = [

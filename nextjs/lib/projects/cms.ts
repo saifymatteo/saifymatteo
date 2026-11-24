@@ -88,7 +88,7 @@ function project(value: unknown): value is ProjectContent {
     optional(value.logoDark, httpUrl) &&
     array(value.techStack, string) &&
     array(value.links, link) &&
-    array(value.caseStudy, section)
+    array(value.contents, section)
   );
 }
 
@@ -104,6 +104,62 @@ export function parsePortfolioResponse(value: unknown): ProjectContent[] {
     throw new Error('Payload CMS returned duplicate project slugs');
   }
   return projects;
+}
+
+// Live preview (payloadcms/src/preview.ts): the CMS signs `<expires>.<hmac>`
+// over `<slug>.<expires>` with PAYLOAD_PREVIEW_SECRET. Web Crypto, so the
+// same code runs on Workers and Node.
+export async function verifyPreviewToken(
+  slug: string,
+  token: string,
+  secret: string,
+  now = Date.now()
+): Promise<boolean> {
+  const [expires, mac] = token.split('.');
+  if (!/^\d+$/.test(expires ?? '') || !/^[0-9a-f]{64}$/.test(mac ?? ''))
+    return false;
+  if (Number(expires) * 1000 < now) return false;
+  const key = await crypto.subtle.importKey(
+    'raw',
+    new TextEncoder().encode(secret),
+    { name: 'HMAC', hash: 'SHA-256' },
+    false,
+    ['verify']
+  );
+  const bytes = Uint8Array.from(mac.match(/../g)!, (h) => parseInt(h, 16));
+  return crypto.subtle.verify(
+    'HMAC',
+    key,
+    bytes,
+    new TextEncoder().encode(`${slug}.${expires}`)
+  );
+}
+
+// Draft content for one project; never cached (preview only).
+export async function fetchCmsPreview(
+  origin: string,
+  slug: string,
+  secret: string,
+  request: typeof fetch = fetch
+): Promise<ProjectContent> {
+  const url = new URL('/api/portfolio-preview', origin);
+  url.searchParams.set('slug', slug);
+  const response = await request(url, {
+    cache: 'no-store',
+    signal: AbortSignal.timeout(5_000),
+    headers: { Accept: 'application/json', 'X-Preview-Secret': secret },
+  });
+  const body: unknown = await response.json().catch(() => null);
+  if (!response.ok) {
+    const reason =
+      record(body) && string(body.error)
+        ? body.error
+        : `HTTP ${response.status}`;
+    throw new Error(reason);
+  }
+  if (!record(body) || !project(body.project))
+    throw new Error('Payload CMS returned an invalid draft');
+  return body.project;
 }
 
 export async function fetchCmsProjects(

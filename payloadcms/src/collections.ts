@@ -1,6 +1,7 @@
 import type { Access, CollectionConfig, Field, Validate } from 'payload';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { livePreview } from './preview';
 
 export const adminOnly: Access = ({ req }) => Boolean(req.user);
 
@@ -141,6 +142,8 @@ export const Projects: CollectionConfig = {
   admin: {
     useAsTitle: 'title',
     defaultColumns: ['title', 'slug', 'order', '_status'],
+    // Live Preview tab: the real portfolio page rendering this draft.
+    livePreview,
   },
   // Ordering is the visible numeric `order` field: the admin list sorts by
   // it, the site endpoint sorts by it, ties break by id. Deliberately NOT
@@ -149,7 +152,9 @@ export const Projects: CollectionConfig = {
   // and drag refused outside its own sort). Editors reorder by editing the
   // number.
   defaultSort: 'order',
-  versions: { drafts: true, maxPerDoc: 50 },
+  // Autosave keeps the draft (and so Live Preview) current while typing;
+  // nothing reaches the site until Publish.
+  versions: { drafts: { autosave: { interval: 1500 } }, maxPerDoc: 50 },
   access: {
     read: ({ req }) => (req.user ? true : { _status: { equals: 'published' } }),
     create: adminOnly,
@@ -203,8 +208,13 @@ export const Projects: CollectionConfig = {
     { name: 'cover', type: 'array', maxRows: 1, fields: visualFields() },
     links(),
     {
-      name: 'caseStudy',
+      name: 'contents',
       type: 'array',
+      label: 'Contents',
+      admin: {
+        description:
+          'Sections of the project page, top to bottom. Add images under each section\'s Media.',
+      },
       required: true,
       minRows: 1,
       fields: [

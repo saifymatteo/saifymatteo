@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { Media, Projects, Users } from './collections';
 import { migrations } from './migrations';
 import { loopbackTwin, portfolioEndpoint, serverURL } from './portfolio';
+import { previewEndpoint } from './preview';
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 const secret = process.env.PAYLOAD_SECRET;
@@ -36,5 +37,11 @@ export default buildConfig({
   typescript: { outputFile: path.resolve(dirname, 'payload-types.ts') },
   endpoints: [
     { path: '/portfolio', method: 'get', handler: portfolioEndpoint },
+    // Draft content for the portfolio's /preview route (shared secret).
+    {
+      path: '/portfolio-preview',
+      method: 'get',
+      handler: previewEndpoint,
+    },
   ],
 });

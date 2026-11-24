@@ -28,7 +28,7 @@ export default async function AppProjectsPage() {
       <PageHero className="px-6 pt-14 pb-10">
         <h1 className="text-on-dark text-5xl font-bold">Projects</h1>
         <p className="text-on-dark mt-3 max-w-3xl text-xl">
-          Professional work and personal projects—the problems, the decisions,
+          Professional work and personal projects: the problems, the decisions,
           and the things I made.
         </p>
         <nav
@@ -85,8 +85,12 @@ export default async function AppProjectsPage() {
           <h2 id="professional-heading" className="text-heading font-bold">
             Professional work
           </h2>
+          <p className="text-ink mt-4 max-w-2xl">
+            Apps I built with teams for clients and government services, and
+            what I owned in each.
+          </p>
           {projectProfessionalFull.length === 0 ? (
-            <p className="text-ink/70 mt-10 text-xl">
+            <p className="text-ink/70 mt-10 text-lg">
               No published professional projects yet — check back soon.
             </p>
           ) : (
@@ -125,7 +129,7 @@ export default async function AppProjectsPage() {
             </p>
           </Reveal>
           {projectPersonalFull.length === 0 ? (
-            <p className="text-ink/70 mt-10 text-xl">
+            <p className="text-ink/70 mt-10 text-lg">
               No published personal projects yet — check back soon.
             </p>
           ) : (
