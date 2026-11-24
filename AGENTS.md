@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Monorepo with three independent projects under a GitHub profile README root.
+Monorepo with independent projects under a GitHub profile README root.
 
 ## Project layout
 
@@ -9,12 +9,23 @@ Monorepo with three independent projects under a GitHub profile README root.
 | `nextjs/` | Next.js 16 (App Router), Node 24, React 19, Tailwind v4, shadcn/ui, TypeScript | Live portfolio at saifulmashuri.com — complete; bug fixes & performance only |
 | `flutter_web/` | Flutter web (SDK 3.35.7 via puro), Dart 3.9, Provider, auto_route, Cloudflare Workers | Retired portfolio — Worker deleted, domain handed over to nextjs (ADR 0004) |
 | `plain_html/` | Bootstrap 4 + jQuery static site | Legacy, not active |
+| `payloadcms/` | Payload 3 (Next.js), SQLite | Portfolio content CMS; production on the Oracle VPS (Docker, `cms.<infra domain>`), read via `PAYLOAD_CMS_URL` — see `payloadcms/README.md` and `nextjs/docs/payload-cms.md` |
 
-Root is the GitHub profile README; never edit code there.
+Root is the GitHub profile README; never edit code there — the sole exception is the zero-dependency `package.json` holding the shared dev scripts.
 
-## Commands (run from project subdirectory)
+## Commands
 
-### nextjs
+### root (starts both apps)
+
+```bash
+npm run dev        # CMS (127.0.0.1:3002) + nextjs dev (5173) together; Ctrl+C stops both
+npm run dev:cms    # CMS only
+npm run dev:site   # Next.js dev only
+```
+
+CMS-backed site content needs `PAYLOAD_CMS_URL` in `nextjs/.env.local` (see `nextjs/docs/payload-cms.md`).
+
+### nextjs (run from `nextjs/`)
 
 ```bash
 npm run dev           # Next dev server on port 5173 (not 3000)
@@ -82,7 +93,8 @@ flutter build web --wasm -t lib/main.dart --release --csp --base-href=/
 - `app/contact/components/` — contact_form (Turnstile human check), resume_dialog/resume_viewer (react-pdf)
 - `app/projects/[slug]/components/` — case_study, case_study_preview (marquee media), image_viewer (lightbox)
 - `app/api/send/route.ts` — contact email via Resend (client constructed lazily); `app/api/resume/route.ts` — resume PDF proxy
-- `lib/projects/*.ts` — typed project content data (ADR 0003); `lib/tech_stack.ts`, `lib/theme.ts` (Theme choice state), `lib/utils.ts` — `cn()` helper
+- `lib/projects/server.ts` — strict CMS content entry: `getProjectCatalog` builds the per-render catalog from the Payload CMS (`PAYLOAD_CMS_URL`); missing/unreachable CMS serves empty content with a logged cause (ADR 0011). `lib/projects/projects.ts` — catalog logic + types, accessors named `project<Type><Curated|Full>`; `lib/projects/cms.ts` — fetch + boundary validation
+- `lib/tech_stack.ts`, `lib/theme.ts` (Theme choice state), `lib/utils.ts` — `cn()` helper
 - `components/` — pill, marquee, reveal (Scroll Reveal), gradient_bar, shader_backdrop (three.js shader gradient); `components/shadcn/` — button, dropdown-menu, menubar (all built on `@base-ui/react`)
 - `app/constants/constants.tsx` — app constants; SEO/PWA: `app/manifest.ts`, `app/robots.ts`, `app/sitemap.ts`
 - Tests: `tests/theme.test.ts`, `tests/contact_submission.test.ts`, `tests/case_study_sections.test.ts` (node:test); `scripts/image-dimensions.mjs` — image dimension constants generator

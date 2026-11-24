@@ -1,0 +1,9 @@
+{
+  "name": "saifymatteo",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix payloadcms & npm run dev --prefix nextjs & wait",
+    "dev:cms": "npm run dev --prefix payloadcms",
+    "dev:site": "npm run dev --prefix nextjs"
+  }
+}

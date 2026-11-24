@@ -1,0 +1,13 @@
+node_modules
+.next
+data
+uploads
+.env
+.env.*
+!.env.example
+*.tsbuildinfo
+# Seed corpus, import/verify scripts and tests import the sibling nextjs/
+# package; the server never needs them. Seed from a dev checkout instead.
+content
+scripts
+tests
