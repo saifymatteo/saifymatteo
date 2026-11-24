@@ -31,6 +31,9 @@ const mimeTypes: Record<string, string> = {
   '.svg': 'image/svg+xml',
 };
 const cache = new Map<string, Media>();
+// `--update` overwrites existing projects from the corpus (the corpus wins;
+// edits made in the admin UI to those projects are lost). Default: preserve.
+const overwrite = process.argv.includes('--update');
 
 async function upload(sourcePath: string, alt: string): Promise<Media> {
   if (cache.has(sourcePath)) return cache.get(sourcePath)!;
@@ -85,6 +88,7 @@ try {
     );
   let created = 0;
   let skipped = 0;
+  let updated = 0;
   for (const [order, project] of corpus.entries()) {
     const existing = await payload.find({
       collection: 'projects',
@@ -92,7 +96,7 @@ try {
       limit: 1,
       draft: true,
     });
-    if (existing.docs.length) {
+    if (existing.docs.length && !overwrite) {
       console.log(`Preserved existing project: ${project.slug}`);
       skipped++;
       continue;
@@ -125,12 +129,22 @@ try {
         }))
       ),
     };
+    if (existing.docs[0]) {
+      await payload.update({
+        collection: 'projects',
+        id: existing.docs[0].id,
+        data,
+      });
+      console.log(`Updated project: ${project.slug}`);
+      updated++;
+      continue;
+    }
     await payload.create({ collection: 'projects', data });
     console.log(`Created project: ${project.slug}`);
     created++;
   }
   console.log(
-    `Seed complete: ${created} created, ${skipped} preserved; ${cache.size} referenced media reused/uploaded.`
+    `Seed complete: ${created} created, ${updated} updated, ${skipped} preserved; ${cache.size} referenced media reused/uploaded.`
   );
 } finally {
   await payload.destroy();
