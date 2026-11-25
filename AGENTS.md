@@ -91,13 +91,26 @@ flutter build web --wasm -t lib/main.dart --release --csp --base-href=/
 - Pages: `app/page.tsx` (home), `app/projects/page.tsx` (all projects), `app/projects/[slug]/page.tsx` (case study), `app/contact/page.tsx`, `app/not-found.tsx`; `app/template.tsx` adds the page-mount fade
 - `app/components/` — navigation_bar (shadcn menubar), footer, home_hero, page_hero, project_card, tech_stack, brand_logo, motion_provider
 - `app/contact/components/` — contact_form (Turnstile human check), resume_dialog/resume_viewer (react-pdf)
-- `app/projects/[slug]/components/` — case_study, case_study_preview (marquee media), image_viewer (lightbox)
+- `app/projects/[slug]/components/` — content (hero + section body), content_preview (marquee media), image_viewer (lightbox)
+- `app/preview/[slug]/` — token-gated draft mockup board for the CMS Live Preview (see *nextjs ↔ payloadcms coupling*)
 - `app/api/send/route.ts` — contact email via Resend (client constructed lazily); `app/api/resume/route.ts` — resume PDF proxy
 - `lib/projects/server.ts` — strict CMS content entry: `getProjectCatalog` builds the per-render catalog from the Payload CMS (`PAYLOAD_CMS_URL`); missing/unreachable CMS serves empty content with a logged cause (ADR 0011). `lib/projects/projects.ts` — catalog logic + types, accessors named `project<Type><Curated|Full>`; `lib/projects/cms.ts` — fetch + boundary validation
 - `lib/tech_stack.ts`, `lib/theme.ts` (Theme choice state), `lib/utils.ts` — `cn()` helper
 - `components/` — pill, marquee, reveal (Scroll Reveal), gradient_bar, shader_backdrop (three.js shader gradient); `components/shadcn/` — button, dropdown-menu, menubar (all built on `@base-ui/react`)
 - `app/constants/constants.tsx` — app constants; SEO/PWA: `app/manifest.ts`, `app/robots.ts`, `app/sitemap.ts`
-- Tests: `tests/theme.test.ts`, `tests/contact_submission.test.ts`, `tests/case_study_sections.test.ts` (node:test); `scripts/image-dimensions.mjs` — image dimension constants generator
+- Tests: `tests/*.test.ts` (node:test); `scripts/image-dimensions.mjs` — image dimension constants generator
+- **Verify visual changes on vinext** (`npm run dev:vinext` or a `dev/` preview URL), not `next dev`: vinext's shims diverge, e.g. `<Image fill>` gets an inline `object-fit: cover` that beats `object-contain` classes — set `objectFit` via `style`.
+
+## nextjs ↔ payloadcms coupling
+
+One production CMS (`https://cms.saifulmashuri.com`, VPS) feeds **every** Worker version — live and all `dev/` previews — through `PAYLOAD_CMS_URL` in `wrangler.jsonc`; they also share one KV namespace. Local dev pairs `localhost:5173` with its own CMS on `:3002` and a separate SQLite file; nothing syncs between local and production.
+
+- **Wire contract:** `GET /api/portfolio` returns `{ projects: ProjectContent[] }`, shaped by `payloadcms/src/portfolio.ts` and validated by `nextjs/lib/projects/cms.ts`. Both sides declare the type independently; change them together. A Worker that rejects the response falls back to the KV last-good copy, then to empty content.
+- **Schema changes break older Worker versions** at the moment the CMS deploys (renaming `caseStudy` → `contents` blanked v0.5.0). Rename additively — emit old and new keys until the old Worker versions are retired — and deploy the CMS before releasing the site that reads the new key.
+- **CMS migrations:** production applies `payloadcms/src/migrations` on boot and never schema-pushes. After a field change run `npx payload migrate:create <name>`; a field **rename** needs a hand-written `ALTER TABLE … RENAME` migration, since the generator emits drop + create (data loss). Run scripts that write to a database bound for production with `NODE_ENV=production`, or the dev-push marker halts boot at an interactive prompt.
+- **Content flow:** edit in the admin UI; published changes reach live and previews within 60 s (Worker Cache API). `payloadcms/content/*.ts` is the seed corpus only — `npm run seed -- --update` overwrites admin edits.
+- **Live Preview:** the Projects editor's Live Preview tab iframes `PORTFOLIO_PREVIEW_ORIGIN/preview/<slug>?token=…`. The CMS signs a 1 h HMAC token per slug (`payloadcms/src/preview.ts`); the site verifies it (`verifyPreviewToken`) and fetches the draft from `/api/portfolio-preview` with the `X-Preview-Secret` header. `PAYLOAD_PREVIEW_SECRET` must match on both sides (VPS `.env` + Worker secret; locally `payloadcms/.env` + `nextjs/.env.local`). A missing secret yields an empty URL, so the panel shows the admin itself.
+- **Preview board:** `app/preview/[slug]/page.tsx` renders one view at a time — Page, Wide card, Narrow card, and Home: personal (personal projects only) — via the real components inside the same wrapper each gets on its page. When a page's card layout or wrapper changes, mirror it in `PreviewView`. Shared components (`ProjectCard`, `ProjectCardPersonal`, `ProjectImageOrCode`, `ContentHero`, `ContentBody`) take an optional `catalog` prop so the board renders from the draft instead of the published catalog.
 - **`next build` and `npm run build:vinext` both write `.next/`** — interleaving them leaves mismatched generated route types that break `npx tsc --noEmit` (`.next/types/validator.ts` AppRoutes errors). `rm -rf .next` before type-checking whenever the two builds interleave.
 - Domain glossary: `nextjs/CONTEXT.md`; ADRs: `nextjs/docs/adr/` (deployment = Cloudflare Workers via vinext, ADR 0004)
 
