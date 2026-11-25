@@ -11,7 +11,7 @@
     "test": "node --test --experimental-strip-types \"tests/*.test.ts\"",
     "dims": "node scripts/image-dimensions.mjs",
     "highlight": "node scripts/highlight-code.mjs",
-    "dev:vinext": "npm run highlight && vinext dev --port 3001",
+    "dev:vinext": "npm run highlight && vinext dev --port 5173",
     "build:vinext": "npm run highlight && vinext build",
     "start:vinext": "wrangler dev --config dist/server/wrangler.json",
     "deploy:vinext": "vinext-cloudflare deploy --config dist/server/wrangler.json"
