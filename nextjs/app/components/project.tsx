@@ -26,7 +26,10 @@ export function ProjectLogo({
         fill
         sizes="(min-width: 1040px) 500px, (min-width: 768px) 45vw, 100vw"
         alt={`${project.title} logo`}
-        className={`object-contain p-6 sm:p-8 ${!onDark && project.logoDark ? 'dark:hidden' : ''}`}
+        // Inline, not the object-contain class: vinext's next/image shim sets
+        // an inline `object-fit: cover` on `fill` images, overriding classes.
+        style={{ objectFit: 'contain' }}
+        className={`p-6 sm:p-8 ${!onDark && project.logoDark ? 'dark:hidden' : ''}`}
       />
       {!onDark && project.logoDark && (
         <Image
@@ -34,7 +37,8 @@ export function ProjectLogo({
           fill
           sizes="(min-width: 1040px) 500px, (min-width: 768px) 45vw, 100vw"
           alt={`${project.title} logo`}
-          className="hidden object-contain p-6 sm:p-8 dark:block"
+          style={{ objectFit: 'contain' }}
+          className="hidden p-6 sm:p-8 dark:block"
         />
       )}
     </div>
