@@ -1,6 +1,6 @@
 import CodeBlock from '@/components/code_block';
 import Reveal from '@/components/reveal';
-import type { Project } from '@/lib/projects/projects';
+import type { Project, ProjectCatalog } from '@/lib/projects/projects';
 import { getProjectCatalog } from '@/lib/projects/server';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
@@ -49,10 +49,13 @@ export function ProjectCard({
   project,
   variant = 'narrow',
   linkLabel = 'Read the case study',
+  catalog,
 }: {
   project: Project;
   variant?: 'wide' | 'narrow';
   linkLabel?: string;
+  // Draft preview injects its own catalog; defaults to the published one.
+  catalog?: ProjectCatalog;
 }) {
   const wide = variant === 'wide';
 
@@ -66,7 +69,7 @@ export function ProjectCard({
     >
       <div className={`min-w-0 ${wide ? 'md:order-2' : ''}`}>
         {project.category === 'personal' || !project.logo ? (
-          <ProjectImageOrCode project={project} />
+          <ProjectImageOrCode project={project} catalog={catalog} />
         ) : (
           <ProjectLogo project={project} />
         )}
@@ -119,15 +122,17 @@ export function ProjectCard({
 export function ProjectCardPersonal({
   tile,
   projects,
+  catalog,
 }: {
   tile?: Project;
   projects: Project[];
+  catalog?: ProjectCatalog;
 }) {
   return (
     <div className="card-pops-up grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12">
       {tile && (
         <Reveal className="min-w-0">
-          <ProjectImageOrCode project={tile} />
+          <ProjectImageOrCode project={tile} catalog={catalog} />
         </Reveal>
       )}
       {/* The Link is a direct child of the relative card so its stretched
@@ -172,9 +177,11 @@ export function ProjectCardPersonal({
 export async function ProjectImageOrCode({
   project,
   priority = false,
+  catalog,
 }: {
   project: Project;
   priority?: boolean;
+  catalog?: ProjectCatalog;
 }) {
   // Image
   if (project.cover) {
@@ -194,7 +201,7 @@ export async function ProjectImageOrCode({
   }
 
   // Code
-  const { getCaseStudySections } = await getProjectCatalog();
+  const { getCaseStudySections } = catalog ?? (await getProjectCatalog());
   const example = getCaseStudySections(project)
     .find((section) => section.code?.length)
     ?.code?.at(-1);

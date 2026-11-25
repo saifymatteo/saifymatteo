@@ -14,7 +14,13 @@ const Divider = () => <div className="border-accent/20 mt-2 border-t" />;
 const formatStack = (stack: string[]) =>
   stack.length > 3 ? `${stack.slice(0, 3).join(' · ')}` : stack.join(' · ');
 
-export function ContentHero({ project }: { project: Project }) {
+export function ContentHero({
+  project,
+  catalog,
+}: {
+  project: Project;
+  catalog?: ProjectCatalog;
+}) {
   const personal = project.category === 'personal';
   const metadata = [
     ['Role', project.role],
@@ -64,7 +70,7 @@ export function ContentHero({ project }: { project: Project }) {
           </div>
         </div>
         {personal ? (
-          <ProjectImageOrCode project={project} priority />
+          <ProjectImageOrCode project={project} catalog={catalog} priority />
         ) : (
           <ProjectLogo project={project} onDark />
         )}
